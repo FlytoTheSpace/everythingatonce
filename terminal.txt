@@ -1,0 +1,33 @@
+==========================================================================================================
+											Terminals
+==========================================================================================================
+
+1. Command Prompt (Windows)
+
+2. Powershell (Windows)
+
+3. Bash
+
+    (i) `ssh <machine + ip adress>` let's you connect to your Virtual Machines and Cloud Storage from your Computer
+    (ii) `ls` and `dir` will list all the files and folders in the current directory
+        (a) `ls -l` will nicely format directories
+        (b) `ls -al` will nicely format directories and display hidden files/folders
+        (c) `mkdir <directory + folder>` creates a folder in the specified directory
+    (iii) `pwd` shows the current directory
+    (iv) `cd <directory>` changes the current working directory
+    (v) `touch <file>` creates a file in the current directory
+        (a) `touch -d <when> <filename>` creates the file on <when> and name <filename>
+    (vi) `echo <msg>` logs the <msg> in the terminal
+        (a) `echo <content> > <filename>` inserts <content> in the specified file
+    (vii) `nano <file>` let's you edit the specific file in the terminal
+    (viii) `cat <file>` displays contents of the specified file in the terminal 
+    (ix) `shred <file>` making the specified file non-useable by obfuscated the content (WARNING: It's not recommended to use this command)
+    (xi) `cp <file> <directory + file>` copies the specified file to the new directory
+    (xii) `mv <file> <directory + file>` moves the specified file to the new directory
+    (xiii) `rm <file>` deletes the specified file
+        (a) `rmdir <directory>` deletes the specified directory if it's empty
+        (b) `rm -r <directory>` deletes the specified directory even if it's not empty
+    (xiv) `ln -s <file/directory> <link>` <link> will present the file/directory for easy access
+    (xv) `clear` clears the terminal.
+    (xvi) `whoami` print's Who you are.
+    (xviii) `su <user>` switches accounts with the specified user in terminal only

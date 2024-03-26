@@ -1,0 +1,315 @@
+=========================================================================================================
+										Cryptography
+=========================================================================================================
+
+1. Introduction:
+    
+    (i) Cryptography is a field of study and practice that deals with techniques for secure communication and data protection in the presence of adversaries. It involves the development and analysis of protocols that prevent third parties from reading private information or tampering with it. Cryptography is essential for securing communication over insecure channels, protecting sensitive data stored on computers and servers, and enabling secure transactions over the internet.
+
+2. Hash
+
+    (i) In cryptography, a hash function is a mathematical algorithm that takes an input (or "message") and produces a fixed-size string of characters, which is typically a hexadecimal number. The output, known as the hash value or hash code, is unique to the input data, meaning that even a small change in the input will result in a significantly different hash value. Hash functions are designed to be fast to compute and irreversible, meaning that it is computationally infeasible to derive the original input data from its hash value.
+
+    (ii) visually
+                        Algorithm
+                            |
+        "Hello, World" ==========> MV9b23bQeMQ7isAGTkoBZGErH853yGk0W/yUx1iU7dM=
+                        (One way)
+    (iii) Qualities
+
+        (a) One Way
+        (b) Fixed Length of The output
+        (c) Same Input = Same Output
+
+        (d) Vunerability: Predictability and Rainbow Tables
+
+    (iv) Examples:- 
+
+        (i) JavaScript
+
+            import crypto from 'crypto'
+
+            function hash(message){
+                return crypto.createHash('sha256').update(message).digest('base64');
+            }
+
+            const message = 'Hello, world!';
+
+            console.log(hash(message)) // MV9b23bQeMQ7isAGTkoBZGErH853yGk0W/yUx1iU7dM=
+
+3. Salt
+
+    (i) In cryptography, a hash function is a mathematical algorithm that takes an input (or "message") and produces a fixed-size string of characters, which is typically a hexadecimal number. The output, known as the hash value or hash code, is unique to the input data, meaning that even a small change in the input will result in a significantly different hash value. Hash functions are designed to be fast to compute and irreversible, meaning that it is computationally infeasible to derive the original input data from its hash value.
+
+    (ii) visually
+                                
+        "Hello, World" +
+        Salt (24efcec2ac32ca1a)  ===> EJC9YWNDWXWle1YKDHnBXuLuuGhT6CWVbhHsVYIu0LxZrQif9TjOWEQ7VHT9oeUWmXxyR6L1nAhyIReCNkNd+w==
+                            (One way)
+    (iii) Qualities
+
+        (a) One Way
+        (b) Fixed Length of The output
+        (c) Salt Should be Random Every Time
+        (c) Same Input + Same Salt = Same Hash
+
+        (d) Vunerability: Evolution of Computing Power
+
+    (iv) Examples:- 
+
+        (i) JavaScript
+
+            const crypto = require('crypto');
+
+            const accounts = []
+
+            function genSalt(length=16){
+                return crypto.randomBytes(length/2)
+                    .toString('hex')
+            }
+            function hash(message, salt){
+                return crypto.scryptSync(message, salt, 64)
+                    .toString('base64')
+            }
+
+            function register(username, password){
+                if (!(username || password)) throw new Error("Can't login without a username or Password");
+
+                const salt = genSalt(16);
+                const hashedPassword = hash(password, salt)
+
+                const user = {
+                    username: username,
+                    password: `${salt}:${hashedPassword}`
+                }
+
+                accounts.push(user)
+                console.log("Successfully Registered")
+            }
+
+            function login(username, password){
+                if(!(username || password)) throw new Error("Can't login without a username or Password");
+
+                let matchedAccount = accounts.find(account=>account.username===username)
+                if (!matchedAccount) throw new Error("Account doesn't exist");
+
+                const [salt, MatchedAccountPassword] = matchedAccount.password.split(':')
+
+                if(crypto.timingSafeEqual(
+                    Buffer.from(hash(password, salt)),
+                    Buffer.from(MatchedAccountPassword)
+                )) return console.log("Successful Login!")
+                throw new Error("Incorrect Password")
+            }
+
+            register("Dave", "123")
+            // login("James", "124") // Error: Account doesn't exist
+            // login("Dave", "124") // Error: Incorrect Password
+            login("Dave", "123") // Successful Login!
+            
+4. HMAC
+
+    (i) HMAC stands for "Hash Message Authentication Code." It is a type of message authentication code (MAC) that involves a cryptographic hash function and a secret key. HMAC is used to verify both the data integrity and the authenticity of a message.
+    
+    (ii) Secret Key: In addition to the message, HMAC requires a secret key known only to the sender and the receiver. This secret key is used to compute the HMAC and verify its authenticity.
+
+    (iii) Qualities
+
+        (a) Security: HMAC is designed to be resistant to various cryptographic attacks, including collision attacks and birthday attacks, provided that the underlying hash function is secure.
+        (b) Flexibility: HMAC can be used with any cryptographic hash function, allowing users to choose the appropriate level of security and performance for their specific application.
+        (c) Efficiency: Despite involving multiple passes through the hash function, HMAC is computationally efficient and well-suited for verifying the integrity and authenticity of messages in various security protocols and applications.
+
+    (iv) Example:-
+
+        const crypto = require('crypto');
+
+        function hash(message, key){
+            return crypto.createHmac('sha256', key)
+                .update(message)
+                .digest('base64');
+        }
+
+        const key = 'mySecretKey'
+        const key2 = 'mySecretKey2'
+        const message = "Hello, World";
+
+        console.log(hash(message, key)) // tdZ533m1DhFqLpIb7y3ze14+JfNsQdp0z6nS/ES/bUQ=
+        console.log(hash(message, key)) // tdZ533m1DhFqLpIb7y3ze14+JfNsQdp0z6nS/ES/bUQ=
+        console.log(hash(message, key2)) // JrHKS77Nefa2nQ61UJX87nWbSy25ye+3vkPEh4uOA+0=
+
+5. Symmetric Encryption
+
+    (i) Symmetric encryption is a cryptographic technique where the same secret key is used for both encryption and decryption of data. It's one of the most common encryption methods and is widely used to protect sensitive information, such as passwords, credit card numbers, and other confidential data.
+
+    (ii) Visually
+
+        "Hello, World" =====> Encrypted Data =====> "Hello, World"
+                        |                       |
+                        |----------Key----------|
+
+    Here's how symmetric encryption works:
+
+    (iii) Secret Key: Symmetric encryption requires a secret key, which is a piece of secret information known only to the sender and the receiver. This key is used to both encrypt and decrypt the data.
+
+    (iv) Encryption: To encrypt a message using symmetric encryption, the plaintext message and the secret key are input into an encryption algorithm. The algorithm then transforms the plaintext message into ciphertext, which is the encrypted form of the message.
+
+    (v) Decryption: To decrypt the ciphertext and recover the original plaintext message, the ciphertext and the secret key are input into a decryption algorithm. The decryption algorithm uses the secret key to reverse the encryption process and recover the original plaintext message.
+
+    (vi) Examples:
+
+        (i) JavaScript
+
+            const crypto = require('crypto');
+
+            const encrypt = (message)=>{
+                const key = crypto.randomBytes(32)
+                const iv = crypto.randomBytes(16) // (Initial Vector) Randomizes Encryption Everytime even if everything matches up
+
+                const cipher = crypto.createCipheriv('aes256', key, iv)
+
+                const encryptedMessage = cipher.update(message, 'utf8', 'base64') + cipher.final('base64')
+
+                return [encryptedMessage, key, iv]
+            };
+            const decrypt = (encryptedMessage, key, iv)=>{
+                const decipher = crypto.createDecipheriv('aes256', key, iv)
+                const message = decipher.update(encryptedMessage, 'base64', 'utf-8') + decipher.final('utf8')
+
+                return message
+            };
+
+            const msg = "Hello, World"
+
+            const [encryptedMsg, key, iv] = encrypt(msg)
+
+            const originalMsg = decrypt(encryptedMsg, key, iv)
+
+            console.log(encryptedMsg) // First Run: WW0ucIopn8F6kJCVkCwuSw== , Second Run: cod2Yp+nLbvrSeQgrr/Ryw==
+            console.log(originalMsg) // Every Run: "Hello, World"
+
+6. KeyPairs
+
+    (i) Key pairs are a fundamental concept in asymmetric cryptography, also known as public-key cryptography. In asymmetric cryptography, each participant has a pair of keys: a public key and a private key. These keys are mathematically related, but it is computationally infeasible to derive one key from the other.
+
+    (ii) Here's an explanation of key pairs and their usage:
+
+    (iii) Public Key: The public key is shared openly and can be distributed to anyone. It is used to encrypt data or verify signatures. However, it cannot be used to decrypt data or create signatures.
+
+    (iv) Private Key: The private key is kept secret and known only to the owner. It is used to decrypt data encrypted with the corresponding public key and to create digital signatures. It should never be shared with anyone else.
+
+    (v) Mathematical Relationship: The public and private keys are mathematically related in such a way that data encrypted with one key can only be decrypted with the other key in the pair. For example, if data is encrypted with a public key, it can only be decrypted with the corresponding private key, and vice versa.
+
+    (vi) Applications: Key pairs are used in various cryptographic applications, including secure communication, digital signatures, and encryption of sensitive data. For example, in secure email communication, a sender can encrypt an email using the recipient's public key, ensuring that only the recipient, who possesses the corresponding private key, can decrypt and read the message.
+
+    (vii) Security: The security of asymmetric cryptography relies on the secrecy of the private key. If an attacker gains access to the private key, they can decrypt encrypted data and forge digital signatures, compromising the security of the system.
+
+    (viii) Example :-
+
+        const crypto = require('crypto');
+
+        // Generate a key pair
+        const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
+            modulusLength: 2048 , // Length of Keys in Bits
+            publicKeyEncoding: {
+                type: 'pkcs1',
+                format: 'pem' // Base64
+            },
+            privateKeyEncoding: {
+                type: 'pkcs1',
+                format: 'pem' // Base64
+            }
+        });
+
+        // Print the generated public and private keys
+        console.log('Public Key:');
+        console.log(publicKey);
+        console.log('\nPrivate Key:');
+        console.log(privateKey);
+
+7. Signing
+
+    (i) Signing, in the context of cryptography, refers to the process of creating a digital signature for a message or a piece of data. Digital signatures provide authentication, integrity, and non-repudiation, meaning that the sender cannot deny having sent the message, and the message cannot be altered without invalidating the signature.
+
+    Here's how signing works:
+
+    (ii) Hashing: The first step in creating a digital signature is to hash the message using a cryptographic hash function, such as SHA-256. This produces a fixed-length hash value that uniquely represents the message.
+
+    (iii) Private Key: The hash value is then encrypted using the sender's private key. This process ensures that only the sender, who possesses the private key, can create a valid signature for the message.
+
+    (iv) Signature: The encrypted hash value, known as the signature, is attached to the message and sent to the recipient along with the original message.
+
+    (v) Verification: Upon receiving the message and the signature, the recipient decrypts the signature using the sender's public key, which is freely available. The recipient then hashes the original message using the same hash function used by the sender.
+
+    (vi) Comparison: The recipient compares the decrypted signature with the hash value obtained from the original message. If the two values match, it verifies that the message has not been altered since it was signed and that the sender possesses the private key corresponding to the public key used for verification.
+
+    (vii) Examples:
+
+        (a) JavaScript
+
+            // Signing
+            const message = "Hello, World"
+            const signature = crypto.createSign('rsa-sha256')
+                .update(message)
+                .sign(privateKey, 'base64')
+            
+            // Your publicKey, signature and message should be sent to the client
+            // Verifing Step
+            
+            const isVerified = crypto.createVerify('rsa-sha256')
+                .update(message)
+                .verify(publicKey, signature, 'base64')
+            
+            console.log(isVerified) // true
+
+8. Asymmetric Encryption
+
+    (i) Asymmetric encryption, also known as public-key encryption, is a cryptographic technique that uses a pair of keys for encryption and decryption: a public key and a private key. Unlike symmetric encryption, where the same key is used for both encryption and decryption, asymmetric encryption employs different keys for these operations.
+
+    Here's how asymmetric encryption works:
+
+    (ii) Visually
+
+                        |-----Public Key
+                        |
+        "Hello, World" =====> Encrypted Data =====> "Hello, World"
+                                                |
+                                Private Key-----|
+
+    (iii) Public Key: The public key is made available to anyone who wants to send encrypted messages to the owner of the key. It can be freely distributed and is used for encryption.
+
+    (iv) Private Key: The private key is kept secret and known only to the owner. It is used for decryption of messages encrypted with the corresponding public key.
+
+    (v) Encryption: To encrypt a message using asymmetric encryption, the sender uses the recipient's public key. The sender encrypts the message with the recipient's public key, and only the recipient, who possesses the corresponding private key, can decrypt and read the message.
+
+    Decryption: To decrypt a message encrypted with asymmetric encryption, the recipient uses their private key. The recipient decrypts the message with their private key, and because the private key is kept secret, only the recipient can decrypt the message.
+
+    (vi) Asymmetric encryption provides several advantages:
+
+    (vii) Security: The private key never leaves the possession of its owner, enhancing security.
+    Key Exchange: Asymmetric encryption eliminates the need for secure key exchange between parties, as only the public keys need to be shared openly.
+    Digital Signatures: Asymmetric encryption can be used to create digital signatures, which provide authentication and integrity verification for messages.
+
+    (ix) Examples:-
+
+        (a) JavaScript
+
+            // Generate a key pair
+            const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
+                modulusLength: 2048 , // Length of Keys in Bits
+                publicKeyEncoding: {
+                    type: 'pkcs1',
+                    format: 'pem' // Base64
+                },
+                privateKeyEncoding: {
+                    type: 'pkcs1',
+                    format: 'pem' // Base64
+                }
+            });
+
+            const message = "Hello, World"
+
+            const encryptedData = crypto.publicEncrypt(publicKey, Buffer.from(message));
+            console.log(encryptedData.toString('base64')) // XCXkpMcu7am5nNJXv+n4vJB5P4Eo6R7ZdBadB4WVyNZaPZFxygNWwstCkqRippdDAltEjT7TnE6Qy9GS1SEM6svypTNpuYpKrgXH2RclkrZLHH2UHmv25ZeEwLneZe78XzCZQ369jUJAUjm6CZmjLtWQabviWT0m384p7Fyor7DyerFdW/QS+DxjtSTGtVXaFrG/+4RpoaaFGFE8D+6/AsJ4NYPM2Iwu7cSIo0LSmmeTflbj9/AdvOekBK521HORpDP3fKR+wkedkkOAYMPe+ojYCQvlu9s15MjNgesuwmWUgR5H4i782QgjgZTnXt5pgbMLliTMcJJTtkZQF01k5A==
+
+            const originalMsg = crypto.privateDecrypt(privateKey, encryptedData).toString('utf8');
+            console.log(originalMsg) // Hello, World

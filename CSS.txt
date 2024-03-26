@@ -1,0 +1,1683 @@
+==========================================================================================================
+											CSS (Cascading Style Sheets)
+==========================================================================================================
+
+1. How to use CSS
+
+    (i) To add CSS inside the HTML File type "<style></style>" and then Your CSS content ()
+
+    (ii) To Link a CSS file to the html file type this "<link rel="stylesheet" href="example.css">" in the head element in html 
+
+    (iii) (Not Recommended) You can add A "style" attribute in the element and customize it! (warning: It's a Nightmare to Manage the website)
+
+2. Syntax:
+    Selector   property   color
+        ↓         ↓         ↓
+	    p {     color:     red;  }
+
+3. Selectors
+
+    (i) Introduction:
+        
+        CSS selectors are an essential part of CSS (Cascading Style Sheets) that allow you to target and apply styles to specific HTML elements on your web page. They work by selecting elements based on various criteria, such as element names, classes, ID's, attributes, and more. Let's explain
+
+    (ii) Element Selector: The simplest CSS selector is the element selector. It targets all instances of a particular HTML element. For example:
+
+        p {
+            color: blue;
+        }
+
+        This CSS rule targets all <p> elements and changes their text color to blue.
+
+    (iii) Class Selector: The class selector selects elements based on their class attribute. It is denoted by a dot "." followed by the class name. For example:-
+
+        HTML:
+        
+        <p class="important">This paragraph will be bold</p>
+
+        CSS:
+
+        .important {
+            font-weight: bold;
+        }
+        
+        (a) This CSS rule targets all elements with the class "important" and makes their text bold.
+
+    (vi) ID Selector: The ID selector selects an element based on its unique ID attribute. It is denoted by a hash (#) followed by the ID name. For example:-
+
+        HTML:
+
+        <div id="header">This is the header.</div>
+
+        CSS:
+
+        #header {
+            background-color: gray;
+        }
+
+        (a) This CSS rule targets the element with the ID "header" and gives it a gray background.
+
+    (v) Descendant Selector: The descendant selector targets an element that is a descendant of another element. It uses a space to separate the ancestor and descendant. For example:-
+
+        HTML:
+        
+        <div>
+            <p>This is a paragraph inside a div.</p>
+        </div>
+
+        CSS:
+        
+        div p {
+            color: green;
+        }
+
+        (a) This CSS rule targets all <p> elements inside a <div> and changes their text color to green.
+
+    (vi) Child Selector: The child selector targets an element that is a direct child of another element. It uses the greater than symbol (>) to separate the parent and child. For example:
+
+        HTML:
+
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+
+        CSS:
+        
+        ul > li {
+            list-style: square;
+        }
+
+        (a) This CSS rule targets all <li> elements that are direct children of a <ul> and changes their list style to square bullets.
+
+    (vii) Attribute Selector: The attribute selector targets elements based on their attributes. It is denoted with square brackets and can have various modifiers. For example:
+
+        HTML:
+
+        <input type="text" />
+
+        CSS:
+
+        input[type="text"] {
+            border: 1px solid black;
+        }
+
+        (a) This CSS rule targets all <input> elements with a type attribute set to "text" and adds a black border to them.
+
+    (viii) Pseudo-classes and Pseudo-elements: Pseudo-classes and pseudo-elements allow you to style elements based on their state or position. Pseudo-classes start with a colon (:), while pseudo-elements use double colons (::). Here are a few examples:-
+
+        /* Styling will be applied the link element when is hovered */
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        /*Styling will be applied to the first line of the paragraph*/
+        
+        p::first-line {
+          font-weight: bold;
+        }
+
+        (a) These CSS rules style links when hovered and apply bold font-weight to the first line of a paragraph.
+
+    Here's Some Advance Concepts
+    
+    (ix) Combining Selectors: You can combine multiple selectors together to target specific elements more precisely. For example:-
+
+        /* Targets all h1 and h2 elements inside a div with class "container" */
+
+        div.container h1, div.container h2 {
+          color: red;
+        }
+
+    (x) Universal Selector: The universal selector (*) targets all elements on the page. Use it with caution, as it can significantly impact performance. for example:-
+
+        /* Applies a border to all elements */
+        * {
+          border: 1px solid black;
+        }
+
+    (xi) Multiple Classes and Attribute Selectors: You can target elements with multiple classes or specific attribute values. for example:-
+
+        /* Targets elements with both "important" and "highlight" classes */
+        .important.highlight {
+          background-color: yellow;
+        }
+
+        /* Targets elements with a class that starts with "btn-" */
+        [class^="btn-"] {
+          background-color: blue;
+        }
+
+    Here's Some Even Advance CSS Selectors
+
+    (xii) Sibling Combinator (+): The sibling combinator selects an element that is the next sibling of another element. It targets an element immediately following the specified element. For example:
+
+        HTML:
+        
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+        
+        CSS:
+
+        /* Targets the second <p> element (Paragraph 2) */
+        p + p {
+          color: blue;
+        }
+
+        (a) This CSS rule targets the second <p> element (Paragraph 2) and changes its text color to blue.
+
+    (xiii) General Sibling Combinator (~): The general sibling combinator is similar to the sibling combinator but selects all sibling elements that come after the specified element, not just the immediate next sibling. For example:-
+
+        HTML:
+
+        <p>Paragraph 1</p>
+        <span>Span 1</span>
+        <p>Paragraph 2</p>
+
+        CSS:
+
+        /* Targets both <p> elements (Paragraph 1 and Paragraph 2) */
+        p ~ p {
+            font-style: italic;
+        }
+
+        (a) This CSS rule targets both <p> elements (Paragraph 1 and Paragraph 2) and applies italic font style to them.
+
+    (xiv) :not() Pseudo-class: The :not() pseudo-class allows you to exclude elements from a selection. It is particularly useful when you want to apply styles to all elements of a certain type except for a specific one. For example:
+
+        HTML:
+        
+        <ul>
+            <li>Item 1</li>
+            <li class="special">Special Item</li>
+            <li>Item 2</li>
+        </ul>
+
+        CSS:
+
+        /* Targets all <li> elements except the one with class "special" */
+        li:not(.special) {
+          color: green;
+        }
+
+        (a) This CSS rule targets all <li> elements inside the <ul> except for the one with the class "special" and changes their text color to green.
+
+    (xv) :empty Pseudo-class: The :empty pseudo-class targets elements that have no content (including spaces, line breaks, etc.). For example:
+
+        HTML:
+
+        <p></p>
+        <span>Hello</span>
+        <div></div>
+
+        CSS:
+        
+        /* Targets empty <p> and <div> elements */
+        :empty {
+          display: none;
+        }
+
+        (a) This CSS rule targets empty <p> and <div> elements and hides them by setting their display property to none.
+
+    (xi) :first-child, :last-child, :only-child Pseudo-classes: These pseudo-classes target elements based on their position as a child within their parent. For example:
+
+        HTML:
+
+            <ul>
+              <li>First Item</li>
+              <li>Second Item</li>
+              <li>Third Item</li>
+            </ul>
+
+        CSS:
+
+            /* Targets the first and last <li> elements */
+            li:first-child, li:last-child {
+              font-weight: bold;
+            }
+
+            /* Targets the only <li> element */
+            li:only-child {
+              background-color: yellow;
+            }
+
+        These CSS rules target the first and last <li> elements and make their text bold. The third rule targets the only <li> element and g ives it a yellow background.
+
+Properties & their Values:
+
+4. Text Properties
+
+    (i) color
+
+        (a) `color` is a property in CSS that allows you to change text color
+
+            selector {
+                color: red;
+            }
+    
+            (I) It's value can be a `Color` value (Go to Section `Color Values` to find possible values for it)
+        
+    (ii) font
+    
+        (a) font property in CSS is a shorthand property that allows you to set various font-related properties in a single declaration. It simplifies the process of styling text by combining several font properties into one line. The general syntax of the font property is as follows:
+
+        (b) Syntax:
+
+            font: [font-style] [font-variant] [font-weight] [font-size]/[line-height] [font-family];
+
+        Sub-Properties:
+
+        (c) font-style: It defines the style of the font (normal, italic, or oblique).
+
+            (I) Values: `normal`, `italic`, or `oblique`.
+
+        (d) font-variant: It defines whether the text should be in normal or small-caps variant.
+
+            (I) Values: `normal` or `small-caps`.
+
+        (e) font-weight: It defines the thickness of the font characters.
+
+            (I) Values: Numeric values like `100`, `200`, ..., `900`, or keywords like `normal`, `bold`, `bolder`, `lighter`.
+
+        (f) font-size: It specifies the size of the font.
+
+            (I) Values: Absolute values (e.g., 12px, 16pt), relative values (e.g., 1.2em, 110%), or keywords (e.g., medium, large etc).
+
+        (g) line-height: It defines the height of a line of text. It is often expressed as a multiple of the font size.
+
+            (I) Values: Numeric values, unitless numbers, percentages, or keywords like normal.
+
+        (h) font-family: It specifies the font family for the text.
+
+            (I) Values: Font family names or generic font family keywords like serif, sans-serif, monospace, etc.
+
+        (i) Here's an example of using the font property:
+
+            /* Shorthand notation */
+            font: italic small-caps bold 16px/1.5 "Helvetica", sans-serif;
+
+            /* Expanded notation */
+            font-style: italic;
+            font-variant: small-caps;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 1.5;
+            font-family: "Helvetica", sans-serif;
+
+        (j) You can use the font shorthand to set these properties in a single line or individually set each property according to your requirements.
+
+    (iii) text
+
+        Properties that start with text in CSS are related to the styling and layout of text content within HTML elements. Here are some commonly used properties that start with text:
+
+        (a) `text-align`: It sets the horizontal alignment of text content within its container.
+
+            (I) Values: left, right, center, justify.
+
+            text-align: center;
+
+        (b) `text-decoration`: It specifies the decoration added to text, such as underlining or striking through.
+
+            (I) Values: none, underline, overline, line-through.
+
+            text-decoration: underline;
+
+        (c) `text-transform`: It controls the capitalization of text.
+
+            (I) Values: none, uppercase, lowercase, capitalize.
+
+            text-transform: uppercase;
+
+        (d) `text-indent`: It sets the indentation of the first line of text within an element.
+
+            (I) Values: Length, percentage.
+
+            text-indent: 20px;
+
+        (e) `text-overflow`: It specifies how overflowed content that is not displayed should be signaled to the user.
+
+            (I) Values: clip, ellipsis.
+
+            text-overflow: ellipsis;
+
+        (f) `text-shadow`: It adds shadow to text.
+
+            (I) Values: Shadow properties (e.g., 1px 1px 2px black).
+
+            text-shadow: 1px 1px 2px black;
+
+        (g) `text-align-last`: It aligns the last line of text in a block element.
+
+            (I) Values: auto, start, end, left, right, center, justify.
+
+            text-align-last: center;
+
+        (h) text-justify: It defines the justification method used when text-align is set to justify.
+
+            (I) Values: auto, inter-word, inter-character, none.
+
+            text-justify: inter-word;
+    
+    (iv) list
+
+        (a) `list-style`: The list-style property is a shorthand property for setting the individual properties of a list in one declaration.
+        
+            (I) Values: It can take up to three values: `list-style-type`, `list-style-position`, and `list-style-image`.
+
+            list-style: square inside url('image.png');
+
+        (b) `list-style-type`: Specifies the appearance of the list item marker, such as a bullet, number, or custom marker.
+            
+            (I) Values: `disc`, `circle`, `square`, `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`, `none`.
+
+            list-style-type: square;
+
+        (c) `list-style-position`: Specifies the position of the list item marker (inside or outside the content flow).
+            
+            (I) Values:
+
+                (A) inside: The marker is placed inside the content flow.
+                (B) outside: The marker is placed outside the content flow.
+
+            list-style-position: outside;
+
+        (d) `list-style-image`: Specifies an image to be used as the list item marker.
+            
+            (I) Values:It can take the URL of an image file.
+
+            list-style-image: url('image.png');
+
+        (e) list-style-clip: Specifies whether the marker box is fixed within the containing block or scrolls with the content.
+            
+            (I) Values:
+
+                (A) auto: The marker box is fixed.
+                (B) none: The marker box scrolls with the content.
+
+            list-style-clip: auto;
+
+        (f) list-style-inline: Specifies the marker box is rendered inline with the content, rather than being block-level.
+            
+            (I) Values:
+
+                (A) inline: The marker box is rendered inline.
+                (B) block: The marker box is rendered as a block.
+            
+            list-style-inline: inline;
+
+5. Area Related Properties
+
+    (i) background
+
+        (a) The syntax for the background property is as follows:
+
+            selector {
+                background: [background-color] [background-image] [background-repeat] [background-position] [background-size] [background-attachment] [background-origin] [background-clip];
+            }
+
+        Here's the Breakdown of each of These values as a property
+
+        (b) background-color: To set a background color for an element, you can use the background-color property. For example, to set the background color of a <div> element to light blue, you can use the following CSS:
+
+            selector {
+                background-color: lightblue;
+            }
+
+            (I) You can use color names, hexadecimal values, RGB values, or HSL values to specify the background color.
+
+        (c) background-image: You can set an image as the background of an element using the background-image property and many other things
+
+            selector {
+                background-image: value;
+            }
+
+            The Value can be one of the following:
+
+            (I) Image: You can provide a path to an image file. This can be a relative or absolute URL:
+
+                url('image.jpg')
+
+            (II) Gradient: You can use CSS gradients as background images. Gradients can be linear (straight) or radial (circular):
+
+                linear-gradient(to right, red, blue)
+                radial-gradient(circle, red, blue)
+
+            (III) Image Sets: You can provide multiple images and their corresponding resolutions, and the browser will choose the appropriate one based on the device's pixel density (1x, 2x, etc.):
+
+                image-set(url('image.jpg') 1x, url('high-res-image.jpg') 2x)
+
+            (IV) none: This value removes any background image set for the element.
+
+                none
+            
+            Here's an example using the background-image property with a combination of these values:
+
+                .element {
+                    background-image: url('image.jpg'), linear-gradient(to right, red, blue);
+                }
+
+                In this example, the element will have a background image composed of both the specified image file (image.jpg) and a linear gradient from red to blue.
+
+                Remember that you can use multiple background images by separating them with commas, and the images will be layered on top of each other in the order they are listed. The first image listed will be the top layer, and subsequent images will be beneath it.
+            
+        (d) background-repeat: By default, background images repeat both horizontally and vertically. You can control the repetition behavior using the background-repeat property. For example, to prevent the background image from repeating, you can use the value no-repeat as follows:
+
+            selector {
+                background-repeat: no-repeat;
+            }
+
+            (I) Other values include repeat (repeat both horizontally and vertically), `repeat-x` (repeat only horizontally), and `repeat-y` (repeat only vertically).
+
+        (e) background-position: You can control the position of the background image using the background-position property. It allows you to specify the horizontal and vertical position of the image. For example, to position the background image at the top right corner, you can use the following CSS:
+
+            selector {
+                background-position: top right;
+            }
+
+            (I) You can use keywords like top, bottom, left, and right, or you can use specific length values or percentages to define the position.
+
+        (f) background-size: The background-size property allows you to control the size of the background image. You can set it to a specific length value, a percentage, or use keywords like cover or contain. For example, to make the background image cover the entire element, you can use the value cover as follows:
+
+            selector {
+                background-size: cover;
+            }
+
+            (I) This will resize the background image proportionally to cover the entire element, cropping if necessary.
+
+        (g) "background-attachment" property is used to control whether the background image scrolls with the content or remains fixed in place. It affects how the background image is positioned relative to the element and the viewport. Here's how you can use the background-attachment property:
+
+            selector {
+                background-attachment: value;
+            }
+
+            The value can be one of the following:
+
+            (I) scroll: This is the default value. The background image scrolls along with the element's content as you scroll the page.
+            (II) fixed: The background image remains fixed in place relative to the viewport. It does not scroll with the content. This means that even if you scroll the page, the background image stays in the same position.
+            (c) local: The background image scrolls with the element's content. It behaves similarly to the scroll value, but it allows the background to scroll within the element if the content inside the element overflows.
+
+            Here's an example that demonstrates how to use the background-attachment property:
+
+            body {
+                background-image: url("image.jpg");
+                background-attachment: fixed;
+            }
+
+        (h) background-origin: property is used to specify the positioning area of the background image. It determines where the background image starts within the element's background positioning area. The background positioning area is defined by the element's padding box, border box, or content box. Here's how you can use the background-origin property:
+
+            selector {
+                background-origin: value;
+            }
+
+            The value can be one of the following:
+
+            (I) padding-box (default): The background image starts from the edge of the element's padding box. It includes the padding area but does not include the border or margin areas.
+            (II) border-box: The background image starts from the edge of the element's border box. It includes both the padding and border areas but does not include the margin area.
+            (III) content-box: The background image starts from the edge of the element's content box. It includes only the content area and does not include the padding, border, or margin areas.
+
+            Here's an example that demonstrates how to use the background-origin property:
+
+            div {
+                background-image: url("image.jpg");
+                background-origin: border-box;
+            }
+
+        (i) background-clip: property is used to determine the painting area of the background. It specifies how far the background extends within an element, relative to the background origin. This property allows you to control whether the background is clipped to the content box, padding box, or border box. Here's how you can use the background-clip property:
+
+            selector {
+                background-clip: value;
+            }
+
+            The value can be one of the following:
+
+            (I) border-box (default): The background is painted up to the outer edge of the element's border box. It extends underneath the border and covers the padding and content areas.
+
+            (II) padding-box: The background is painted up to the outer edge of the element's padding box. It extends underneath the padding area and covers only the content area.
+
+            (III) content-box: The background is painted only within the element's content box. It does not extend beyond the content area and is clipped by the padding and border areas.
+
+            Here's an example that demonstrates how to use the background-clip property:
+
+            div {
+                background-image: url("image.jpg");
+                background-clip: padding-box;
+            }
+
+    (ii) Border
+    
+        (a) "border-width" This specifies the width of the border. It can be set to a specific value in pixels (e.g., 2px), or you can use predefined values such as thin, medium, or thick. You can also specify different widths for each side of the border using the shorthand notation (e.g., border-width: 1px 2px 3px 4px; for top, right, bottom, left respectively).
+        (b) "border-style" This defines the style of the border. Some common values include solid (a solid line), dashed (a dashed line), dotted (a dotted line), double (two parallel lines), and none (no border). You can also use hidden to hide the border, but it will still take up space.
+        (c) "border-color" This sets the color of the border. You can use color names (e.g., red, blue), hexadecimal values (e.g., #FF0000 for red), RGB values (e.g., rgb(255, 0, 0) for red), or RGBA values (e.g., rgba(255, 0, 0, 0.5) for red with 50% opacity).
+
+        Here's some examples that demonstrates how to apply a border to a <div> element:
+
+            (I) All of the Them in different tags
+
+                div {
+                    border-width: 2px 4px;
+                    border-style: solid dotted;
+                    border-color: red blue;
+                }
+
+            (II) All of the Them in the same tag
+
+                div {
+                    border: 2px solid red;
+                }
+
+        Additionally, you can set individual properties for each side of the border using the longhand properties:
+
+        (d) `border-top`, `border-right`, `border-bottom`, `border-left`: These properties allow you to set the individual properties for each side of the border.
+
+            border-top-width: 2px;
+            border-top-style: dashed;
+            border-top-color: red;
+
+    (iii) Height/Width
+
+        (a) The `height` property sets the height of an element, determining its vertical dimension.
+            
+            (I) Values: It Accepts Length Values
+            
+            for example:-
+
+                height: 100px;
+
+            (II) `min-height` and `max-height` properties let's you specify mininum and maximum height of the element and height won't able to go below/above that.
+                
+                #container{
+                    height: 200px;
+                    min-height: 100px;
+                    max-height: 300px;
+                    /* You can only set height between 100px to 300px in this example*/
+                }
+
+        (b) The `width` property sets the width of an element, determining its horizontal dimension.
+            
+            (I) Values: Like height, it also Accepts Length Values
+              
+            for example:-
+
+                width: 50%;
+
+            (II) `min-width` and `max-width` properties let's you specify mininum and maximum width of the element and width won't able to go below/above that.
+                
+                #container{
+                    width: 200px;
+                    min-width: 100px;
+                    max-width: 300px;
+                    /* You can only set width between 100px to 300px in this example*/
+                }
+
+    (iv) Padding
+
+        (a) The padding property in CSS is used to set the padding area on all four sides of an element. The padding is the space between the content of an element and its border.
+        
+        (b) Syntax:
+
+            padding: top/right/bottom/left; /* Applies Same padding on all sides */
+
+            padding: top/bottom right/left; /* Applies Same padding on 2 sides Each*/          
+            
+            padding: top right/left bottom; /* Applies Same padding on 2 sides and 2 different padding on 2 sides */          
+            
+            padding: top right bottom left; /* Applies different padding for each side*/
+
+        (c) Value: Accepts any Length Values and `inherit`.
+        (d) You can also use it's expanded form corresponding to it's name of the side
+
+            /* Shorthand */
+            padding: 10px 20px 15px 25px; /* top right bottom left */
+
+            /* Expanded */
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 15px;
+            padding-left: 25px;
+
+    (v) Margin
+
+        (a) The Margin property in CSS is used to set the margin area on all four sides of an element. The margin is the space outside the borders of an element
+        
+        (b) Syntax:
+
+            margin: top/right/bottom/left; /* Applies Same margin on all sides */
+
+            margin: top/bottom right/left; /* Applies Same margin on 2 sides Each*/          
+            
+            margin: top right/left bottom; /* Applies Same margin on 2 sides and 2 different margin on 2 sides */          
+            
+            margin: top right bottom left; /* Applies different margin for each side*/
+
+        (c) Value: like padding it also Accepts any Length Values and `inherit`.
+        (d) You can also use it's expanded form corresponding to it's name of the side
+
+            /* Shorthand */
+            margin: 10px 20px 15px 25px; /* top right bottom left */
+
+            /* Expanded */
+            margin-top: 10px;
+            margin-right: 20px;
+            margin-bottom: 15px;
+            margin-left: 25px;
+            
+6. Display Property
+
+    (i) "Display" property is used to control the layout behavior of an element. It specifies how an element should be displayed on the web page. The display property allows you to control whether an element is rendered as a block, inline, inline-block, flex container, grid container, and more. Here's how you can use the display property:
+
+        selector {
+            display: value;
+        }
+
+    (ii) The value can be one of the following commonly used values:
+
+    (iii) block: The element is rendered as a block-level element. It takes up the full width available by default and starts on a new line.
+
+    (iv) inline: The element is rendered as an inline-level element. It does not start on a new line and only occupies the space necessary for its content (disables: top-bottom margin/padding, width, height).
+
+    (v) inline-block: The element is rendered as an inline-level element but behaves like a block-level element in terms of layout. It does not start on a new line and allows for setting width, height, padding, and margin properties.
+
+    (vi) none: The element is not rendered at all. It is effectively removed from the document flow and not visible.
+
+    (vii) flex: The element becomes a flex container. It enables a flex formatting context and allows you to use flexbox properties for its children.
+
+    (viii) grid: The element becomes a grid container. It enables a grid formatting context and allows you to use grid properties for its children.
+
+    (ix) inline-flex: The element becomes an inline-level flex container. It behaves like an inline-level element but allows for flexbox properties for its children.
+
+    (x) inline-grid: The element becomes an inline-level grid container. It behaves like an inline-level element but allows for grid properties for its children.
+
+    (xi) These are just a few commonly used values of the display property. There are additional values and combinations available, depending on the CSS version and layout needs.
+
+    (xi) Here's an example that demonstrates how to use the display property:
+
+        div {
+            display: block;
+        }
+
+7. Position
+
+    (i) position property in CSS is used to control the positioning of an element within its containing element or the entire viewport. It works in conjunction with other properties like `top`, `right`, `bottom`, and `left` to precisely position an element. 
+    
+    The position property can take several values:
+
+    (ii) `static`: The default value. Elements are positioned according to the normal flow of the document.
+
+        position: static;
+
+    (iii) `relative`: The element is positioned `relative` to its normal position in the document flow, but then offset based on the values of top, right, bottom, and left. for example:-
+        
+        position: relative;
+        top: 10px;
+        left: 20px;
+
+    (iv) `absolute`: The element is positioned relative to its nearest positioned ancestor. If no positioned ancestor is found, it's positioned relative to the initial containing block (usually the <html> element). for example:-
+
+        position: absolute;
+        top: 30px;
+        right: 40px;
+
+    (v) `fixed`: The element is positioned relative to the viewport, and it does not move when the page is scrolled.
+
+        position: fixed;
+        top: 0;
+        right: 0;
+    
+    (vi) `sticky`: The element is treated as relative positioned until it crosses a specified point, then it is treated as fixed positioned.
+
+        position: sticky;
+        top: 50px;
+    
+    (vii) `inherit`: Inherits the position value from its parent element.
+
+        position: inherit;
+
+    (viii) `initial` :Sets the position property to its default value (static).
+        
+        position: initial;
+
+    (ix) unset: Resets the position property to its inherited value if it inherits from its parent, or to its initial value if not.
+
+        position: unset;
+
+    The position property is a powerful tool for layout control. When combined with the offset properties (top, right, bottom, left), it allows precise positioning of elements on the page. Understanding the behavior of each value is crucial for effective web layout design.
+
+    (x) `top/right/bottom/left` properties
+
+        (a) `top`: Specifies the distance an element's top edge is offset from the top edge of its containing element.
+        
+            (I) Values: Any valid length unit (e.g., px, em, %)
+
+            position: absolute;
+            top: 20px;
+
+        (b) `right`: Specifies the distance an element's right edge is offset from the right edge of its containing element.
+        
+            (I) Values: Any valid length unit (e.g., px, em, %)
+
+            position: absolute;
+            right: 20px;
+
+        (c) `bottom`: Specifies the distance an element's bottom edge is offset from the bottom edge of its containing element.
+        
+            (I) Values: Any valid length unit (e.g., px, em, %)
+
+            position: absolute;
+            bottom: 20px;
+
+        (d) `left`: Specifies the distance an element's left edge is offset from the left edge of its containing element.
+        
+            (I) Values: Any valid length unit (e.g., px, em, %)
+
+            position: absolute;
+            left: 20px;
+
+8. Float
+
+    (i) float CSS property places an element on the left or right side of its container, allowing text and inline elements to wrap around it. The element is removed from the normal flow of the page, though still remaining a part of the flow
+
+    (ii) Values: `left`, `right`, `none`, `inline-start`, `inline-end` and Global Values
+
+        (a) `left`: The element must float on the left side of its containing block.
+        (b) `right`: The element must float on the right side of its containing block.
+        (c) `none`: The element must not float.
+        (d) `inline-start`: The element must float on the start side of its containing block. That is the left side with ltr scripts, and the right side with rtl scripts.
+        (e) `inline-end`: The element must float on the end side of its containing block. That is the right side with ltr scripts, and the left side with rtl scripts.
+
+    (iii) `clear`: The clear CSS property sets whether an element must be moved below (cleared) floating elements that precede it. The `clear` property applies to floating and non-floating elements.
+
+        (a) Values: Same as `float`
+
+            (I) `none`: Is a keyword indicating that the element is not moved down to clear past floating elements.
+            (I) `left`: Is a keyword indicating that the element is moved down to clear past left floats.
+            (I) `right`: Is a keyword indicating that the element is moved down to clear past right floats.
+            (I) `both`: Is a keyword indicating that the element is moved down to clear past both left and right floats.
+            (I) `inline-start`: Is a keyword indicating that the element is moved down to clear floats on start side of its containing block, that is the left floats on ltr scripts and the right floats on rtl scripts.
+            (I) `inline-end`: Is a keyword indicating that the element is moved down to clear floats on end side of its containing block, that is the right floats on ltr scripts and the left floats on rtl scripts.
+
+9. FlexBox
+
+    (i) Flexbox layout model in CSS provides a more efficient and predictable way to structure and align content within a container. 
+    
+    Here are some key properties related to Flexbox:
+
+    For Containers:
+
+    (ii) `flex-direction`: Defines the main axis of the flex container.
+        
+        (a) Values:
+
+            (I) `row` (Default): Items are placed along the horizontal axis.
+            (II) `row-reverse`: Items are placed along the horizontal axis in reverse order.
+            (III) `column`: Items are placed along the vertical axis.
+            (IV) `column-reverse`: Items are placed along the vertical axis in reverse order.
+        
+        for Example:-
+
+            .flex-container {
+                flex-direction: row;
+            }
+
+    (ii) `flex-wrap`: Defines whether the flex container should wrap its contents onto multiple lines if they can't all fit in a single line.
+        
+        (a) Values:
+
+            (I) `nowrap` (Default): All flex items are on one line.
+            (II) `wrap`: Flex items wrap onto multiple lines if needed.
+            (III) `wrap-reverse`: Flex items wrap onto multiple lines in reverse.
+        
+        for Example: -
+
+        .flex-container {
+            flex-wrap: wrap;
+        }
+
+    (iii) `flex-flow`: A shorthand property that combines flex-direction and flex-wrap properties.
+        
+        (A) Values: Combination of values accepted by flex-direction and flex-wrap.
+
+        .flex-container {
+            flex-flow: row wrap;
+        }
+
+    (iv) `justify-content`: Defines how flex items are aligned along the main axis (horizontally).
+        
+        (A) Values:
+
+            (I) `flex-start`: Items are packed toward the start of the main axis.
+            (II) `flex-end`: Items are packed toward the end of the main axis.
+            (III) `center`: Items are centered along the main axis.
+            (IV) `space-between`: Items are evenly distributed with the first item at the start and the last item at the end.
+            (V) `space-around`: Items are evenly distributed with equal space around them.
+
+        .flex-container {
+            justify-content: center;
+        }
+
+    (v) `align-items`: Defines how flex items are aligned along the cross axis (Vertically).
+        
+        (A) Values:
+
+            (I) `stretch`: Default value. Items are stretched to fill the container.
+            (II) `flex-start`: Items are packed toward the start of the cross axis.
+            (III) `flex-end`: Items are packed toward the end of the cross axis.
+            (IV) `center`: Items are centered along the cross axis.
+            (V) `baseline`: Items are aligned based on their baselines.
+
+    For Items:
+    
+    (vi) `order`
+
+        (a) In a Flexbox layout, the `order` property is applied to individual flex items. The item with the lowest `order` value will appear first in the display order, followed by items with higher `order` values
+
+        (b) Value: An Integer
+
+        .flex-item {
+            order: 1; /* This item will appear second in the display order */
+        }
+
+        // another Example:-
+
+        .flex-container {
+          display: flex;
+        }
+
+        .flex-item {
+          order: 2; /* This item will appear third in the display order */
+        }
+
+    (vii) `justify-self`: overrides the alignment it's parent element gave it, and applies a new one to itself and can be used for individual alignment for all the children elements (horizontally).
+        
+        (A) Values: Same as `justify-content`
+
+        .flex-item {
+            justify-content: center;
+        }
+
+    (viii) `align-self`: overrides the alignment it's parent element gave it, and applies a new one to itself and can be used for individual alignment for all the children elements (vertically).
+    
+        (A) Values: Same as `align-items`.
+
+        .flex-item {
+            align-self: flex-end;
+        }
+    
+    (ix) `flex`: A shorthand property for the flex-grow, flex-shrink, and flex-basis properties.
+        
+        (A) Values:
+
+            (I) `flex-grow`: Specifies how much a flex item should grow relative to the rest of the flex items.
+            (II) `flex-shrink`: Specifies how much a flex item should shrink relative to the rest of the flex items.
+            (III) `flex-basis`: Specifies the initial main size of a flex item.
+
+        .flex-item {
+            flex: 1 1 auto;
+        }
+
+        individually/Expanded-form: 
+        
+        (B) `flex-grow`: Determines the ability of a flex item to grow relative to the other flex items in the same container.
+            
+            (I) Values: A Whole Number, representing the factor by which the item will grow compared to the other flex items.
+
+            .flex-item {
+                flex-grow: 2; /* This item will grow twice as much as other flex items */
+            }
+
+        (C) `flex-shrink`: Determines the ability of a flex item to shrink relative to the other flex items in the same container.
+            
+            (I) Values: A Whole Number, representing the factor by which the item will shrink compared to the other flex items.
+            
+            .flex-item {
+                flex-basis: 100px; /* Initial size of the item before it grows or shrinks */
+            }
+
+        (D) `flex-basis`: Specifies the initial main size (width or height, depending on the flex-direction) of a flex item before any free space is distributed according to the flex-grow and flex-shrink properties.
+            
+            (I) Values: A length value (e.g., px, em, %), or auto.
+
+            .flex-item {
+                flex-basis: 100px; /* Initial size of the item before it grows or shrinks */
+            }
+        
+    These properties collectively allow you to create flexible and responsive layouts easily. Flexbox is especially useful for arranging content within a container when the size of the content is unknown or dynamic.
+
+10. Grid
+
+    (i) The `grid` CSS property is a shorthand property that sets all of the explicit and implicit grid properties in a single declaration.
+    
+    (ii) Syntax:
+
+        grid: grid-template-rows / grid-template-columns;
+
+        grid: <'grid-template'> | <'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>?  | [ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'>  
+
+        /* <'grid-template'> values */
+
+        grid: none;
+        grid: "a" 100px "b" 1fr;
+        grid: [linename1] "a" 100px [linename2];
+        grid: "a" 200px "b" min-content;
+        grid: "a" minmax(100px, max-content) "b" 20%;
+        grid: 100px / 200px;
+        grid: minmax(400px, min-content) / repeat(auto-fill, 50px);
+
+        /* <'grid-template-rows'> / [ auto-flow && dense? ] <'grid-auto-columns'>? values */
+
+        grid: 200px / auto-flow;
+        grid: 30% / auto-flow dense;
+        grid: repeat(3, [line1 line2 line3] 200px) / auto-flow 300px;
+        grid: [line1] minmax(20em, max-content) / auto-flow dense 40%;
+
+        /* [ auto-flow && dense? ] <'grid-auto-rows'>? / <'grid-template-columns'> values */
+
+        grid: auto-flow / 200px;
+        grid: auto-flow dense / 30%;
+        grid: auto-flow 300px / repeat(3, [line1 line2 line3] 200px);
+        grid: auto-flow dense 40% / [line1] minmax(20em, max-content);
+
+        /* Global values */
+        grid: inherit;
+        grid: initial;
+        grid: revert;
+        grid: revert-layer;
+        grid: unset;
+
+    (iii) `grid-column` & `grid-row`:
+
+        (a) These properties are shorthand for defining the start and end lines of a grid item along the column or row axis.
+        (b) Values: Numeric line numbers, `span` keyword, `start` keyword, or `end` keyword.
+
+        .item {
+            grid-column: 2 / span 3; /* column-start / column-end or column-start / span */
+            grid-row: 1 / 3; /* row-start / row-end */
+        }
+
+        Sub-properties of `grid-column`:
+
+        (c) `grid-column-start`:Defines the starting position of a grid item along the column axis.
+
+            (I) Values: Numeric line number, span keyword, start keyword.
+
+                (a) A Number without any keywords will make the grid item start from the defined Grid line
+                (b) A Number with `span` keyword will make the grid item start from the defined Grid Position
+
+            .item {
+                grid-column-start: 2; /* Start at Grid line 2 */
+            }
+
+        (d) `grid-column-end`: Defines the ending position of a grid item along the column axis.
+            
+            (I) Values: Numeric line number, span keyword, end keyword.
+
+                (a) A Number without any keywords will make the grid item end at the defined Grid line
+                (b) A Number with `span` keyword will make the grid item end at the Relative defined Grid Position
+
+            .item {
+                grid-column-end: span 3; /* End at column line 3 (span 3 columns) */
+            }
+
+        (e) `grid-column-gap`: Specifies the size of the gap between columns in a grid.
+            
+            (I) Values: Any length unit (e.g., px, em, rem), percentage, or normal.
+
+            .grid-container {
+                grid-column-gap: 20px; /* Set a gap of 20 pixels between columns */
+            }
+
+        (f) `grid-column`: A shorthand property that combines grid-column-start and grid-column-end in one declaration.
+            
+            (A) Values: it takes Two values, representing grid-column-start and grid-column-end.
+
+            .item {
+                grid-column: 2 / span 3; /* column-start / column-end or column-start / span */
+            }
+
+        Sub-properties of `grid-row`
+
+        (g) `grid-row-start`: Defines the starting position of a grid item along the row axis.
+            
+            (I) Values: Numeric line number, `span` keyword, `start` keyword. for example:-
+
+                (a) A Number without any keywords will make the grid item start from the defined Grid line
+                (b) A Number with `span` keyword will make the grid item start from the defined Grid Position
+
+            .item {
+                grid-row-start: 1; /* Start at row line 1 */
+            }
+
+        (h) `grid-row-end`: Defines the ending position of a grid item along the row axis.
+            
+            (I) Values: Numeric line number, span keyword, end keyword. for example:-
+
+                (a) A Number without any keywords will make the grid item end at the defined Grid line
+                (b) A Number with `span` keyword will make the grid item end at the Relative defined Grid Position
+
+            .item {
+                grid-row-end: span 2; /* End at row line 2 (span 2 rows) */
+            }
+
+        (i) `grid-row-gap`: Specifies the size of the gap between rows in a grid.
+            
+            (I) Values: Any length unit (e.g., px, em, rem), percentage, or normal.
+
+            .grid-container {
+                grid-row-gap: 10%; /* Set a gap of 10% of the row height between rows */
+            }
+
+        (j) `grid-row`: A shorthand property that combines grid-row-start and grid-row-end in one declaration.
+            
+            (I) Values: Two values, representing grid-row-start and grid-row-end. for Example:-
+
+            .item {
+                grid-row: 1 / span 2; /* row-start / row-end or row-start / span */
+            }
+
+    (iv) `grid-gap`: A shorthand property that combines grid-column-gap and grid-row-gap in one declaration.
+        
+        (a) Values: Two values, representing grid-column-gap and grid-row-gap.
+
+        .grid-container {
+            grid-gap: 10px 20px; /* Set a gap of 10 pixels between rows and 20 pixels between columns */
+        }
+
+    (v) `grid-template`
+
+        (a) `grid-template` property in CSS Grid Layout is a shorthand property that combines the individual properties `grid-template-rows, `grid-template-columns`, and `grid-template-areas` in a single declaration. It provides a convenient way to define the structure of both the rows and columns of a grid, as well as assign named grid areas.
+
+        (b) Syntax:
+
+            grid-template: [rows] / [columns] / [areas];
+            
+        (c) [rows]: Specifies the size of the rows. This can be a space-separated list of values representing row sizes. It can include length units, percentages, the `fr` unit, or other applicable values.
+        (d) [columns]: Specifies the size of the columns. Similar to rows, it can be a space-separated list of values representing column sizes.
+        (e) [areas]: Specifies named grid areas. This allows you to assign names to regions of the grid and position items within those areas using the grid-area property.
+
+        (f) Examples:
+            
+            (I) Defining Rows and Columns:
+
+                .grid-container {
+                    grid-template: 100px 200px / 1fr 2fr;
+                }
+
+                In this example, the grid has two rows with heights of 100 pixels and 200 pixels, and two columns with widths in the ratio 1:2.
+
+            (II) Defining Rows, Columns, and Areas:
+
+                .grid-container {
+                    grid-template: 
+                        "header header header" 100px
+                        "sidebar main main" 1fr
+                        "footer footer footer" 100px
+                        / 1fr 2fr 1fr;
+                }
+
+                This example defines a grid with named areas for the header, sidebar, main content, and footer.
+
+            (Note: The `grid-template` property is optional, and you can still use the individual properties like `grid-template-rows`, `grid-template-columns` `grid-template-areas` if you prefer more explicit control.)
+            
+            (III) with Explicit Properties:
+
+                /* Using individual properties */
+                .grid-container {
+                  grid-template-rows: 100px 200px;
+                  grid-template-columns: 1fr 2fr;
+                }
+
+                /* Using individual properties with named areas */
+                .grid-container-named {
+                    grid-template-rows: 100px 1fr 100px;
+                    grid-template-columns: 1fr 2fr 1fr;
+                    grid-template-areas:
+                        "header header header"
+                        "sidebar main main"
+                        "footer footer footer";
+                }
+
+    (vi)  `grid-area`: The grid-area property is a shorthand property that allows you to specify a grid item's size, location, and name within the grid in a single declaration.
+        
+        (A) Values: It can take up to four values, representing grid-row-start, grid-column-start, grid-row-end, and grid-column-end.
+
+            .item {
+                grid-area: 1 / 1 / 3 / 4; /* row-start / column-start / row-end / column-end */
+            }
+
+    (vii) `order`
+
+        (a) In a Grid layout, the order property is applied to individual grid items. As in Flexbox, items with lower order values will appear first in the display order.
+
+        (b) Value: An Interger
+
+            .grid-item {
+                order: -1; /* This item will appear first in the display order */
+            }
+
+    (viii) `justify-items`: Aligns the content of grid items along the inline (row) axis within the grid area (Horizontally).
+        
+        (A) Values:
+
+            (I) `start`: Items are packed toward the start of the container.
+            (II) `end`: Items are packed toward the end of the container.
+            (III) `center`: Items are centered in the container.
+            (IV) `stretch`: Items are stretched to fill the container.
+            (V) `left` and right: Items are aligned to the left or right of the container (for the inline axis).
+            (VI) `legacy`: Used for supporting the legacy alignment properties (justify-self and align-self) on the grid items.
+
+        /* Align rows in the center and justify items in the center */
+        .grid-container {
+            display: grid;
+            grid-template-rows: 100px 100px;
+            align-content: center;
+        }
+
+        .grid-item {
+            justify-items: center;
+        }
+
+    (ix) `align-content`: Determines how multiple rows or columns of grid items are aligned within the grid container when there is extra space along the cross-axis (Vertically).
+        
+        (a) Values:
+
+            (I) `start`: Lines are packed at the start of the container.
+            (II) `end`: Lines are packed at the end of the container.
+            (III) `center`: Lines are centered in the container.
+            (IV) `stretch`: Lines stretch to fill the container.
+            (V) `space-between`: Lines are evenly distributed, with the first line at the start and the last line at the end.
+            (VI) `space-around`: Lines are evenly distributed with equal space around them.
+
+        .grid-container {
+            align-content: center;
+        }
+
+11. Media Queries
+
+    (i) Media queries in CSS allow you to apply different styles or rules based on certain conditions, such as the characteristics of the device or viewport. They enable you to create responsive designs that adapt to different screen sizes, resolutions, or device capabilities. Media queries are commonly used in combination with CSS rules to implement responsive web design.
+
+    (ii) Syntax:
+
+        @media media-type and (media-feature) {
+            /* CSS rules to apply when the media query conditions are met */
+        }
+
+    (iii) `media-type`: Specifies the type of media, such as screen, print, all, etc.
+    (iv) `media-feature`: Defines the condition that must be satisfied for the media query to apply.
+
+    for Example:-
+
+        /* Basic media query for screens with a maximum width of 600 pixels */
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+        In this example, the styles within the media query will only apply if the screen has a maximum width of 600 pixels.
+
+    (v) Common Media Features:
+        
+        (a) Width and Height: `max-width`, `min-width`, `max-height`, `min-height`: Define the maximum or minimum width or height of the viewport.
+
+
+            @media screen and (max-width: 768px) {
+                /* Styles for screens with a maximum width of 768 pixels */
+            }
+
+        (b) Device Orientation: `orientation` Checks whether the device is in portrait or landscape mode.
+
+            @media screen and (orientation: landscape) {
+                /* Styles for landscape orientation */
+            }
+
+        (c) Device Type: `screen`, `print`, `speech`: Specifies the type of output device.
+
+            @media print {
+                /* Styles for print media */
+            }
+
+        (d) Resolution: `min-resolution`, `max-resolution` Set minimum or maximum resolution requirements.
+
+            @media screen and (min-resolution: 300dpi) {
+                /* Styles for high-resolution screens */
+            }
+
+        (e) Combining Conditions: You can combine multiple conditions within a media query using logical operators (`and`, `or`, `not`) and they working corresponding to their names.
+
+            @media screen and (max-width: 600px) and (orientation: portrait) {
+                /* Styles for screens with a maximum width of 600 pixels in portrait mode */
+            }
+
+        (f) Using Media Queries in HTML: You typically include media queries in your CSS files, but you can also include them directly in your HTML using the `<style>` element with the media attribute:
+
+            <style media="screen and (max-width: 600px)">
+                /* Styles for screens with a maximum width of 600 pixels */
+            </style>
+
+    (vi) Media queries are a crucial tool for creating responsive and adaptable designs, ensuring a good user experience across various devices and screen sizes.
+
+12. Transform
+
+    (i) The `transform` property in CSS is used to apply 2D and 3D transformations to an element. Transformations can include translations, rotations, scaling, and skewing, providing a powerful way to manipulate the appearance and layout of elements.
+
+    (ii) Syntax:
+
+        element {
+            transform: transform-function;
+        }
+
+    Values:
+
+    Common 2D Transformation Functions:
+
+    (iii) Offset values
+        
+        (a) `translate(x, y)`, `translateX(x)`, `translateY(y)` ond `translate3d(x, y, z)`: Moves the element along the X, Y, or Z-axis. `translate3d` allows movement along all three axes.
+
+        transform: translate(50px, 30px);
+        transform: translateX(50px);
+        transform: translateY(30px);
+        transform: translate3d(50px, 30px, 0);
+
+    (iv) Rotation value
+
+        (a) `rotate(angle)`: Rotates the element clockwise by the specified angle. 
+
+        /* Example */
+        transform: rotate(45deg);
+
+    (v) Scale Values
+        
+        (a) `scale(x, y)` or `scaleX(x)` or `scaleY(y)` or `scale3d(x, y, z)`: Scales the element along the X, Y, or Z-axis. scaled allows scaling along all three axes.
+
+        /* Examples */
+        transform: scale(1.5, 0.8);
+        transform: scaleX(1.5);
+        transform: scaleY(0.8);
+        transform: scale3d(1.5, 0.8, 1);
+    
+    (vi) Skew
+        
+        (a) `skew(x, y)`: Skews the element by the specified angles along the X and Y axes.
+
+        /* Example */
+        transform: skew(30deg, 20deg);
+        
+    (vii) Matrix
+        
+        (a) `matrix(a, b, c, d, e, f)`: Allows you to define a 2D transformation matrix where each value represents a transformation component.
+
+        (b) Syntax:
+            
+            matrix(a, b, c, d, tx, ty)
+            
+            (I) The `matrix()` function is specified with six values. The constant values are implied and not passed as parameters; the other parameters are described in the column-major order.
+
+            (II) The values represent the following functions: 
+                
+                matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())
+
+        for Example:-
+            
+            transform: matrix(1, 0.5, -0.5, 1, 0, 0);
+
+    Common 3D Transformation Functions:
+    
+    (viii) Rotation
+        
+        (a) `rotateX(angle)`, `rotateY(angle)`, `rotateZ(angle)`: Rotates the element around the X, Y, or Z-axis.
+
+        /* Examples */
+        transform: rotateX(45deg);
+        transform: rotateY(45deg);
+        transform: rotateZ(45deg);
+        
+    (ix) Depth
+        
+        (a) `perspective(p)`: Specifies the perspective depth for the 3D transformations.
+
+            /* Example */
+            transform: perspective(1000px);
+
+        (b) `perspective-origin(x, y)`: Sets the origin for the perspective property.
+
+            /* Example */
+            transform: perspective(1000px) perspective-origin(50% 50%);
+
+    (x) Combined Transform Functions:
+        
+        (a) You can combine multiple transform functions in a single `transform` property to apply multiple transformations at once.
+
+        /* Example */
+        transform: translate(50px, 30px) rotate(45deg) scale(1.5);
+
+    Sub-Properties:
+
+    (xi) transform-origin:
+            
+        (a) The `transform-origin` property defines the point around which a transformation is applied. It determines the origin of the transformation, influencing the position of the transformed element.
+        
+        (b) Values: It can take one to three values, which represent the x, y, and z coordinates of the origin. Values can be specified in pixels, percentages, or keywords like top, left, right, bottom, center, etc.
+
+            /* Set the transform origin to the center of the element */
+            transform-origin: center center;
+
+            /* Set the transform origin to the top right corner of the element */
+            transform-origin: top right;
+
+    (xii) transform-box:
+    
+        (a) The transform-box property defines the reference box for the transform property. It determines which box the transformation functions (`scale()`, `rotate()`, etc.) will be applied to.
+
+        (b) Values:
+
+            (I) `fill-box`: The transformation is applied relative to the element's border box.
+            (II) `stroke-box`: The transformation is applied relative to the element's stroke box.
+            (III) `view-box`: The transformation is applied relative to the nearest SVG viewport.
+
+    Examples:
+
+        /* Set the transform origin to the center of the element and apply a rotation */
+        .element {
+            transform-origin: center center;
+            transform: rotate(45deg);
+        }
+
+        /* Apply a scaling transformation relative to the element's border box */
+        .element {
+            transform-box: fill-box;
+            transform: scale(2);
+        }
+
+13. Transition
+
+    (i) "transition" property allows you to specify the properties that should be transitioned and the duration and timing function of the transition. Here's how you can use it:
+
+        selector {
+            transition: [property] [duration] [timing-function];
+        }
+    
+    Let's break down each component:
+
+    (ii) [property]: This specifies the CSS property or properties that should be transitioned. For example, you can use `background-color`, `opacity`, `width`, or any other CSS property.
+
+    (iii) [duration]: This determines the duration of the transition effect. It can be specified in seconds (s) or milliseconds (ms). For example, 0.5s represents a transition duration of 0.5 seconds.
+
+    (iv) [timing-function]: This defines the timing function or easing function of the transition. It specifies how the transition progresses over time. Some common timing functions include `linear`, `ease`, `ease-in`, `ease-out`, and `ease-in-out`. You can also use custom cubic-bezier values for more precise control.
+
+    (v) [delay]: This determines the delay before the transition begins
+
+    Here's an example that demonstrates how to add a transition effect to change the background color when hovering over a <button> element:-
+
+        button {
+            background-color: blue;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        // They can be applied individually like this
+
+        button {
+            background-color: blue;
+            transition-property: background-color
+            transition-duration: 0.3s 
+            transition-timing-function: ease;
+        }
+        
+        (Note: You can also apply multiple transitions from a single function by seperating them why a comma)
+
+        button {
+            color: lime
+            background-color: blue;
+            transition: background-color 0.3s ease, color 0.5s ease-out;
+        }
+
+        button:hover {
+            color: white
+            background-color: red;
+        }
+
+14. Animations
+
+    (i) @keyframes rule
+        
+        (a) @keyframes rule in CSS is used to define animations by gradually changing from one set of CSS styles to another. It allows you to specify a sequence of style changes at different points in the `animation`, creating smooth and visually appealing effects.
+
+        (b) Syntax:
+
+            @keyframes animation-name {
+                /* CSS rules defining the animation at different keyframes */
+            }
+
+            (I) `animation-name`: A name for the animation, which is referenced in the animation property.
+
+        (c) Example:-
+
+            @keyframes slide-in {
+                0% {
+                    transform: translateX(-100%);
+                }
+                100% {
+                    transform: translateX(0);
+                }
+            }
+
+            /* Applying the animation to an element */
+            .element {
+                animation: slide-in 1s ease-in-out;
+            }
+
+            In this example, the `@keyframes` rule defines an animation named `slide-in`. It consists of two keyframes, one at 0% (Start) and the other at 100% (End), specifying the starting and ending styles of the animation. The animation moves an element from left to right by translating it along the X-axis. The animation property is then used to apply the `slide-in` animation to an element over a duration of 1 second with easing for smoother motion.
+
+        (d) Keyframe Percentages:
+            
+            (I) Keyframes are specified using percentages, ranging from 0% to 100%. These percentages represent the progression of the animation's timeline.
+
+            @keyframes example {
+                0% {
+                    /* styles at the start of the animation */
+                }
+                50% {
+                    /* styles in the middle of the animation */
+                }
+                100% {
+                    /* styles at the end of the animation */
+                }
+            }
+
+        (e) Multiple Keyframes:
+                
+            (I) You can define multiple keyframes within a single @keyframes rule to create complex animations with more intermediate steps.
+
+            @keyframes example {
+                0% {
+                    /* styles at the start of the animation */
+                }
+                25% {
+                    /* styles at 25% of the animation duration */
+                }
+                50% {
+                    /* styles at the middle of the animation */
+                }
+                75% {
+                    /* styles at 75% of the animation duration */
+                }
+                100% {
+                    /* styles at the end of the animation */
+                }
+            }
+
+        (f) Using keywords:
+
+            (I) You can define 0% using `from` and 100% as `to`
+
+            @keyframes example {
+                from{
+                    /* styles at the start of the animation */
+                }
+                to{
+                    /* styles at the end of the animation */
+                }
+            }
+
+    (ii) `animation` Property:
+        
+        (a) defines how the animation `@keyframes` will be applied and what'll happen during the animation
+
+        (b) Syntax:
+
+            .element {
+              animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-fill-mode animation-play-state;
+            }
+
+            (I) `animation-name:` The name of the `@keyframes` animation.
+            (II) `animation-duration:` The time taken for the animation to complete (e.g., 1s for 1 second).
+
+                (I) Values: seconds (s) and milliseconds (ms)
+
+            (III) `animation-timing-function:` Specifies the speed curve of the animation (e.g., ease, linear, ease-in-out).
+
+                Values:
+
+                Keyword values:
+
+                (A) ease;
+                (B) ease-in;
+                (C) ease-out;
+                (D) ease-in-out;
+                (E) linear;
+                (F) step-start;
+                (G) step-end;
+
+                Function values:
+
+                (H) cubic-bezier(0.1, 0.7, 1, 0.1);
+                (I) steps(4, end);
+
+                steps function:
+
+                (J) steps(4, jump-start);
+                (K) steps(10, jump-end);
+                (L) steps(20, jump-none);
+                (M) steps(5, jump-both);
+                (N) steps(6, start);
+                (P) steps(8, end);
+
+                (Note: you can apply multiple values by seperating them with a comma)
+
+            (IV) `animation-delay:` The time before the animation starts (e.g., 0.5s for a delay of 0.5 seconds).
+            (V) `animation-iteration-count:` The number of times the animation should repeat will repeat
+
+                (A) Values: `infinite` keyword (for Non-stop Repeat), A Whole Number, Decimal (to end animation early)
+
+            (VI) `animation-direction:` Specifies whether the animation should play forward, backward, or alternate.
+
+                (A) Values: keywords: `normal` `reverse` `alternate` `alternate-reverse`
+
+            (VII) `animation-fill-mode:` Defines what styles are applied to the element before and after the animation.
+            (VIII) `animation-play-state:` Specifies whether the animation is running or paused.
+
+
+            Example:
+
+                .element {
+                    animation: slide-in 1s ease-in-out 0.5s infinite alternate both;
+                }
+
+                In this example, the animation property applies the slide-in animation with a duration of 1 second, easing in and out, a delay of 0.5 seconds before starting, infinite iterations, an alternate direction, and both fill mode (applying styles before and after the animation).
+
+Section: Common Values
+
+15. Length Values:
+
+    Absolute Length Units:
+
+    (i) `px (Pixels)`: One pixel is a single dot on a screen. Pixel values are commonly used for specifying exact sizes.
+
+        width: 200px;
+    
+    (ii) `in (Inches)`: One inch is equivalent to 2.54 centimeters.
+
+        width: 2in;
+    
+    (iii) `cm (Centimeters)`: One centimeter is equal to one hundredth of a meter.
+
+        height: 5cm;
+    
+    (iv) `mm (Millimeters)`: One millimeter is equal to one thousandth of a meter.
+
+        padding: 10mm;
+    
+    Relative Length Units:
+    
+    (v) `em`: The em unit is relative to the font-size of the nearest parent or the element itself.
+
+        font-size: 1.5em; /* 1.5 times the font size of the parent or the element itself */
+
+    (vi) `rem (Root EM)`: Similar to em, but it is relative to the font-size of the root element (html).
+
+        font-size: 1.2rem; /* 1.2 times the font size of the root element */
+
+    (vii) `% (Percentage)`: The percentage unit is relative to the size of the parent element.
+
+        width: 50%; /* 50% of the width of the parent element */
+
+    (viii) `vw (Viewport Width) and vh (Viewport Height)`: These units are relative to the size of the viewport (the visible portion of the browser window).
+
+        width: 50vw; /* 50% of the viewport width */
+        height: 30vh; /* 30% of the viewport height */
+
+16. Color Values
+
+    (i) In CSS, color values are used to specify the color of various elements on a webpage. There are several ways to represent colors in CSS, and they can be broadly categorized into named colors, hexadecimal colors, RGB colors, RGBA colors, HSL colors, and HSLA colors.
+
+    (ii) Named Colors:
+        
+        color: red;
+        
+        (a) Named colors are predefined color names that you can use directly in your CSS. Examples include red, blue, green, etc. The full list of named colors can be found in the CSS specification.
+
+    (iii) Hexadecimal Colors:
+
+        color: #ff0000;
+
+        (a) Hexadecimal colors are represented using a combination of six characters, where each pair represents the intensity of the red, green, and blue color channels. For example, `#ff0000` represents pure red.
+
+    (iv) RGB Colors:
+
+        color: rgb(255, 0, 0);
+        
+        (a) RGB colors are specified using the `rgb()` function, which takes three values (red, green, and blue) ranging from 0 to 255. For example, `rgb(255, 0, 0)` also represents pure red.
+
+    (v) RGBA Colors:
+
+        color: rgba(255, 0, 0, 0.5);
+        
+        (a) RGBA colors are similar to RGB but include an additional parameter for alpha, representing the color's transparency. The alpha value ranges from 0 (completely transparent) to 1 (completely opaque). For example, `rgba(255, 0, 0, 0.5)` is a semi-transparent red.
+
+    (vi) HSL Colors:
+
+        color: hsl(0, 100%, 50%);
+        
+        (a) HSL stands for Hue, Saturation, and Lightness. The hsl() function takes three parameters: the hue (0 to 360 degrees), saturation (0% to 100%), and lightness (0% to 100%). For example, hsl(0, 100%, 50%) represents pure red.
+
+    (vii) HSLA Colors:
+
+        color: hsla(0, 100%, 50%, 0.5);
+
+        (a) HSLA colors are similar to HSL but include an alpha parameter for transparency, just like RGBA. For example, hsla(0, 100%, 50%, 0.5) is a semi-transparent red.
+    
+17. Global Values:
+
+    (i) `inherit`: Makes The Element Inherits value from it's Parent.
+    (ii) `initial`: The Gobal Default Value.
+    (iii) `revert`: Reverts Changes to initial but keeps changes made by The Browser.
+    (iv) `revert-layer`: If The Property is changed before than it changes it's value to it's previous value.
+    (v) `unset`: Reverts Changes to initial without excluding any.

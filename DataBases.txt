@@ -1,0 +1,83 @@
+==========================================================================================================
+											Databases
+==========================================================================================================
+
+
+Relational Databases:
+
+1. SQL
+
+    (i)
+
+
+No-SQL Databases:
+
+1. MongoDB
+
+    (i) Structure: https://phoenixnap.com/kb/wp-content/uploads/2021/04/mongodb-vs-mysql-database-structure.png
+
+    (ii) Commands for Databases
+
+        (a) `show dbs` Lists Databases
+        (b) `db` shows current Database
+        (c) `use <Database Name>` Creates or switches to The Database
+            (Note: When Creating a Database it Requires The Database to atleast have 1 Collection inside it or it'll be not Saved)
+        (d) `db.dropDatabase()` Deletes Current Database
+
+    (iii) Commands Collections
+
+        (a) `show collections` shows Collections
+        (b) `db.createCollection('<Collection Name>')` Creates a New Collection with the Specified Name
+        (c) `db.<Collection Name>.drop()` Deletes Specified Collection
+
+    (iv) Commands for Documents (BSON)
+
+        (a) `db.<Collection Name>.insert(<Object>)` Insert a JavaScript Object as a BSON Document in the Collection as BSON
+
+            db.accounts.insert({
+                'username': 'FlytoTheSpace',
+                'email': 'dummy@gmail.com',
+                'password': '123abc'
+            })
+
+        (b) `db.<Collection Name>.insertMany(<Array of Objects>)` Insert Many JavaScript Objects into individual BSON Documents in the Collection
+
+            db.accounts.insertMany([
+                {
+                    'username': 'FlytoTheSpace',
+                    'email': 'dummy@gmail.com',
+                    'password': '123abc'
+                },
+                {
+                    'username': 'Sarah',
+                    'email': 'Sarah1234@hotmail.com',
+                    'password': '123abc'
+                },
+                {
+                    'username': 'Michael',
+                    'email': 'Michaelzbit32@gmail.com',
+                    'password': '123abc'
+                }
+            ])
+
+        (c) `db.<Collection Name>.find()` Shows all the Documents BSON
+
+        (d) 
+
+    (v) Examples:-
+
+        (a) Create A Database
+
+            use MyDB
+            db.createCollection('comments')
+
+        (b)
+
+    (vi) Functions
+
+        (a) `.pretty()` formats the Displaying Content
+
+            db.accounts.find().pretty()
+
+        
+Other:

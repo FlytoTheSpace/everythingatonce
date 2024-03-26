@@ -1,0 +1,509 @@
+==========================================================================================================
+											HTML (HyperText Markup Language)
+==========================================================================================================
+1. Heading Element
+<h1> to <h6> are Heading Elements in HTML h1 is the largest and h6 is the smallest, (note: Never use Headings to make the text bold or something).
+
+2. Text
+
+    (i) <p> is a paragraph that Contains Normal Text, (note: more then 1 spaces or Line Breaks will be not counted as Text)
+    (ii) "lorem" generates text randomly and unreadable format so if you just want to get the idea that how it'll gonna look like then use it and if you type a number afterwords then It'll generate the same amount of text.
+    (iii) <a href="https://example.com">Click me</a> is same as paragraph but you can put absolute links and relative Links.
+
+        (a) If you add an attribute called "target" and give the value underscore"_" in double quotes("), It'll make link open in new tab.
+        (b) You can Put Any Element inside this tag, even images and Headings to give them a link.
+
+    (iv) Links
+
+       (a) "Relative links" are the links that are inside the server such as "/about.html", and also they Don't have a full URL.
+       (b) "Absolute Links" are the links that are outside the server such as "https://example.com".
+    
+    (v) <b> This is Bold Text.
+    (vi) <i> This is italic Text.
+    (vii) <u> This is Underlined Text.
+    (viii) <big> Makes the Text Bigger to make to it stand out more.
+    (ix) <small> Makes the Text Smaller.
+    (x) <sub> Makes the text appear as power of a number, but downwords, It's used to Write Chemical Formulas.
+    (xi) <sup> Makes the text appear as power of a number, It's used to Writing Equations.
+    (xii) <pre> Displays The Text Exactly as You Putted in it and renders Extra Space and Even Line Breaks.
+    (xiii) <ul> and <ol> These elements are used to create unordered and ordered lists, respectively. <ul> represents a bulleted list, and <ol> represents a numbered list. List items are denoted by the `<li>` element.
+
+        (a) <ul> has a attribute called "type" and you can put These:- "circle, misc, square", as the value and the dot will turn into that shape
+           (Warning: Do not use this Attribute, as it has been deprecated use the CSS "list-type-style" properly instead)
+        (b) <ol> also has a attribute called "Type" and you can put these "1","a","i" as the value and the list will turn into it, For example:- If you'll put "i" as the value then it'll render it as roman numbers, as you can also use the capital version of them.
+
+2. <br> This is An Empty Tag and It Seperates Content in Different lines.
+
+3. <hr> makes a thin line in between Content, It's useful for organising Things,(note: This is also an Empty Tag).
+
+4. Images
+
+    (i) <img src="image_link" alt="Text"> in the attribute "src" the value should be a link to a image, it can either be an absolute Link or a relative link, in the attribute "alt" the value is a text that'll be displayed if the Image didn't load.
+    (ii) You can set the Width and Height of the by adding a "width" or "height" Tag, (note: Putting both of the attributes can mess up with the Aspect Ratio of the Image, so Consider choosing one of them).
+
+5. Type this to comment out your text :- <!-- this text is commented -->, or If you're in VsCode just hit "Ctrl + /", It'll Comment out the entire line.
+
+6. Categorizing Content
+
+    (i) <header> Header of your page.
+        
+        (a) <nav>  a navigation bar at the top of your screen
+
+    (ii) <main> The Main Content.
+
+        (a) <section> A page section.
+        (b) <article> A Self-Continued Content.
+        (c) <aside> Content Aside from the main Content.
+
+    (iii) <footer> A Bigger navigation bar, but at the bottom.
+
+7. <link rel="icon" href="IMAGE"> adds an Icon on the title of the website.
+
+8. Containers
+
+    (i) <div> is used as a container of elements and usually used for Categorizing objects and styling multiple elements at once, It's an Block Element.
+    (ii) <span> is also used for the same purpose, but It only occupies the amount of area required, and yet It's an In-Line Element.
+
+9.Table
+
+    (i) <table> Defines the "Table".
+    (ii) <tr> Defines the "Table row",and it's Horizontal.
+
+        (a) <th> Defines The "Table Heading" at the top of the Table such as "Score","Sr. No","Name" etc, It's appearace is bold.
+
+        (b) <td> Defines The "Table Data" that contains the main content of the Table. 
+            
+        Here's an example code of a normal table
+
+        <table>
+             <tr>
+                <th>S. No.</th>
+                <th>Name</th>
+                <th>Kills</th>
+                <th>lvl</th>
+                <th>Rank</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>player123</td>
+                <td>132</td>
+                <td>124</td>
+                <td>856</td>
+            </tr>
+        </table>
+
+        (c) If you want a "Table Data" or "Table Heading" to cover more than a single column then use "colspan" attribute and set the value to the amount of columns you want it to cover. here's an example code:-
+
+            <table>
+                 <tr>
+                    <th>S. No.</th>
+                    <th>Name</th>
+                    <th colspan="3">Scores</th>
+                    <!-- This heading will cover 3 columns-->
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>player123</td>
+                    <td>132</td>
+                    <td>124</td>
+                    <td>856</td>
+                </tr>
+            </table>
+
+    (iii) <caption> It's The Title of The Table, It's Not Bold
+    (iv) <thead> It's used to define the header section of a table. It is a container element that groups together the header content of a table, This helps in better organization, accessibility, and styling of the table.
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+            </tr>
+            <tr>
+                <td>Data 3</td>
+                <td>Data 4</td>
+            </tr>
+        </table>
+
+        (a) In this example, the <thead> tag encapsulates the header row(s) of the table. It is typically used to display column headings or titles that describe the data in the corresponding columns.
+
+    (v) <tbody> it's used to define the body section of a table. It is one of the structural elements for creating tables along with <table>, <thead>, <tfoot>, and <tr>. The <tbody> tag is used to group the content within a table's body section. It is placed inside the <table> element and contains one or more <tr> (table row) elements, which represent the individual rows of the table.Here's an example of how the <tbody> tag can be used in an HTML table:
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                </tr>
+                <tr>
+                    <td>Data 3</td>
+                    <td>Data 4</td>
+                </tr>
+            </tbody>
+        </table>
+
+        (a) In this example, the <tbody> tag encapsulates the rows of data in the table. It helps organize and separate the table's body content from the table's header section, which is defined using the <thead> tag.
+
+    (vi) <tfoot> It's used to define the footer section of a table. It is one of the structural elements for creating tables along with <table>, <thead>, <tbody>, and <tr>. The <tfoot> tag is placed inside the <table> element and is used to group the footer content of the table. It typically contains one or more <tr> (table row) elements that represent the individual rows of the table footer. Here's an example of how the <tfoot> tag can be used in an HTML table:
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                </tr>
+                <tr>
+                    <td>Data 3</td>
+                    <td>Data 4</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Footer 1</td>
+                    <td>Footer 2</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        (a) In the example, the <tfoot> tag encapsulates the footer row(s) of the table. It is typically used to display summary information, totals, or other footer content related to the table's data.
+
+10. Forms
+
+    (i) <form> tag is used to create a form on a web page. It represents a section that contains interactive controls, such as input fields, checkboxes, radio buttons, buttons, and more, which allow users to input data or perform actions. Here's a basic example of a form using the <form> tag:
+
+        <form action="submit-form" method="POST">
+            <!-- form controls go here -->
+        </form>
+
+    (ii) The <form> tag is a container element that encloses the entire form content. It has two important attributes:
+        
+        (a) "action": Specifies the URL or the server-side script where the form data will be submitted to. It can be a relative or absolute URL. 
+        (b) "method": Specifies the HTTP method to be used when submitting the form data. The most common values are "GET" and "POST", which correspond to retrieving or sending data, respectively.
+
+    Inside the <form> element, you can add various form controls, such as input fields, checkboxes, radio buttons, select dropdowns, buttons, and more. These form controls allow users to interact with the form and input or select data.
+
+    (iii) <input> element is used to create various types of input fields within a form. It allows users to enter data or make selections that can be submitted to a server for further processing. The <input> element is a self-closing tag and can have different attributes to define its behavior and appearance.
+
+        Here are some commonly used attributes for the <input> element:
+
+        (a) "type': Specifies the type of input field to be rendered. Examples include text, password, email, number, checkbox, radio, submit, button, and more. The value of this attribute determines the specific behavior and appearance of the input field.
+
+            Here are some values for the type attribute:
+
+            (I) "text": This is the default type and creates a simple single-line text input field where users can enter alphanumeric text.
+
+            (II) "password": This type is used for password input fields. The entered text is typically masked or hidden to provide privacy.
+
+            (III) "email": This type is used for input fields that should accept email addresses. Some modern browsers may provide basic email format validation.
+
+            (IV) "number": This type is used for numeric input fields. It may display a numeric keypad on mobile devices and can enforce numeric input only
+			
+			(X) "checkbox": This type creates a checkbox input field that allows users to select one or multiple options.
+
+            (XI) "radio": This type creates a radio button input field. Radio buttons are used when users need to select only one option from a group of choices.
+			
+			() "time": This type is used for input fields that should accept time values. It may display a time picker in supporting browsers.
+			
+			() "date": This type is used for input fields that should accept dates. Some modern browsers provide a date picker for easier date selection.
+			
+			() "week": A control for entering a date consisting of a week-year number and a week number with no time zone.
+			
+			() "month": A control for entering a month and year, with no time zone.
+
+            (IX) "color": This type is used for input fields that should accept color values. It may display a color picker in supporting browsers.
+
+            (XII) "file": This type creates a file upload input field that allows users to select and upload files from their local system.
+
+            () "tel": This type is used for input fields that should accept telephone numbers. It may display a telephone keypad on mobile devices.
+
+            () "url": This type is used for input fields that should accept URLs. It may enforce basic URL format validation in some browsers.
+
+			()"range" This is a control for entering a number whose exact value is not important. Displays as a range widget defaulting to the middle value. Used in conjunction min and max to define the range of acceptable values.
+
+			() "reset" This is a button that resets the contents of the form to default values. Not recommended. search	A single-line text field for entering search strings. Line-breaks are automatically removed from the input value. May include a delete icon in supporting browsers that can be used to clear the field. Displays a search icon instead of enter key on some devices with dynamic keypads.
+			
+            (XIII) "submit": This type creates a submit button that, when clicked, submits the form to the server for further processing.
+
+            (XIV) "button": This type creates a generic button that can be used for custom interactions and behaviors.
+			
+			() "image": This is a graphical submit button. Displays an image defined by the src attribute. The alt attribute displays if the image src is missing.
+
+        (b) "name": Specifies the name of the input field. When the form is submitted, the data entered in the input field will be associated with this name and sent to the server as part of the form data, if two or more input elements have the "type" attribute with "radio" as the value, and if you give them the same name then only one of them can be selected at a time.
+
+        (c) "id": Assigns a unique identifier to the input field. The id attribute can be used to associate a <label> element with the input field using the for attribute of the <label>. This helps improve accessibility and usability by allowing users to click on the label to focus on the associated input field.
+
+        (d) "value": Sets the initial value for the input field. This attribute is used to pre-fill the input field with a default value. When the form is submitted, the value entered by the user will be sent to the server, not the value attribute itself.
+
+        (e) "required": Specifies that the input field must be filled out before the form can be submitted. When this attribute is present, the browser will enforce client-side validation and display an error message if the required field is left empty.
+
+        (f) "placeholder": Provides a short hint or example text that is displayed in the input field before the user enters any value. It is typically used to provide instructions or guidance to the user about the expected input format or the purpose of the input field, for example it's a search form then It should be something like this:- "Seach Anything..."
+
+        (g) "disabled": Disables the input field, making it non-editable and preventing user interaction. Disabled input fields are typically used to display information that cannot be modified.
+
+        (h) "readonly": The "readonly" attribute is used to make the input field read-only. It allows the user to see the value of the input field but prevents them from modifying or entering new data.
+
+        (i) "maxlength": The "maxlength" attribute is used to specify the maximum number of characters that can be entered into the input field. It restricts the input length and can be used to enforce character limits.
+
+        These are just a few of the commonly used attributes for the <input> element. There are many more attributes available, depending on the specific type of input field being used. By combining different attributes and types, you can create various forms that capture different types of user input.
+
+        Here's an example of an HTML form with different types of <input> elements:
+
+            <form action="/submit-form" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="checkbox">Checkbox:</label>
+                <input type="checkbox" id="checkbox" name="checkbox">
+
+                <label for="radio1">Option 1:</label>
+                <input type="radio" id="radio1" name="radio" value="option1">
+
+                <label for="radio2">Option 2:</label>
+                <input type="radio" id="radio2" name="radio" value="option2">
+
+                <input type="submit" value="Submit">
+            </form>
+
+    (iv) <label> It's used to define a label for an <input>, <textarea>, <select>, or other form elements. It provides a text description or a name for the associated form control, improving accessibility and usability by allowing users to click on the label to focus on or interact with the associated form element. It's usually placed right before or after the form element it is associated with.
+        
+        It can be associated with the form element using one of two methods:
+
+        (a) Using the "for" attribute: The "for" attribute is used to explicitly associate the <label> with the id attribute of the form element. This association is done by specifying the id value of the form element as the value of the "for" attribute in the <label>.
+
+        (b) Wrapping the form element: Instead of using the "for" attribute, you can also wrap the form element within the <label> tag. This implicitly associates the label with the form element it encloses. This method is especially useful for radio buttons and checkboxes.
+
+        (c) Bonus Method: If you use both of them and then If you put an element inside the lable element with the input tag then If you click on the other element then it'll check the box, here's an example:-
+
+            <form action="/accounts.php" method="post">
+                
+                <label for="gender_male">
+                    <input type="radio" name="gender" value="gender" id="gender_male"> Male
+                </label>
+
+                <label for="gender_female">
+                    <input type="radio" name="gender" value="gender" id="gender_female"> Female
+                </label>
+            </form> 
+
+        Here's an example that demonstrates both the attribute and the Wrapping methods:
+
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+
+                <label>
+                    Password:
+                <input type="password" name="password">
+                </label>
+
+                <label>
+                    <input type="checkbox" name="remember">
+                    Remember me
+                </label>
+
+                <button type="submit">Submit</button>
+                </form>
+
+            (I) In this example, the first <label> uses the for attribute to explicitly associate the label with the username <input> by matching the for attribute value with the id attribute of the input. The second <label> wraps the password <input>, implicitly associating the label with the input element it encloses. The third <label> wraps the "Remember me" checkbox.
+
+    (v) <textarea> element defines a multi-line text input control. It can hold an unlimited number of characters and the texts are displayed in a fixed-width font (usually courier). The size of the HTML textarea is defined by the "cols" and "rows" attribute, or it can also be defined through CSS height and width properties.
+
+        Here is an example of how to use the textarea tag:
+
+        <textarea name="comments" cols="30" rows="10">
+            your comments Goes here
+        </textarea>
+
+        (a) In this example, the textarea element has a name of comments, a width of 30 columns, and a height of 10 rows. The text between the textarea and </textarea> tags will be the default value of the text area.
+
+        Here are some of the attributes that can be used with the textarea tag:
+
+        (b) <name>: It's used to identify the text area in the form data.
+        (c) <cols>: specifies the width of the text area in columns.
+        (d) <rows>: specifies the height of the text area in rows.
+        (e) <placeholder>: It's the Text that appear when there's nothing inside the text area and when you start typing it disappears and it appears a bit lighter than the normal text, and yet it also gives a hit what to write in the text area.
+        (f) <wrap>: specifies how the text is to be wrapped in the text area when a form is submitted.
+        (g) <required>: specifies that the text area must be filled out before submitting the form.
+
+    (vi) <select> It's used to create a drop-down list. It is most often used in a form, to collect user input. The select element contains option tags to display the available options of the drop-down list.
+
+        Here is an example of how to use the select tag:
+        
+        <select name="country">
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+            <option value="china">China</option>2
+        </select>
+
+        (a) In this example, the select element has a name of country and has three options: India, USA, and China. The value of the selected option will be submitted with the form when the user submits the form.
+
+        Here are some of the attributes that can be used with the select tag:
+
+        (b) <name>: It's used to identify the drop-down list in the form data.
+        (c) <multiple>: specifies that the user can select multiple options from the drop-down list.
+        (d) <size>: specifies the number of options that are displayed at once in the drop-down list.
+        (e) <disabled>: specifies that the drop-down list is disabled and cannot be selected by the user.
+        (f) <required>: specifies that the user must select an option from the drop-down list before submitting the form.
+
+11. Iframe
+
+    (i) <Iframe> It's used to embed or display another HTML document or webpage within the current document. It stands for "inline frame"
+
+        here's an example that shows a map
+
+        <iframe id="inlineFrameExample" title="Inline Frame Example" width="300" height="200" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik">
+        </iframe>
+
+        (Note: Some Website may disable this feature for their website to void any phising type of scams, I mean they can just pretend to be the actual website when they aren't)
+
+    Here are some of the attributes that can be used with the select tag:
+
+    (ii) "src": The "src" attribute specifies the source URL of the webpage or document to be displayed within the <iframe>. You provide the URL of the page you want to embed, such as <iframe src="https://www.example.com"></iframe>.
+    
+    (iii) "title": The "title" attribute provides a text description or title for the <iframe>. It is used to describe the content of the embedded document and can be helpful for accessibility purposes.
+
+    (iv) "frameborder": The "frameborder" attribute specifies whether or not to display a border around the <iframe>. Setting it to 0 will remove the border, while setting it to 1 will display a border. For example, <iframe src="..." frameborder="0"></iframe>.
+
+    (v) "scrolling": The "scrolling" attribute controls whether scrollbars should be displayed within the <iframe> to allow users to scroll the content if it exceeds the dimensions of the <iframe>. It can be set to values like yes, no, or auto
+
+    (vi) "sandbox": The "sandbox" attribute enables a restricted security sandbox environment for the content within the <iframe>. It helps mitigate potential security risks by preventing the embedded content from accessing certain features or resources of the parent document.
+
+    (vii) "loading": The "loading" attribute specifies how the content within the <iframe> should be loaded. It can be set to "eager", "lazy", or "auto". This attribute helps control the loading behavior for optimizing page performance.
+
+    These Attributes below here are not necessary to Learn but if you want you can, consider skipping it for now you can read it later
+
+    (viii) "allowfullscreen" Set to true if the <iframe> can activate fullscreen mode by calling the "requestFullscreen()" method.
+        (Note: This attribute is considered a legacy attribute and redefined as `allow="fullscreen"` )
+
+    (ix) "allow" Specifies a Permissions Policy, The policy defines what features are available to the <iframe>. for example, access to the microphone, camera, battery, web-share, etc. based on the origin of the request.
+
+    
+    (x) "allowpaymentrequest" :Set to true if a cross-origin <iframe> should be allowed to invoke the Payment Request API.
+
+        (Note: This attribute is considered a legacy attribute and redefined as allow="payment" and this attribute is Experimental and can may change in the future.)
+
+    (xi) "credentialless": Set to true to make the <iframe> credentialless, meaning that its content will be loaded in a new, ephemeral context. It doesn't have access to the network, cookies, and storage data associated with its origin. It uses a new context local to the top-level document lifetime. In return, the Cross-Origin-Embedder-Policy (COEP) embedding rules can be lifted, so documents with COEP set can embed third-party documents that do not. See IFrame credentialless for more details.
+
+        (note: This is Experimental & Non-standard)
+    
+    (xii) "csp": A Content Security Policy enforced for the embedded resource. Click the link below to see details about capability.
+
+        (note: This is Experimental)
+
+        (a) The link:- "https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/csp"
+
+    (xiii) "referrerpolicy": Indicates which referrer to send when fetching the frame's resource:
+        
+        here's the values for this attributes
+
+        (a) "no-referrer": The Referer header will not be sent.
+        (b) "no-referrer-when-downgrade": The Referer header will not be sent to origins without TLS (HTTPS).
+        (c) "origin": The sent referrer will be limited to the origin of the referring page: its scheme, host, and port.
+        (d) "origin-when-cross-origin": The referrer sent to other origins will be limited to the scheme, the host, and the port. Navigations on the same origin will still include the path.
+        (e) "same-origin': A referrer will be sent for same origin, but cross-origin requests will contain no referrer information.
+        (f) "strict-origin": Only send the origin of the document as the referrer when the protocol security level stays the same (HTTPS→HTTPS), but don't send it to a less secure destination (HTTPS→HTTP).
+        (g) "strict-origin-when-cross-origin" (default): Send a full URL when performing a same-origin request, only send the origin when the protocol security level stays the same (HTTPS→HTTPS), and send no header to a less secure destination (HTTPS→HTTP).
+        (h) "unsafe-url": The referrer will include the origin and the path (but not the fragment, password, or username). This value is unsafe, because it leaks origins and paths from TLS-protected resources to insecure origins.
+
+    (xiv) "srcdoc": Inline HTML to embed, overriding the src attribute. If a browser does not support the srcdoc attribute, it will fall back to the URL in the src attribute.
+
+12. Video
+
+    (i) <video> It's used to embed and play videos directly within a web page. It provides a native way to incorporate video content without the need for external plugins
+
+    Here's some attributes for this element
+
+    (ii) "src": The src attribute specifies the URL or file path of the video file to be played. You provide the source of the video file, such as <video src="video.mp4"></video>.
+
+    (iii) "controls": The controls attribute enables the default video controls, such as play/pause, volume control, and progress bar. It adds a set of controls to the video player, making it interactive and user-friendly. For example, <video src="..." controls></video>. You can put "autoplay" and "loop" and their function is same as their name and make sure to put "controls" attribute first. additionally you can use your basic keyboard shortcuts to control the video such as "space" pauses the video and the left & right arrow keys can be used to go 10 seconds forwards or backwords. Here's the example code that includes all of these:-
+
+        <video src="video.mp4" controls autoplay loop width="800px"></video>
+
+    (iv) "width and height": These attributes define the width and height dimensions of the video player. You can set them using pixel values, percentages, or other length units. For example, <video src="..." width="500" height="300"></video>.
+
+    (v) "poster": The poster attribute specifies an image to be displayed as a placeholder or preview before the video starts playing. It is typically used to provide a visual representation of the video content.
+
+    (vi) "autoplay": The autoplay attribute automatically starts playing the video as soon as the page loads. When included, the video will begin playing without any user interaction.
+
+    (vii) "loop": The loop attribute makes the video continuously loop or replay once it reaches the end. When included, the video will automatically restart once it finishes playing.
+
+    (viii) "muted": The muted attribute enables the video to be initially muted, meaning the audio will not be played. Users can manually unmute the video if desired.
+
+    (ix) "preload": The preload attribute indicates how the video should be preloaded when the page loads. It can be set to values like auto, metadata, or none, specifying whether the video's metadata, the entire video, or no data should be preloaded.
+
+    Elements
+
+    (x) <source> It's nested inside the <video> tag and is used to specify multiple video sources in different formats. This allows the browser to choose the most suitable format based on device and browser compatibility. For example:
+
+13. Meta
+
+    (i) <meta> It's used to provide metadata or additional information about an HTML document. It does not have a closing tag and is typically placed within the <head> section of an HTML document.
+
+    Here's the attributes for the <meta> tag
+    
+    (ii) charset: The charset attribute specifies the character encoding for the HTML document. It defines the character set used to interpret and display the text content. For example, <meta charset="UTF-8"> specifies the UTF-8 character encoding.
+
+    (iii) name and content: These attributes are used together to define various types of metadata.
+    
+        (a) "name": It specifies the type of metadata being provided.
+        (b) "content": It provides the value or content of the metadata and you can type in anything you want.
+        
+        Some commonly used values for the "name" attribute:
+
+        (c) description: Provides a brief description of the HTML document.
+        (d) keywords: Specifies a comma-separated list of keywords related to the document's content.
+        (e) author: Specifies the name of the author of the document.
+        (f) viewport: Specifies the viewport settings for responsive web design.
+        (g) robots: Provides instructions for search engine crawlers.
+        
+        Here's an example code:
+
+            <meta name="description" content="This is a sample HTML document.">
+            <meta name="keywords" content="HTML, metadata, web development">
+            <meta name="author" content="John Doe">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="robots" content="index, follow">
+
+    (iv) "http-equiv" attribute is used to define an HTTP header for the document. It allows you to provide information or instructions that are typically communicated through HTTP headers. Commonly used values include:
+
+        (a)refresh: Specifies an automatic page refresh.
+        (b)content-type: Specifies the MIME type of the document.
+
+        Here's an Example Code:
+
+        <meta http-equiv="refresh" content="5; URL=https://www.example.com">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    (v) property and content: These attributes are used to define metadata specifically for social media platforms or search engines. They are commonly used with Open Graph (OG) and Twitter Card metadata to control how content is displayed when shared on social media.
+
+        For example:-
+
+            <meta property="og:title" content="Page Title">
+            <meta property="og:description" content="This is a sample page description.">
+            <meta property="og:image" content="https://www.example.com/image.jpg">
+            <meta name="twitter:title" content="Page Title">
+            <meta name="twitter:description" content="This is a sample page description.">
+            <meta name="twitter:image" content="https://www.example.com/image.jpg">
