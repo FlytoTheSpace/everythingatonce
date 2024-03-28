@@ -1,0 +1,3808 @@
+==========================================================================================================
+											Python
+==========================================================================================================
+
+Started on: 13 November 2023
+
+Introduction:
+
+	Python is a high level general-purpose programming language. It uses a multi-paradigm approach, meaning it supports procedural, object-oriented, and some functional programming constructs.
+
+	It was created by Guido van Rossum as a successor to another language (called ABC) between 1985 and 1990, and is currently used on a large array of domains like web development, desktop applications, data science, DevOps, and automation/productivity.
+
+	Python is developed under an OSI-approved open source license, making it freely usable and distributable, even for commercial use. Python's license is administered by the Python Software Foundation.
+
+Basics:
+
+1. Print
+
+	(i) In Python, the `print()` function is used to display information or output to the console. It allows you to output text, variables, or expressions to the standard output, which is usually the console or terminal where your Python program is running.
+
+	(ii) Syntax:
+
+		print(value1, value2, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+
+		(a) `value1, value2, ...`: These are the values or expressions that you want to print. You can provide multiple values separated by commas.
+		(b) `sep=' '`: This parameter specifies the separator between the values. The default is a space (' '), but you can change it to any string.
+
+		(c) `end='\n'`: This parameter defines what to print at the end. The default is a newline character ('\n'), which means a new line is added after the values. You can change it to any string.
+
+		(d) `file=sys.stdout`: This parameter specifies the file where the output will be printed. The default is the standard output (sys.stdout), but you can redirect the output to a different file.
+
+		(e) `flush=False`: This parameter determines if the output stream should be forcibly flushed. The default is `False`, which means it won't be flushed immediately. Flushing is the process of writing the contents of a buffer to the output.
+
+	Here are some examples:
+
+		# Basic usage
+		print("Hello, World!")
+
+		# Printing multiple values
+		name = "John"
+		age = 30
+		print("Name:", name, "Age:", age)
+
+		# Customizing separator and end characters
+		print("One", "Two", "Three", sep=', ', end='!!\n')
+
+		# Redirecting output to a file
+		with open("output.txt", "w") as f:
+		    print("This is written to a file.", file=f)
+
+2. Comments
+
+	(i) Comments in programming are annotations or explanatory notes that are added to the source code to provide information about the code's functionality. Comments are ignored by the compiler or interpreter and are meant for human readers, developers, or anyone else reviewing the code. They help improve code readability, understanding, and maintenance. In Python, comments are initiated using the `#` symbol.
+
+	Here are some key points about comments in Python:
+
+	(ii) Single-Line Comments: The most common way to add a comment in Python is to use the `#` symbol. Anything following the `#` on the same line is treated as a comment.
+
+		# This is a single-line comment
+		print("Hello, World!")  # This is a comment at the end of a line
+
+	(iii) Multi-Line Comments: Python does not have a specific syntax for multi-line comments, but you can use triple-quotes (''' or """) to create multi-line strings, effectively achieving a similar result.
+
+		'''
+		This is a multi-line comment.
+		It spans multiple lines.
+		'''
+
+		print("Hello, World!")
+
+	(iv) Purpose of Comments:
+
+		(a) Comments are used to explain the purpose of code, document functions and classes, provide context for complex algorithms, or leave notes for future maintainers.
+		(b)They are helpful for collaborators and for your future self when returning to the code after some time.
+		
+	(v) Commenting Out Code: Comments are also commonly used to temporarily disable or "comment out" lines of code during testing or debugging.
+
+		# print("This line is commented out for now.")
+
+	(vi) Docstrings: For documenting functions, classes, or modules, Python has a special type of comment called docstrings. Docstrings are enclosed in triple-quotes and are used to provide documentation that can be accessed using tools like `help()` or documentation generators.
+
+		def my_function():
+    	"""
+    	This is a docstring for my_function.
+    	It explains what the function does.
+    	"""
+    	# Function code goes here
+
+3. Variables
+
+	(i) a variable is a named storage location that holds data, and its value can be changed during the execution of a program. Variables are fundamental to almost every programming language, including Python. They allow you to store and manipulate data in your programs.
+
+	Here are some key aspects of variables in Python:
+
+	(ii) Variable Naming 
+		
+		(a) Variable names in Python can consist of letters (both uppercase and lowercase), numbers, and underscores.
+		(b) They must start with a letter or an underscore.
+		(c) Python variable names are case-sensitive (`age` and `Age` are different variables).
+
+	(iii) Variable Assignment:
+
+		(a) You use the assignment operator (=) to assign a value to a variable.
+		(b) The data type of a variable is determined dynamically based on the assigned value.
+
+		for Example :-
+
+			age = 25  # The variable 'age' now holds the value 25
+			name = "John"  # The variable 'name' now holds the string "John"
+
+	(iv) Data Types (Quick Overview):
+
+		Variables can hold different types of data, such as integers, floating-point numbers, strings, lists, dictionaries, and more.
+
+		Python is dynamically typed, meaning you don't need to explicitly declare the type of a variable.
+
+
+			x = 10         # Integer
+			y = 3.14       # Float
+			message = "Hello, World!"  # String
+			is_student = True  # Boolean
+
+	(v) Variable Reassignment: You can change the value of a variable by assigning a new value to it.
+
+		age = 25
+		age = 30  # Variable 'age' is reassigned with a new value
+
+	(vi) Variable Use in Expressions: Variables can be used in mathematical expressions and other operations.
+
+		width = 5
+		height = 10
+		area = width * height  # Variable 'area' is assigned the result of the multiplication
+	
+	(vii) Printing Variables: You can display the value of a variable using the `print()` function.
+
+		name = "Alice"
+		print("Hello, " + name)
+
+	(viii) Reserved Words: Avoid using Python keywords and reserved words as variable names.
+
+		# Incorrect usage
+		class = "Python"
+
+4. Expressions vs Declaration vs Statements
+
+	(i) In Python, declarations, expressions, and statements are fundamental concepts that are used to define and manipulate data, control program flow, and perform various operations. Here's an explanation of each:
+
+	(ii) Example:-
+
+		x = 45 # <-- Declaration
+
+		print(x) # <-- Expression
+
+		if (x > 30): # <-- Statement
+			y = x*2 # <-- Declaration
+			print(y) # <-- Expression
+
+		def toInteger(string){ # <-- Declaration
+			number = int(string) # <-- Declaration
+
+			return number # <-- Expression
+		}
+
+	(i) Declaration:
+
+		A declaration is a way of introducing an identifier (such as a variable, function, class, etc.) to the Python interpreter. It associates a name with a specific entity and may optionally specify its type or initial value.
+
+		(a) Variable Declaration: In Python, variable declaration is implicit; you simply assign a value to a variable, and Python automatically creates the variable.
+	
+		    x = 10  # Variable 'x' is declared and assigned the value 10
+
+		(b) Function Declaration: Functions are declared using the `def` keyword followed by the function name, parameters, and body.
+
+		    def greet(name):
+		        print(f"Hello, {name}!")
+
+	(ii) Expression:
+
+		(a) An expression is a combination of literals, variables, operators, and function calls that evaluates to a single value. Expressions are the building blocks of Python programs and are used to perform computations or represent data.
+
+		(b) Arithmetic Expressions:
+
+		    result = 3 + 5 * 2  # Evaluates to 13
+
+
+		(c) Function Call Expressions:
+
+		    greet("Alice")  # Calls the greet function with the argument "Alice"
+
+		(d) Conditional Expressions (Ternary Operator):
+
+		    result = "positive" if x > 0 else "negative"  # Evaluates to "positive" or "negative" based on the value of x
+
+	(iii) Statement: A statement is a complete instruction that performs an action or controls the flow of execution within a Python program. Statements are executed sequentially, one after the other, unless control flow statements (e.g., `if`, `while`, `for`, `break`, `continue`, etc.) are used to alter the flow of execution.
+
+		(a) Assignment Statement:
+
+	    	x = 10  # Assigns the value 10 to the variable 'x'
+
+		(b) Conditional Statement (if-elif-else):
+
+	    	if x > 0:
+	    	    print("Positive")
+	    	elif x == 0:
+	    	    print("Zero")
+	    	else:
+	    	    print("Negative")
+
+		(c) Loop Statement (while and for):
+
+	    	i = 0
+	    	while i < 5:
+	    	    print(i)
+	    	    i += 1
+
+	    	for item in [1, 2, 3]:
+	    	    print(item)
+
+		(d) Function Call Statement:
+
+	    	greet("Bob")  # Calls the greet function with the argument "Bob"
+
+	(iv) In summary, declarations introduce identifiers and their associated entities, expressions produce values, and statements perform actions or control the flow of execution within a Python program. Understanding these concepts is crucial for writing clear, concise, and effective Python code.
+
+5. Data Types
+
+	(i) In Python, data types are classifications that specify which type of value a variable can hold. Python is a dynamically-typed language, which means that you don't need to explicitly declare the data type of a variable. The interpreter infers the data type based on the value assigned to the variable. 
+	
+	Here are some of the main data types in Python:
+
+	(ii) Numeric Types:
+
+		(a) int (integer): Represents whole numbers without any decimal points.
+
+			x = 10
+
+		(b) float (floating-point): Represents numbers with decimal points.
+
+			y = 3.14
+
+		(c) complex: Represents complex numbers with a real and an imaginary part.
+
+			z = 2 + 3j
+
+	(iii) String Type
+		
+		(a) str (string): Represents sequences of characters enclosed in single (''), double (" "), or triple (''' or """) quotes.
+
+		message = "Hello, World!"
+
+		(b) Strings can be enclosed using:
+
+			(I) a set of single quotes
+
+				a = 'Hello, World'
+				
+			(II) a set of double quotes
+
+				a = 'Hello, World'
+
+			(III) a triple of single quotes (Supports multiline Strings)
+
+				a = '''Hello, World'''
+
+			(IV) a triple of double quotes (Supports multiline Strings)
+
+				a = """Hello, World"""
+
+		(c) Check if sub-string exists in a String, using `in` keyword (Returns Boolean)
+
+			(A) Syntax:
+
+				<sub-string> in <Strug>
+
+			"Worl" in "Hello, World" #True
+			"llo" in "Hello, World" #True
+			"Hello" in "Hello, World" #True
+
+		(d) Functions of String
+			
+			(I) `len(String)`: prints the length of the string
+
+				len("world"); # 5
+
+			(II) `String.capitalize()`: capitalizes the first letter of the String and (returns)
+
+				"world".capitalize(); # `World`
+
+			(III) `String.casefold()`: optimizes for use (returns)
+
+				"Hello, World".capitalize(); # `hello, world`
+
+			(IV) `String.upper()`: All Characters Uppercase (returns)
+
+				"World".upper(); # `WORLD`
+
+			(V) `String.lower()`: All Characters Lowercase (returns)
+
+				"World".lower(); # `world`
+
+			(VI) `String.rstrip(<character>)`: Remove all of the Specific Trailing Characters (returns)
+
+				"???World???".rstrip('?'); # `???world`
+
+			(VII) `String.replace(<this to>, <this>)`: Replace All The Matching Characters Lowercase (returns)
+
+				"World".upper(); # `world`
+			
+			(VIII) `String.split(<split by>)`: a list of strings separated by a the given string (returns)
+
+				"World".upper(); # `world`
+				
+			(IX) `String.center(<number of spaces>)`: adds number of space in the begging of the string (returns)
+
+				"World".center(20); 
+				#                    world
+
+			(X) `String.count(<character/word>)`: how many times a character/word occurs in the string (returns)
+
+				"hello world, world".count('world') # 2;
+
+			(XI) `String.startswith(<character/word>, <start>, <end>)`: does the string or substring starts with the given character/word (returns boolean)
+
+				"hello world".startswith('hello') # true;
+
+			(XII) `String.endswith(<character/word>, <start>, <end>)`: does the string or substring ends with the given character/word (returns boolean)
+
+				"hello world world".endswith('world') # true;
+
+			(XIII) `String.find(<character/word>)`: returns the index of the first character/word in the string (returns)
+
+				"Hello, world".find('world'); # 7
+				# returns -1 if it doesn't find one
+
+			(XIV) `String.index(<character/word>)`: returns the index of the first character/word in the string (returns)
+
+				"Hello, world".find('world'); # 7
+				# throws error if it doesn't find one
+
+			(XV) `String.isalnum()`: checks if all the characters in the String are in encoding Base64 or Not (returns boolean)
+
+				"Hello, world".isalnum('world'); # false
+
+				(A) Base64 Consists of:
+
+				    I. Uppercase letters (26 characters): A to Z
+    				II. Lowercase letters (26 characters): a to z
+    				III. Digits (10 characters): 0 to 9
+    				IV. Two extra characters: typically, these are `+` and `/`
+
+			(XVI) `String.isalpha()`: checks if all the characters in the String are in encoding Base62 or Not (returns boolean)
+
+				"Hello world".isalpha('world'); # true
+
+				(A) Base62 Consists of:
+
+				    I. Uppercase letters (26 characters): A-Z
+    				II. Lowercase letters (26 characters): a-z
+
+			(XVII) `String.islower()`: checks if all the characters in the String are in lowercase or Not (returns boolean)
+
+				"hello world".islower('world'); # true
+
+			(XVIII) `String.isupper()`: checks if all the characters in the String are in uppercase or Not (returns boolean)
+
+				"Hello world".isupper('world'); # false
+
+			(XIX) `String.isprintable()`: checks if all the characters in the String are printable or Not (returns boolean)
+
+				"Hello world".isprintable('world'); # true
+				"Hello world".isprintable('world \n'); # false (backslash is an escape sequence character, it's not printable)
+
+			(XX) `String.isspace()`: checks if the string contains white spaces (returns boolean)
+
+				"Hello world".isspace('Hello World'); # true (returns true even if it's indent)
+				"Hello world".isspace('Hello-World'); # false
+
+			(XXI) `String.istitle()`: checks if character of every word in the string is capital (returns boolean)
+
+				"Hello World".istitle('Hello World'); # true
+				"Hello world".istitle('Hello-World'); # false
+
+			(XXII) `String.title()`: Capatilizes the first letter of every word in the String (returns)
+
+				"hello, world".title(); # `Hello, World`
+
+		(e) String Formatting
+
+			(I) In normal Strings, You have to leave curly brackets '{}' in thoses Parts of Strings in order to insert values in Them. for example:-
+
+			Introduction = "Hi, my name's {} and I'm {}"
+				
+			(II) `String.format(args...)`: Format Function takes arguments that will be placed on those parts of The String.
+
+			print(Introduction.format("James", 27))
+			# "Hi, my name's James and I'm 27"
+
+			# You define order of Insertion in The String (Index):
+
+			Introduction = "Hi, my name's {1} and I'm {0}"
+			
+			print(Introduction.format(27, "James")) # Order of Insertion has changed
+			# "Hi, my name's James and I'm 27"
+
+		(f) `f-string(s)`
+
+			(I) F-strings, introduced in Python 3.6 as a new string formatting mechanism, are a concise and convenient way to embed expressions inside string literals for formatting. They are called "f-strings" because you use the letter "f" at the beginning of the string to indicate that it's an f-string. This feature enhances the readability and maintainability of Python code, especially when dealing with dynamic string content.
+
+			(II) Basic Syntax:
+
+				(A) An f-string is a string literal that is prefixed with `f` or `F`. You can embed expressions inside curly braces `{}` within the string.
+
+			Example :-
+
+				name = "James"
+				age = 27
+				greeting = f"Hello, my name is {name} and I am {age} years old."
+				print(greeting)  # Output: Hello, my name is James and I am 27 years old.
+
+			(III) Expressions Inside F-Strings: You can place any valid Python expression inside the curly braces of an f-string:
+
+				(A) Variables:
+
+					f"Hello, {name}!"
+
+				(B) Arithmetic Operations:
+
+					f"The sum of 2 and 3 is {2 + 3}."
+					
+				(C) Function Calls:
+
+					f"The capital of France is {get_capital('France')}."
+
+				(D) Method Invocations:
+
+					f"Lowercased name: {name.lower()}."
+
+			(IV) Formatting with F-Strings:
+
+				(A) F-strings also allow for inline formatting, making it easy to format numbers, dates, and more.
+				
+				(B) Formatting Numbers:	
+
+					pi = 3.14159
+					f"Pi rounded to two decimal places is {pi:.2f}"
+
+				(C) Padding and Alignment:
+
+					f"{name:10}"  # Right-aligned with a width of 10
+					f"{name:<10}" # Left-aligned with a width of 10
+					f"{name:^10}" # Center-aligned with a width of 10
+
+				(D) Date Formatting:
+
+					from datetime import datetime
+					now = datetime.now()
+					f"Current time: {now:%Y-%m-%d %H:%M}"
+
+			(V) In order to user curly brackets inside f-String you have to put double sets of curly brackets:
+
+				# using double sets:
+
+				f"this is a set of curly brackets inside f-string: {{}} "
+
+	(iv) Boolean Type: bool (boolean):
+		
+		(a) Represents the values True or False, typically used in conditional statements.
+
+		is_true = True
+		is_false = False
+
+	(v) Sequence Types:
+
+		(a) `list` 
+			
+			(I) `list` Represents an ordered collection of elements. Elements can be of different data types.
+
+				my_list = [1, 2, 3, "four", 5.0]
+
+			(II) Indexing in Lists
+
+				my_list = ["Hello", "World", 72, True, 5.0, 723, "mark", False]
+
+				print( my_list[0] ) # "Hello"
+				print( my_list[1] ) # "World"
+				print( my_list[2] ) # 72
+				print( my_list[3] ) # True
+				print( my_list[4] ) # 5.0 
+				print( my_list[5] ) # 723 
+				print( my_list[6] ) # "mark" 
+				print( my_list[7] ) # False
+				# In Reverse
+				print( my_list[-1] ) # False
+				print( my_list[-2] ) # "mark" 
+				print( my_list[-3] ) # 723 
+				print( my_list[-4] ) # 5.0  
+				print( my_list[-5] ) # True
+				print( my_list[-6] ) # 723
+				print( my_list[-7] ) # "World"
+				print( my_list[-8] ) # "Hello"
+				# Range
+				(A) Syntax:
+
+					<list>(<start>:<end>)
+
+				print( my_list[ 5 : ]) # [72, "mark", False]
+				print( my_list[ 0 : 1]) # ["Hello"]
+				print( my_list[ 0 : 2]) # ["Hello", "World"]
+				print( my_list[ : 2]) # ["Hello", "World"]
+				print( my_list[ 1 : 2]) # ["World"]
+				print( my_list[ 1 : 3]) # ["World", 72]
+				print( my_list[ 1 : 4]) # ["World", 72, True]
+				print( my_list[ 1 : 5]) # ["World", 72, True, 5.0]
+				print( my_list[ 1 : 6]) # ["World", 72, True, 5.0, 723,]
+				print( my_list[ 1 : 6]) # ["World", 72, True, 5.0, 723, "mark"]
+
+				(Note: It excludes the ending values, so it could work it `len()` function)
+
+				# Skip every <x>th values
+				(B) Syntax:
+
+					<list>(<start>:<end>:<x>)
+
+				print( my_list[ 0 : len(my_list) ] ) # ["Hello", "World", 72, True, 5.0, 723, "mark", False]
+				print( my_list[ 0 : len(my_list):2 ] ) # ["Hello", 72, 5.0, "mark"]
+				print( my_list[ 0 : len(my_list):3 ] ) # ["Hello", "World", True, 5.0, "mark", False]
+
+			(III) Check if value exists in the List, using `in` keyword (Returns Boolean)
+
+				(A) Syntax:
+
+					<value> in <list>
+
+				my_list = ["Hello", "World"];
+
+				"Hello" in my_list #True
+			
+			(Note: It's not Necessary to Follow the order You can skip this part and come back to it later)
+
+			(IV) `Loops` and `Ternary` Operator with lists:
+
+				# Loops
+				my_list = [i for i in range(10)] # [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+				my_list = [i*i for i in range(1, 11)] # [ 1, 4, 9, 16, 25, 36, 49, 64, 81, 100] <-- Squares
+
+				# Loops + Ternary Operator
+				my_list = [i for i in range(10) if i% 2 ==0 ] # [ 0, 2, 4, 6, 8] <-- Filter Divisibility by 2
+
+			(V) List Functions:
+
+				(A) `List.append(<value>)`: Appends a value to the end of the list
+
+					my_list = [1, 2, 3, 4]
+					my_list.append(5)
+					print(my_list) # [1, 2, 3, 4, 5]
+
+				(B) `List.sort(<Reverse? optional>)`: Sorts The String
+
+					my_list = [54, 72, 14, 30, 45]
+					my_list.sort() # Sorts in Ascending order
+					print(my_list) # [14, 30, 45, 54, 72] 
+
+					my_list.sort(reverse=True) # Sorts in Descending order
+					print(my_list) # [72, 54, 45, 30, 14]
+
+				(C) `List.reverse()`: Reverses The List (It does not Sorts)
+
+					my_list = [54, 72, 14, 30, 45]
+					my_list.reverse() # Reverses The List
+					print(my_list) # [45, 30, 14, 72, 54]
+
+				(D) `List.index(<value>, <start>, <end>)`: Returns The First Index of The Values inside The List
+
+					my_list = [54, 72, 14, 30, 45, 124, 67, 14, 64, 12]
+					print(my_list.index(14)) # 2
+
+					# Find in Between 2 indexes
+					print(my_list.index(4, 9)) # 7
+
+				(E) `List.count(<value>)`: Returns The Times The values has occured inside the list
+
+					my_list = [54, 72, 14, 30, 72, 14, 45, 54]
+					print(my_list.count(14)) # 2
+					print(my_list.count(54)) # 2
+					print(my_list.count(45)) # 1
+
+				(F) `List.copy()`: Returns A Copy of The list rather than a Reference
+
+					# Without `copy()` Function:
+
+					my_list1 = [1, 2, 3, 4, 5]
+
+					my_list2 = my_list1 
+					my_list2[1] = 0
+
+					print(my_list1) # [1, 0, 3, 4, 5]
+					print(my_list2) # [1, 0, 3, 4, 5]
+
+					# `my_list2` is just a Reference to `my_list1`, meaning anything you do with `my_list2` will also apply to `my_list1`
+
+					# With `copy()` function
+
+					my_list1 = [1, 2, 3, 4, 5]
+
+					my_list2 = my_list1.copy() 
+					my_list2[1] = 0
+
+					print(my_list1) # [1, 2, 3, 4, 5]
+					print(my_list2) # [1, 0, 3, 4, 5]
+				
+				(G) `List.insert(<index>,<value>)`: Inserts The Value at The Index
+
+					my_list = [1, 2, 3, 4]
+					
+					my_list.insert(1, 5)
+
+					print(my_list) # [1, 5, 2, 3, 4]
+
+				(H) `List.extend(<list>)`: Extends First List with the Second List
+
+					colors = [
+						"Red",
+						"Orange",
+						"Yellow",
+						"Green"
+					]
+					NegativeColors = [
+						"Cyan",
+						"Blue",
+						"Purple"
+					]
+					colors.extend(NegativeColors)
+					
+					print(colors) # [
+						"Red",
+						"Orange",
+						"Yellow",
+						"Green",
+						"Cyan",
+						"Blue",
+						"Purple"
+					]
+
+					# without Modifing The Original String:
+
+					PostiveColors = [
+						"Red",
+						"Orange",
+						"Yellow",
+						"Green"
+					]
+					NegativeColors = [
+						"Cyan",
+						"Blue",
+						"Purple"
+					]
+					colors = PostiveColors + NegativeColors
+					
+					print(colors) # [
+						"Red",
+						"Orange",
+						"Yellow",
+						"Green",
+						"Cyan",
+						"Blue",
+						"Purple"
+					]
+
+				(I) `List.pop(<index>)`: Removes The Value on The Index
+
+					my_list = [1, 2, 3, 4]
+					
+					my_list.pop(1)
+
+					print(my_list) # [1, 3, 4]
+
+				(J) `list(<value>)`: converts The Value into a list:
+
+					colors = ("Red", "Green", "Blue")
+
+					colors_list = list(colors)
+					print(colors_list) # ["Red", "Green", "Blue"]
+
+		(b) `tuple`
+			
+			(I) `tuple`: Similar to a list but immutable, meaning you cannot modify its elements after creation.
+
+				my_tuple = (1, 2, 3, "four", 5.0)
+
+				(Note: Tuples must atleast contains 1 comma ',' so it Python interpreter won't get confused with it's Data-Type)
+
+				my_tuple = (2)
+				print(type(my_tuple), my_tuple) # <class 'int'> 2
+
+				my_tuple = (2,)
+				print(type(my_tuple), my_tuple) # <class 'tuple'> (2,)
+
+			(II) Modifing a Tuple:
+
+				my_tuple = (1,5,4)
+
+				my_list = list(my_tuple)
+				
+				# Modifications:
+				my_list[1] = 3
+				my_list.insert(1, 2)
+				my_list.append(5)
+
+				my_tuple = tuple(my_list)
+				print(my_tuple) # (1, 2, 3, 4, 5)
+
+			(II) Tuple Functions:
+
+				(A) `tuple(<value>)`: Converts a Value into a Tuple: 
+
+					my_list = [1, 2, 3, 4]
+					my_tuple = tuple(my_list)
+					print(my_tuple) # (1, 2, 3, 4)
+
+				(Note: All The Functions of List that returns instead of Modifing are Valid for Tuples)
+
+		(c) range: Represents an immutable sequence of numbers often used in loops.
+
+			my_range = range(5)
+
+	(vi) Set Types:
+
+		(a) set
+			
+			(I) `set` Represents an unordered collection of unique elements.
+
+				my_set = {1, 2, 3, 3, 4}
+
+			(II) A Set filters out any repeating values:
+
+				my_set = {5, 4, 2, 5, 2, 1}
+				print(my_set) # {5, 4, 2, 1}
+			
+			(III) Check if av alue exists in the set, using `in` keyword (Returns Boolean)
+
+				(A) Syntax:
+
+					<value> in <list>
+
+				my_list = {"Hello", "World"};
+
+				"Hello" in my_list # True
+
+			(IV) `del <Set>` statement deletes a Set
+
+				my_set = {1, 3, 4, 5, 7}
+				del my_set
+				print(my_set) # Name Error
+
+			(V) Functions of Set
+				
+				(A) `Set.union(<Set>)`: Returns The Merge of both Sets
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8}
+
+					print(my_set.union(my_set2)) # {1, 2, 3, 4, 5, 6, 7, 8}
+
+				(B) `Set.update(<Set>)`: Merges The Second set with the first One.
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8}
+					my_set.update(my_set2)
+					print(my_set1) # {1, 2, 3, 4, 5, 6, 7, 8}
+
+				(C) `Set.intersection(<Set>)`: Returns The Filtered Values that are present in both sets
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8, 7}
+					print(my_set.intersection(my_set2)) # {4, 7}
+
+				(D) `Set.intersection_update(<Set>)`: Updates The set with The Filtered Values that are present in both sets
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8, 7}
+					my_set.intersection_update(my_set2)
+					print(my_set1) # {4, 7}
+
+				(E) `Set.symmetric_difference(<Set>)`: Returns The Filtered Values that are present in both sets
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8, 7}
+					print(my_set.symmetric_difference(my_set2)) # {1, 2, 3, 5, 6, 8}
+
+				(F) `Set.symmetric_difference_update(<Set>)`: Updates The set with The Filtered Values that are present in both sets
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8, 7}
+					my_set.symmetric_difference_update(my_set2)
+					print(my_set1) # {1, 2, 3, 5, 6, 8}
+
+				(G) `Set.difference(<Set>)`: Returns Values that area exclusive to the Original String
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8, 7}
+					print(my_set.difference(my_set2)) # {1, 3, 5}
+
+				(H) `Set.difference_update(<Set>)`: Updates The set with The Filtered Values that are present in both sets
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8, 7}
+					my_set.difference_update(my_set2)
+					print(my_set1) # {1, 3, 5}
+
+				(I) `Set.isdisjoint(<Set>)`: Returns True if there's no common Values in-between both sets 
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {2, 4, 6, 8, 7}
+					my_set3 = {2, 6, 8, }
+					print(my_set1.isdisjoint(my_set2)) # False
+					print(my_set1.isdisjoint(my_set3)) # True
+
+				(J) `Set.issuperset(<Set>)`: Returns True if all the values of The second set exists in the Main Set
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {1, 3, 6, 8, 7}
+					my_set3 = {1, 4, 7}
+					print(my_set1.issuperset(my_set2)) # False
+					print(my_set1.issuperset(my_set3)) # True
+					
+				(K) `Set.issubset(<Set>)`: Returns True if all the All The Values of First Set exists in The Second Set
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set2 = {1, 3, 6, 8, 7}
+					my_set3 = {1, 4, 7}
+					print(my_set3.issubset(my_set1)) # True
+					print(my_set3.issubset(my_set2)) # False
+				
+				(L) `Set.add(<Value>)`: Adds The Value to The Set
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set1.add(2)
+					print(my_set1) # {1, 2, 3, 4, 5, 7}
+				
+				(M) `Set.remove(<Value>)`: Removes The Value from The Set
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set1.remove(3)
+					print(my_set1) # {1, 4, 5, 7}
+
+					my_set1.remove(31243445231225245) # This will throw an Error
+
+				(N) `Set.discard(<Value>)`: Removes The Value to The Set
+
+					my_set1 = {1, 3, 4, 5, 7}
+					my_set1.discard(3)
+					print(my_set1) # {1, 4, 5, 7}
+
+					my_set1.discard(31243445231225245) # This won't throw an error
+				
+				(O) `Set.pop()`: Removes a Random Value from The Set and Returns it's value.
+
+					my_set1 = {1, 3, 4, 5, 7}
+					poppedItem = my_set1.pop();
+					print(f"removed: {poppedItem} from {my_set1}")
+
+				(P) `Set.clear()`: Removes All The Values from The Set without destroying the set 
+
+					my_set = {1, 3, 4, 5, 7}
+					my_set.clear()
+					print(my_set) # {}
+				
+		(b) frozenset: Similar to a set but immutable.
+
+			my_frozenset = frozenset({1, 2, 3})
+
+	(vii) Mapping Type
+		
+		(a) dict (dictionary): Represents an unordered collection of key-value pairs.
+
+			my_dict = {
+				"name": "John",
+				"age": 30,
+				"city": "New York"
+			}
+
+			print(my_dict["name"]) # "John"
+			print(my_dict["age"]) # "30"
+			print(my_dict["city"]) # "New York"
+
+			# Distionary will be valid as Long as both Key and Values are Valid Datatypes
+
+			UserIDs = {
+				123: "John",
+				535: "James",
+				235: "Sarah",
+				852: "idk",
+				694: "Michael",
+			}
+			
+			print(UserIDs[235]) # "Sarah"
+
+		(b) `del <Set>` deletes The Set or The Value
+
+			my_dict = {
+				"name": "John",
+				"age": 30,
+				"city": "New York"
+			}
+			del my_dict['city']
+			print(my_dict) # {
+				"name": "John",
+				"age": 30
+			}
+
+
+			del my_dict
+			print(my_dict) # NameError
+
+		(b) Set Functions
+
+			(I) `dict.get(<Value>)`: Gets The Value of a Key.
+
+				my_dict = {
+					"name": "John",
+					"age": 30,
+					"city": "New York"
+				}
+
+				my_dict['country'] # Key Error
+				my_dict.get('country') # none
+
+			(II) `dict.keys()`: Returns all The Keys as a List.
+				
+				my_dict = {
+					"name": "John",
+					"age": 30,
+					"city": "New York"
+				}
+
+				print(my_dict.keys()) # dict_keys(["name", "age", "city"])
+
+			(III) `dict.values()`: Returns all The Keys as a List.
+
+				my_dict = {
+					"name": "John",
+					"age": 30,
+					"city": "New York"
+				}
+
+				print(my_dict.values()) # dict_keys(["John", "30", "New York"])
+
+			(IV) `dict.items()`: Returns all The Key-Value Pairs as Seperate Lists
+
+				my_dict = {
+					"name": "John",
+					"age": 30,
+					"city": "New York"
+				}
+
+				print(my_dict.items()) # dict_values(
+					["name", "John"],
+					["age", "30"],
+					["city", "New York"]
+				)
+
+			(V) `dict.update(<dict>)`: Merges The Second Dictionary with the first One.
+
+				my_dict = {
+					"name": "John",
+					"age": 30,
+					"city": "New York"
+				}
+				my_dict.update({
+					"country": "USA",
+					"admin": False
+				})
+
+				print(my_dict) # {
+					'name': 'John',
+					'age': 30,
+					'city': 'New York',
+					'country': 'USA',
+					'admin': False
+				}
+
+			(VI) `dict.clear()`: clears the dictionary without destroying it
+
+				my_dict = {
+					'name': 'John',
+					'age': 30,
+					'city': 'New York',
+					'country': 'USA',
+					'admin': False
+				}
+				my_dict.clear()
+				print(my_dict) # {}
+
+			(VII) `dict.pop(<key>)`: Removes The Specified Key-Value Pairs
+
+				my_dict = {
+					'name': 'John',
+					'age': 30,
+					'city': 'New York',
+					'country': 'USA',
+					'admin': False
+				}
+				poppedItem = my_dict.pop('country');
+				
+				print(my_dict) #{'name': 'John', 'age': 30, 'city': 'New York', 'admin': False }
+				
+			(VII) `dict.popitem()`: Removes The Last Key-Value Pair in The Dictionary
+
+				my_dict = {
+					'name': 'John',
+					'age': 30,
+					'city': 'New York',
+					'country': 'USA',
+					'admin': False
+				}
+				poppedItem = my_dict.pop();
+				
+				print(my_dict) #{'name': 'John', 'age': 30, 'city': 'New York'} 
+
+		(c) Looping through a Dictionary
+
+			UserIDs = {
+				123: "John",
+				535: "James",
+				235: "Sarah",
+				852: "idk",
+				694: "Michael",
+			}
+			
+			for key in UserIDs.keys():
+				print(UserIDs[key])
+
+			Console:
+
+				John
+				James
+				Sarah
+				idk
+				Michael
+
+			# Using `items()` function
+			UserIDs = {
+				123: "John",
+				535: "James",
+				235: "Sarah",
+				852: "idk",
+				694: "Michael",
+			}
+			
+			for key, value in UserIDs.items():
+				print(f"{key} : {value}")
+
+			Console:
+
+				123 : "John"
+				535 : "James"
+				235 : "Sarah"
+				852 : "idk"
+				694 : "Michael"
+		
+		(in JavaScript and It's called an 'Object' )
+
+	(viii) None Type: Represents Null.
+
+		my_variable = None
+
+	(ix) Binary Types:
+		
+		(a) bytes: Represents a sequence of bytes.
+
+			my_bytes = b"hello"
+
+		(b) bytearray: Similar to bytes but mutable.
+
+			my_bytearray = bytearray([65, 66, 67])
+
+		(c) memoryview: Represents a view of the memory occupied by an object.
+
+			my_memoryview = memoryview(b"abc")
+
+	Related Functions:
+
+	(x) The `type()` function in Python is used to determine the type of an object or variable. It returns the type of the object as a type object, which can be used to compare against known types or to dynamically check the type of an object at runtime.
+
+		(a) Syntax:
+
+			type(object)
+
+		Here are a few examples demonstrating the use of the type() function:
+
+		(b) Determine the Type of a Variable:
+
+			x = 10
+			y = "Hello, World!"
+			z = [1, 2, 3]
+
+			print(type(x))  # <class 'int'>
+			print(type(y))  # <class 'str'>
+			print(type(z))  # <class 'list'>
+
+6. Operators
+
+	(i) Arithmetic Operators
+
+		(a) Addition `+`: Adds two numbers together.
+
+			result = 5 + 3  # result is 8
+
+		(b) Subtraction `-`: Subtracts the right operand from the left operand.
+
+			result = 10 - 4  # result is 6
+
+		(c) Multiplication `*`: Multiplies two numbers.
+
+			result = 3 * 4  # result is 12
+
+		(d) Division `/`: Divides the left operand by the right operand. The result is always a floating-point number.
+
+			result = 15 / 3  # result is 5.0
+
+		(e) Floor Division `#`: Works the same Division but returns An Integer instead of a Decimal/Floating Number
+
+			result = 15 # 3  # result is 5
+
+		(f) Modulus `%`: Returns the remainder of the division of the left operand by the right operand.
+
+			result = 17 % 5  # result is 2
+
+		(g) Exponentiation `**`: Raises the left operand to the power of the right operand.
+
+	(ii) Assignment Operators
+
+		(a) Equivalent `=`: Assigns the value on the right side to the left side.
+			
+			(I) For example when writing `x = 5`, `x` represents the value on the right side of the operator which in this case is `5` 
+
+		(b) Addition Assignment `+=`: Adds the value on the right to the left side of the Operator and Assigns the value to the left side of the Operator.
+
+			x = 5
+			x += 3  # Equivalent to x = x + 3, result is 8
+
+		(c) Subtraction Assignment `-=`: Subtracts the value from the left side to the right side of the Operator and Assigns the value to the left side of the Operator.
+
+			y = 10
+			y -= 4  # Equivalent to y = y - 4, result is 6
+
+		(d) Multiplication Assignment `*=`: Multiplies the value on the right to the left side of the Operator and Assigns the value to the left side of the Operator.
+
+			z = 3
+			z *= 4  # Equivalent to z = z * 4, result is 12
+
+		(e) Division Assignment `/=`: Divides the value on the right to the left side of the Operator and Assigns the value to the left side of the Operator.
+
+			w = 15
+			w /= 3  # Equivalent to w = w / 3, result is 5.0
+		
+		(f) Floor Division Assignment `//=`: Divides the value on the right to the left side of the Operator and converts it into an Integer instead of a Floating Number and then Assigns the value to the left side of the Operator.
+
+			a = 17
+			a //= 5  # Equivalent to a = a // 5, result is 3
+
+		(g) Modulus Assignment `%=`: Divides the value on the right to the left side of the Operator and Assigns the Remainder Value to the left side of the Operator.
+
+			b = 17
+			b %= 5  # Equivalent to b = b % 5, result is 2
+
+		(h) Exponentiation Assignment `**=`: Powers the value on the right to the left side of the Operator and Assigns the value to the left side of the Operator.
+
+			c = 2
+			c **= 3  # Equivalent to c = c ** 3, result is 8
+
+		(i) Walrus Operator `:=`: This is a Special Type of Operator, which works exactly like Equivalent Operator, but It can Assign Value inside Expressions
+
+			(A) The primary purpose of the walrus operator is to assign values to variables as part of an expression, typically within conditional statements or while loops. It allows you to assign a value to a variable and use that variable in the same expression, thereby reducing redundancy and improving code readability.
+
+			(B) Examples:
+
+				name = "John"
+				print(name := "James") # James
+
+				print(name) # James
+
+				# without Walrus
+
+				name = "John"
+				print(name = "James") # Syntax Error
+
+				# Without walrus operator
+				x = 10
+				if x > 5:
+				    print(x)
+
+				# With walrus operator
+				if (x := 10) > 5:
+				    print(x)
+
+			In this example, both code snippets have the same result. However, the second snippet uses the walrus operator to assign the value `10` to the variable `x` within the conditional statement itself.
+
+			The walrus operator can also be used in while loops to combine the assignment of a variable with the condition for the loop:
+
+			```python
+			# Without walrus operator
+			values = [1, 2, 3, 4, 5]
+			index = 0
+			while index < len(values):
+			    print(values[index])
+			    index += 1
+
+			# With walrus operator
+			values = [1, 2, 3, 4, 5]
+			index = 0
+			while (index := index + 1) < len(values):
+			    print(values[index])
+			```
+
+			In this example, the walrus operator is used to increment the `index` variable within the condition of the while loop.
+
+			### Benefits of the Walrus Operator:
+
+			1. **Reduced Redundancy**: It allows you to eliminate redundant code by combining the assignment of a variable with its usage in an expression.
+			2. **Improved Readability**: By assigning values directly within expressions, the walrus operator can make code more concise and easier to understand.
+			3. **Simplified Logic**: It can simplify the logic of certain code constructs, such as conditional statements and loops, by consolidating variable assignments and conditions.
+
+			### Considerations:
+
+			- While the walrus operator can improve code readability in some cases, it should be used judiciously. Overuse of the walrus operator can make code less readable and maintainable.
+			- It's essential to strike a balance between using the walrus operator for clarity and avoiding excessive nesting or complexity in expressions.
+
+			Overall, the walrus operator is a valuable addition to Python syntax, providing a concise and expressive way to handle variable assignments within expressions. However, it should be used thoughtfully to enhance code readability and maintainability.
+
+	(iii) Comparison Operators
+
+		(Note: Comparison Operators return Boolean)
+
+		Comparison operators in Python are used to compare values and return a Boolean result (True or False). These operators are frequently used in conditional statements and loops to make decisions based on the relationship between values. Here are the main comparison operators in Python:
+
+    	(a) Equal `==`: Checks if two values are equal. 
+
+		    x = 5
+		    y = 5
+		    result = (x == y)  # True
+
+		(b) Not Equal `!=`: Checks if two values are not equal.
+
+		    a = 10
+		    b = 20
+		    result = (a != b)  # True
+
+		(c) Greater Than `>`: Checks if the value on the left is greater than the value on the right.
+
+		    m = 15
+		    n = 10
+		    result = (m > n)  # True
+
+		(d) Less Than `<`: Checks if the value on the left is less than the value on the right.
+
+		    p = 8
+		    q = 12
+		    result = (p < q)  # True
+
+		(e) Greater Than or Equal To `>=`: Checks if the value on the left is greater than or equal to the value on the right.
+
+		    r = 25
+		    s = 20
+		    result = (r >= s)  # True
+
+		(f) Less Than or Equal To `<=`: Checks if the value on the left is less than or equal to the value on the right.
+
+			c = 5
+			d = 5
+			result = (c <= d)  # True
+
+		(g) ternary conditional operator:
+
+			(I) ternary conditional operator doesn't return a boolean, it instead returns user input in a condition is met
+			(II) Syntax:
+				
+				<input> if <condition> else <input>
+
+			(III) The first <input> will be returned If the condition is met, otherwise the next <input> will be returned
+			(IV) Example :-
+
+				age = 20
+
+				criteria = "adult" if (age>=18) else "kid"
+
+				print(criteria) #Prints: `adult`
+
+	(iv) Logical Operators
+
+		(a) `and` Operator: Returns True if both operands are true; otherwise, it returns False. It combines two conditions, and it evaluates to True only when both conditions are met.
+
+			a = 5
+			b = 10
+			result = (a > 0) and (b > 0)  # True, because both conditions are true
+
+		(b) `or` Operator: Returns `True` if at least one of the operands is true; if both are false, it returns False.
+
+			a = -5
+			b = 10
+			result = (a > 0) or (b > 0)  # True, because one of the conditions is true
+
+		(c) `not` Operator: The not operator inverts the truth value of its operand. If the operand is True, it returns False, and if the operand is False, it returns True. It's often used to flip the truth value of a condition.
+
+		 	a = False
+			result = not a  # True, because it inverts the value of a
+
+		(d) Example :-
+
+			age = 25
+			has_license = True
+
+			if age >= 18 and has_license:
+			    print("Eligible to drive a car.")
+			else:
+			    print("Not eligible to drive a car.")
+	
+7. Type casting
+
+	(i) Typecasting, also known as type conversion or type coercion, refers to the process of changing the data type of a variable or value from one type to another. In Python, this can be done explicitly using built-in functions or implicitly in certain situations. Here are the main aspects of typecasting in Python:
+	
+	(ii) Explicit Typecasting: Explicit typecasting is when you manually convert a variable from one data type to another using specific functions. The commonly used functions for explicit typecasting are:
+
+		(b) `int()`: Converts a value to an integer.
+
+			x = int(3.14)  # x is now 3
+
+		(c) `float()`: Converts a value to a floating-point number.
+
+			y = float("10.5")  # y is now 10.5
+
+		(d) `str()`: Converts a value to a string.
+
+			z = str(42)  # z is now the string "42"
+
+		(e) `bool()`: Converts a value to a boolean.
+
+			w = bool(0)  # w is now False
+
+	(iii) Implicit Typecasting: Implicit typecasting, also known as automatic type conversion, occurs automatically during certain operations. Python will attempt to convert the operands to a common type before performing the operation. For example, in arithmetic operations involving different numeric types, Python will promote the operands to the type with the greater precision.
+
+		result = 10 + 3.5  # Implicitly converts 10 to 10.0 before addition
+
+		(a) Typecasting Between Built-in Types: You can perform typecasting between various built-in types
+		
+8. Index
+
+	(i) In Python, an index refers to the position of an element within a data structure, such as a string, list, tuple, or other iterable objects. The index is a numerical value that represents the location of an item in the sequence, and it is used to access or modify individual elements.
+
+	(ii) Indexing in Strings:
+		
+		(a) Strings in Python are sequences of characters, and each character has a specific index. The indexing starts from 0 for the first character, 1 for the second character, and so on.
+
+		my_string = "Python"
+		print(my_string[0])  # Output: P
+		print(my_string[2])  # Output: t
+
+	(iii) Negative Indexing:
+
+    	(a) Python supports negative indexing, where -1 refers to the last element, -2 to the second-to-last element, and so forth.
+
+		print(my_string[-1])  # Output: n
+		print(my_string[-3])  # Output: h
+
+	(iv) Indexing in Lists and Tuples:
+    	
+		(a) Lists and tuples are also sequences, and indexing works similarly to strings.
+
+		my_list = [10, 20, 30, 40, 50]
+		print(my_list[1])  # Output: 20
+
+		my_tuple = (1, 2, 3, 4, 5)
+		print(my_tuple[3])  # Output: 4
+
+	(v) Slicing:
+
+    	(a) In addition to indexing, Python supports slicing to extract a portion of a sequence. Slicing is done using the `start:stop:step` syntax.
+
+		my_list = [1, 2, 3, 4, 5]
+		print(my_list[1:4])  # Output: [2, 3, 4]
+
+	(vi) IndexError:
+
+    	(a) Attempting to access an index that is outside the range of the sequence results in an IndexError. It's essential to ensure that the index is valid before accessing it.
+
+		my_list = [1, 2, 3]
+		# print(my_list[5])  # Uncommenting this line would result in an IndexError
+
+	(vii) Range of Indices:
+
+    	(a) If the specified range in slicing goes beyond the boundaries of the sequence, Python gracefully handles it. It returns the valid portion of the sequence without raising an error.
+
+		my_string = "Python"
+		print(my_string[2:10])  # Output: thon
+
+(Note: The Scope of code in Python is Determined by indetation ('    ') before the code rather than brackets, (e.g `()`, `{}`). example:-
+
+	if(age>18):
+		print('You can drive!') #  <--- Inside `If` statement
+	print('Hi!') # <--- Outside `If` statement
+)
+
+9. Condition Expressions
+
+	(i) `if` Statement:
+
+    	(a) The simplest form of a conditional expression. Executes a block of code only if a specified condition is True.
+
+		(b) Syntax (Syntax is way of saying 'Structure')
+
+			if <condition>:
+    			# Code to execute if the condition is True
+			
+			
+			(Note: <condition> has to be a Boolean and if it isn't it'll be converted into a boolean)
+			(Important Note: indetation is Necessary)
+
+		Example:-
+
+			age = 20
+			if age >= 18: # <-- You can wrap condition in Parentheses AKA this --> ' () '
+			    print("You are an adult.")
+
+			
+			# with Condition wrapped in Parentheses
+			age = 20
+			if (age >= 18): # <-- You can wrap condition in Parentheses AKA this --> ' () '
+			    print("You are an adult.")
+
+	(ii) `if-else` Statement:
+
+    	(a) Extends the if statement to provide an alternative action if the if condition is False.
+
+		(b) Syntax:
+
+			if <condition>:
+			    # Code to execute if the condition is True
+			else:
+			    # Code to execute if the condition is False
+
+		Example:-
+
+			age = 15
+			if age >= 18:
+			    print("You are an adult.")
+			else:
+			    print("You are a kid.")
+
+	(iii) elif (else if) Statement:
+
+		(a) Allows for multiple conditions to be checked in sequence.
+    	(b) If the if condition is False, it checks the condition of an elif (else if) block and so on.
+    	(c) You can have multiple elif blocks, but only the first True condition block gets executed.
+
+		(d) Syntax:
+
+			if condition1:
+			    # Code to execute if condition1 is True
+			elif condition2:
+			    # Code to execute if condition2 is True
+			else:
+			    # Code to execute if none of the above conditions are True
+
+		Example:-
+
+			age = 65
+			if age < 18:
+			    print("You are a kid.")
+			elif age < 65:
+			    print("You are an adult.")
+			elif age >= 65:
+			    print("You are a senior citizen.")
+			else:
+			    print("Invalid Age!")
+
+			#Nested Version:
+
+			age = 20
+			has_license = True
+			if age >= 18:
+			    if has_license:
+			        print("You can drive.")
+			    else:
+			        print("You need a driver's license to drive.")
+			else:
+			    print("You are too young to drive.")
+
+	(iv) `match` statement
+
+		(a) The `match` statement in Python, introduced in PEP 634 (Python Enhancement Proposal), is a feature that provides pattern matching. Pattern matching is a way to perform conditional branching based on the structure of data, allowing for more concise and readable code. The match statement was introduced in Python 3.10.
+
+		Here's a basic overview of the match statement:
+
+		(b) Syntax:
+
+			match <expression>:
+		    	case <pattern1>:
+		    	    # Code to execute if expression matches pattern1
+		    	case <pattern2>:
+		    	    # Code to execute if expression matches pattern2
+		    	...
+		    	case _:
+		    	    # Code to execute if none of the patterns match
+
+		(c) Example :-
+
+			number = 5
+		    match number:
+		        case 0:
+		            print("Zero")
+		        case 1 | 2 | 3:
+		            print("Small positive number")
+		        case 4 | 5 | 6:
+		            print("Medium positive number")
+		        case _:
+		            print("Some other number")
+
+			print(result)  # Output: Medium positive number
+
+			(I) The patterns 0, 1 | 2 | 3, 4 | 5 | 6, and _ are used to match specific values or ranges of values. The | symbol is used for a logical `OR` operation within a single case.
+
+		(d) Key Points:
+
+    		(I) Patterns:
+    		    Patterns can include literals, names (variables), sequences, mappings, and combinations of these.
+    		    The case clauses are evaluated from top to bottom, and the first matching pattern is executed.
+		
+    		(II) OR (`|`) in Patterns: The `|` operator can be used to match multiple values in a single case.
+		
+    		(III) Wildcard (_) Pattern: The `_` pattern serves as a wildcard, matching anything. It is often used as a `catch-all` for unmatched cases.
+		
+    		(IV) Deconstruction: Patterns can destructure data structures, making it possible to match elements within sequences or mappings.
+
+				match my_list:
+			    case [a, b, c]:
+			        # Code to execute if my_list is a list with at least three elements
+
+		(e) Extendation:
+
+			(I) `match` statement can be forword extended with `if` statement
+
+			Example :-
+
+				number = 5
+
+		    	match number:
+		    	    case 0:
+		    			print("Your Number is 0")
+		    	    case _ if number < 0:
+		    	        print("Invalid Number")
+		    	    case _ if number < 100:
+		    	        print("Your Number is less than a Hundred")
+
+			print(result)  # Output: Medium positive number
+
+10. Loops
+
+	(i) In programming, a loop is a control structure that allows a set of instructions to be repeated multiple times. Loops are essential for automating repetitive tasks and iterating over collections of data. Python provides two main types of loops: `for` loops and `while` loops.
+
+	(ii) For Loop: A for loop is used to iterate over a sequence (such as a list, tuple, string, or range) or other iterable objects. It executes a block of code for each item in the sequence.
+
+		(a) Syntax (Syntax means how something is written AKA Structure)
+
+			for <variable> in <sequence>:
+		    	# Code to be repeated for each iteration
+
+		(b) Example:
+
+			fruits = ["apple", "banana", "cherry"]
+			for fruit in fruits:
+			    print(fruit)
+
+
+			console:
+
+			apple
+			banana
+			cherry
+
+		(c) Range-Based For Loop:
+
+			(I) Syntax:
+				
+				# with Single Argument
+
+
+				for i in range(<to>):
+			    	# Code here runs <to> Times
+
+
+
+				# with 2 Arguments
+
+
+				
+				for i in range(<from>, <to>): #
+			    	# Code here runs from <from> to <to> Times
+
+
+			for i in range(5):  # Iterates over the range 0 to 4
+			    print(i) # <-- Code here runs 5 Times
+
+
+			Console:
+
+				0
+				1
+				2
+				3
+				4
+
+			(II) with Second Argument:
+
+
+			for i in range(-5, 5):  # Iterates over the range 0 to 4
+			    print(i) # <-- Code here runs 5 Times
+
+
+			Console:
+				-5
+				-4
+				-3
+				-2
+				-1
+				0
+				1
+				2
+				3
+				4
+
+		(c) Extendation with `else`:
+
+			for i in range(0, 5):
+			    print(i)
+			else:
+				print('Loop Ended')
+
+			Console:
+
+				3
+				4
+				5
+				Loop Ended
+
+			# Here's Another one
+			count = 2
+			for i in range(0, 5):
+			    print(i)
+			    if(count == 4):
+					break
+			else:
+				print('Loop Ended')
+
+			Console:
+
+				2
+				3
+				4
+		
+	(iii) While Loop: A while loop repeatedly executes a block of code as long as a specified condition is true. It is suitable when you don't know in advance how many times the loop needs to run.
+
+		(a) Syntax:
+
+			while condition:
+			    # Code to be repeated as long as the condition is true
+
+		(b) Example:-
+
+			count = 0
+			while count < 5:
+			    print(count)
+			    count += 1
+
+			Console:
+
+				0
+				1
+				2
+				3
+				4
+
+			(WARNING: If the condition doesn't become false at some point, It can lead to unintentional Infinite Loops)
+
+			(I) Extendation: While Loops can be extended with `else` statement to run code once when the loop end or condition doesn't met:
+
+			count = 3
+			while (count <= 5):
+			    print(count)
+			    count += 1
+			else:
+				print('Loop Ended')
+
+			Console:
+
+				3
+				4
+				5
+				Loop Ended
+
+			# Here's Another one
+			count = 2
+			while (count <= 5):
+			    print(count)
+			    if(count == 4):
+					break
+				else:
+					count += 1
+			else:
+				print('Loop Ended')
+
+			Console:
+
+				2
+				3
+				4
+		
+		(c) Infinite Loop: Be cautious with while loops to avoid creating infinite loops (loops that never end). Make sure to include a mechanism to break out of the loop when the desired condition is no longer true.
+
+		while True:
+		    user_input = input("Enter 'exit' to break the loop: ")
+		    if user_input == 'exit':
+		        break
+		
+	(iv) Loop Control Statements:Python provides loop control statements that allow you to manipulate the flow of a loop.
+
+    	(a) break: Terminates the loop prematurely, and control passes to the next statement after the loop.
+
+    	(b) continue: Skips the rest of the code inside the loop for the current iteration and moves to the next iteration.
+
+    	(c) pass: Acts as a placeholder; it does nothing and allows the loop to continue.
+
+		(d) Example:
+
+			for i in range(10):
+    			if i == 3:
+    			    continue
+    			elif i == 8:
+    			    break
+    			else:
+    			    pass
+    			print(i)
+
+
+			Console:
+
+			0
+			1
+			2
+			4
+			5
+			6
+			7
+
+11. Functions:
+
+	(i) Functions in Python are a fundamental aspect of the language, allowing for the encapsulation of code into reusable units. They help in structuring your code, making it more readable, maintainable, and scalable. Here's a comprehensive overview:
+
+	(ii) Definition and Syntax:
+
+		(a) In Python, A function is defined using the `def` (define) keyword, followed by the function name and parentheses (). The parameters (arguments) are placed inside these parentheses. The code block within the function starts with a colon : and is indented.
+		(b) Syntax:
+
+			# Defining Function
+			
+			def <function_name>(parameters...):
+			    # Code block
+			    return result  # Optional
+
+			# Calling (Executing) Function
+
+			<function_name>(parameters...)
+
+	Example:-
+
+		def greet(name):
+		    return f"Hello, {name}!"
+
+		print(greet("James"))  # Output: Hello, James!
+
+		In this example, greet is a function that takes one parameter, name, and returns a greeting string.
+
+	(iii) Types of Functions:
+
+		(a) Built-in Functions: Python comes with many built-in functions like `print()`, `len()`, etc.
+    	(b) User-Defined Functions: Functions that are defined by the user, like the greet function in the example above.
+
+	(iv) Parameters and Arguments:
+
+    	(a) `Parameters`: are variables listed inside the parentheses in the function definition.
+
+			(I) Default Parameter Values: You can specify default values for parameters. If the function is called without an argument for that parameter, it uses the default value.
+
+			def greet(name="World"):
+			    return f"Hello, {name}!"
+
+			print(greet())  # Output: Hello, World!
+			print(greet("Michael"))  # Output: Hello, Michael!
+
+    	(b) `Arguments`: are the values passed to the function when it is called.
+
+			(I) Keyword Arguments: Functions can also be called using keyword arguments, where the caller identifies the arguments by their parameter name.
+
+				def describe_pet(animal, name):
+				    print(f"I have a {animal} named {name}.")
+
+				describe_pet(animal="hamster", name="Harry")  # Order of arguments can be changed
+
+			(II) Arbitrary Arguments:
+
+				(A) To Have a Function take infinite Arguments, you can use arbitrary arguments *args and **kwargs.
+
+	    		(B) *args allows for any number of positional arguments.
+
+					def make_pizza(*toppings):
+					    print("Making a pizza with the following toppings:")
+					    for topping in toppings:
+					        print(f"- {topping}")
+
+					make_pizza("pepperoni", "cheese", "mushrooms")
+
+	    		(C) **kwargs allows for any number of keyword arguments.
+
+					def make_sandwitch(**ingredient):
+					    print('tomato? :', ingredient['tomato'])
+					    print('cabbage? :', ingredient['cabbage'])
+					    print('olives? :', ingredient['olives'])
+					    print('sauce? :', ingredient['sauce'])
+
+					make_sandwitch(tomato=True, cabbage=True, olives=True, sauce="Mayonese")
+
+	(v) Return Values:
+		
+		(a) The return statement is used to exit a function and pass a value back to the caller.
+
+			def square(x):
+			    return x * x
+
+			result = square(4)  # result is 16
+
+	(vi) Scope:
+		
+		(a) Variables declared inside a function are not accessible from outside the function. These are called local variables and have a local scope.
+
+	(vi) Docstrings:
+		
+		(a) Docstrings (documentation strings) serve as the documentation for a function. They are written as the first statement in a function body.
+
+		(b) Syntax:
+
+			# for Added documentation
+			def <function>(<args>):
+				"""<Documentation>"""
+				<logic>
+			
+			# Getting Documentation of a Function:
+			
+			<function>.__doc__
+
+		(c) `Function.__doc__` returns Documentation of The Function if Provided
+
+		Example:-
+
+			def add(a, b):
+			    """Return the sum of a and b."""
+			    return a + b
+
+			print(add.__doc__) # Return the sum of a and b.
+
+	(vii) `Lambda` Functions:
+		
+		(a) Lambda functions are small anonymous functions, defined using the `lambda` keyword. They can have any number of arguments but only one expression.
+
+		square = lambda x: x * x
+		print(square(5))  # Output: 25
+
+	(viii) `pass` keyword
+		
+		(a) `pass` keyword can be used to leave a Function Empty otherwise it'll thow an error
+
+		# This is throw an Indentation Error
+		def myFunction():
+			
+		a = 1
+		b = 2
+
+		# This won't throw an Error
+		def myFunction():
+			pass
+			
+		a = 1
+		b = 2
+
+	(ix) Recursion
+
+		(i) Recursion is a state when you have to call The same function which you are inside.
+
+			# Brief Overview
+
+			def myFunction(a, b):
+				"""A Loop Without Loop"""
+				if(a<b):
+					print(a)
+					myFunction(a+1, b)
+				else:
+					print("exit!")
+			
+			# Another One with Factorial
+
+			def factorial(n):
+			    if(1==n or 0==n):
+			        return 1
+			    else:
+			        return n*factorial(n-1)
+				
+			print(factorial(5)) # 120
+
+	Built in Functions:
+
+	(x) `help(<any>)` takes a Dict/Class/Methods and returns a Explaination about that even including custom Methods/Classes/Dictionaries
+
+	(xi) `len(<Variable>)` returns length
+
+		a = "Hello, World"
+		
+		print(len(a)) # 12
+		
+	(xii) `type(<Variable>)` type of The Value
+
+		a = "Hello, World"
+		b = 12
+		c = 12.5
+		d = False
+
+		print(type(a)) # <class 'str'>
+		print(type(b)) # <class 'int'>
+		print(type(c)) # <class 'float'>
+		print(type(d)) # <class 'bool'>
+
+	(xiii) `enumerate(<Variable>, <index start from?>)`: It's used in Loops to Indentify the Index of values inside The Variable
+
+		(a) Syntax:
+
+			for <index>, <iterator> in enumerate(<Variable>):
+				# Code here
+
+		(b) Examples:
+	
+			numbers = [235, 4362, 476, 68, 647, 865341, 4, 46, 54, 74, 685564, 3];
+
+			for index, number in enumerate(numbers):
+
+				print(f"Index: {index} and Value: {number}")
+
+			Console:
+
+			Index: {0} and Value: {235}
+			Index: {1} and Value: {4362}
+			Index: {2} and Value: {476}
+			Index: {3} and Value: {68}
+			Index: {4} and Value: {647}
+			Index: {5} and Value: {865341}
+			Index: {6} and Value: {4}
+			Index: {7} and Value: {46}
+			Index: {8} and Value: {54}
+			Index: {9} and Value: {74}
+			Index: {10} and Value: {685564}
+			Index: {11} and Value: {3}
+
+			# with Custom Index:
+			
+			numbers = [235, 4362, 476, 68, 647, 865341, 4, 46, 54, 74, 685564, 3];
+
+			for index, number in enumerate(numbers, start=1):
+
+				print(f"Index: {index} and Value: {number}")
+
+			Console:
+
+			Index: {1} and Value: {235}
+			Index: {2} and Value: {4362}
+			Index: {3} and Value: {476}
+			Index: {4} and Value: {68}
+			Index: {5} and Value: {647}
+			Index: {6} and Value: {865341}
+			Index: {7} and Value: {4}
+			Index: {8} and Value: {46}
+			Index: {9} and Value: {54}
+			Index: {10} and Value: {74}
+			Index: {11} and Value: {685564}
+			Index: {12} and Value: {3}
+		
+	(xiv) `dir(<Value>)`: Returns The Structure of The Value as a List 
+
+Section: Modules
+
+12. PEP8
+
+	(i) PEP 8, or "Python Enhancement Proposal 8," is the style guide for Python code. It was authored by Guido van Rossum, Barry Warsaw, and Nick Coghlan, and it provides guidelines on how to write clean, readable, and maintainable Python code. The PEP 8 document covers various aspects of coding conventions, including indentation, whitespace, naming conventions, and more. Adhering to PEP 8 helps promote consistency and readability across Python codebases.
+
+	(ii) key points in PEP 8:
+
+	(iii) Indentation:
+
+    	(a) Use 4 spaces per indentation level.
+    	(b) Tabs should not be used for indentation.
+	
+	(iv) Whitespace in Expressions and Statements:
+
+    	(a) Avoid extraneous whitespace at the beginning or end of a line.
+    	(b) Avoid multiple spaces for indentation.
+
+	(v) Imports:
+
+    	(a) Imports should usually be on separate lines.
+    	(b) Import standard libraries first, followed by third-party libraries, and then your own modules.
+    	(c) Avoid wildcard imports (`from module import *`).
+
+	(vi) Comments:
+
+    	(a) Comments should be complete sentences and follow the code, not precede it.
+    	(b) Inline comments should be used sparingly.
+
+	(vii) Naming Conventions:
+
+    	(a) Use descriptive variable and function names.
+    	(b) Function and variable names should be lowercase, with words separated by underscores (snake_case).
+    	(c) Class names should be in CamelCase.
+
+	(viii) Function and Method Arguments:
+
+    	(a) Use spaces around operators and after commas in function signatures.
+    	(b) Default parameter values should have no spaces around the equal sign.
+
+	(ix) Documentation:
+
+    	(a) Use docstrings to document modules, classes, functions, and methods.
+    	(b) Follow the conventions outlined in PEP 257 for docstring content.
+
+	(x) Exceptions:
+
+    	Use the `E722` exception for bare except:.
+    	Use the `as` keyword for catching exceptions.
+
+	(xi) Programming Recommendations:
+
+    	(a) Avoid global variables whenever possible.
+    	(b) Limit all lines to a maximum of 79 characters for code, and 72 for docstrings and comments.
+
+	(xii) Adhering to PEP 8 is considered good practice in the Python community, as it fosters a consistent and readable coding style. Many code editors and IDEs have built-in tools or plugins to automatically check and enforce PEP 8 compliance.
+	
+13. The Zen of Python
+
+	(i) The Zen of Python is a collection of aphorisms that capture the philosophy and design principles of the Python programming language. Authored by Tim Peters, these principles emphasize simplicity, readability, and the importance of writing code that is not just functional but also clean and maintainable. The Zen of Python is included in Python's standard library and can be displayed by typing import this in a Python interpreter.
+
+	Aphorisms:
+
+	(ii) `Beautiful is better than ugly.`
+
+        (a) Code should be aesthetically pleasing, not just functional.
+
+    (iii) `Explicit is better than implicit.`
+
+        (a) Code should be clear and explicit in its intentions and operations.
+
+    (iv) `Simple is better than complex.`
+
+        (a) Simple solutions are preferable to complex ones.
+
+    (v) `Complex is better than complicated.`
+
+        (a) When complexity is necessary, it should not be complicated.
+
+    (vi) `Flat is better than nested.`
+
+        (a) Avoid deeply nested structures when possible; flat structures are clearer.
+
+    (vii) `Sparse is better than dense.`
+
+        (a) Code should have room to breathe; don't cram too much on one line.
+
+    (viii) `Readability counts.`
+
+        (a) Code is read more often than it's written, so readability is key.
+
+    (ix) `Special cases aren't special enough to break the rules.`
+
+        (a) Even if a special case seems to warrant breaking the guidelines, it usually doesn't.
+
+    (x) `Although practicality beats purity.`
+
+        (a) While ideals are important, practical solutions are sometimes necessary.
+
+    (xi) `Errors should never pass silently.`
+
+        (a) Exceptions and errors should not be ignored; they should be handled or reported.
+
+    (xii) `Unless explicitly silenced.`
+
+        (a) In some cases, errors can be intentionally and explicitly ignored.
+
+    (xiii) `In the face of ambiguity, refuse the temptation to guess.`
+
+        (a) When things aren't clear, avoid making assumptions.
+
+    (xiv) `There should be one—and preferably only one—obvious way to do it.`
+
+        (a) Python emphasizes having a single, clear way to perform a task.
+
+    (xv) `Although that way may not be obvious at first unless you're Dutch.`
+
+        (a) This is a playful nod to Guido van Rossum, the Dutch creator of Python.
+
+    (xvi) `Now is better than never.`
+
+        (a) It's better to implement something than to be paralyzed by indecision.
+
+    (xvii) `Although never is often better than right now.`
+
+        (a) Sometimes, acting hastily is worse than not acting at all.
+
+    (xviii) `If the implementation is hard to explain, it's a bad idea.`
+
+        (a) If you can't easily explain how your code works, it may be too complex.
+
+    (xix) `If the implementation is easy to explain, it may be a good idea.`
+
+        (a) Solutions that are easy to describe are often more maintainable and understandable.
+
+    (xx) `Namespaces are one honking great idea -- let's do more of those!`
+
+        (a) Emphasizes the value of Python's namespace concept in avoiding conflicts and organizing code.
+
+	(xxi) These principles, while not rules, guide Python developers in writing code that's consistent with the ethos of the Python community. The Zen of Python reflects a preference for simplicity and clarity, which has helped shape Python into a language that's readable, maintainable, and accessible to beginners and experienced programmers alike.
+
+Section: Modules
+
+14. Modules
+
+	(i) a module is a file containing Python definitions and statements. The file name is the module name with the suffix .py added. Modules allow you to organize Python code logically into reusable files, making it easier to manage and maintain your codebase. They provide a way to encapsulate code, variables, and functions into separate units, promoting modularity and code reusability.
+
+	Here are some key concepts related to Python modules:
+
+	(ii) Creating a Module: To create a module, you simply write your Python code in a file with a .py extension. For example, if you have a file named `my_module.py`, you can use its contents as a module in other Python scripts.
+
+	(iii) `import` statement
+		
+		(a) Importing Modules: You can use the `import` keyword to bring the definitions from a module into your current script. For example:
+
+		(b) Syntax:
+
+			import <module>
+
+		import my_module
+
+		(c) After importing, you can use functions, variables, or classes from `my_module` by referencing them as `my_module.function_name` or `my_module.variable_name`.
+
+	(iv) `from` statement
+		
+		(a) Importing Specific Items: Instead of importing the entire module, you can import specific functions or variables using the `from` keyword:
+
+		(b) Syntax:
+
+			from <module> import <components...>
+			from <module> import * # Imports Everthing!
+		
+		(c) Example:-
+			
+			from my_module import some_function, some_variable
+			some_function()
+
+	(vi) `as` statement
+		
+		(a) Importing with Custom Names: Instead of importing the functions and variables with the same name they are exported with you can instead use `as` keyword to give them your desired Name:
+
+		(b) Syntax:
+
+			import <module> as <myModule>
+
+			from <module> import <component> as <myComponent>
+
+		(c) Example:-
+
+			from my_module import some_function as myFunction, some_variable
+
+			myFunction()
+
+	(vii) Importing Custom Modules, for Example :-
+
+		(a) Structure:
+
+			project/
+			  |-main.py
+			  |-my_module.py
+
+		(b) my_module.py:
+
+			def welcome(name):
+				print(f"Welcome {name}!")
+			
+			a = 25
+
+		(c) main.py:
+
+			from my_module import *
+
+			welcome('James') # "Welcome James!"
+			print(a) # 25
+
+	(vii) `__name__ == "__main__":`
+
+		(a) `__name__ == "__main__":` condition is only met when The Main Python File is running by Itself and not getting imported by some other file
+
+		(b) Example:-
+			
+			(I) Structure:
+	
+				project/
+				  |-main.py
+				  |-my_module.py
+
+			(I) Case 1:
+
+				(II) my_module.py:
+
+					def welcome(name):
+						print(f"Welcome {name}!")
+
+					welcome('Michael')
+
+				(III) main.py:
+
+					from my_module import *
+
+					welcome('James')
+
+				(IV) Console:
+
+					> python main.py
+					
+					Welcome Michael!
+					Welcome James!
+
+					> python my_module.py
+					Welcome Michael!
+
+			(I) Case 2:
+
+				(II) my_module.py:
+
+					def welcome(name):
+						print(f"Welcome {name}!")
+
+					if(__name__ == "__main__"):
+						welcome('Michael')
+
+				(III) main.py:
+
+					from my_module import *
+
+					welcome('James')
+
+				(IV) Console:
+
+					> python main.py
+
+					Welcome James!
+					
+					> python my_module.py
+					
+					Welcome Michael!
+
+		(c) Value of `__name__`
+
+			(a) Structure:
+				project/
+				  |-main.py
+				  |-my_module.py
+			
+			(b) my_module.py
+
+				print(f"my_module.py: {__name__}")
+			
+			(c) main.py
+
+				import my_module;
+
+				print("main.py: {__name__}")
+
+			(d) Console:
+
+				> main.py
+				
+				my_module.py: my_module
+				main.py: __main__
+				
+				> my_module.py
+
+				my_module.py: __main__
+
+	(viii) Standard Library Modules: Python comes with a rich set of standard library modules that provide a wide range of functionalities. You can use them by importing them into your scripts. Examples include `math`, `os`, `random`, and many more.
+
+	Here's an Example
+
+		# File: my_module.py
+		def greet(name):
+		    print(f"Hello, {name}!")
+
+		if __name__ == "__main__":
+		    # This code will only run when the module is executed directly
+		    print("This is my_module being run directly.")
+
+
+		# File: main_script.py
+		import my_module
+
+		my_module.greet("Alice")
+		
+		In this example, `main_script.py` imports the greet function from `my_module.py` and uses it to greet `Alice`. The code within the `if __name__ == "__main__"`: block in `my_module.py` will only execute if `my_module.py` is run directly, not when it's imported by other scripts.
+
+15. pip
+
+	(i) `pip` is the package installer for Python. It's a command-line tool that allows you to install, upgrade, and manage Python packages and dependencies. The name "pip" stands for "Pip Installs Packages" or "Pip Installs Python."
+
+	Here are some common use cases for the pip command:
+
+	(ii) Installing a Package: To install a Python package, you use the following command:
+
+		pip install package_name
+
+		(a) For example, to install the `requests` package, you would run:
+
+		pip install requests
+
+	(iii) Installing a Specific Version of a Package: You can specify a particular version of a package to install:
+
+		pip install package_name==1.2.3
+
+		(a) This installs version 1.2.3 of the specified package.
+
+	(iv) Upgrading a Package: To upgrade an already installed package to the latest version, you use the `--upgrade` (or `-U`) option:
+
+		pip install --upgrade package_name
+
+		(a) for example:
+		
+		pip install --upgrade requests
+
+	(v) Uninstalling a Package: To uninstall a package, you can use the `uninstall` command:
+
+		pip uninstall package_name
+
+		(a) for example:
+
+		pip uninstall requests
+
+	(vi) Listing Installed Packages: You can list all installed packages and their versions:
+
+		pip list
+
+	(vii) Installing Packages from Requirements File: You can install packages listed in a `requirements.txt` file:
+
+		pip install -r requirements.txt
+
+	(viii) Freezing Requirements: You can generate a `requirements.txt` file with the list of installed packages and their versions:
+
+		pip freeze > requirements.txt
+
+	(ix) Installing Packages from Version Control: Pip can install packages directly from version control repositories like Git or Mercurial:
+
+		pip install git+https://github.com/user/repo.git
+	
+	(x) Searching for Packages: You can search for packages on the Python Package Index (PyPI) using:
+
+		pip search query
+
+	(xi) Custom Package Sources: Pip supports installing packages from custom sources, such as private repositories.
+
+16. Time Module
+
+	The `time` module in Python provides various functions for working with time-related tasks, such as getting the current time, converting between different time representations, and measuring time intervals. It is a standard module in Python and is part of the Python Standard Library.
+
+	(i) `time()`: Returns the current time in seconds since the Epoch (January 1, 1970, 00:00:00 UTC) as a floating-point number.
+
+		import time
+
+		current_time = time.time()
+		print("Current time:", current_time)
+	
+	(ii) `ctime(seconds)`: Converts a time expressed in seconds since the Epoch to a string representing the local time.
+
+		print("Current time:", time.ctime(current_time))
+	
+	(iii) `sleep(seconds)`: Suspends the execution of the current thread for the given number of seconds.
+
+		print("Before sleep")
+		time.sleep(2)  # Sleep for 2 seconds
+		print("After sleep")
+	
+	(iv) `gmtime(seconds)`: Converts a time expressed in seconds since the Epoch to a `time.struct_time` object in UTC.
+
+		utc_time = time.gmtime(current_time)
+
+		print("UTC time:", utc_time)
+	
+	(v) `localtime(seconds)`: Converts a time expressed in seconds since the Epoch to a `time.struct_time` object in local time.
+	
+		local_time = time.localtime(current_time)
+
+		print("Local time:", local_time)
+	
+	(vi) `strftime(format, struct_time)`: Converts a `time.struct_time` object or a time tuple to a string according to the specified format.
+	
+		formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", local_time)
+
+		print("Formatted time:", formatted_time)
+	
+	(vii) `strptime(string, format)`: Parses a string representing a time according to the specified format and returns a `time.struct_time` object.
+	
+		parsed_time = time.strptime("2024-02-05 15:30:00", "%Y-%m-%d %H:%M:%S")
+
+		print("Parsed time:", parsed_time)
+	
+	(viii) `time_ns()`: Returns the current time in nanoseconds since the Epoch as an integer.
+		
+		print("Current time in nanoseconds:", current_time_ns)
+		current_time_ns = time.time_ns()
+
+17. Random Module
+
+	(i) The `random` module in Python provides functions for generating random numbers, selecting random elements from sequences, and shuffling sequences. It is commonly used in various applications such as simulations, games, cryptography, and statistical sampling.
+
+	Here are some of the key functions provided by the `random` module:
+
+	(ii) Generating Random Numbers:
+
+		(a) `random()`: Returns a random floating-point number in the range (0.0, 1.0).
+
+			import random
+			print(random.random())
+
+		(b) `randint(a, b)`: Returns a random integer in the range [a, b], including both endpoints.
+
+			print(random.randint(1, 100))
+
+	(iii) Selecting Random Elements:
+
+		(a) `choice(seq)`: Returns a randomly chosen element from a non-empty sequence.
+
+			my_list = ['apple', 'banana', 'cherry', 'date']
+			print(random.choice(my_list))
+
+		(b) `sample(<population>, <count>)`: Returns a list of <count> unique elements chosen randomly from the population sequence without replacement.
+
+			print(random.sample(range(1, 11), 5))
+
+	(iv) Shuffling Sequences:
+
+		(a) `shuffle(seq)`: Shuffles the elements of a sequence in place.
+
+			my_list = ['apple', 'banana', 'cherry', 'date']
+			random.shuffle(my_list)
+			print(my_list)
+
+	(v) Setting the Random Seed:
+
+		(a) `seed(a=None)`: Initializes the random number generator with a given seed value. If no seed is provided, it uses the system time as the default seed.
+
+		random.seed(42)
+		print(random.random())
+
+	(vi) The `random` module uses a pseudo-random number generator (PRNG) to generate random numbers. The numbers generated are not truly random but are deterministic based on the seed value. Therefore, you can use `seed()` to produce the same sequence of random numbers across multiple runs of the program, which is useful for debugging and testing.
+
+	(vii) It's important to note that the `random` module is not suitable for cryptographic purposes. For cryptographic applications, you should use the `secrets` module, which provides functions for generating cryptographically strong random numbers and tokens.
+
+18. OS modules
+
+	(i) The `os` module in Python provides a portable way of using operating system-dependent functionality. It allows you to interact with the underlying operating system, such as accessing the filesystem, managing processes, working with environment variables, and more. Here's an overview of some of the key functionalities provided by the `os` module:
+
+	(ii) File and Directory Operations:
+
+		(a) `os.getcwd()`: Returns the current working directory as a string.
+		(b) `os.chdir(<path>)`: Changes the current working directory to the specified path.
+		(c) `os.listdir(<path>)`: Returns a list of the entries in the directory specified by the path.
+		(d) `os.mkdir(<path>)`: Creates a new directory with the specified path.
+		(e) `os.makedirs(<path>)`: Creates a directory and all intermediate directories if they do not exist.
+		(f) `os.rename(<path>, <new path+new name?>)`: Renames The Specified file and with the new and also moves the file if the directory is different on the second path
+		(g) `os.system(<cmd>)`: runs CMD/Bash/Powershell commands
+
+			os.system("node index.js");
+
+	(iii) Path Manipulation:
+
+		(a) `os.path.join(path1, path2, ...)`: Joins one or more path components intelligently.
+		(b) `os.path.abspath(path)`: Returns the absolute version of the specified path.
+		(c) `os.path.basename(path)`: Returns the base name of the specified path.
+		(d) `os.path.dirname(path)`: Returns the directory name of the specified path.
+		(e) `os.path.exists(path)`: Checks whether the specified path exists.
+
+	(iv) Process Management:
+
+		(a) `os.system(command)`: Executes the command (a string) in a subshell.
+		(b) `os.spawn*()`: Various functions for spawning new processes.
+		(c) `os.wait()`: Suspends execution of the calling process until one of its child processes terminates.
+		(d) `os.kill(pid, signal)`: Sends the specified signal (an integer) to the process with the given process ID (PID).
+
+	(v) Environment Variables:
+
+		(a) `os.environ`: A mapping object representing the environment variables of the current process.
+		(b) `os.getenv(key, default=None)`: Returns the value of the environment variable identified by key, or default if the variable is not found.
+
+	(vi) Miscellaneous:
+
+		(a) `os.name`: A string that specifies the operating system dependent module imported.
+		(b) `os.rename(src, dst)`: Renames the file or directory src to dst.
+		(c) `os.remove(path)`: Removes the file path.
+		(d) `os.rmdir(path)`: Removes the directory path.
+
+	(v) Example Usage:
+
+		import os
+
+		# Get the current working directory
+		print("Current directory:", os.getcwd())
+
+		# List files and directories in the current directory
+		print("Contents of current directory:", os.listdir())
+
+		# Create a new directory
+		os.mkdir("test_directory")
+
+		# Check if a file exists
+		if os.path.exists("test_directory"):
+		    print("test_directory exists")
+
+		# Change directory
+		os.chdir("test_directory")
+
+		# Print the absolute path of the current directory
+		print("Absolute path of current directory:", os.path.abspath("."))
+
+		# Print the environment variables
+		print("Environment variables:", os.environ)
+
+	(vi) The `os` module is powerful and versatile, providing a wide range of functions to interact with the operating system in a platform-independent manner, making it an essential tool for many Python applications.
+
+19. Argparse Module
+
+	(i) The `argparse` module in Python provides a way to parse command-line arguments in a systematic and user-friendly manner. It simplifies the process of building command-line interfaces for your Python scripts and applications. It is part of the Python Standard Library and offers a powerful and flexible mechanism for handling command-line arguments.
+
+	(ii) Importing the Module: importing the `argparse` module into your Python script:
+
+	   	import argparse
+
+	(iii) Creating a Parser Object: create a parser object using the `ArgumentParser` class:
+
+	   	parser = argparse.ArgumentParser(description='Description of your script')
+	   	
+	   	(a) You can provide a description of your script, which will be displayed when users request help using the `--help` option.
+
+	(iv) Adding Arguments: add arguments to the parser using the `add_argument()` method. Each argument can have a name, optional flags, help messages, default values, data types, and more.
+	
+		(a) Syntax:
+
+			add_argument(<argumentNames>... ,default?= help='<Text for Help>')
+
+	   	parser.add_argument('filename', help='Name of the file to process')
+	   	parser.add_argument('--verbose', '-v', action='store_true', help='Enable verbose mode')
+
+	(v) Parsing Arguments: call the `parse_args()` method to parse the command-line arguments provided by the user.
+
+	   	args = parser.parse_args()
+
+	   	The `args` object will contain the values of the parsed arguments.
+
+	(vi) Accessing Parsed Arguments: You can access the parsed arguments using dot notation on the `args` object.
+
+	   	print('Filename:', args.filename)
+	   	print('Verbose mode:', args.verbose)
+
+	(v) Example:-
+
+		import argparse
+
+		# Create parser object
+		parser = argparse.ArgumentParser(description="Introduction") # Create a Method for adding Arguments
+
+		parser.add_argument('name', help="Name of The User") # Argument
+		parser.add_argument('--msg', '-m', default="Hello", help="Name of The User") # A Flag for special Arguments
+
+		args = parser.parse_args() # Get all The Arguments
+
+		print(f"{args.msg}, My name's {args.name}!")
+
+		Terminal:
+
+			> python main.py Dave --msg Hi
+			Hi, My name's Dave!
+
+	When running this script from the command line, users can provide the name of the person to greet as the first argument and optionally specify the greeting message using the `-g` or `--greeting` flag.
+
+	The `argparse` module provides extensive functionality for handling command-line arguments, including support for positional arguments, optional arguments, default values, type checking, mutually exclusive groups, sub-commands, and more. It is a versatile and powerful tool for creating user-friendly command-line interfaces for your Python applications.	
+
+Section: More Concepts
+
+20. try..except
+	
+	(i) the `try..except` statement is used to handle exceptions or errors that may occur during the execution of a block of code. It allows you to anticipate and gracefully handle errors, preventing the program from crashing.
+
+	(ii) Syntax:
+
+		try:
+		    <code to catch error/exception in>
+		except <ExceptionType> as <error>:
+		    <Code to handle the error/exception>
+
+    (iii) The code inside the `try` block is executed.
+    (iv) If an exception occurs during the execution of the `try` block, the code in the corresponding `except` block is executed.
+    (v) If no exception occurs, the `except` block is skipped.
+
+	(vi) You can catch specific exceptions by specifying the type of exception after the `except` keyword. Alternatively, you can catch all exceptions using the generic `except` clause without specifying a particular exception type.
+
+		# catching specific Error/Exception Type
+		except <ExceptionsType> as <Error>:
+
+		# Catching all The Errors/Exceptions
+		except Exception as <Error>:
+
+	(vii) example:-
+
+		try:
+		    num1 = int(input("Enter a numerator: "))
+		    num2 = int(input("Enter a denominator: "))
+		    result = num1 / num2
+		    print("Result:", result)
+
+		except ValueError:
+		    print("Please enter valid integers.")
+
+		except ZeroDivisionError:
+		    print("Cannot divide by zero.")
+
+		except Exception as e:
+		    print("An unexpected error occurred:", e)
+		
+		(a) In this example, the `try` block attempts to perform division and may raise a `ValueError` if the input is not a valid integer or a `ZeroDivisionError` if the denominator is zero. If any of these exceptions occur, the appropriate `except` block is executed. The last `except` block with the generic `Exception` type can catch any other unexpected exceptions.
+
+	(viii) `finally` Code inside finally is always executed no and it doesn't care about anything even if it's inside a function and it's returned It'll still be executed No Matter What!
+
+		try:
+			int('q2edqwfsewac')
+		except:
+			print('Some Error Occured')
+		finally:
+			print("Ended!")
+
+21. Custom Errors
+
+	(i) you can raise custom exceptions in Python. This is done by directly using or slightly modifying built-in exceptions.
+
+	(ii) Using Built-in Exceptions: Python has many built-in exceptions like `ValueError`, `TypeError`, `RuntimeError`, etc. Sometimes, you can use these directly to signal specific types of errors without needing to create a new class.
+
+		def calculate_age(year_born):
+		    age = 2024 - year_born  # Assuming the current year is 2024
+		    if age < 0:
+		        raise ValueError("Year born cannot be in the future")
+		    return age
+		
+		try:
+		    user_age = calculate_age(2025)
+		except ValueError as e:
+		    print(f"An error occurred: {e}")
+
+	(iii) Slightly Customizing Exceptions: If you want to customize an exception message without creating a new exception class, you can raise a built-in exception with a custom message.
+
+		def check_password(password):
+		    if len(password) < 8:
+		        raise Exception("Password is too short")
+
+		try:
+		    check_password("abc")
+		except Exception as e:
+		    print(f"An error occurred: {e}")
+
+		(a) Here, we use the generic Exception class to raise an exception with a custom message about the password length.
+
+	(iv) 
+
+22. Virtual Environment
+
+	(i) A virtual environment in Python is a self-contained directory that encapsulates a specific Python interpreter along with its standard library and additional packages. This allows you to create isolated environments for different projects, each with its own dependencies and configurations. Virtual environments help manage project dependencies, avoid conflicts between different projects, and ensure consistency across different development environments.
+
+	(ii) Here are the basic steps to create and use a virtual environment in Python:
+
+	 	(a) Install virtualenv (if not already installed):
+
+			Terminal:
+
+			pip install virtualenv
+
+		(b) Create a Virtual Environment: Navigate to your project directory in the terminal and create a virtual environment using:
+
+			(I) On Windows
+			
+				Terminal:
+				python -m venv myvenv
+
+			(II) On Unix/Mac
+
+				Terminal:
+				python3 -m venv venv
+
+			Here, `venv` is the name of the directory that will contain your virtual environment. You can choose any name you prefer.
+
+		(c) Activate the Virtual Environment: Activate the virtual environment based on your operating system:
+
+			(I) On Windows:
+				
+				Terminal:
+				.\venv\Scripts\activate
+
+				CMD:
+				.\venv\Scripts\activate.bat
+				
+				Powershell:
+				.\venv\Scripts\activate.ps1
+
+			(II) On Unix/Mac:
+				
+				Terminal:
+				source venv/bin/activate
+
+			When the virtual environment is activated, your command prompt or terminal prompt should change to indicate the active environment.
+
+		(d) Install Packages in the Virtual Environment:
+
+			(I) While the virtual environment is active, use pip to install packages. This ensures that packages are installed only in the current environment and won't interfere with the global Python installation or other virtual environments.
+
+				Terminal:
+
+				pip install package_name
+
+		(e) Deactivate the Virtual Environment: When you're done working in the virtual environment, you can deactivate it:
+
+			Terminal:
+			deactivate
+
+	(iii) Why Use Virtual Environments?
+
+    	(a) Isolation: Each project can have its own set of dependencies without affecting other projects. This prevents conflicts between different versions of the same library needed by different projects.
+
+    	(b) Reproducibility: Virtual environments make it easy to reproduce the same development environment on different machines. You can share the project along with its requirements.txt file, specifying all dependencies.
+
+    	(c) Cleaner Projects: Virtual environments help keep your project directory clean by storing dependencies in a separate directory.
+
+    	(d) Avoiding Global Installation: Virtual environments allow you to avoid installing packages globally, which might interfere with system-wide Python settings.
+
+    	(e) Dependency Management: Virtual environments are crucial when working on projects with specific version requirements for libraries, as you can install and manage the required versions easily.
+
+23. Scope
+
+	(i) In Python, a scope refers to the region of a program where a particular identifier, such as a variable or function name, is accessible. Understanding scopes is crucial for writing clear and bug-free code, as it determines where variables and functions can be accessed and modified within a program. Python has four main types of scopes:
+
+	(ii) Local Scope:A local scope refers to the innermost scope, typically within a function or method. Variables defined within this scope are only accessible within that function or method.
+	
+		def my_function():
+		    x = 10  # Local variable
+		    print(x)
+	
+		my_function()
+		# print(x)  # This would result in an error since x is not defined in the global scope
+		```
+	
+	(iii) Enclosing (or Nonlocal) Scope: An enclosing scope refers to the scope of the enclosing function in the case of nested functions. Variables defined in the enclosing scope are accessible to inner functions.
+	
+		def outer_function():
+		    x = 10  # Enclosing variable
+		    def inner_function():
+		        print(x)  # Accessing x from the enclosing scope
+		    inner_function()
+
+		outer_function()
+	
+	(iv) Global Scope: A global scope refers to the outermost scope in a Python program, typically at the module level. Variables defined at this level are accessible from anywhere within the module.
+	
+		x = 10  # Global variable
+
+		def my_function():
+		    print(x)  # Accessing x from the global scope
+
+		my_function()
+	
+	(v) Built-in Scope: The built-in scope refers to the scope that contains all the names pre-defined in Python's built-in modules. These names can be accessed from anywhere in the program without the need for an explicit import statement.
+	
+		print("Hello, World!")  # Accessing the print function from the built-in scope
+	
+	(vi) The LEGB Rule: Python follows the LEGB rule to determine the order in which it searches for names in different scopes:
+	
+		(a) `Local`: Names defined within the current function.
+		(b) `Enclosing`: Names in the local scope of any and all enclosing functions, from inner to outer.
+		(c) `Global`: Names defined at the top level of the module or explicitly declared as global.
+		(d) `Built-in`: Names pre-defined in Python's built-in modules.
+	
+	(vii) Scope and Variable Access:
+	
+		(a) Variables can be accessed and modified within the scope in which they are defined.
+		(b) If a variable is not found in the local scope, Python searches in the enclosing, global, and built-in scopes in that order.
+		(c) Assigning a value to a variable within a function creates or modifies the variable in the local scope, even if a variable with the same name exists in an outer scope (unless explicitly declared as `global` or `nonlocal`).
+	
+	(viii) `global` Keyword
+
+		(a) In Python, the `global` keyword is used to declare that a variable inside a function is referring to a global variable, rather than creating a new local variable with the same name. This allows the function to modify the value of a global variable from within its local scope.
+
+		Here's how the `global` keyword works:
+
+		(b) When a variable is assigned a value inside a function, Python assumes it's a local variable by default.
+		(c) If a variable with the same name exists in the global scope, the local variable shadows the global one within the function's scope.
+		(d) To explicitly indicate that a variable is referring to a global variable, you use the `global` keyword.
+
+		(e) without `global` keyword:
+			
+			x = 10  # Global variable
+
+			def my_function():
+			    x = 20  # This creates a new local variable x
+			    print("Inside function:", x)
+
+			my_function()
+			print("Outside function:", x)  # Global x remains unaffected
+			```
+
+			Output:
+			```
+			Inside function: 20
+			Outside function: 10
+
+		(f) Example using the global keyword:
+
+			x = 10  # Global variable
+
+			def my_function():
+			    global x
+			    x = 20  # This modifies the global variable x
+			    print("Inside function:", x)
+
+			my_function()
+			print("Outside function:", x)  # Global x is modified by the function
+
+			Output:
+		
+			Inside function: 20
+			Outside function: 20
+
+24. IO
+
+	(i) In Python, Input/Output (I/O) refers to the process of interacting with external sources such as files, the console, network sockets, and other devices. Python provides a rich set of libraries and functions for performing various I/O operations.
+
+	Here's an overview of the main types of I/O operations in Python:
+
+	(ii) `input( msg:string )` takes user input in the console/terminal and returns it as a string
+
+		userInput = input('Pick a Number between 1-10 >')
+		print("Your Number is ", userInput)
+
+	(ii) File I/O: File I/O involves reading from and writing to files on the file system. Python provides built-in functions and methods for file I/O operations.
+
+		(a) `open(<path>, <mode>)` function Opens a File. You specify the filename and the mode ('r' for reading, 'w' for writing, 'a' for appending, etc.).
+
+		(b) Reading from a File:
+			
+			(I) `read(<toRelativePosition?>)` returns a string of all of them content inside the File
+
+				file = open('test.txt', 'r')
+				print(file.read()) # 'Asap\n123\nabc'
+				file.close()
+			
+			(II) `readline()` It keeps Count of number of times the function has been called and retursn the corresponding line
+
+				file = open('./test.txt', 'r'):
+
+				# It keeps Count of number of times the function has been called and return the corresponding line
+
+    			line = file.readline() # Asap
+    			line = file.readline() # 123
+    			line = file.readline() # abc
+
+				file.close()
+
+			(III) `readlines()` returns a list of all of them content inside the file seperated by new lines
+
+				file = open('./test.txt', 'r'):
+
+				print(file.readlines()) ['Asap\n', '123\n', 'abc']
+
+		(c) Writing to a File: Use the `write()` method to write data to a file.
+
+			(i) `write()` returns a string of all of them content inside the File
+
+				file = open('./test.txt', 'w')
+				file.write("Asap")
+				file.close()
+
+				file = open('./test.txt', 'a')
+				print(file.read()) # Asap`
+			
+			(ii) `writelines()` writes a list of content to the file
+
+				content = ["Hello, World\n", "ASAP\n", "coffee!!!"]
+
+				file = open('./test.txt', 'w')
+				file.writelines(content)
+				file.close()
+
+				file = open('./test.txt', 'r')
+				print(file.read()) # Hello, World\nASAP\ncoffee!!!
+
+		(d) Closing a File: Always close a file after reading from or writing to it using the `close()` method.
+
+		(e) Example:
+
+			# Open a file for writing
+			file = open('example.txt', 'w') as file:
+			file.write('Hello, world!\n')
+			file.write('This is a Python example.')
+			file.close()
+
+			# Open the same file for reading
+			file = open('example.txt', 'r') as file:
+			content = file.read()
+			print(content)
+			file.close()
+
+		(f) `with` statement
+
+			(I) `with` statement let's you read/write/append data to a file without have to write extra boiler plate code/
+
+			(I) Syntax:
+
+				with open(<Path>, <mode>) as <File>:
+					<Your Operations Here>
+
+					// no Need to explicitly close the file It'll be automatically closed when exiting this scope
+		
+		(g) `seek(<position>)` changes the position in the current file, `tell()` returns the current position in the file
+
+			(I) test.txt	
+
+				1234567890
+
+			(I) main.py
+
+				with open('./test.txt', 'r') as file:
+    
+				    print(file.read()) # 1234567890
+
+				with open('./test.txt', 'r') as file:
+
+				    print(file.read(5)) # 12345
+
+				    file.seek(7) # Changes The Reading Position to 7
+
+					# Reading from Relative 7 Position
+				    print(file.read(2)) # 89
+
+					print(file.tell()) # 7
+
+		(h) `truncate(<length>)` limits the length of them file to the specificed length
+
+			with open('./test.txt', 'w') as file:
+			    file.write("1234567890")
+			    file.truncate(5) # Limits file Size to 5 characters
+
+			with open('./test.txt', 'r') as file:
+			    print(file.read()) # 12345
+
+	(iii) Standard I/O: Standard I/O involves reading input from the keyboard (stdin), printing output to the screen (stdout), and printing error messages (stderr).
+
+		(a) `Reading Input`: Use the `input()` function to read input from the user.
+		(b) `Printing Output`: Use the `print()` function to display output on the screen.
+
+		# Reading input from the user
+		name = input("Enter your name: ")
+
+		# Printing output
+		print("Hello,", name)
+
+	(iv) Network I/O: Network I/O involves communication over the network, such as making HTTP requests, sending emails, and working with sockets.
+
+		(a) `HTTP Requests`: Use libraries like `requests` to make HTTP requests and retrieve data from web servers.
+		(b) `Sending Emails`: Use libraries like `smtplib` to send emails programmatically.
+		(c) `Working with Sockets`: Use the `socket` module to create sockets and establish network connections.
+
+		(d) Example :-
+		
+			import requests
+
+				# Make an HTTP GET request
+			response = requests.get('https://www.example.com')
+
+				# Print the content of the response
+			print(response.text)
+
+	(v) Other I/O Operations:
+
+		(a) `Working with Databases`: Use libraries like `sqlite3`, `MySQLdb`, or `psycopg2` for database I/O operations.
+		(b) `Working with APIs`: Use libraries like `json` or `xml` to work with JSON or XML data retrieved from APIs.
+
+	(vi) Python's I/O capabilities are versatile and comprehensive, making it suitable for a wide range of tasks involving interaction with external sources. Whether you're reading from files, communicating over networks, or interacting with databases, Python provides powerful tools and libraries to handle various I/O operations efficiently.
+
+25. Map, Filter, Reduce
+
+	(i) In Python, `map`, `filter`, and `reduce` are built-in functions that provide functional programming capabilities. They allow you to apply functions to iterables like lists, tuples, or sets in a concise and expressive manner.
+
+	(ii) `map()`
+		
+		(a) The `map()` function applies a given function to each item of an iterable (like a list) and returns an iterator that yields the results.
+
+		(b) Syntax:
+			
+			map(<callback_function>, <iterable>)
+
+			(I) `function`: The function to apply to each element of the iterable.
+			(II) `iterable`: The iterable (list, tuple, etc.) whose elements will be processed by the function.
+
+		(c) Example:
+
+			# Convert a list of strings to uppercase
+			strings = ['hello', 'world', 'python']
+			
+			upper_strings = list(map(str.upper, strings))
+
+			print(upper_strings)  # Output: ['HELLO', 'WORLD', 'PYTHON']
+
+	(iii) `filter()`
+
+		(a) The `filter()` function constructs a new iterator from elements of an iterable for which a function returns true.
+
+		(b) Syntax:
+
+			filter(function, iterable)
+
+			(I) `function`: A function that tests if each element of the iterable satisfies a condition.
+			(Note: This Function should return a boolean)
+			(II) `iterable`: The iterable (list, tuple, etc.) whose elements will be tested by the function.
+
+		(c) Example:
+
+			# Filter even numbers from a list
+			numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+			even_numbers = filter(lambda x: x % 2 == 0, numbers)
+
+			print(list(even_numbers))  # Output: [2, 4, 6, 8, 10]
+
+	(iv) `reduce()`
+		
+		(a) The `reduce()` function is part of the `functools` module in Python 3.x. It applies a rolling computation to sequential pairs of values in an iterable, reducing them to a single cumulative value.
+
+		(b) Syntax:
+
+			from functools import reduce
+			reduce(function, iterable, initializer)
+
+			(I) `function`: A function that takes two arguments and returns a single value.
+
+				(A) Parameter 1 Represents Previous Value
+				(B) Parameter 2 Represents Current Value
+
+			(II) `iterable`: The iterable (list, tuple, etc.) to be reduced.
+			(III) `initializer` (optional): An initial value to start the computation. If provided, the computation starts with the initializer and the first element of the iterable.
+
+		(c) Example:
+
+			from functools import reduce
+
+			# Calculate the product of all elements in a list
+			numbers = [1, 2, 3, 4, 5]
+			product = reduce(lambda x, y: x * y, numbers)
+			print(product)  # Output: 120 (1*2*3*4*5)
+
+26. General Keywords
+
+	(i) `is`
+
+		(a) In Python, the `is` keyword is used to test whether two variables refer to the same object in memory, essentially checking for object identity. It compares the memory addresses of the two objects rather than their values.
+
+		(b) Here's how the `is` keyword works:
+
+			(I) When you use the `is` keyword, Python checks if the memory address of the two objects is the same.
+			(II) If the memory addresses are the same, the `is` keyword returns `True`, indicating that the two variables refer to the same object.
+			(III) If the memory addresses are different, the `is` keyword returns `False`, indicating that the two variables refer to different objects.
+
+		(c) Example:
+
+			x = [1, 2, 3]
+			y = [1, 2, 3]
+
+			print(x is y)  # Output: False, because x and y refer to different list objects
+
+			z = x
+			print(x is z)  # Output: True, because x and z refer to the same list object
+
+			In the example above:
+
+			(I) `x` and `y` are two different list objects, even though they have the same contents. Therefore, `x is y` evaluates to `False`.
+			(II) `z` is assigned to the same list object as `x`. Therefore, `x is z` evaluates to `True`.
+
+		(d) `is` keyword checks for object identity, which is different from the `==` operator, which checks for equality of values.
+
+			Example:
+	
+			a = [1, 2, 3]
+			b = [1, 2, 3]
+	
+			print(a == b)  # Output: True, because the values of a and b are the same
+			print(a is b)  # Output: False, because a and b are different objects in memory
+		
+		(e) While `==` checks whether the values of the variables are the same, `is` checks whether the variables refer to the same object in memory.
+
+		(f) More Examples:
+
+			a = 5
+			b = 5
+
+			print(a is b) # True
+			print(a == b) # True, because Numbers are Constants
+
+			a = 'myString'
+			b = 'myString'
+
+			print(a is b) # True
+			print(a == b) # True, because Strings are Constants
+
+			a = ('10',)
+			b = ('10',)
+
+			print(a == b) # True
+			print(a is b) # True, because Tuples are Constants
+
+			a = ['10']
+			b = ['10']
+
+			print(a == b) # True
+			print(a is b) # False, because Lists are not Constants
+
+			a = None
+			b = None
+
+			print(a == b) # True
+			print(a is b) # True, because `None` is Constant
+
+27. Decorators
+
+	(i) Decorators in Python are functions that modify the behavior of other functions or methods. They allow you to add functionality to an existing function or method without modifying its code directly. Decorators are widely used for tasks such as logging, authorization, caching, and more.
+
+	(ii) Functions as First-Class Citizens: In Python, functions are first-class citizens, which means they can be passed as arguments to other functions, returned from other functions, and assigned to variables. This feature is fundamental to understanding decorators.
+
+	(iii) Syntax:
+
+		# The Decorator
+		def my_decorator(
+			<function> # The Function which is called right before it
+		):
+			def wrapper(*<args>):
+
+				# Add Extra Code in this Function to execute them before/after the execution of them code
+
+				<function>(*<args>)
+
+			return <FunctionToReturn>
+		
+
+		@<my_decorator> # It should be called Right Before the Function
+		<Function>
+
+	(iv) Example of a Simple Decorator:
+
+		def greet(fnx):
+		    def wrapper(*args):
+		        print("Hi")
+		        fnx(*args)
+		        print("k Thx Bye")
+		    return wrapper
+
+		@greet
+		def add(a, b):
+		    print(a + b)
+
+		add(5, 10) # Printed:
+		"""
+		Hi
+		15
+		k Thx Bye
+		"""
+
+		In this example:
+
+		(a) `my_decorator` is a function that takes another function (`func`) as its argument and returns a new function (`wrapper`) that adds additional behavior before and after calling `func`.
+		(b) `@my_decorator` syntax is used to decorate the `say_hello` function.
+		(c) When `say_hello()` is called, it actually invokes the `wrapper` function created by the decorator, which in turn calls the original `say_hello` function.
+
+	(v) Decorators with Arguments: Decorators can also take arguments by adding an additional layer of nested functions.
+
+		def repeat(n):
+		    def decorator(func):
+		        def wrapper(*args, **kwargs):
+		            for _ in range(n):
+		                func(*args, **kwargs)
+		        return wrapper
+		    return decorator
+
+		@repeat(3)
+		def greet(name):
+		    print(f"Hello, {name}!")
+
+		greet("Alice")
+
+		In this example, `repeat(3)` returns the `decorator` function, which in turn returns the `wrapper` function. The `wrapper` function repeats the execution of the decorated function (`greet` in this case) `n` times.
+
+	(vi) Use Cases of Decorators:
+
+		(a) `Logging`: Adding logging statements before and after function calls.
+		(b) `Authorization`: Checking user permissions before executing functions.
+		(c) `Caching`: Storing the results of function calls to improve performance.
+		(d) `Validation`: Checking input parameters before executing functions.
+		(e) `Timing`: Measuring the time taken by functions to execute.
+
+	(vii) Decorators offer a powerful mechanism for adding cross-cutting concerns to functions or methods in a modular and reusable way. They help keep the code clean, concise, and maintainable by separating concerns and promoting separation of responsibilities.
+
+Section: Object Oriented Programming
+
+28. Classes
+	
+	(i) In Python, a class is a blueprint for creating objects (instances) that share common attributes and behaviors. It serves as a template that defines the structure and behavior of objects. Classes in Python encapsulate data (attributes) and functions (methods) that operate on that data.
+
+	(ii) Syntax:
+
+		class <className>:
+
+			<variables?> = <value?>
+
+			def __init__(self, <args...?>):
+				<Code to be Executed when defining class>
+
+			def <functionName>(self, <args...?>):
+				<COde to Execute>
+
+	(iii) Example:-
+
+		class Person:
+		    # Constructor (initializer) method
+		    def __init__(self, name, age):
+		        self.name = name
+		        self.age = age
+
+		    # Instance method
+
+		    def introduce(self):
+		        print(f"Hi I'm {self.name}")
+
+		james = Person("James", 36) # Instance
+
+		james.introduce() # Prints: Hi I'm James
+
+		james = Person # Reference
+
+	(v) Classes are Objects (Dictionaries) that stores data and Methods for us to use and Classes They are Highly Customizeable compared to Objects and whenever making an instance of it Copy of The Class as an Object (Dictionary) is assigned to The Instance and we can use the methods defined the class on the instance
+
+	(vi) Constructors: Constructor are Special Functions in Classes that are called during declaration of the Instance of The Class, The Constructors require a Special Name `__init__`
+
+		(a) Syntax:
+
+			# In The Class
+			def __init__ (self, <args...>):
+				<code to Execute>
+
+			# Declaration in The Instance
+
+			<className>(<args...>)
+
+		class Person:
+		    # Constructor (initializer) method
+		    def __init__(self, name, age):
+		        self.name = name
+		        self.age = age
+
+		james = Person("James", 36)
+		
+	(v) `self` keyword represents The instanced object (dictionary) and not the class
+		
+		class Person:
+		    # Constructor (initializer) method
+		    def __init__(self, name, age):
+		        self.name = name
+		        self.age = age
+
+		    # Instance method
+
+		    def info(self):
+		        return self.age
+
+		james = Person("James", 36)
+		dave = Person("Dave", 47)
+ 
+		james.age # 36
+		dave.age # 47
+
+		# `self` keyword is dynamic
+
+	(vi) `cls` keyword takes place of `self` keyword in arguments and instead represents the class instead of the Object meaning It can modify The Class.
+
+		class Counter:
+		
+		    i = 0
+		    @classmethod
+		    def __init__(cls):
+		        cls.i += 1
+		        print(cls.i)
+		
+		counter1 = Counter() # 1
+		counter2 = Counter() # 2
+		counter3 = Counter() # 3
+		counter4 = Counter() # 4
+		counter5 = Counter() # 5
+
+		# `cls` keyword is static
+
+	(vii) Methods are functions defined within a class. They can operate on the object's data (attributes) and perform actions.
+
+		class Person:
+		    def introduce(self):
+		        print(f"Hi I'm {self.name}")
+
+		james = Person()
+		james.name = 'James'
+		james.introduce() # Prints: Hi I'm James
+
+	(viii) Getters and Setters
+
+		(a) Getters and setters are methods used to retrieve and modify the values of private attributes in Python classes. They are often used to enforce encapsulation and provide controlled access to class attributes.
+
+		(Note: When inside a Getter/Setter use add `_` prefix to any values you may refer to, this avoids Name collisions and References the same property you meant to refer to)
+
+		(b) Getters
+
+			(I) A getter is a method used to retrieve the value of a private attribute. It allows access to the attribute's value without directly accessing the attribute itself.
+
+			Here's an example of a getter method:
+
+			
+			class MyClass:
+			    def __init__(self):
+			        self._value = 0  # Private attribute
+
+			    # Getter method for retrieving the value of _value
+			    def get_value(self):
+			        return self._value
+
+			# Create an instance of MyClass
+			obj = MyClass()
+	
+			# Access _value using the getter method
+			print(obj.get_value())  # Output: 0
+		
+		(c) Setters
+
+			(I) A setter is a method used to modify the value of a private attribute. It allows controlled modification of the attribute's value and may include validation or additional logic.
+
+			Here's an example of a setter method:
+	
+			class MyClass:
+			    def __init__(self):
+			        self._value = 0  # Private attribute
+
+			    # Getter method for retrieving the value of _value
+			    def get_value(self):
+			        return self._value
+
+			    # Setter method for modifying the value of _value
+			    def set_value(self, new_value):
+			        if new_value >= 0:
+			            self._value = new_value
+			        else:
+			            print("Invalid value. Value must be non-negative.")
+
+			# Create an instance of MyClass
+			obj = MyClass()
+
+			# Modify _value using the setter method
+			obj.set_value(10)
+
+			# Access _value using the getter method
+			print(obj.get_value())  # Output: 10
+
+			# Try to set a negative value
+			obj.set_value(-5)  # Output: Invalid value. Value must be non-negative.
+
+		(d) Property Decorators
+
+			(I) In Python, property decorators provide a more concise and Pythonic way to implement getters and setters.
+
+			(II) Here's how you can use property decorators:
+
+				class MyClass:
+				    def __init__(self):
+				        self._value = 0  # Private attribute
+
+				    # Getter method for retrieving the value of _value
+				    @property
+				    def value(self):
+				        return self._value
+
+				    # Setter method for modifying the value of _value
+				    @value.setter
+				    def value(self, new_value):
+				        if new_value >= 0:
+				            self._value = new_value
+				        else:
+				            print("Invalid value. Value must be non-negative.")
+
+				# Create an instance of MyClass
+				obj = MyClass()
+
+				# Modify _value using the property setter
+				obj.value = 20
+
+				# Access _value using the property getter
+				print(obj.value)  # Output: 20
+
+				# Try to set a negative value
+				obj.value = -15  # Output: Invalid value. Value must be non-negative.
+		
+				(A) In this example, `@property` is used to define a getter method, and `@value.setter` is used to define a setter method for the `value` property. This syntax provides a more elegant way to define getters and setters in Python classes.
+
+		(e) Using getters and setters in Python allows for controlled access to class attributes, promoting encapsulation and ensuring data integrity within the class. However, they should be used judiciously and only when necessary, as excessive use of getters and setters can lead to code verbosity and decreased readability.
+
+	(ix) Inheritance
+		
+		(a) Inheritance allows a class (subclass) to inherit attributes and methods from another class (superclass). It promotes code reuse and supports the creation of hierarchical relationships.
+
+		(b) Inheritances
+
+			(I) Single Inheritance
+
+				ParentClass
+					|
+					|
+					|
+				Child Class
+
+			(II) Multiple Inheritance
+
+				ParentClass1	ParentClass2
+					|				|
+					|---------------|
+							|
+						Child Class
+
+			(III) Multi-Level Inheritance
+
+				GrandParentClass
+					|
+					|
+				Parent Class
+					|
+					|
+				Child Class
+
+			(IV) Hybrid Inheritance
+
+					GrandParentClass
+							|
+					|---------------|
+					|				|
+				ParentClass1	ParentClass2
+					|				|
+					|---------------|
+							|
+						ChildClass
+
+			(V) Hierarchical Inheritance:
+
+						ParentClass
+							|
+					|---------------|
+					|				|
+				ChildClass1    ChildClass2
+
+		(b) Syntax:
+
+			class <Child_Class>(<Parent_Class>):
+
+		(c) Example:
+
+			class Person:
+			    def __init__ (self, name, age):
+			        self.name = name
+			        self.age = age
+
+			class Student (Person): # Inherit from Person
+			    studentid = -1
+
+			    @property
+			    def studentid(self):
+			        return self._studentid
+
+			    @studentid.setter
+			    def studentid(self, id):
+			        self._studentid = id
+
+			student1 = Student("James", 19)
+			student1.studentid = 20240523564
+
+			print(student1.name) # James
+			print(student1.age) # 19
+			print(student1.studentid) # 20240523564
+
+		(d) Multiple Inheritance
+
+			(I) Multiple inheritance in Python refers to the ability of a class to inherit attributes and methods from more than one parent class. This means that a child class can inherit from multiple parent classes, allowing it to access and use the attributes and methods defined in each of its parent classes.
+
+			(II) In Python, multiple inheritance is achieved by specifying multiple parent classes in the class definition. example:-
+
+				class Parent1:
+				    def method1(self):
+				        print("Method from Parent1")
+
+				class Parent2:
+				    def method2(self):
+				        print("Method from Parent2")
+
+				# Child class inherits from both Parent1 and Parent2
+				class Child(Parent1, Parent2):
+				    pass
+
+				# Creating an instance of the child class
+				child = Child()
+
+				# Calling methods inherited from Parent1 and Parent2
+				child.method1()  # Output: Method from Parent1
+				child.method2()  # Output: Method from Parent2
+
+				(A) In the example above, the `Child` class inherits from both `Parent1` and `Parent2`. Therefore, objects of the `Child` class have access to methods defined in both parent classes.
+
+			(III) Method Resolution Order (MRO):
+
+				(A) Python uses a method resolution order (MRO) to determine the order in which methods are inherited from parent classes. The MRO defines the sequence in which Python looks for methods in the inheritance hierarchy.
+
+				(B) The MRO can be accessed using the `__mro__` attribute or the `mro()` method of a class. Example:-
+
+					print(Child.__mro__)
+					# Output: (<class '__main__.Child'>, <class '__main__.Parent1'>, <class '__main__.Parent2'>, <class 'object'>)
+
+				(C) In this case, the method resolution order for the `Child` class is `Child`, `Parent1`, `Parent2`, and finally the built-in `object` class.
+
+			(IV) Diamond Problem:
+
+				(A) Multiple inheritance can lead to a situation known as the diamond problem when a class inherits from two classes that have a common ancestor. This can cause ambiguity in method resolution. To avoid this, Python uses a specific method resolution order (C3 linearization) that guarantees a consistent and predictable order for method resolution.
+
+			(V) Guidelines for Using Multiple Inheritance:
+
+				(A) Use multiple inheritance judiciously to avoid complex class hierarchies and potential conflicts.
+				(B) Favor composition over inheritance whenever possible to achieve code reuse and maintainability.
+				(C) Document class hierarchies and method resolution order for clarity and understanding.
+
+			(VI) While multiple inheritance can be a powerful feature in Python, it should be used with caution to ensure code readability, maintainability, and correctness.
+
+		(e) Hybrid Inheritance:
+			
+			(I) Hybrid inheritance refers to a combination of different types of inheritance patterns within a single class hierarchy. It typically involves a mix of single inheritance, multiple inheritance, and multilevel inheritance.
+			
+			(II) Example:-
+			
+				class A:
+				    def method_A(self):
+				        print("Method from class A")
+
+				class B(A):
+				    def method_B(self):
+				        print("Method from class B")
+
+				class C(A):
+				    def method_C(self):
+				        print("Method from class C")
+
+				class D(B, C):  # Multiple inheritance
+				    def method_D(self):
+				        print("Method from class D")
+
+				# Creating an instance of class D
+				d = D()
+				d.method_A()  # Output: Method from class A
+				d.method_B()  # Output: Method from class B
+				d.method_C()  # Output: Method from class C
+				d.method_D()  # Output: Method from class D
+			
+				(A) In the example above, class `D` inherits from both class `B` and class `C`, which demonstrates multiple inheritance. Additionally, both `B` and `C` inherit from class `A`, showcasing single inheritance. This combination of inheritance patterns is an example of hybrid inheritance.
+			
+		(f) Hierarchical Inheritance:
+			
+			(I) Hierarchical inheritance refers to a single base class being inherited by multiple derived classes, forming a hierarchical relationship. In this pattern, one base class serves as the superclass for multiple subclasses.
+			
+			(III) Example:-
+			
+				class Animal:
+				    def speak(self):
+				        pass
+
+				class Dog(Animal):  # Inherited from Animal
+				    def speak(self):
+				        print("Dog barks")
+
+				class Cat(Animal):  # Inherited from Animal
+				    def speak(self):
+				        print("Cat meows")
+
+				# Creating instances of subclasses
+				dog = Dog()
+				cat = Cat()
+
+				dog.speak()  # Output: Dog barks
+				cat.speak()  # Output: Cat meows
+			
+				(A) In the example above, both `Dog` and `Cat` classes inherit from the `Animal` class. Each subclass provides its own implementation of the `speak()` method, demonstrating hierarchical inheritance.
+
+	(x) Static Methods
+
+		(a) In Python, static methods are methods that are bound to the class rather than to instances of the class. They do not receive an implicit first argument (such as `self` in instance methods) and can be called on the class itself or on instances of the class. Static methods are defined using the `@staticmethod` decorator.
+
+		(b) Example:
+		
+			class MyClass:
+			    class_variable = 10  # Class variable
+
+			    def __init__(self, value):
+			        self.value = value  # Instance variable
+
+			    @staticmethod
+			    def static_method():
+			        print("This is a static method")
+
+			# Calling the static method using the class name
+			MyClass.static_method()
+
+			# Creating an instance of MyClass and calling the static method
+			obj = MyClass(20)
+			obj.static_method()
+		
+		(c) Key points about static methods:
+		
+			(I) `No `self` Argument`: Static methods do not take the instance (`self`) or class (`cls`) as the first parameter. Therefore, they cannot access or modify instance or class variables directly.
+		
+			(II) `Accessed via Class or Instance`: Static methods can be called using the class name or an instance of the class.
+		
+			(III) `Utility Functions`: Static methods are often used to define utility functions that are related to the class but do not depend on instance or class state.
+		
+			(IV) `Limited Access to Class Attributes`: While static methods can access class attributes, they do so through the class name, and they do not have access to instance variables.
+		
+		(d) When to use static methods:
+		
+			(I) When a method does not require access to instance or class state.
+			(II) When a method performs a task related to the class but does not depend on instance or class attributes.
+			(III) When a method does not modify the state of the instance or the class.
+		
+		(e) Static methods provide a way to organize code within a class and improve code readability and maintainability by logically grouping related functionality. However, it's important not to overuse static methods and consider whether a method should be an instance method, a class method, or a static method based on its behavior and dependencies.
+
+	(xi) Access Modifiers:
+
+		(a) Python does not have built-in access modifiers like some other programming languages (e.g., Java, C++), such as `public`, `private`, and `protected`. However, Python uses naming conventions and features to achieve similar behavior:
+
+		(b) Public Members:
+
+			(I) In Python, attributes and methods are public by default, which means they can be accessed from outside the class.
+
+			class MyClass:
+			    def __init__(self):
+			        self.public_attribute = 10
+
+			    def public_method(self):
+			        return self.public_attribute
+
+			obj = MyClass()
+			print(obj.public_attribute)   # Accessing public attribute
+			print(obj.public_method())     # Accessing public method
+
+		(c) Protected Members:
+
+			(I) In Python, attributes and methods are conventionally marked as protected by prefixing their names with a single underscore `_`. While this doesn't prevent access from outside the class, it serves as a signal to users of the class that these members are intended for internal use and should be treated as protected.
+
+			class MyClass:
+			    def __init__(self):
+			        self._protected_attribute = 10
+
+			    def _protected_method(self):
+			        return self._protected_attribute
+
+			obj = MyClass()
+			print(obj._protected_attribute)   # Accessing protected attribute
+			print(obj._protected_method())     # Accessing protected method
+
+		(d) Private Members:
+
+			(I) In Python, attributes and methods can be marked as private by prefixing their names with a double underscore `__`. This doesn't make them truly private but invokes name mangling, which modifies the name to include the class name, making it harder to access from outside the class.
+
+			class MyClass:
+			    def __init__(self):
+			        self.__private_attribute = 10
+
+			    def __private_method(self):
+			        return self.__private_attribute
+
+			obj = MyClass()
+			# print(obj.__private_attribute)  # This would raise an AttributeError
+			# print(obj.__private_method())    # This would raise an AttributeError
+			print(obj._MyClass__private_attribute)   # Accessing private attribute using name mangling
+			print(obj._MyClass__private_method())     # Accessing private method using name mangling
+
+		(e) Summary
+
+			(I) `Public Members`: Accessible from anywhere.
+			(II) `Protected Members`: Conventionally marked with a single underscore `_` to indicate internal use.
+			(III) `Private Members`: Conventionally marked with a double underscore `__` and are name-mangled to make it harder to access directly from outside the class.
+
+		While Python's approach to access modifiers relies on conventions and name mangling rather than strict enforcement, it still promotes the principles of encapsulation and abstraction, which are fundamental to object-oriented programming. Developers are encouraged to follow these conventions to write clean, maintainable, and understandable code.
+	
+	(xii) `<instance>.__dict__` is property used on Instances of a Class to show all the properties in the Instanced Object
+
+		class MyClass:
+			class_variable = 10  # Class variable
+
+			def __init__(self, name, age):
+				self.value = value
+				self.name = name
+				self.age = age
+			
+		# Creating an instance of MyClass and calling the static method
+		obj = MyClass("Dave", 36)
+		obj.__dict__ // {'name': 'Dave', 'age': '36', 'class_variable': 10}
+	
+	(xiii) `super` keyword
+
+		(a) In Python, `super()` is a built-in function that provides a way to access and call methods of a superclass (parent class) in a subclass (child class). It allows you to invoke methods from the superclass without explicitly naming the superclass, which makes your code more maintainable and flexible, especially in the context of inheritance.
+
+		(b) Here's how `super()` works:
+
+			(I) Accessing Superclass Methods: In a subclass, you can use `super()` to access methods from its superclass. This is particularly useful when the subclass overrides a method from the superclass but still wants to invoke the superclass method within the overriding method.
+
+		(c) Syntax:
+   			
+			(I) The `super()` function takes two arguments: the subclass itself and the instance of the subclass.
+   			(II) It returns a proxy object that delegates method calls to the superclass.
+
+		(d) Calling Superclass Methods: After obtaining the `super()` object, you can call methods of the superclass using dot notation.
+
+		(e) Example:-
+
+			class Person:
+			    def __init__ (self, name, age):
+			        self.name = name
+			        self.age = age
+
+			class Student (Person): # Inherit from Person
+			    def  __init__ (self, name, age, ID):
+
+			        super().__init__(name, age) # Calling The Constructor of the Parent Class
+
+			        self.studentid = ID
+
+			student = Student("James", 19, 20210563597)
+
+			print(student.name) # James
+			print(student.age) # 19
+			print(student.studentid) # 20210563597
+
+		(f) Using `super()` enhances code reusability and helps maintain the class hierarchy in a clear and consistent manner. It ensures that changes made to the superclass are automatically reflected in the subclass, promoting the principle of DRY (Don't Repeat Yourself) in object-oriented programming.
+
+	(xiv) Dunder Methods
+
+		(a) Dunder methods (double underscore methods), also known as magic methods or special methods, are special built-in methods in Python classes that enable customization and provide functionality to classes that can behave like built-in types or interact with built-in language features. Dunder methods are identified by their names, which start and end with double underscores, such as `__init__`, `__str__`, `__repr__`, `__add__`, etc.
+
+		Here are some common dunder methods and their purposes:
+
+		(b) `__init__(self, ...)`: The constructor method, called when an instance of the class is created. It initializes the instance's attributes.
+
+		(c) `__str__(self)`: The string representation method, invoked when `str()` is called on an instance of the class. It should return a string representation of the object.
+
+		(d) `__repr__(self)`: The official string representation method, invoked when `repr()` is called on an instance of the class. It should return a string that represents a valid Python expression that can be used to recreate the object.
+
+		(e) `__len__(self)`: The length method, invoked when `len()` is called on an instance of the class. It should return the length of the object.
+
+		(f) `__add__(self, other)`: The addition method, invoked when the `+` operator is used with instances of the class.
+
+		(g) `__eq__(self, other)`: The equality method, invoked when the `==` operator is used with instances of the class.
+
+		(h) `__lt__(self, other)`: The less than method, invoked when the `<` operator is used with instances of the class.
+
+		(i) `__gt__(self, other)`: The greater than method, invoked when the `>` operator is used with instances of the class.
+
+		(j) `__getitem__(self, key)`: The indexing method, invoked to retrieve an item from the object using square brackets (`[]`).
+
+		(k) `__setitem__(self, key, value)`: The item assignment method, invoked to set the value of an item in the object using square brackets (`[]`).
+
+		(l) `__delitem__(self, key)`: The item deletion method, invoked to delete an item from the object using the `del` statement.
+
+		(m) `__iter__(self)`: The iteration method, invoked when the object is iterated over, for example, in a `for` loop.
+
+		(n) These are just a few examples of the many dunder methods available in Python classes. By implementing these methods, you can define custom behavior for your objects and make your classes behave more like built-in types, enabling Python's rich language features and idioms to be applied to your custom objects.
+
+	(xv) Classes in Python provide a powerful mechanism for organizing and modeling data and behavior. They encapsulate data and methods, support inheritance and polymorphism, and promote code reusability and maintainability. Understanding classes is fundamental to object-oriented programming (OOP) in Python and is essential for building complex and scalable applications.

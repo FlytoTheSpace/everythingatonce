@@ -1,0 +1,509 @@
+==========================================================================================================
+											Bash (Bourn Again Shell)
+==========================================================================================================
+
+1. Commands:
+    
+    () General
+
+        () `echo "<Message>"`: Logs The Message in The Terminal
+    
+            $ echo "Hello, World"
+            Hello, World
+
+        () `clear` clear your terminal
+        () `date` returns the current Date
+        () `sleep <n>` pauses any further execution for `n` number of seconds (usefull in bash scripts)
+        () `man <command>` shows you the full documentation of the Specified Command if Available (External Packages Included)
+        () `whatis <command>` give you a quick summary of what the Specified command does
+        () `which <commands / packages / variable>` tells you where things are Located in the System
+        () `whereis <commands / packages / variable>` tells you exactly where things are Located in the System and also if They are located on multiple places
+        () `wget <URL>` let's you get Files from the Internet
+        () `curl <URL>` same as wget
+        () `exit` can be used to exit out of a lot of places
+        () `reboot` reboots your system
+        () `shutdown -h now` shutdowns your system
+
+    () Navigation
+    
+        () `ls` Lists all the Files in the Current Working Directory
+
+            () `-l` Also Displays Meta Data About the File such as Permissions, Creation Date, name, etc.
+            () `-a` Displays Hidden Files
+
+        () `pwd` prints the Current Working Directory
+
+        () `cd <PATH>` changes your Current Working to the Path
+
+            () `cd` changes your Current Working Directory to Your Home Directory
+
+        () `ln -s <Path+Name> <Link>` Create a link/Shortcut file that leads to the Specified file
+
+    () Files and Directories
+
+        () `touch <Path+Name...>` Creates a File, You can create multiple files by just typing their Path and Name side by side
+
+            () `-d <Date>` Schedule a File to be Created in the Future on <Date>
+
+        () `cat <Path+Name>` Displays Contents of the File
+
+        () `cp <Path+Name> <NewPath>` Copies The File to The Specified New Path
+
+        () `mv <Path+Name> <NewPath>` Copies The File to The Specified New Path
+
+        () `mkdir <Path+Name>` creates a new Directory on the Path
+        
+        () `shred <Path+Name>` Obfuscates the File
+        
+        () `rm <Path+Name>` Deletes The File on the Path
+            
+            () `-r` Let's you Delete Folder even If they are not Empty
+
+        () `rmdir <Path>` Deletes The Directory on the Path, Only if  The Directory  is Empty
+
+        () `chmod <+ or -><permission> <Path>`: Adds or Removes File Permissions
+
+            $ # Executable File
+            $ chmod +x script.sh
+
+        () `chown <username> <Path>` Changes Ownership of the File/Directory
+
+        () `zip <Path+Name>.zip <files...>` Zips the Specified files with the Specified name
+        () `unzip <Path+Name>.zip` Unzips the Files
+
+        () `find <Path> -name "<Name>"` searches for Files in the Specified Directory
+
+        () `head <Path+Name>` Displays Heading of the File
+        () `less <Path+Name>` Displays Contents of the One Page at a Time
+        () `tail <Path+Name>` Displays Tail of the File
+
+        () `cmp <Path+Name> <Path+Name>` compares Both Files
+        () `diff <Path+Name> <Path+Name>` compares Both Files and tell you the Difference between Both Files
+
+    () Users
+        
+        () `whoami` The User who you are Logged in as
+
+        () `useradd <username>`: simply adds a new user by the name of <username> (Requires ROOT)
+        
+        () `adduser <username>`: let's you configure settings for the new user such as Passwords etc. (Requires ROOT)
+
+        () `su <username>`: Switch to the Specified User, add prefix `sudo` and don't specify the username to log in as ROOT
+
+        () `exit` exits out of the current user If is switched from a different user
+
+        () `passwd <username>` changes password of the User, leave the username Empty to change your own Password (Requires ROOT)
+
+    () Network
+
+        () `ping <domain/IP>` Let's you know if something is up running
+
+            () `-c <Count>` Limits the amoung of Pings
+            () `-s <Size>` Sets the Size of the Packets in Bytes
+
+        () `ssh <user>@<IPAddress>`
+
+            (a) `-p <PORT>` stands for PORT (default 22)
+
+        () `ifconfig` or `ip address` Let's you view your IP Details
+
+        () `resolvectl status` Show you Details about Your DNS
+        
+        () `traceroute <domain/IP>` Displays all of the Proxies you are passing through to get at the destination
+
+        () `netstat` or `ss` Displays all the Network Activity
+
+            () `-t` or `--tcp`: limits to TCP Network Activity
+            () `-u` or `--udp`: limits to IP Address Ports etc
+            () `-l` or `--listening`: limits to Current Activity or if Enabled or Not
+            () `-p` or `--programm`: limits to Programs Only
+            () `-n` or `--numeric`: limits to Numberic
+            () `-tulpn` limits to Open Ports Only 
+
+        () `iptables` Your Firewall Settings on the different Ports
+        () `ufw` builds on top of `iptables` for making things easier 
+        () `ufw allow <PORT>` Opens up the Specified Port
+        () `ufw status` Check Firewall Status
+        () `ufw enable` enable Firewall
+        () `ufw disable` disable Firewall
+
+    () Utilities for Other Commands
+
+        () `sudo <command>` makes the command Run as as the ROOT user
+
+        () `| sort` sorts in Alphabetical Order
+        
+        () `| grep <word>` let's you get Lines that starts with The `<word>`
+
+        () `| bc` evaluates an Arithemetic Expression
+
+        () `$(<command>)` let's you get the return values of the Commands
+
+            flytothespace@ubuntu:~$ me=$(whoami)
+            flytothespace@ubuntu:~$ echo $me
+            flytothespace
+            flytothespace@ubuntu:~$ 
+
+        () `<Command> > <Path+Name>` creates a File on the path and inserts the Return Value of The Command into that file
+
+            $ echo "Hello, World" > file.txt
+            $ cat file.txt
+            Hello, World
+
+        () appending `&` sign at the end of a Command makes it run in the Background and Not Block the Main Thread
+
+    () Hardware and OS
+
+        () `uname` Information About your OS
+        () `free` Information About RAM and Swap
+        () `df -H` Information About Storage
+        () `ps -aux` Information About Running Processes on Your System
+        () `top` Information About CPU and RAM
+        () `htop` Information About CPU and RAM in a prettier way
+        () `kill -9 <ProcessID>` Kills the Process by It's ID
+        () `pkill -f <ProcessName>` Kills the Process by It's Name
+
+        () `systemctl` Services
+
+            () `systemctl status <ServiceName>` Shows Status of The Specified Service
+            () `systemctl start <ServiceName>` Starts The Specified Service
+            () `systemctl stop <ServiceName>` Stops The Specified Service
+
+2. Package Managers
+
+    (i) apt
+
+        (a) `apt update` updates your Package Repositories
+        (b) `apt upgrade` installs your updates your Package Repositories
+        (c) `apt install <name>` installs the Specified Package by Name
+
+3. External Packages
+    
+    (i) finger
+
+        (a) Let's You Inspect Other Users
+
+        (b) installation
+
+            $ # Debian based
+            $ sudo apt install finger
+
+        (c) `finger <username>` Inspects the Specified user
+
+    (ii) neofetch
+
+        (a) Let's you get some About your Computer and OS
+
+        (b) installation
+
+            $ # Debian based
+            $ sudo apt install finger
+
+        (c) `neofetch` Information about your Computer and OS
+    
+    (iii) cal
+
+        (a) Gives you a Calender in Your terminal
+
+        (b)  installation
+
+            $ # Debian Based
+            # sudo apt install cal
+
+        (c) `cal` Displays a Calender
+
+4. Comments
+
+    (i) Comments are peices of text that are Ignored by the interpreter/Compiler for Guidance and Other Purposes
+
+    (ii) in Bash Comments can be defined by making a Line start with "#", and all the text after that "#" sign will be ignored until the line ends
+
+        # This is a Comment
+        echo "hello, World"
+
+        $ bash script.sh
+        hello, World
+
+5. Permissions:
+
+    (i) Ownerships: There are 3 types of Ownerships in Linux:
+
+        User
+        Group
+        Other
+
+    (ii) Permissions: There are 3 types of Permissions for each Type of Owner of the File
+
+        r : Read permission
+        w : Write permission
+        x : Execute permission
+        – : No permission set
+
+    (iii) A Linux Permission Consists of 9 Characters They Follow this Order: r (Read), w (Write) and x (Execute) and to Represent, that the permission is defined they are replace by '-'.
+    (iii) Example:-
+
+        rwxrw-r--
+
+
+        User       Group
+        Owner      Owner     Other Users
+         ↓           ↓           ↓
+        rwx         rw-         r--
+
+6. Variables
+
+    (i) Variables Contains Peices of Data that can be used when Referenced the Variable
+    (ii) In Bash Variables can be defined by starting with the name of the Variables followed by an Equal Sign "=" and then The Value to be Assigned
+
+    (iii) Syntax:
+
+        <variableName> = <value>
+    
+    (iv) In Bash Variable can be Used by first adding `$` sign then the name of the Variable
+
+    (v) Example:- 
+
+        $ name="James"
+        $ echo "Hello, It's nice to Meet you $name"
+        Hello, It's nice to Meet you James
+    
+    (vi) Built-in Variables:
+
+        (a) Built-in Variables in Bash are Variables which does not need to be defined by the User and rather is provided by the bash interpreter to Help us
+
+        (b) `$SHELL`: Returns The Value of The Current Shell You are Using
+
+        (c) `$USER`: Returns Name of The Current User
+
+        (d) `$PWD`: Returns Current Working Directory
+
+        (e) `$HOSTNAME`: Returns Your Computer Name
+
+        (f) `$RANDOM`: Returns a Random Number in-between 0 and 32765
+            
+            (I) `$(($RANDOM % <n>))` Returns Random Number in-between 0 and <n>
+
+    (vii) The Variables Provided by the Bash interpreter are `Enviorment Variables` meaning they can be used Everywhere and are Permanent Variables
+    (viii) The Variables Defined by you The User are `Child Process` Variables meaning they cannot be used outside of where they are defined
+
+    (ix) `export <VariableName>` makes the `Child Process` variable a `Enviorment Variable` meaning It makes that Variable Available Everywhere, but It doesn't make them Permanent meaning they can be lost after Shutdown/Restart
+    (x) To Make a Enviorment Variable Permanent You'll need to be one your Home Directory and Open a File named ".bashrc" which is Hidden and Then Add Declaration for your File, export it, and finally logout and Log in Again, now That Variable is an Enviorment Variable and is Permanent unless you remove it from there
+
+        $ cd
+        $ nano .bashrc
+
+        ```.bashrc
+        
+        export <variableName>=<Value>
+
+        ```
+        KEY: Ctrl + X
+        KEY: Y
+        KEY: Enter
+
+        $ sudo pkill -u $USER
+
+7. Text Editors:
+
+    (i) Text-Editors in Bash let's you edit text/script files without leaving your terminal
+
+    (ii) `nano <filePath>` most simple and built-in Text-Editor
+
+8. Conditions
+
+    (i) if
+        
+        if [[ <condition> ]]; then
+            # If the condition is Met
+        fi
+
+    (ii) If..else:
+
+        if [[ <condition> ]]; then
+            # If the condition is Met
+        else
+            # If the condition is Not Met
+        fi
+
+    (iii) If..else:
+
+        if [[ <condition> ]]; then
+        
+            # If the condition is Met
+        
+        elif [[ <DifferentCondition> ]]; then
+
+            # If The First condition is Not Met this Condition will be checked
+        else
+        
+            # If none of the conditions is Met
+        
+        fi
+
+    (i) Case
+
+        case $<variable> in 
+            <value1>)
+                #Commands to run if $variable == <value1>
+                ;;
+            <value2>)
+                #Commands to run if $variable == <value2>
+                ;;
+            <value3>)
+                #Commands to run if $variable == <value3>
+                ;;
+        esac
+
+9. Loops
+
+    (i) While Loops
+
+        (a) Runs a Peice of Commands Over and Over While The Condition is True
+
+        (a) Syntax:
+
+            while [[ <condition> ]]
+            do
+                # Commands to run while the <condition> is true
+            done
+        
+        (b) While Loops doesn't uses normal Comparison Operators instead uses Flags:
+
+            (a) `<a> -lt <b>` returns true if `a` is less than `b`
+            (b) `<a> -gt <b>` returns true if `a` is greater than `b`
+            (c) `<a> -le <b>` returns true if `a` is less than `b` or equals to `b`
+            (d) `<a> -ge <b>` returns true if `a` is greater than `b` or equals to `b`
+
+        (b) Example:
+
+            i=1
+            while [[ $i -le 100 ]]
+            do
+                echo $i
+                (( i ++ )) # Increasing The Value of `i` by 1
+            done
+
+            # Prints Every Line in a file One by One
+
+            while read -r line; do
+                echo $line # <-- `$line` represets the current line of the file
+            done < file.txt # <-- File Name
+
+    (ii) Until Loops
+
+        (a) Runs a Peice of Commands Over and Over Until The Condition is True
+
+        (a) Syntax:
+
+            while [[ <condition> ]]
+            do
+                # Commands to run while the <condition> is true
+            done
+        
+        (b) Until Loops doesn't uses normal Comparison Operators instead uses Flags:
+
+            (a) `<a> -le <b>` returns true while `a` is less than `b`
+
+            (b) `<a> -gt <b>` returns true while `a` is greater than `b`
+
+        (c) Example:
+
+            i=1
+            until [[ $i == 100 ]]
+            do
+                echo $i
+                (( i ++ )) # Increasing The Value of `i` by 1
+            done
+
+    (iii) For Loops
+
+        (a) For Loops doesn't uses any Bytes and instead uses a Range based Loop
+
+        (b) Syntax:
+
+            for <iterator> in <list>; do
+                # Commands to run
+            done
+
+        (c) Example:
+
+            for i in {1..10}
+                echo "This Loop has ran $i Times!"
+            done
+
+            $ ./script.sh
+
+            This Loop has ran 1 Times!
+            This Loop has ran 2 Times!
+            This Loop has ran 3 Times!
+            This Loop has ran 4 Times!
+            This Loop has ran 5 Times!
+            This Loop has ran 6 Times!
+            This Loop has ran 7 Times!
+            This Loop has ran 8 Times!
+            This Loop has ran 9 Times!
+            This Loop has ran 10 Times!
+        
+    (iv) Loop Controls
+
+        (a) Loops Controls are Keywords that Controls the Flow of the Loops
+
+        (b) `continue` skips the Current Iteration
+
+        (c) `break` breaks/exits the Loop
+
+Scripts:
+
+10. Creating Scripts
+
+    (i) File Extention for a Bash Script is "sh"
+
+        script.sh <-- Bash Script
+
+    (ii) add "#!/bin/bash" to the first line of the Script to Define that it must be run by Bash and not any other kind of Scripting Language
+
+        #!/bin/bash
+        echo "Hello, World"
+
+    (iii) Running a Bash Script: `bash <path>` or `<path>`
+
+        $ bash script.sh
+        Hello, World
+
+        $ # Make the File Executable
+        $ chmod +x script.sh
+        $ ./script.sh
+        Hello, World
+
+11. More About Scripts
+
+    (i) `read <variableName>` while the Script is Running It takes An Input from the User and Stores it in the given Variable
+
+        #!/bin/bash
+        echo "What's Your Name?:"
+        read name
+        echo "Hello, $name!"
+
+        $ bash script.sh
+        What's Your Name?:
+        FlytoTheSpace
+        Hello, FlytoTheSpace!
+
+    (ii) `$<Count>` Represets the Arguments Given to The Script Before Running The Script
+
+        #!/bin/bash
+        name=$1
+        profession=$2
+        echo "Hello, My name's $name!"
+        echo "and I'm a $profession!"
+
+    (iii) `$(<command>)` let's you get the return values of the Commands
+
+        #!/bin/bash
+        name=$(whoami)
+        echo "Hello, $name!"
+
+        flytothespace@ubuntu:~$ script.sh
+        Hello, flytothespace
+
+    (iv) `exit <0 or 1>` exits The Script with The Status of 0 or 1, 1 stands for Success and 0 stands for Error
