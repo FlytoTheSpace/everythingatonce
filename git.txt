@@ -1,0 +1,81 @@
+=========================================================================================================
+											Git
+=========================================================================================================
+
+1. Setup
+
+    (i) Installation:
+
+        $ sudo apt-get install git
+
+    (ii) Initialization
+        
+        (ii) `$ git init` initalizes The Current Working Directory for GIT
+    
+        (iii) `$ git clone <SSH/>HTTP URL> ` Clones The Repository from the URL into The Current working Directory (automatically adds a source control)
+
+    (iii) `$ git remote add origin <SSH/>HTTP URL>` Adds a Source Control to your pre-initalized Repository
+
+2. Git Structure
+
+    (i) 4 Stages of Git:
+
+                            Staging                    Commit       (HEAD)        Push       (Cloud Repository)
+        ---------------       |        -----------       |        -----------       |        ------------------
+        | Working Dir | -------------> | Changes | -------------> | Version | -------------> | Source Control |
+        ---------------                -----------                -----------                ------------------
+
+    (ii) Working Directory: working directory is all files in their current state, no changes are yet currently tracked by git
+
+    (iii) Index/Stage
+
+        (a) Indexes/Stages all the files them for the Commit
+
+        (b) `git add .` stages all The files
+
+    (iv) Commit
+
+        (a) A Commit Finalizes your Staged Changes and Creates a New Version of Your code and it requires a Commit MSG to keep track of and a optionally a description
+
+        (b) `git commit -m "<commitMSG>"`
+
+
+3. Source Control
+
+    (i) A Source Control is a which is The Centralized Repository that powers all the other Repositories Cloned by Other Users
+
+    (ii) Branches
+
+        (a) Branches are seperate version of main Repository that have their own seperate history/commits
+
+        (b) `main/master` is like the Stem of Everything it's the main branch all of the other branches come from it
+
+        (c) Creating & using Braches:
+            
+            (I) Branches from `main/master` are created using `git branch <name>`
+
+            (II) `git checkout <name>` switches to the Existing Branch
+
+                (A) `-b` creates and switches to that branch
+
+        (d) Merging Branch
+
+            (I) `git merge <name>` Requests to merge The Branch into The Master/Main Branch (Arises Git conflicts to be resolved by the Owner of the repo)
+
+3. Git Actions (Source Control Based)
+
+    (i) Push
+
+        (a) Push Action of Git Requests The Source Control to Accept your Commited Changes, changes can be denied or Accepted by the Source Control
+
+        (b) `git push` Pushes all your changes into the Source Control
+
+    (ii) Pull
+
+        (a) Pull Action of Git Requests The Source Control to Get All The Lastest/Current Files from The Source Control to Your Local system and overides any of your local changes
+
+        (b) `git pull` Pulls all the changes from the Source Control
+
+4. Other Commands:
+
+    (a) `git diff` shows all the changes made by the user

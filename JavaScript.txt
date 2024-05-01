@@ -1819,7 +1819,7 @@ Section: Basics
 
 	(viii) `String`
 
-		(a) `String(<value>)` :"Converts any value to a string." example:-
+		(a) `String(<value>)`: Converts any value to a string. example:-
 
 			console.log(String(null)) 		// 'null'
 			console.log(String(148)) 		// '148'
@@ -1827,6 +1827,8 @@ Section: Basics
 			console.log(String(true)) 		// 'true'
 			console.log(String(Symbol(1))) 	// 'Symbol(1)'
 			console.log(String(undefined)) 	// 'undefined'
+
+		(b) `new String(<value>)`:
 
 		(b) `String.toUpperCase()` and `toLowerCase()`: makes all of the characters in The String Lowercase/Uppercase.
 
@@ -2384,7 +2386,7 @@ Section: Basics
 
 Section: JavaScript in Browser (Client Side)
 
-12. `Window` Object
+12. Window
 
 	(i) The `window` object is a fundamental object in JavaScript that represents the browser `window` or the global context in which your JavaScript code is executed when running in a web browser environment. It provides access to various properties and methods related to the browser and the document being displayed. The window object is the global object in a browser environment. This means that variables and functions declared in the global scope are properties and methods of the window object. For example, if you declare a variable `x` in the global scope, it becomes `window.x` You can write it any way you want
 
@@ -3530,7 +3532,7 @@ Section: JavaScript in Browser (Client Side)
 
 Section: Key Concepts
 
-17. `Synchronous` and `Asynchronous`
+17. Synchronous and Asynchronous
 
 	(i) synchronous and asynchronous actions refer to different ways in which tasks are executed in a program.
 	
@@ -5342,7 +5344,7 @@ Section: High-End/Advance JavaScript
 				  }
 				})();
 		
-29. Destructuring assignment
+29. Destructuring
 	
 	(i) The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
 
@@ -5591,8 +5593,41 @@ Section: High-End/Advance JavaScript
 	(iv) Character classes
 
 		(a) .		any character except newline
+
+			(I) Selects every character except any newlines
+
+			"Hello, World!\n 64".replace(/./g, '') // '\n'
+
 		(b) \w\d\s	word, digit, whitespace
+
+			(I) \w 	Selects every Aplha-Numberic and Underscore character in every word 
+
+			"Hello, World!\n 64".replace(/\w/g, '') // ', !\n '
+
+			(II) \d Selects every Digit/Number
+
+			"Hello, World!\n 64".replace(/\d/g, '') // 'Hello, World!\n '
+
+			(III) \s Selects every White Space (includes newLines)
+
+			"Hello, World!\n 64".replace(/\s/g, '') // 'Hello,World!64'
+
 		(c) \W\D\S	not word, digit, whitespace
+
+			(I) These are Opposite Versions of \w, \d and \s
+
+			(II) \W  Selects every Character which is not in a word
+
+			"Hello, World!\n 64".replace(/\W/g, '') // 'HelloWorld64'
+
+			(III) \D Selects every character which is not a Digit/Number
+
+			"Hello, World!\n 64".replace(/\D/g, '') // '64'
+
+			(IV) \S Selects every character which is not a newLine and not a Space
+
+			"Hello, World!\n 64".replace(/\s/g, '') // ' \n '
+
 		(d) [abc]	any of a, b, or c
 		(e) [^abc]	not a, b, or c
 		(f) [a-g]	character between a & g
@@ -5600,7 +5635,8 @@ Section: High-End/Advance JavaScript
 	(v) Anchors
 
 		(a) ^abc abc$	start / end of the string
-		(b) \b\B	word, not-word boundary
+		(b) \b word boundary
+		(c) \B not-word boundary
 
 	(vi) Escaped characters
 
@@ -5613,6 +5649,8 @@ Section: High-End/Advance JavaScript
 		(b) \1	backreference to group #1
 		(c) (?:abc)	non-capturing group
 		(d) (?=abc)	positive lookahead
+
+			"1pt 2px 3em 4px".match(/\d(?=px)/g, '') [ '2', '4' ]
 		(e) (?!abc)	negative lookahead
 
 	(viii) Quantifiers & Alternation
