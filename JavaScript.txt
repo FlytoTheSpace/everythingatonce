@@ -5561,7 +5561,12 @@ Section: High-End/Advance JavaScript
 
 	(ii) Syntax
 
-		let RegExpress = /aeiou/ // <-- this is the syntax for Regular Expressions
+		/pattern/flags;
+		new RegExp('pattern', 'flags');
+
+	(iii) Example:- 
+
+		let RegExpress = /aeiou/
 
 		let text = "Vowels in English are aeiou";
 		
@@ -5571,7 +5576,7 @@ Section: High-End/Advance JavaScript
 
 	(iii) Flags
 		
-		(a) `g` (`g`lobal): Selects Every Match it finds
+		(a) `g` Global: Selects Every Match it finds
 
 			let text = "I was is the Kitchen, and then I went is the Bedroom";
 			let RegExpress = /is/g
@@ -5580,11 +5585,43 @@ Section: High-End/Advance JavaScript
 			console.log(text) 
 			// Output: I was 'in' the Kitchen, and then I went 'in' the Bedroom
 
-		(b) `i` (case `i`nsensitive): selects match even if cases don't match
+		(b) `i` Ignore casing: makes the pattern ignore casing
 
 			let text = "They ARE the same!"
-			text = text.replace(/are/gi, "are")
+			text = text.replace(/are/gi, "`are`")
 			console.log(text) //Output: They `are` the same
+
+		(c) `s` Dot All: Makes the wild character `.` match newlines as well.
+
+			let text = `every character
+			seconds line
+			`
+			text = text.replace(/./s, '')
+
+			console.log(text); // ''
+
+		(d) `m` Multiline: Makes the boundary characters `^` and `$` match the beginning and ending of every single line instead of the beginning and ending of the whole string.
+			
+			let paragraphs = `Edit the Expression & Text to see matches. Roll over matches or the expression for details. PCRE & JavaScript flavors of RegEx are supported. Validate your expression with Tests mode.
+
+The side bar includes a Cheatsheet, full Reference, and Help. You can also Save & Share with the Community and view patterns you create or favorite in My Patterns.
+
+Explore results with the Tools below. Replace & List output custom results. Details lists capture groups. Explain describes your expression in plain English.`
+
+			matchs = paragraphs.match(/^\w*/gm) // First Word of each line
+
+			console.log(matches) // Output: ['Edit', 'The', 'Explore']
+
+		(e) `y` Sticky: Makes the expression start its searching from the index indicated in its `lastIndex` property.
+
+			let regex = /cats/igy
+
+			regex.lastIndex = 4 // ignores characters with index lower than 4
+			let text = "Cats love cats, and we love cats."
+
+			console.log(text.match(regex)) // Output: ["cats", "cats"]
+
+		(f) `u` Unicode: Makes the expression assume individual characters as code points, not code units, and thus match 32-bit characters as well.
 
 	(iii) Literal Characters: Characters in a regular expression match themselves literally. For example, the regex `abc` would match the string "abc" in a text.
 
@@ -5626,7 +5663,7 @@ Section: High-End/Advance JavaScript
 
 			(IV) \S Selects every character which is not a newLine and not a Space
 
-			"Hello, World!\n 64".replace(/\s/g, '') // ' \n '
+			"Hello, World!\n 64".replace(/\S/g, '') // ' \n '
 
 		(d) [abc]	any of a, b, or c
 		(e) [^abc]	not a, b, or c
