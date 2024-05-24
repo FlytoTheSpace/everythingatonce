@@ -1,0 +1,146 @@
+=========================================================================================================
+											Hacking
+=========================================================================================================
+
+1. 3 Hacking Skills
+
+    (i) Recon (FootPrinting): Gathering Public Information
+
+2. Google Hacking
+
+    (i) Google Hacking utilizes the Gathering Public Information. Google Hacking is a sub-category of Recon
+
+    (ii) Operators `<key>:<value>`, `<key>: "<value>"`: operators are key-value pairs that can be used in google search to narrow down the search results
+
+    (iii) `-<key>`: the dash "-" right before the key represets the "NOT" actions meaning It won't include it if the value matches
+
+    (iii) `intitle: "<title>"` searchs for pages with the specific title
+
+        (a) Examples:-
+
+        intitle: "webcamxp 5"
+
+        intitle: "login"
+
+    (iv) `filetype:<ext> "<keyword>"` searchs for files with the specific type and looks for `<keyword>` in them
+
+        (a) `filetype:env "DB_PASSWORD"` unrestricted Database Passwords
+
+    (v) `site:<domain>` narrows down search results to the specific site only
+    
+    (vi) `inurl:<keyword>`: if the URL contains "<keyword>"
+
+    (vii) `intext:<keyword>`: if the body of the webpage contains "<keyword>"
+
+    (viii) https://www.exploit-db.com/google-hacking-database
+
+3. Denial of Service (DoS) Attack
+    
+    (i) A Denial of Service (DoS) attack is a malicious attempt to disrupt the normal functioning of a targeted server, service, or network by overwhelming it with a flood of illegitimate traffic. The primary goal of a DoS attack is to make the targeted system or network unavailable to its intended users, causing disruption or complete shutdown of services.
+    
+    Here's how a typical DoS attack works:
+    
+    (ii) Traffic Flood: The attacker generates a massive volume of traffic or requests and directs them towards the target server or network. This flood of traffic is beyond what the target can handle, causing it to become overloaded and unable to respond to legitimate requests.
+    
+    (iii) Resource Exhaustion: The flood of traffic consumes the target's available resources such as bandwidth, CPU, memory, or disk space. As a result, legitimate users are unable to access the services provided by the target because all available resources are tied up dealing with the attack.
+    
+    (iv) Types of Attacks:
+        
+        (a) Volume-based attacks: These flood the target with a high volume of traffic, such as UDP flood, ICMP flood, or SYN flood.
+        
+        (b) Protocol Attacks: These exploit weaknesses in the protocols used to communicate between the target and the internet, such as TCP/IP or HTTP.
+        
+        (c) Application Layer Attacks: These attacks target vulnerabilities in the application layer protocols, aiming to exhaust server resources or crash the server.
+    
+    (v) Distributed Denial of Service (DDoS): In a DDoS attack, the attacker uses multiple compromised devices or systems, often referred to as a botnet, to orchestrate the attack. This makes it more challenging to mitigate the attack since the traffic comes from multiple sources, often geographically distributed.
+    
+    (vi) Impact: The impact of a successful DoS attack can range from mild inconvenience to severe financial loss or reputational damage for businesses and organizations. It can disrupt essential services, cause financial losses due to downtime, and damage the reputation and trust of the targeted entity.
+    
+    (vii) Mitigation: To defend against DoS attacks, organizations employ various mitigation strategies, including:
+       
+       (a) Traffic filtering and blocking: Identifying and filtering out malicious traffic at the network perimeter.
+       
+       (b) Rate limiting and traffic shaping: Limiting the rate of incoming requests to prevent overwhelming the system.
+       
+       (c) Deploying intrusion detection and prevention systems (IDS/IPS): Monitoring network traffic and blocking suspicious or malicious activity in real-time.
+       
+       (d) Using content delivery networks (CDNs): Distributing content across multiple servers and data centers to absorb and mitigate DDoS attacks.
+    
+
+    (viii) Types of DoS Attacks
+
+        (a) Network DoS (Denial of Service), Application DoS, and Operational Technology (OT) DoS are all different forms of DoS attacks targeting various layers of technology infrastructure:
+        
+        (b) Network DoS (Denial of Service):
+           
+           (I) Definition: Network DoS attacks target the network infrastructure itself, aiming to overwhelm network devices, such as routers, switches, or firewalls, with a flood of traffic.
+           
+           (II) How it works: Attackers flood the target network with an excessive volume of data packets, exploiting vulnerabilities in network protocols or overloading network bandwidth.
+           
+           (III) Examples: Common types of Network DoS attacks include UDP flood, ICMP flood, SYN flood, and amplification attacks (such as DNS amplification or NTP amplification attacks).
+           
+           (IV) Impact: Network DoS attacks can disrupt network connectivity, making it difficult or impossible for legitimate users to access network resources or services.
+        
+        (c) Application DoS (Denial of Service):
+           
+           (I) Definition: Application DoS attacks target specific applications or services running on a server, exploiting vulnerabilities in the application layer protocols or application software.
+           
+           (II) How it works: Attackers send a flood of requests to the target application, consuming server resources such as CPU, memory, or disk I/O, and causing the application to become unresponsive to legitimate users.
+           
+           (III) Examples: Common types of Application DoS attacks include HTTP flood, Slowloris, and application-level protocol attacks targeting vulnerabilities in web servers, databases, or other application services.
+           
+           (IV) Impact: Application DoS attacks can disrupt the availability of web services, online applications, or databases, leading to downtime, financial losses, and damage to the organization's reputation.
+        
+        (d) Operational Technology (OT) DoS:
+           
+           (I) Definition: Operational Technology (OT) refers to the hardware and software systems used to monitor and control physical processes, such as industrial control systems (ICS), SCADA (Supervisory Control and Data Acquisition) systems, or smart grid infrastructure.
+           
+           (II) How it works: OT DoS attacks target critical infrastructure components, such as programmable logic controllers (PLCs) or industrial network devices, aiming to disrupt industrial processes or essential services.
+           
+           (III) Examples: OT DoS attacks can exploit vulnerabilities in industrial protocols, firmware, or software used in manufacturing, energy production, transportation, or other industrial sectors.
+           
+           (IV) Impact: OT DoS attacks can have severe consequences, including production outages, equipment damage, environmental hazards, or safety risks, leading to significant financial losses and potential threats to public safety.
+        
+    (ix) In summary, DoS attacks pose a significant threat to the availability and integrity of online services and networks. Defending against such attacks requires proactive measures, including robust network infrastructure, monitoring systems, and response protocols.
+
+Social Engineering:
+
+4. Social Engineering Toolkit (SET)
+
+5. Phising
+
+    (i) Step: 1, Setup
+
+        (This step is for Debian Based Linux Operating Systems)
+        
+        (a) Installing git (Skip if you have Git Installed):
+
+            sudo apt install git
+
+        (b) Cloning repository
+
+            git clone https://github.com/8L4NK/blackeye
+
+        (c) Sign Up for Ngrok (Necessary for Hosting)
+
+            https://dashboard.ngrok.com/signup
+
+        (d) run the script:
+
+            sudo bash ./blackeye/blackeye.sh
+
+    (ii) Step: 2, Tricking The Vitim in to Clicking The Link
+
+        (a) Via Email
+
+        (b) Via SMS (Smishing)
+
+        (c) Phone Call (Vishing)
+
+    (iii) Types of Phising Attempts:
+
+        (a) Mass Phishing (Attempting to Phish an Group, Organizations etc)
+        (b) Spear-Phishing (Attempting to Phish a Specific Person)
+
+        (Attempting to phish a Very Important / Powerful / Influential Person is called Whaling)
+

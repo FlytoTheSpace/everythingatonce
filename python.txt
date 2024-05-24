@@ -1197,8 +1197,6 @@ Basics:
 			In this example, both code snippets have the same result. However, the second snippet uses the walrus operator to assign the value `10` to the variable `x` within the conditional statement itself.
 
 			The walrus operator can also be used in while loops to combine the assignment of a variable with the condition for the loop:
-
-			```python
 			# Without walrus operator
 			values = [1, 2, 3, 4, 5]
 			index = 0
@@ -1211,15 +1209,14 @@ Basics:
 			index = 0
 			while (index := index + 1) < len(values):
 			    print(values[index])
-			```
 
 			In this example, the walrus operator is used to increment the `index` variable within the condition of the while loop.
 
 			### Benefits of the Walrus Operator:
 
-			1. **Reduced Redundancy**: It allows you to eliminate redundant code by combining the assignment of a variable with its usage in an expression.
-			2. **Improved Readability**: By assigning values directly within expressions, the walrus operator can make code more concise and easier to understand.
-			3. **Simplified Logic**: It can simplify the logic of certain code constructs, such as conditional statements and loops, by consolidating variable assignments and conditions.
+			1. Reduced Redundancy: It allows you to eliminate redundant code by combining the assignment of a variable with its usage in an expression.
+			2. Improved Readability: By assigning values directly within expressions, the walrus operator can make code more concise and easier to understand.
+			3. Simplified Logic: It can simplify the logic of certain code constructs, such as conditional statements and loops, by consolidating variable assignments and conditions.
 
 			### Considerations:
 
@@ -1807,7 +1804,7 @@ Basics:
 
 			(II) Arbitrary Arguments:
 
-				(A) To Have a Function take infinite Arguments, you can use arbitrary arguments *args and **kwargs.
+				(A) To Have a Function take infinite Arguments, you can use arbitrary arguments *args and kwargs.
 
 	    		(B) *args allows for any number of positional arguments.
 
@@ -1914,17 +1911,93 @@ Basics:
 				
 			print(factorial(5)) # 120
 
+	(x) Generators
+
+		(a) Generators are Function that can return Multiple values and Their Execution can be paused any Time
+
+		(b) Example:-
+
+			def queue(List):
+			    for item in List:
+			        yield item
+
+
+			myList = ['apple', 'banana', 'grapes']
+
+			fruits = queue(myList)
+
+			next(fruits) # apple
+			next(fruits) # banana
+			next(fruits) # grapes
+
+		(c) Generator Functions uses `yield` keyword instead of `return` to return multiple values whenever the function is called
+
+		(d) The Generator Function Returns a `Generator` which can be used to Get data from The Generator
+
+		(d) `next(<Generator>)` Returns the Values from The Generator
+
+	(xi) Memoization
+
+		(a) Memoization is a Method 
+		
+		(b) Example:-
+
+			cache = {}
+
+			def fibbonaci(n):
+			    if(n<2): return n
+
+			    try:
+			        if(cache[str(n)] != None): return cache[str(n)]
+			    except:
+			        pass
+
+			    time.sleep(5)
+			    result = fibbonaci(n-1) + fibbonaci(n-2)
+
+
+				# Storing Them in The Cache
+			    cache[str(n)] = result
+
+			    return result
+
+			print(fibbonaci(2)) # takes Quit a lot of Time
+
+			# Both Runs Instantly due to Cache
+			print(fibbonaci(2))
+			print(fibbonaci(2))
+
+		(c) Python Also Offers Built-in Decorators to Return Values
+
+			import functools
+			import time
+
+			@functools.lru_cache(maxsize=None)
+			def square(n):
+			    time.sleep(5)
+			    return n*n
+
+			# These Takes a Lot of Time
+			print(square(5))
+			print(square(8))
+			print(square(16))
+
+			# These Runs Instantly Due to Cache
+			print(square(5))
+			print(square(8))
+			print(square(16))
+
 	Built in Functions:
 
-	(x) `help(<any>)` takes a Dict/Class/Methods and returns a Explaination about that even including custom Methods/Classes/Dictionaries
+	(xi) `help(<any>)` takes a Dict/Class/Methods and returns a Explaination about that even including custom Methods/Classes/Dictionaries
 
-	(xi) `len(<Variable>)` returns length
+	(xii) `len(<Variable>)` returns length
 
 		a = "Hello, World"
 		
 		print(len(a)) # 12
 		
-	(xii) `type(<Variable>)` type of The Value
+	(xiii) `type(<Variable>)` type of The Value
 
 		a = "Hello, World"
 		b = 12
@@ -1936,7 +2009,7 @@ Basics:
 		print(type(c)) # <class 'float'>
 		print(type(d)) # <class 'bool'>
 
-	(xiii) `enumerate(<Variable>, <index start from?>)`: It's used in Loops to Indentify the Index of values inside The Variable
+	(xiv) `enumerate(<Variable>, <index start from?>)`: It's used in Loops to Indentify the Index of values inside The Variable
 
 		(a) Syntax:
 
@@ -1989,7 +2062,7 @@ Basics:
 			Index: {11} and Value: {685564}
 			Index: {12} and Value: {3}
 		
-	(xiv) `dir(<Value>)`: Returns The Structure of The Value as a List 
+	(xv) `dir(<Value>)`: Returns The Structure of The Value as a List 
 
 Section: Modules
 
@@ -2600,9 +2673,145 @@ Section: Modules
 
 	The `argparse` module provides extensive functionality for handling command-line arguments, including support for positional arguments, optional arguments, default values, type checking, mutually exclusive groups, sub-commands, and more. It is a versatile and powerful tool for creating user-friendly command-line interfaces for your Python applications.	
 
+20. Shutil Module
+
+	(i) Import Shutile Module
+
+		import shutil
+
+	(ii) Methods
+
+		(a) `shutil.copy(<from>, <destination>)` copies the file from <from> and Pastes them at <destination>
+		(b) `shutil.copy2(<from>, <destination>)` copies the file from <from> and Pastes them at <destination>, but preserves MetaData
+		(c) `shutil.copytree(<from>, <destination>)` let's you copy Folders by Recursively Copying files from one place to the other
+
+		(d) `shutil.move(<from>, <destination>)` move the file from <from> to <destination>
+		
+		(e) `shutil.rmtree(<path>)` deletes the Directory by Recursively Deleting Files
+
+		(f) `shutil.disk_usage(<path>)` Return disk usage statistics about the given path as a named tuple with the attributes total, used and free, which are the amount of total, used and free space, in bytes.
+
+		(g) `shutil.chown(<path>, user=<Owner>, group=<GroupOwner>)` Changes the Owner of The File
+		(h) `shutil.which(<cmd>, mode=os.F_OK | os.X_OK, path=None)` shows the Location of a Terminal Command
+
+21. HTTP/XML Requests
+
+	(i) The `requests` module in Python is a powerful and user-friendly library for making HTTP requests. It simplifies the process of sending HTTP requests and processing the responses, making it easy to interact with web services, APIs, and websites.
+
+	Here's a basic overview of the `requests` module and its key features:
+
+	(ii) Installation:
+	   	
+	   	$ pip install requests
+
+	(iii) Examples:-
+	   
+		(a) Making HTTP Requests: The `requests` module provides several functions for making different types of HTTP requests, such as `get()`, `post()`, `put()`, `delete()`, etc.
+
+		   	import requests
+
+		   	# Making a GET request
+		   	response = requests.get('https://api.github.com/users/octocat')
+
+		(b) The response object returned by `requests.get()` contains various attributes and methods for accessing the response data, such as the status code, headers, and content.
+
+		   	print('Status Code:', response.status_code)
+		   	print('Headers:', response.headers)
+		   	print('Content:', response.text)
+
+		(c) You can pass parameters, headers, cookies, and other data with your requests using optional parameters of the request functions.
+
+		   	# Passing query parameters
+		   	response = requests.get('https://api.github.com/search/repositories', params={'q': 'python'})
+
+		   	# Setting custom headers
+		   	headers = {'User-Agent': 'MyApp/1.0'}
+		   	response = requests.get('https://api.github.com/user', headers=headers)
+
+		(d) The `response` object provides various methods and attributes for accessing and processing the response data, such as JSON parsing, content decoding, and file downloading.
+
+			# Handling JSON Reponse Data
+			data = response.json()
+
+		   	# Decoding response content (e.g., for binary data)
+		   	content = response.content
+
+
+		(f) Handling Errors and Exceptions: The `requests` module automatically raises exceptions for common HTTP errors (e.g., 4xx and 5xx status codes), which you can catch and handle as needed.
+
+		   	try:
+		       	response = requests.get('https://example.com/404')
+		       	response.raise_for_status()  # Raises an exception for 4xx and 5xx status codes
+		   	except requests.HTTPError as e:
+		       	print('HTTP Error:', e)
+
+	(iv) Session Objects: `requests.Session` objects allow you to persist certain parameters across multiple requests, such as cookies, headers, and connection pooling.
+
+		with requests.Session() as session:
+			session.headers.update({'User-Agent': 'MyApp/1.0'})
+			response1 = session.get('https://api.github.com/user')
+			response2 = session.get('https://api.github.com/user/repos')
+
+	(v) Request Types (CRUD)
+
+		(a) GET: Read Request
+		(b) POST: Create Request (Supports a Body)
+		(c) PUT: Update Request (Supports a Body)
+		(d) DELETE: Delete Request
+
+		(d) PATCH: Similar to PUT request
+
+	(vi) Request Options
+
+		(a) options are Parameters of `get()`, `post()`, `put()`, `delete()`, etc.
+
+		(b) `url`: URL of the Target.
+		
+		(c) `data`: The Main Body of The Request (Not Supported in `get()`).
+		(d) `json`: The Main Body of The Request but in JSON (Not Supported in `get()`).
+		
+		(e) `headers`: Meta Data about the Request
+		(f) `cookies`: Cookies
+		(g) `files`: Files to be sent as the Main Body
+		(h) `auth`: Authorization Tokens etc.
+
+		(i) `timeout`: Timeout
+		(j) `allow_redirects`: Redirects?
+		(k) `proxies`: Proxy to work as The Middle Man
+		(l) `hooks`
+		(m) `stream`
+		(n) `cert`
+
+	(vii) Reponse
+
+		(a) Reponse is the Object which you obtains after making a Request, here's some Methods and Properties on the Reponse Object
+
+		Meta Data
+		(b) `.status_code`: HTTP Status Code
+		(c) `.ok`: Returns True if Status in in-between 100-299 otherwise False
+		(d) `.headers`: Headers Set by The API
+		(e) `.encoding`: MIME Type of The Reponse
+		(f) `.cookies`: Returns The Cookies Given by the API
+		(g) `.url`: URL of The Request
+		(h) `.close()`: Ends The Request
+		
+		(i) `.elapsed`: Time Passed Since The Request's been Made
+		(j) `.next`: Returns The Next Reponse Object if Redirected
+
+		(Not Supported for GET/DELETE Requests):
+		(k) `.json()`: Parses The Response Data as JSON
+		(m) `.text`: Returns Data in UTF-8 Format
+		(l) `.content`: Returns The Reponse Data in Bytes
+		(m) `.raw`: Returns Raw Data sent from the Server 
+
+		Other
+		(n) `.raise_for_status()`: raises HTTPError if occured		
+
+	(viii) Overall, the `requests` module provides a convenient and intuitive API for working with HTTP requests and responses in Python, making it a popular choice for web scraping, web development, and API integration tasks.
+
 Section: More Concepts
 
-20. try..except
+22. try..except
 	
 	(i) the `try..except` statement is used to handle exceptions or errors that may occur during the execution of a block of code. It allows you to anticipate and gracefully handle errors, preventing the program from crashing.
 
@@ -2653,7 +2862,7 @@ Section: More Concepts
 		finally:
 			print("Ended!")
 
-21. Custom Errors
+23. Custom Errors
 
 	(i) you can raise custom exceptions in Python. This is done by directly using or slightly modifying built-in exceptions.
 
@@ -2685,7 +2894,7 @@ Section: More Concepts
 
 	(iv) 
 
-22. Virtual Environment
+24. Virtual Environment
 
 	(i) A virtual environment in Python is a self-contained directory that encapsulates a specific Python interpreter along with its standard library and additional packages. This allows you to create isolated environments for different projects, each with its own dependencies and configurations. Virtual environments help manage project dependencies, avoid conflicts between different projects, and ensure consistency across different development environments.
 
@@ -2756,7 +2965,7 @@ Section: More Concepts
 
     	(e) Dependency Management: Virtual environments are crucial when working on projects with specific version requirements for libraries, as you can install and manage the required versions easily.
 
-23. Scope
+25. Scope
 
 	(i) In Python, a scope refers to the region of a program where a particular identifier, such as a variable or function name, is accessible. Understanding scopes is crucial for writing clear and bug-free code, as it determines where variables and functions can be accessed and modified within a program. Python has four main types of scopes:
 
@@ -2768,7 +2977,7 @@ Section: More Concepts
 	
 		my_function()
 		# print(x)  # This would result in an error since x is not defined in the global scope
-		```
+		
 	
 	(iii) Enclosing (or Nonlocal) Scope: An enclosing scope refers to the scope of the enclosing function in the case of nested functions. Variables defined in the enclosing scope are accessible to inner functions.
 	
@@ -2826,10 +3035,10 @@ Section: More Concepts
 
 			my_function()
 			print("Outside function:", x)  # Global x remains unaffected
-			```
+			
 
 			Output:
-			```
+			
 			Inside function: 20
 			Outside function: 10
 
@@ -2850,7 +3059,7 @@ Section: More Concepts
 			Inside function: 20
 			Outside function: 20
 
-24. IO
+26. IO
 
 	(i) In Python, Input/Output (I/O) refers to the process of interacting with external sources such as files, the console, network sockets, and other devices. Python provides a rich set of libraries and functions for performing various I/O operations.
 
@@ -2938,7 +3147,7 @@ Section: More Concepts
 				with open(<Path>, <mode>) as <File>:
 					<Your Operations Here>
 
-					// no Need to explicitly close the file It'll be automatically closed when exiting this scope
+					# no Need to explicitly close the file It'll be automatically closed when exiting this scope
 		
 		(g) `seek(<position>)` changes the position in the current file, `tell()` returns the current position in the file
 
@@ -3006,7 +3215,7 @@ Section: More Concepts
 
 	(vi) Python's I/O capabilities are versatile and comprehensive, making it suitable for a wide range of tasks involving interaction with external sources. Whether you're reading from files, communicating over networks, or interacting with databases, Python provides powerful tools and libraries to handle various I/O operations efficiently.
 
-25. Map, Filter, Reduce
+27. Map, Filter, Reduce
 
 	(i) In Python, `map`, `filter`, and `reduce` are built-in functions that provide functional programming capabilities. They allow you to apply functions to iterables like lists, tuples, or sets in a concise and expressive manner.
 
@@ -3077,7 +3286,7 @@ Section: More Concepts
 			product = reduce(lambda x, y: x * y, numbers)
 			print(product)  # Output: 120 (1*2*3*4*5)
 
-26. General Keywords
+28. General Keywords
 
 	(i) `is`
 
@@ -3148,7 +3357,7 @@ Section: More Concepts
 			print(a == b) # True
 			print(a is b) # True, because `None` is Constant
 
-27. Decorators
+29. Decorators
 
 	(i) Decorators in Python are functions that modify the behavior of other functions or methods. They allow you to add functionality to an existing function or method without modifying its code directly. Decorators are widely used for tasks such as logging, authorization, caching, and more.
 
@@ -3226,9 +3435,92 @@ Section: More Concepts
 
 	(vii) Decorators offer a powerful mechanism for adding cross-cutting concerns to functions or methods in a modular and reusable way. They help keep the code clean, concise, and maintainable by separating concerns and promoting separation of responsibilities.
 
+30. `with` statement
+
+	(i) The `with` statement in Python is used for resource management and exception handling. It ensures that resources are properly acquired and released, such as opening and closing files, acquiring and releasing locks, etc. The `with` statement simplifies code by encapsulating common try-except-finally patterns in a clean and readable manner.
+
+	(ii) Syntax:
+
+		with expression as variable:
+		    # code block
+
+	(iii) Example with File Handling
+
+		(a) Here's a common example using file handling:
+
+		with open('example.txt', 'r') as file:
+		    contents = file.read()
+		    print(contents)
+
+		(b) In this example:
+
+			(I) `open('example.txt', 'r')` is the expression that opens the file.
+			(II) `as file` assigns the opened file object to the variable `file`.
+			(III) The code block reads from the file and prints its contents.
+
+		(c) The `with` statement ensures that the file is properly closed after the code block is executed, even if an exception occurs.
+
+	(iv) Context Managers
+
+		(a) The `with` statement relies on context managers, which are objects that define the runtime context to be established when executing a `with` statement. Context managers have two essential methods:
+
+		(b) `__enter__(self)`: This method is executed when the execution flow enters the context of the `with` statement. It returns the resource that will be assigned to the variable specified in the `as` clause.
+		(c) `__exit__(self, exc_type, exc_val, exc_tb)`: This method is executed when the execution flow exits the context of the `with` statement. It handles any cleanup operations, such as closing a file or releasing a lock. The parameters `exc_type`, `exc_val`, and `exc_tb` provide information about any exception that caused the context to be exited.
+
+	(v) Custom Context Manager
+
+		(a) You can create your own context manager by defining a class with `__enter__` and `__exit__` methods, or by using the `contextlib` module to create a context manager from a generator function.
+
+		(b) Using a Class:
+
+			class MyContextManager:
+			    def __enter__(self):
+			        # Acquire resource
+			        print("Entering context")
+			        return self
+
+			    def __exit__(self, exc_type, exc_val, exc_tb):
+			        # Release resource
+			        print("Exiting context")
+			        if exc_type is not None:
+			            print(f"Exception: {exc_type}, {exc_val}")
+			        return False  # Propagate exceptions, if any
+
+			with MyContextManager() as manager:
+			    print("Inside the context")
+			    # Raise an exception to see how __exit__ handles it
+			    raise ValueError("An error occurred")
+
+		(c) Using `contextlib`
+
+			from contextlib import contextmanager
+
+			@contextmanager
+			def my_context_manager():
+			    try:
+			        # Acquire resource
+			        print("Entering context")
+			        yield
+			    finally:
+			        # Release resource
+			        print("Exiting context")
+
+			with my_context_manager():
+			    print("Inside the context")
+			    # Raise an exception to see how the context manager handles it
+			    raise ValueError("An error occurred")
+
+		(d) In both examples, the context manager prints messages when entering and exiting the context. If an exception occurs, the `__exit__` method or the `finally` block handles the cleanup.
+
+	(vi) Benefits of Using `with`
+
+		(a) Automatic Resource Management: Ensures that resources are properly cleaned up, reducing the risk of resource leaks.
+		(b) Cleaner Code: Replaces verbose try-except-finally blocks with a concise syntax.
+		(c) Error Handling: Allows custom handling of exceptions that occur within the context.
+
 Section: Object Oriented Programming
 
-28. Classes
+30. Classes
 	
 	(i) In Python, a class is a blueprint for creating objects (instances) that share common attributes and behaviors. It serves as a template that defines the structure and behavior of objects. Classes in Python encapsulate data (attributes) and functions (methods) that operate on that data.
 
@@ -3734,7 +4026,7 @@ Section: Object Oriented Programming
 			
 		# Creating an instance of MyClass and calling the static method
 		obj = MyClass("Dave", 36)
-		obj.__dict__ // {'name': 'Dave', 'age': '36', 'class_variable': 10}
+		obj.__dict__ # {'name': 'Dave', 'age': '36', 'class_variable': 10}
 	
 	(xiii) `super` keyword
 
@@ -3806,3 +4098,649 @@ Section: Object Oriented Programming
 		(n) These are just a few examples of the many dunder methods available in Python classes. By implementing these methods, you can define custom behavior for your objects and make your classes behave more like built-in types, enabling Python's rich language features and idioms to be applied to your custom objects.
 
 	(xv) Classes in Python provide a powerful mechanism for organizing and modeling data and behavior. They encapsulate data and methods, support inheritance and polymorphism, and promote code reusability and maintainability. Understanding classes is fundamental to object-oriented programming (OOP) in Python and is essential for building complex and scalable applications.
+
+Advance:
+
+31. Regular Expressions
+
+	(i) Regular Expressions (regex or regexp) are sequences of characters that form a search pattern. They are used for pattern matching within strings. Regular expressions provide a concise and flexible means for matching strings of text, such as specific characters, words, or patterns of characters. Here are key concepts and components of regular expressions:
+
+	(ii) Import Package:
+
+		import re
+
+	(ii) Syntax
+
+		RegExpress = r"aeiou" # <-- this is the syntax for Regular Expressions
+
+		text = "Vowels in English are aeiou";
+		
+		text = text.replace(RegExpress, "AEIOU")
+
+		print(text) # output: Vowels in English are AEIOU
+
+	(iii) Flags
+
+		(a) Flags in Regular Expressions are rules for Matching with Regular Expressions and They are passed to the functions like `re.search(pattern, text)` `re.match(pattern, text, )
+		
+	(iii) Literal Characters: Characters in a regular expression match themselves literally. For example, the regex `abc` would match the string "abc" in a text.
+
+	Advance Pattern Matching:
+
+	(iv) Character classes
+
+		(a) .		any character except newline
+
+			(I) Selects every character except any newlines
+
+				matchs = re.findall(".", "Hello, World!\n 64")
+				print(matchs) # ['H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!', ' ', '6', '4']
+
+		(b) \w\d\s	word, digit, whitespace
+
+			(I) \w 	Selects every Aplha-Numberic and Underscore character in every word 
+
+				matchs = re.findall("\w", "Hello, World!\n 64")
+				print(matchs) # ['H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd', '6', '4']
+
+			(II) \d Selects every Digit/Number
+
+				matchs = re.findall("\d", "Hello, World!\n 64")
+				print(matchs) # ['6', '4']
+
+			(III) \s Selects every White Space (includes newLines)
+
+				matchs = re.findall("\s", "Hello, World!\n 64")
+				print(matchs) # [' ', '\n', ' ']
+
+		(c) \W\D\S	not word, digit, whitespace
+
+			(I) These are Opposite Versions of \w, \d and \s
+
+			(II) \W  Selects every Character which is not in a word
+
+				matchs = re.findall("\W", "Hello, World!\n 64")
+				print(matchs) # [',', ' ', '!', '\n', ' ']
+
+			(III) \D Selects every character which is not a Digit/Number
+
+				matchs = re.findall("\D", "Hello, World!\n 64")
+				print(matchs) # ['H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\n', ' ']
+
+			(IV) \S Selects every character which is not a newLine and not a Space
+
+				matchs = re.findall("\s", "Hello, World!\n 64")
+				print(matchs) # ['H', 'e', 'l', 'l', 'o', ',', 'W', 'o', 'r', 'l', 'd', '!', '6', '4']
+
+		(d) [abc]	any of a, b, or c
+		(e) [^abc]	not a, b, or c
+		(f) [a-g]	character between a & g
+
+	(v) Anchors
+
+		(a) ^abc abc$	start / end of the string
+		(b) \b word boundary
+		(c) \B not-word boundary
+
+	(vi) Escaped characters
+
+		(a) \.\*\\	escaped special characters
+		(b) \t\n\r	tab, linefeed, carriage return
+
+	(vii) Groups & Lookaround
+
+		(a) (abc)	capture group
+		(b) \1	backreference to group #1
+		(c) (?:abc)	non-capturing group
+		(d) (?=abc)	positive lookahead
+
+			"1pt 2px 3em 4px".match(/\d(?=px)/g, '') [ '2', '4' ]
+		(e) (?!abc)	negative lookahead
+
+	(viii) Quantifiers & Alternation
+
+		(a) a*a+a?	0 or more, 1 or more, 0 or 1
+		(b) a{5}a{2,}	exactly five, two or more
+		(c) a{1,3}	between one & three
+		(d) a+?a{2,}?	match as few as possible
+		(e) ab|cd	match ab or cd
+
+	(ix) Methods:
+
+		(a) `re.match(pattern, text, flags)` and `re.search(pattern, text, flags)`: return `matches` object containing matches from the text
+
+		(b) `re.findall(pattern, text, flags)`: returns a list of all the matches from the text
+
+		(c) `re.finditr(pattern, text, flags)`: returns an iterateable object of the
+
+32. Synchronous and Asynchronous
+
+	(i) synchronous and asynchronous actions refer to different ways in which tasks are executed in a program.
+	
+	(ii) Synchronous Actions: Synchronous actions are those that occur one after the other, in a sequence. When a function is called synchronously, the program waits for it to finish before moving on to the next operation. It means the program follows a strict order of execution and one operation is completed before the next one starts. This can sometimes lead to blocking behavior where a slow operation can halt the entire program until it completes
+
+		import time
+
+		def function1():
+			time.sleep(6)
+			print("function 1 is done")
+
+		def function2():
+			time.sleep(3)
+			print("function 2 is done")
+
+		def function3():
+			time.sleep(4)
+			print("function 3 is done")
+
+		function1()
+		function2()
+		function3()
+
+		# takes a total of 13 seconds to finish (we can go way faster)
+
+		Console:
+
+		"function 1 is done"
+		"function 2 is done"
+		"function 3 is done"
+
+	(iii) Asynchronous Actions: Asynchronous actions, on the other hand, allow the program to continue executing other operations while waiting for a particular task to complete. In this case, the program doesn't wait for the task to finish, but it provides a callback function to be executed once the task is completed. Asynchronous actions are often used for time-consuming operations, such as making network requests or reading/writing files, to prevent blocking the execution of other parts of the program. for Example
+
+	(iv) All of the actions that are yet mentioned till now are Synchronous
+
+33. AsyncIO
+
+	(i) `asyncio` is a module in Python that provides a framework for writing concurrent code using the async/await syntax. It is part of Python's standard library and is designed to handle asynchronous I/O operations, allowing you to perform tasks like network communication, file I/O, and database queries without blocking the main thread of execution. This makes it suitable for applications that require high performance and responsiveness, such as web servers, network clients, and real-time data processing systems.
+
+	(i) Async/Await
+
+		(a) `async` and `await` are two keywords used to make a function Asynchronous to prevent them from blocking the main thread and continue the execution
+
+		(b) Syntax:
+
+			async def <name>(<paramters>):
+				# code to run
+
+			async lambda <paramters>:
+				# code to run
+
+			await <name>(<arguments>)
+
+		(c) for a Asynchronous Function to be awaited it neeeds to be executed inside of another Asynchronous function
+	
+	(iii) AsyncIO methods
+
+		(a) `asyncio.run(<AsyncFunction>())`: Runs the Asynchronous Function
+		(b) `asyncio.create_task(<AsyncFunction>())`: Runs the Asynchronous Function whenever it's free
+		(c) `await asyncio.gather(<AsyncFunctions...>())`: Runs multiple Async Functions at The Same Time and Returns their Return values as a List
+		(d) `asyncio.sleep(<seconds>)`: Asynchronous version of `time.sleep(<seconds>)` (needs to be awaited)
+
+	(iv) Example:-
+
+		# Synchronous Version
+		import time
+		def function1():
+		    time.sleep(6)
+		    print("Done! function 1")
+		def function2():
+		    time.sleep(3)
+		    print("Done! function 2")
+		def function3():
+		    time.sleep(4)
+		    print("Done! function 3")
+
+		def main():
+		    function1()
+		    function2()
+		    function3()
+
+		start = time.time()
+		main()
+		end = time.time()
+		print("[Sync] All Done in", end-start, "seconds!")
+		
+		# Output: 
+		# Done! function 1
+		# Done! function 2
+		# Done! function 3
+		# All Done in 13.00505518913269 seconds!
+
+		# Asynchronous
+
+		import asyncio
+
+		async def function1():
+		    await asyncio.sleep(6)
+		    print("Done! function 1")
+		async def function2():
+		    await asyncio.sleep(3)
+		    print("Done! function 2")
+		async def function3():
+		    await asyncio.sleep(4)
+		    print("Done! function 3")
+
+		async def main():
+		    await asyncio.gather(function1(), function2(), function3())
+
+		start = time.time()
+		asyncio.run(main())
+		end = time.time()
+		print("[Async] All Done in", end-start, "seconds!")
+
+		# Output:
+		# Done! function 2
+		# Done! function 3
+		# Done! function 1
+		# All Done in 6.011292457580566 seconds!
+
+		# Performance Difference is clear with Async
+
+34. Multithreading
+	
+	(i) Multithreading in Python allows for the concurrent execution of multiple threads, which are smaller units of a process. This can be useful for tasks that can be performed simultaneously, such as I/O operations or handling multiple client requests in a network application. Python provides the threading module to work with threads.
+	
+	(ii) Key Concepts of Multithreading
+
+    	(a) Thread: A thread is a separate flow of execution within a program. Multiple threads can run concurrently within the same program, sharing resources such as memory.
+
+    	(b) Global Interpreter Lock (GIL): Python has a Global Interpreter Lock (GIL) that allows only one thread to execute Python bytecode at a time. This means that multithreading in Python does not achieve true parallelism for CPU-bound tasks but can be effective for I/O-bound tasks.
+	
+	(iii) Threads:
+
+		(a) Importing threading modules
+
+			import threading
+
+		(b) Create a function which will run in the new Thread
+
+			import time
+			def function1():
+				time.sleep(6)
+				print("Function1 Done!")
+
+		(c) Basic use
+
+			thread1 = threading.Thread(target=function1, args=[])
+			thread1.start() # starting the thread
+			thread1.join() # waiting for the thread to finish
+
+		(d) Thread Class: ou can also create a thread by subclassing the Thread class and overriding the run method.
+
+			import threading
+
+			class MyThread(threading.Thread):
+			    def run(self):
+			        for i in range(10):
+			            print(i)
+
+			thread = MyThread()
+			thread.start()
+			thread.join()  # Wait for the thread to finish
+
+		(e) Daemon Threads: Daemon threads run in the background and do not prevent the program from exiting. They are useful for background tasks that should not block the program from terminating.
+
+			import threading
+			import time
+
+			def background_task():
+			    while True:
+			        print("Running in the background")
+			        time.sleep(1)
+
+			thread = threading.Thread(target=background_task)
+			thread.daemon = True  # Set as a daemon thread
+			thread.start()
+
+			time.sleep(3)
+			print("Main program exiting")
+
+	(iv) Example:-
+
+		import time
+		import threading
+
+		def function1():
+		    time.sleep(6)
+		    print("Done! function 1")
+		def function2():
+		    time.sleep(3)
+		    print("Done! function 2")
+		def function3():
+		    time.sleep(4)
+		    print("Done! function 3")
+
+		thread1 = threading.Thread(target=function1,args=[])
+		thread2 = threading.Thread(target=function2,args=[])
+		thread3 = threading.Thread(target=function3,args=[])
+		start = time.time()
+		thread1.start()
+		thread2.start()
+		thread3.start()
+
+		# thread1.join() # wait for the threads to complete if you want to
+		# thread2.join() # wait for the threads to complete if you want to
+		# thread3.join() # wait for the threads to complete if you want to
+		
+		end = time.time()
+		print("Main Completed in", end-start,"seconds")
+
+		# Output:
+		# Main Completed in 0.0010025501251220703 seconds
+		# Done! function 2
+		# Done! function 3
+		# Done! function 1
+
+		(a) The Program Ended in 0.001 seconds because The threads are treated as seperate programs and the main Thread doesn't wait for them to complete it simply end however you can change that by calling the "<thread>.join()" function after starting the thread which will make the main thread wait until all the threads are finished
+
+	(v) Synchronization Primitives
+		
+		(a) When multiple threads access shared resources, synchronization is necessary to avoid data corruption or inconsistent results. The threading module provides several synchronization primitives:
+		
+		(b) Locks: A lock is a synchronization primitive that allows only one thread to access a resource at a time.
+
+			import threading
+
+			lock = threading.Lock()
+			shared_resource = 0
+
+			def increment():
+			    global shared_resource
+			    with lock:
+			        shared_resource += 1
+			        print(shared_resource)
+
+			threads = [threading.Thread(target=increment) for _ in range(5)]
+			for thread in threads:
+			    thread.start()
+			for thread in threads:
+			    thread.join()
+
+		(c) RLocks: A reentrant lock (RLock) allows a thread to acquire the same lock multiple times.
+
+			import threading
+
+			rlock = threading.RLock()
+
+			def recursive_function(n):
+			    with rlock:
+			        if n > 0:
+			            print(n)
+			            recursive_function(n - 1)
+
+			thread = threading.Thread(target=recursive_function, args=(5,))
+			thread.start()
+			thread.join()
+
+		(d) Semaphores: A semaphore is a synchronization primitive that allows a fixed number of threads to access a resource simultaneously.
+
+			import threading
+
+			semaphore = threading.Semaphore(2)
+
+			def limited_access():
+			    with semaphore:
+			        print("Thread accessing resource")
+			        time.sleep(1)
+
+			threads = [threading.Thread(target=limited_access) for _ in range(5)]
+			for thread in threads:
+			    thread.start()
+			for thread in threads:
+			    thread.join()
+
+		(e) Events: An event is a synchronization primitive that can be used to signal between threads.
+
+			import threading
+
+			event = threading.Event()
+
+			def wait_for_event():
+			    print("Waiting for event to be set")
+			    event.wait()
+			    print("Event is set, continuing execution")
+
+			thread = threading.Thread(target=wait_for_event)
+			thread.start()
+
+			time.sleep(2)
+			print("Setting the event")
+			event.set()
+			thread.join()
+
+	(vi) Use Cases for Multithreading
+
+    	(a) I/O-bound applications: Multithreading is highly effective for applications that are I/O-bound, such as network servers, web scraping, or file I/O operations. These applications spend a lot of time waiting for I/O operations to complete, and multithreading can help to utilize the waiting time effectively.
+
+    	(b) Responsive UIs: In GUI applications, using multithreading ensures that the user interface remains responsive while performing long-running operations in the background.
+
+    	(c) Concurrency without parallelism: For tasks that require concurrent execution without the need for true parallelism, multithreading can simplify the program structure and improve readability.
+
+	(vii) Thread Pooling
+
+		(a) Thread pooling in Python is a technique used to manage a pool of worker threads that can execute tasks concurrently. Instead of creating a new thread for every task, which can be resource-intensive and inefficient, thread pooling allows reusing a fixed number of threads to handle multiple tasks. This approach improves performance and resource management, especially when dealing with a large number of short-lived tasks.
+
+		(b) ThreadPoolExecutor
+
+		(c) The concurrent.futures module provides a high-level interface for asynchronously executing callables using thread pools. The ThreadPoolExecutor class in this module is used to create and manage a pool of threads.
+
+		(d) Key Concepts
+
+    		(I) Creating a Thread Pool: Initialize a ThreadPoolExecutor with a specified number of threads.
+    		(II) Submitting Tasks: Submit tasks to the pool using the submit() method, which schedules the callable to be executed and returns a Future object.
+    		(III) Managing Futures: The Future object represents the result of an asynchronous computation. You can use it to check the status of the task and retrieve the result once it's completed.
+
+		(e) Example:
+
+			# importing modules
+			from concurrent.futures import ThreadPoolExecutor
+			import time
+
+			# Functions to be executed in seperate threads
+			def function1():
+			    time.sleep(6)
+			    print("Done! function 1")
+			    return 1
+			def function2():
+			    time.sleep(3)
+			    print("Done! function 2")
+			    return 2
+			def function3(sleepfor, msg):
+			    time.sleep(sleepfor)
+			    print("Done! function 3", msg)
+			    return 3
+
+			max_threads = 3 # set the max amount of thread it can use
+
+			with ThreadPoolExecutor(max_workers=max_threads) as executor:
+
+			    # pass your function to the `submit()` function to make it execute and the rest of the arguments will be given to your passed function
+			    future1 = executor.submit(function1)
+			    future2 = executor.submit(function2)
+			    future3 = executor.submit(function3, 4, "Hello, World!")
+
+			    # Here we can access the return values of the Functions using the result() function:
+			    print(future1.result()) # 1
+			    print(future2.result()) # 2
+			    print(future3.result()) # 3
+
+			# Console:
+			# Done! function 2
+			# Done! function 3 Hello, World!
+			# Done! function 1
+			# 1
+			# 2
+			# 3
+
+		(f) `executor` methods:
+
+			(a) `executor.submit(<function>, <args...>)`: takes a function as the first argument and the rest of arguments are passed to the given function, executes the provided function in a seperate thread with the given arguments and returns a `future` object
+
+			(b) `executor.map(<function>, <argList>)`: takes a function as the first argument and takes lists as the rest of the argument, the function is called for every items in the provided lists and with the position of the list matching the position on the function of the items, returns an iteratable object to obtain the results
+
+				from concurrent.futures import ThreadPoolExecutor
+				import time
+
+				def isEven(n): return True if n%2==0 else False
+
+				numbersTobeChecked = [1, 6, 4, 5, 9]
+				max_threads = 3 # set the max amount of thread it can use
+
+				with ThreadPoolExecutor(max_workers=max_threads) as executor:
+				    results = executor.map(isEven, numbersTobeChecked)
+
+				    results = list(results)
+
+				    for i in range(len(results)):
+				        print(numbersTobeChecked[i], "is even?", results[i])
+
+				# Console:
+				# 1 is even? False
+				# 6 is even? True 
+				# 4 is even? True 
+				# 5 is even? False
+				# 9 is even? False
+
+				# executor.map(function, firstArgumentsList, secondArgumentsList) # <-- More than 1 Arguments passed to the function
+
+37. Multi Processing
+
+	(i) Multiprocessing in Python is a module that supports the creation and management of separate processes. Unlike multithreading, which runs multiple threads within the same process, multiprocessing runs multiple processes, each with its own Python interpreter and memory space. This allows true parallelism, making it suitable for CPU-bound tasks that can benefit from multiple cores.
+
+	(ii) Key Concepts of Multiprocessing
+
+    	(a) Process: A process is an independent entity that has its own memory space. Multiple processes can run concurrently on different processors or cores.
+
+    	(b) Global Interpreter Lock (GIL): The GIL in Python prevents multiple native threads from executing Python bytecodes at once. Multiprocessing avoids the GIL by using separate processes, allowing full utilization of multiple CPU cores.
+
+	(iii) Creating and Managing Processes
+
+		(a) Here is how you can create and manage processes using the `multiprocessing` module:
+
+		(b) Creating a Process:
+	   	You can create a process by instantiating the `Process` class and passing a target function to it.
+
+		   	import multiprocessing
+
+		   	def print_numbers():
+		   	    for i in range(10):
+		   	        print(i)
+
+		   	if __name__ == "__main__":
+		   	    process = multiprocessing.Process(target=print_numbers)
+		   	    process.start()
+		   	    process.join()  # Wait for the process to finish
+
+		(c) Process Class: You can also create a process by subclassing the `Process` class and overriding the `run` method.
+
+		   	from multiprocessing import Process
+
+		   	class MyProcess(multiprocessing.Process):
+		   	    def run(self):
+		   	        for i in range(10):
+		   	            print(i)
+
+		   	if __name__ == "__main__":
+		   	    process = MyProcess()
+		   	    process.start()
+		   	    process.join()  # Wait for the process to finish
+	   
+	(iv) Communication Between Processes
+
+		(a) Processes in `multiprocessing` do not share memory. To communicate between processes, you can use various mechanisms provided by the module, such as pipes, queues, and shared memory.
+
+		(b) Queue: A queue is a thread- and process-safe FIFO implementation used for sharing data between processes.
+
+		   	from multiprocessing import Process, Queue
+
+		   	def worker(queue):
+		       	queue.put("Hello from the worker process")
+
+		   	if __name__ == "__main__":
+		       	queue = Queue()
+		       	process = Process(target=worker, args=(queue,))
+		       	process.start()
+		       	print(queue.get())  # Output: Hello from the worker process
+		       	process.join()
+
+		(c) Pipe: A pipe provides a way for processes to communicate with each other by sending messages.
+
+		   	from multiprocessing import Process, Pipe
+
+		   	def worker(conn):
+		       	conn.send("Hello from the worker process")
+		       	conn.close()
+
+		   	if __name__ == "__main__":
+		       	parent_conn, child_conn = Pipe()
+		       	process = Process(target=worker, args=(child_conn,))
+		       	process.start()
+		       	print(parent_conn.recv())  # Output: Hello from the worker process
+		       	process.join()
+
+
+		(d) Shared Memory: Shared memory allows multiple processes to access the same memory space.
+
+		   	from multiprocessing import Process, Value, Array
+
+		   	def worker(num, arr):
+		       	num.value = 42
+		       	for i in range(len(arr)):
+		           	arr[i] = -arr[i]
+
+		   	if __name__ == "__main__":
+		       	num = Value('i', 0)
+		       	arr = Array('i', range(10))
+
+		       	process = Process(target=worker, args=(num, arr))
+		       	process.start()
+		       	process.join()
+
+		       	print(num.value)  # Output: 42
+		       	print(arr[:])     # Output: [0, -1, -2, -3, -4, -5, -6, -7, -8, -9]
+	
+		(e) Pool of Workers: For scenarios where you need to manage a pool of worker processes, you can use the `Pool` class. This class allows you to parallelize the execution of a function across multiple input values using a pool of processes.
+
+			from multiprocessing import Pool
+
+			def square(n):
+			    return n * n
+
+			if __name__ == "__main__":
+			    with Pool(4) as pool:
+			        results = pool.map(square, range(10))
+			    print(results)  # Output: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+	
+	(v) Benefits of Multiprocessing
+
+		(a) True Parallelism: By creating separate processes, `multiprocessing` allows Python programs to fully utilize multiple CPU cores, overcoming the limitations of the GIL.
+		(b) Improved Performance: CPU-bound tasks that require heavy computation can see significant performance improvements when run in parallel across multiple processes.
+		(c) Isolation: Each process runs in its own memory space, providing better isolation and reducing the risk of memory corruption.
+
+	(vi) Use Cases for Multiprocessing
+
+		(a) CPU-bound applications: Tasks that require intensive computation, such as numerical simulations, data analysis, and image processing, can benefit from multiprocessing.
+		(b) Parallel data processing: Processing large datasets in parallel can significantly reduce processing time.
+		(c) Web scraping: Multiprocessing can be used to scrape multiple web pages concurrently, speeding up data collection.
+
+	(vii) Example: Parallel Data Processing Here's an example of using `multiprocessing` to process data in parallel:
+
+		from multiprocessing import Pool
+		import time
+
+		def process_data(data):
+		    time.sleep(1)
+		    return data * data
+
+		if __name__ == "__main__":
+		    data = [1, 2, 3, 4, 5]
+		    with Pool(4) as pool:
+		        results = pool.map(process_data, data)
+		    print(results)  # Output: [1, 4, 9, 16, 25]
+	
+	(viii) In this example, the `process_data` function simulates a time-consuming computation by sleeping for one second. By using a `Pool` of four processes, we can process the data in 	parallel, significantly reducing the overall processing time.
+
+	(ix) Multiprocessing in Python provides a powerful way to achieve true parallelism, especially for CPU-bound tasks. By creating separate processes, each with its own memory space, you can fully utilize multiple CPU cores, improving performance and efficiency. The `multiprocessing` module offers various tools for managing processes, communication, and synchronization, making it a versatile solution for parallel computing in Python.
+
+38.
+

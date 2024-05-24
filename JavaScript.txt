@@ -741,41 +741,55 @@ Section: Basics
 
 		Bitwise Assignment:
 		
-		(g) `Bitwise AND Assignment (`&=`)`: Performs a bitwise AND operation between the variable and the value on the right side of the operator, and then assigns the result to the variable.
+		(g) `&=` Bitwise AND Assignment: Performs a bitwise AND operation between the variable and the value on the right side of the operator, and then assigns the result to the variable.
 
 		   	var x = 5;
 		   	x &= 3; // Equivalent to x = x & 3;
 		   	console.log(x); // Output: 1 (5 & 3 = 1)
 
-		(h) `Bitwise OR Assignment (`|=`)`: Performs a bitwise OR operation between the variable and the value on the right side of the operator, and then assigns the result to the variable.
+		(h) `|=` Bitwise OR Assignment: Performs a bitwise OR operation between the variable and the value on the right side of the operator, and then assigns the result to the variable.
 
 		   	var x = 5;
 		   	x |= 3; // Equivalent to x = x | 3;
 		   	console.log(x); // Output: 7 (5 | 3 = 7)
 
-		(i) `Bitwise XOR Assignment (`^=`)`: Performs a bitwise XOR operation between the variable and the value on the right side of the operator, and then assigns the result to the variable.
+		(i) `^=` Bitwise XOR Assignment: Performs a bitwise XOR operation between the variable and the value on the right side of the operator, and then assigns the result to the variable.
 
 		   	var x = 5;
 		   	x ^= 3; // Equivalent to x = x ^ 3;
 		   	console.log(x); // Output: 6 (5 ^ 3 = 6)
 
-		(j) `Left Shift Assignment (`<<=`)`: Shifts the bits of the variable to the left by the number of positions specified on the right side of the operator, and then assigns the result to the variable.
+		(j) `<<=` Left Shift Assignment: Shifts the bits of the variable to the left by the number of positions specified on the right side of the operator, and then assigns the result to the variable.
 
 		   	var x = 5;
 		   	x <<= 1; // Equivalent to x = x << 1;
 		   	console.log(x); // Output: 10 (5 << 1 = 10)
 
-		(k) `Right Shift Assignment (`>>=`)`: Shifts the bits of the variable to the right by the number of positions specified on the right side of the operator, and then assigns the result to the variable.
+		(k) `>>=` Right Shift Assignment: Shifts the bits of the variable to the right by the number of positions specified on the right side of the operator, and then assigns the result to the variable.
 
 		   	var x = 5;
 		   	x >>= 1; // Equivalent to x = x >> 1;
 		   	console.log(x); // Output: 2 (5 >> 1 = 2)
 
-		(l) `Unsigned Right Shift Assignment (`>>>=`)`: Shifts the bits of the variable to the right by the number of positions specified on the right side of the operator, and then assigns the result to the variable. Unlike the right shift operator (`>>`), the unsigned right shift operator (`>>>`) fills the vacated bits with zeros.
+		(l) `>>>=` Unsigned Right Shift Assignment: Shifts the bits of the variable to the right by the number of positions specified on the right side of the operator, and then assigns the result to the variable. Unlike the right shift operator (`>>`), the unsigned right shift operator (`>>>`) fills the vacated bits with zeros.
 
 		   	var x = -5;
 		   	x >>>= 1; // Equivalent to x = x >>> 1;
 		   	console.log(x); // Output: 2147483645 (-5 >>> 1 = 2147483645)
+
+		Other:
+
+		(m) `??=` Nullish Coalescing Assignment: also known as the logical nullish assignment operator, only evaluates the right operand and assigns to the left if the left operand is nullish (null or undefined).
+
+			const a = { duration: 50 };
+
+			a.duration ??= 10;
+			console.log(a.duration);
+			// Expected output: 50
+
+			a.speed ??= 25;
+			console.log(a.speed);
+			// Expected output: 25
 
 	(vi) Comparison Operators
 		
@@ -818,6 +832,16 @@ Section: Basics
 		(b) `||` Logical OR: The logical OR operator returns true if at least one of the operands is true; it returns false if both operands are false. For instance, let result = (x < 5 || y < 10); returns true if either x is less than 5 or y is less than 10.
 
 		(c) `!` Logical NOT: The logical NOT operator reverses the logical state of its operand. If a condition is true, the NOT operator makes it false, and vice versa. For example, let result = !(x < 5); returns true if x is not less than 5.
+
+		(d) `??` The nullish coalescing operator: is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+
+			const foo = null ?? 'default string';
+			console.log(foo);
+			// Expected output: "default string"
+
+			const baz = 0 ?? 42;
+			console.log(baz);
+			// Expected output: 0
 
 	(viii) Bitwise Operators
 
@@ -3740,6 +3764,21 @@ Section: Key Concepts
 		
 		Using the `new` keyword allows you to create multiple instances of an object type with their own separate properties and methods
 
+		(f) `new.target` property can be accessed inside the constructor function to know if it is called with the New Keyword or not
+
+			function Foo() {
+			  	if (!new.target) {
+			    	throw new TypeError('calling Foo constructor without new is invalid');
+			  	}
+			}
+			
+			try {
+			  	Foo();
+			} catch (e) {
+			  	console.log(e);
+			  	// Expected output: TypeError: calling Foo constructor without new is invalid
+			}
+
 	(ii) `this`
 		
 		(a) `this` keyword refers to the object that is executing the current code. The specific value of `this` depends on the context in which it is used. Its value is determined by how a function is called and where it is called. The behavior of this can be a little tricky, but understanding the various rules can help in utilizing it effectively.
@@ -3926,7 +3965,7 @@ Section: Key Concepts
 			"make" in mycar; // returns true
 			"model" in mycar; // returns true
 			
-	(iv) `throw`
+	(v) `throw`
 
 		(a) `throw` keyword in JavaScript is used to explicitly `throw` an exception. It is used within the `try...catch` block to handle and manage exceptions that might occur during the execution of the program. When an error condition arises, the `throw` statement is used to signal that an error has occurred and to stop the execution of the program.
 
@@ -3949,7 +3988,25 @@ Section: Key Concepts
 			in this example, the divide function checks if the divisor `y` is 0. If it is, an Error object is thrown with the message "Division by zero is not allowed." The try...catch block is then used to catch the thrown error, and the error message is logged to the console.
 
 		(b) The throw statement is essential for custom error handling and allows you to create your own error messages, making your code more robust and easier to debug.
+	
+	(vi) `void`
 		
+		(a) The void operator evaluates the given expression and then returns undefined.
+
+		(b) Syntax:
+
+			void <expression>
+
+		(c) Example:-
+
+			const output = void 1;
+			console.log(output);
+
+			void function () {
+			  	console.log("Executed!");
+			}();
+			// Logs "Executed!"
+
 21. Promises
 		
 	(i) The `Promise` object represents the eventual result of an asynchronous operation. It has two main properties: state and result. The state can be either "pending," "fulfilled," or "rejected," and the result is the value that the `Promise` eventually resolves to or the reason for rejection.
@@ -4978,7 +5035,7 @@ Section: Object Oriented Programming
 
 			In this example, the `prototype` property is used to add a method (`introduce`) to the Person constructor function, making it accessible to all instances created from it.
 
-25. Objects (Revisited)
+25. Objects
 
 	(i) `Object` object is a built-in global object that serves as the base for all other objects. It provides various utility functions and properties for creating and manipulating objects.
 	
@@ -5063,6 +5120,70 @@ Section: Object Oriented Programming
 
 		const prototype = Object.getPrototypeOf(person);
 		console.log(prototype); // {}
+
+26. Built-in Objects
+
+	(i) Array
+
+		(a) Constructor
+
+			(I) Syntax:
+
+				new Array()
+				new Array(<element1>)
+				new Array(<element1>, <element2>)
+				new Array(<element1>, <element2>, /* …, */ <elementN>)
+				new Array(arrayLength)
+
+				Array()
+				Array(<element1>)
+				Array(<element1>, <element2>)
+				Array(<element1>, <element2>, /* …, */ <elementN>)
+				Array(<arrayLength>)
+
+		Static:
+
+		(b) `Array.from(arrayLike, mapFn?, thisArg?)`: static method creates a new, shallow-copied Array instance from an iterable or array-like object.
+
+			console.log(Array.from('foo'));
+			// Expected output: Array ["f", "o", "o"]
+
+			console.log(Array.from([1, 2, 3], (x) => x + x));
+			// Expected output: Array [2, 4, 6]
+
+		(c) `Array.fromAsync(<arrayLike>, <mapFn?>, <thisArg?>)`: static method creates a new, shallow-copied Array instance from an async iterable, iterable, or array-like object.
+
+			const arr = await Array.fromAsync({
+			  	0: Promise.resolve(1),
+			  	1: Promise.resolve(2),
+			  	2: Promise.resolve(3),
+			})
+			
+			console.log(arr) // [1, 2, 3]
+
+		(d) `Array.isArray(<value>)`: static method determines whether the passed value is an Array.
+
+			console.log(Array.isArray([1, 3, 5]));
+			// Expected output: true
+			
+			console.log(Array.isArray('[]'));
+			// Expected output: false
+			
+			console.log(Array.isArray(new Array(5)));
+			// Expected output: true
+			
+			console.log(Array.isArray(new Int16Array([15, 33])));
+			// Expected output: false
+
+		(e) Array.of() static method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments. 
+
+			console.log(Array.of('foo', 2, 'bar', true));
+			// Expected output: Array ["foo", 2, "bar", true]
+			
+			console.log(Array.of());
+			// Expected output: Array []
+
+
 
 26. Classes
 
@@ -5252,7 +5373,7 @@ Section: Object Oriented Programming
 
 Section: High-End/Advance JavaScript
 
-27.  Strict Mode
+27. Strict Mode
 
 	(i) Strict mode is a feature in JavaScript that allows you to place a program, or a function, in a "strict" operating context. When strict mode is enabled, the JavaScript engine enforces a stricter set of rules and generates more exceptions for common coding errors or "unsafe" actions. It helps developers write cleaner and more secure code by catching potential errors and preventing certain actions that may lead to unexpected behavior.
 
@@ -5604,9 +5725,9 @@ Section: High-End/Advance JavaScript
 			
 			let paragraphs = `Edit the Expression & Text to see matches. Roll over matches or the expression for details. PCRE & JavaScript flavors of RegEx are supported. Validate your expression with Tests mode.
 
-The side bar includes a Cheatsheet, full Reference, and Help. You can also Save & Share with the Community and view patterns you create or favorite in My Patterns.
+			The side bar includes a Cheatsheet, full Reference, and Help. You can also Save & Share with the Community and view patterns you create or favorite in My Patterns.
 
-Explore results with the Tools below. Replace & List output custom results. Details lists capture groups. Explain describes your expression in plain English.`
+			Explore results with the Tools below. Replace & List output custom results. Details lists capture groups. Explain describes your expression in plain English.`
 
 			matchs = paragraphs.match(/^\w*/gm) // First Word of each line
 
@@ -5931,7 +6052,7 @@ Section: Node.js
 
 36. Modules Types
 
-	(i) there are a number of JavaScript libraries and frameworks that enable module usage (for example, other `CommonJS` and AMD-based module systems like `RequireJS`, and more recently Webpack and Babel).
+	(i) There are 2 types of Modules in javascript "CommonJS" and "ES6" Modules
 
 	(ii) Basic example structure
 		
@@ -5988,7 +6109,7 @@ Section: Node.js
 
 				export default name;
 
-		(b) in Common.JS, Assign Values to `Module.exports` to export them!.
+		(b) in Common.JS, Assign Values to `module.exports` to export them!.
 			
 			for example:-
 
@@ -5998,7 +6119,7 @@ Section: Node.js
 				const sayGoodMorning = (name)=>{
 					console.log(`good morning ${name}!`)
 				}
-				WebAssembly.Module.exports = {sayHello, sayGoodMorning};
+				module.exports = {sayHello, sayGoodMorning};
 
 			This above code is same as:
 
@@ -6011,19 +6132,38 @@ Section: Node.js
 		
 	(v) Importing module features into your script
 		
-		(a) ES6 Method is (Again) the easiest way to use it, using `import` and `from` keyword:
+		(a) ES6 Method is (Again) the easiest way to use it, using `import`/`from` keyword:
 
-			import { name, draw, reportArea, reportPerimeter } from "./modules/square.js";
+			import { name, draw} from "./modules/square.js";
 
 			// If you've used `default` keyword
 
-			import name {draw, reportArea, reportPerimeter } from "./modules/square.js";
+			import name {draw} from "./modules/square.js";
 			
 			(I) use the `import` statement, followed by a comma-separated list of the features you want to import wrapped in curly braces, followed by the keyword `from`, followed by the module specifier.
 
 			(II) The module specifier provides a string that the JavaScript environment can resolve to a path to the module file. In a browser, this could be a path relative to the site root, which for our basic-modules example would be `/js-examples/module-examples/basic-modules`. However, here we are instead using the dot (`.`) syntax to mean "the current location", followed by the relative path to the file we are trying to find. This is much better than writing out the entire absolute path each time, as relative paths are shorter and make the URL portable — the example will still work if you move it to a different location in the site hierarchy.  for example:
 
 				`C:/Users/Admin/Documents/project/examples/modules/square.js` becomes `./modules/square.js`
+
+			(III) you can import them by a specific Variable name using `as` syntax: `<original> as <newName>`
+
+				import name {draw as drawShape} from "./modules/square.js"
+
+			(IV) `import.meta`
+
+				() `import.meta.dirname` shows the path of the directory where the current file is
+
+					console.log(import.meta.dirname) // C:\Users\default\Desktop\Documents\Projects
+
+				() `import.meta.filename` shows the complete path to the current file
+
+					console.log(import.meta.filename) // C:\Users\default\Desktop\Documents\Projects\index.js
+
+				() `import.meta.url` shows the complete path to the current file but as a URL
+
+					console.log(import.meta.url) // file:///C:/Users/default/Desktop/Documents/Projects/index.js
+
 
 		(b) Common.JS Module import uses `require()`function, which allows you to load and used external modules (pieces of code) in a Node.js application
 
@@ -6041,6 +6181,18 @@ Section: Node.js
 
 				(A) If the path provided to `require()` is a local file, Node.js resolves the path based on the current file's location. Relative paths (`./`, `../`) are resolved relative to the current file.
 				(B) If the path is a module name (like 'express'), Node.js looks for the module in the `node_modules` folder in the current directory and its parent directories.
+
+			(III) CommonJS provides you two variables to know the location of your current working file
+
+				(A) `__dirname` represents the current directory that the file is stored in
+
+					console.log(path.join(__dirname))
+					// C:/users/documents/project
+
+				(B) `__filename` represents the current file
+
+					console.log(path.join(__filename))
+					// C:/users/documents/project/index.js
 
 	(vi) Once you've imported the features into your script, you can use them just like they were defined inside the same file. The following is found in main.js, below the import lines:
 
@@ -6596,7 +6748,7 @@ The Above Section has Ended on 12 November 2023
 			       	fs.closeSync(fd);
 			   	});
 
-		(c) Synchronous API (Not Recommended)
+		(c) Synchronous API
 
 			(I) Methods of Synchronous version of fs methods ends with `Sync` and doesn't takes a callback and instead returns the value and errors needs to be handled with a try..catch
 			
@@ -6634,7 +6786,7 @@ The Above Section has Ended on 12 November 2023
 
 		(e) Objects
 			
-		    (I) Object: `fs.Dir`
+		    (I) Class: `fs.Dir`
 
 		        (A) dir.close()
 		        (B) dir.close(callback)
@@ -6645,7 +6797,7 @@ The Above Section has Ended on 12 November 2023
 		        (G) dir.readSync()
 		        (H) dir[Symbol.asyncIterator]()
 
-		    (II) Object: `fs.Dirent`
+		    (II) Class: `fs.Dirent`
 
 		        (A) dirent.isBlockDevice()
 		        (B) dirent.isCharacterDevice()
@@ -6658,7 +6810,7 @@ The Above Section has Ended on 12 November 2023
 		        (I) dirent.parentPath
 		        (J) dirent.path
 
-		    (III) Object: `fs.FSWatcher`
+		    (III) Class: `fs.FSWatcher`
 
 		        (A) Event: 'change'
 		        (B) Event: 'close'
@@ -6667,12 +6819,12 @@ The Above Section has Ended on 12 November 2023
 		        (E) watcher.ref()
 		        (F) watcher.unref()
 
-		    (IV) Object: `fs.StatWatcher`
+		    (IV) Class: `fs.StatWatcher`
 
 		        (A) watcher.ref()
 		        (B) watcher.unref()
 
-		    (V) Object: `fs.ReadStream`
+		    (V) Class: `fs.ReadStream`
 
 		        (A) Event: 'close'
 		        (B) Event: 'open'
@@ -6681,7 +6833,7 @@ The Above Section has Ended on 12 November 2023
 		        (E) readStream.path
 		        (F) readStream.pending
 
-		    (VI) Object: `fs.Stats`
+		    (VI) Class: `fs.Stats`
 
 		        (A) stats.isBlockDevice()
 		        (B) stats.isCharacterDevice()
@@ -6714,7 +6866,7 @@ The Above Section has Ended on 12 November 2023
 		        (ZC) stats.birthtime
 		        (ZD) Stat time values
 
-		    (VII) Object: `fs.StatFs`
+		    (VII) Class: `fs.StatFs`
 
 		        (A) statfs.bavail
 		        (B) statfs.bfree
@@ -6724,7 +6876,7 @@ The Above Section has Ended on 12 November 2023
 		        (F) statfs.files
 		        (G) statfs.type
 
-		    (VIII) Object: `fs.WriteStream`
+		    (VIII) Class: `fs.WriteStream`
 
 		        (A) Event: 'close'
 		        (B) Event: 'open'
@@ -6821,19 +6973,7 @@ The Above Section has Ended on 12 November 2023
 
 			console.log(path.sep);       // Output: '/' on Unix-like systems, '\' on Windows
 			console.log(path.delimiter); // Output: ':' on Unix-like systems, ';' on Windows
-		
-		Variables:
-		
-		(l) `__dirname` represents the current directory that the file is stored in
-
-			console.log(path.join(__dirname))
-			// C:/users/documents/project
-
-		(m) `__filename` represents the current file
-
-			console.log(path.join(__filename))
-			// index.js
-
+	
 	(iv) `Events Module`:
 	
 		(a) `events`: Implements the EventEmitter pattern, allowing objects to emit and listen for events.
@@ -7026,7 +7166,6 @@ The Above Section has Ended on 12 November 2023
 	    () `crypto.verify(algorithm, data, key, signature[, callback])`:
 	    () `crypto.webcrypto`:
 		 
-
 	(xi) `Buffer Module`:
 	
 		(a) `buffer`: Provides a way to interact with binary data directly.

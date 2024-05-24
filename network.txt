@@ -1,0 +1,729 @@
+=========================================================================================================
+											Networking
+=========================================================================================================
+
+1. Types of Network
+
+    (i) PAN - Private Area Network
+
+        (a) Bluetooth, USB etc.
+        (b) extends up to 10m in Radius
+
+    (ii) LAN - Local Area Network (Provided by Routers)
+
+        (a) Home Network
+        (b) extends up to 100m in Radius
+
+        (b) WLAN - Wireless Local Area Network
+        (c) VLAN - Virtual Local Area Network
+    
+    (iii) CAN - Campus Area Network
+
+        (a) An Interconnection of Multiple LANS throught out a Town/Small Area
+        (b) extends up to 10km in Radius
+    
+    (iv) MAN - Metropolitan Area Network
+
+        (a) An Interconnection of Multiple LANS throught out a Town/City
+        (b) extends up to 50km in Radius
+
+    (v) WAN - Wide Area Network
+
+        (a) An Interconnection of Multiple LANS throught out a The Globe
+        (b) No-Limit
+
+    (v) Internet
+
+        (a) An Interconnection that Connects The Entire Globe through Multiple WANs
+
+2. IP Addresses
+
+    (i) IPv4
+
+        (a) An IPv4 address is provided by your Router via Wifi/Ethernet
+
+        (b) Dynamic Host Configuration Protocol (DHCP)
+
+            (I) The Dynamic Host Configuration Protocol is a network management protocol used on Internet Protocol networks for automatically assigning IP addresses and other communication    parameters to devices connected to the network using a client–server architecture.
+
+        (c) IPv4 addresses consists of 8 bit 4 integers seperated by 3 Fullstops ('.')
+
+            192.168.0.1
+
+            (I) Each Integer in an IP Address Consists of 4 Number that are known as Octets
+
+        (d) How to get your IPv4 Address:
+
+            (I) Windows: `ipconfig`
+            (II) Unix/Linux based: `ifconfig` or `ip address`
+
+        (e) There are a total of 2^32 IPv4 Addresses which is equivalent to 4,294,967,296 Addresses
+        
+        (f) IPv4 Classes
+
+            (I) Public IPv4 Addresses
+
+                (A) Public IPv4 Addresses are Seperated into 4 Classes A, B, C, D and E
+
+                        IPv4 Addresses Range         Subnet Mask
+                    A: 1.0.0.0   - 126.255.255.255 : 255.0.0.0
+                    B: 128.0.0.0 - 191.255.0.0     : 255.255.0.0
+                    C: 192.0.0.0 - 223.255.255.0   : 255.255.255.0
+                    D: 224.0.0.0 - 239.255.255.255 : 
+                    E: 240.0.0.0 - 255.255.255.255 : 
+
+                (B) Class D and E IPv4 Classes are Unusable
+    
+                    I. Class D IPv4 Addresses are Reserved for Multicast
+                    II. Class E IPv4 Addresses are Experimental
+
+                (C) The Internet Assigned Numbers Authority (IANA) is a standards organization that oversees global IP address allocation, autonomous system number allocation, root zone management in the Domain Name System, media types, and other Internet Protocol–related symbols and Internet numbers.
+
+            (II) Private:
+
+                (A) We had ran out of IPv4 Addresses but Private IP's saved us!
+                (B) Privated IPv4 Addresses were taken out of Public IPv4 Addresses and it so that multiple people can have the same Private IPv4 Address Outside of the LAN
+
+
+                (C) Private IPv4 Classes:
+
+                        IPv4 Addresses Range          Subnet Mask
+                    A: 10.0.0.0 - 10.255.255.255    : 255.0.0.0
+                    B: 172.16.0.0 - 172.31.255.255  : 255.255.0.0
+                    C: 192.168.0.0 - 192.168.255.255: 255.255.255.0
+
+                (D) Using Private IP Addresses We won't have to give Hundreds of Thousands Public IP's to each Device on a LAN and instead they will be given only 1 Public IP address to the Router which can be used for every device on that LAN which Solved our Issued of running out of IP addresses
+                
+                (F) Network Address Translation - NAT
+
+                    I. It Helps us Translate a Private IPv4 Address into a Public IPv4 Address.
+
+            (III) IPv4 Addresses that follows the Subnet Mask of their Class Networks are Known as Classful Networks
+            (IV) IPv4 Addresses that doesn't follows the Subnet Mask of their Class Networks are Known as Classless Networks
+
+            (V) Loop Back Address
+                
+                (A) there's a total of 16,777,216 = 2^24 IPv4 Addresses Missing in-between Class A and Class B Public IPv4 Addresses
+                (B) IP Addresses 127.x.x.x with a subnet mask of 255.0.0.0 are Loop Back Addresses
+                (C) Loop Back Addresses Refer to Your Own Local Machine AKA LocalHost
+
+        (g) in Binary
+
+            (a) `192.168.1.20` becomes `11000000.10101000.00000001.00010100`
+
+            (b) Binary into Decimal
+
+                (I) Write that Numbers down if their corresponding Bit is 1 otherwise write down 0 and add all the numbers together to convert Binary into decimal
+
+                 1   1  0  0  0 0 0 0
+                 ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                128 64 32 16  8 4 2 1   <--- Number obtained by 2^x
+                 ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                128+64 +0 +0 +0+0+0+0 = 192
+
+                 1   0  1  0  1 0 0 0
+                 ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                128 64 32 16  8 4 2 1   <--- x = (count of the bit from right) - 1
+                 ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                128   +32    +8       = 168
+
+                 0   0  0  0  0 0 0 1
+                 ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                128 64 32 16  8 4 2 1   <--- 2^0 = 1, 2^1 = 2, 2^2 = 4, 2^3 = 8, 2^4 = 160, 2^5 = 32 
+                                    ↓
+                                    1 = 1
+
+                 0   0  0  1  0 1 0 0
+                 ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                128 64 32 16  8 4 2 1
+                           ↓    ↓
+                         +16   +4     = 20
+
+                192 . 168 . 1 . 20
+
+            (b) Decimal into Binary
+
+                (I) Consider Your Decimal Number as `n` and successively subtract 2^x if n > 2^x or or n = 2^x (which will break the successive subtraction loop) and after each attempt decrease the value of x by 1 until it reaches 0, and after each successful subtraction 
+
+                192 -128-64               = 0
+                      ↓   ↓
+                     128 64 32 16 8 4 2 1
+                      ↓   ↓  ↓  ↓ ↓ ↓ ↓ ↓
+                      1   1  0  0 0 0 0 0
+
+                168 -128   -32    -8       = 0
+                      ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                     128 64 32 16  8 4 2 1
+                      ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                      1   0  1  0  1 0 0 0
+     
+                1                       -1 = 0
+                                         ↓
+                     128 64 32 16  8 4 2 1
+                      ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                      0   0  0  0  0 0 0 1
+     
+                20            -16   -4     = 0
+                                ↓    ↓
+                     128 64 32 16  8 4 2 1
+                      ↓   ↓  ↓  ↓  ↓ ↓ ↓ ↓
+                      0   0  0  1  0 1 0 0
+
+        (h) The First and Last IPv4 Address in any LAN Network is Always be Reserved
+
+            (I) Host: 0 will always be reserved as The Network Address
+            (II) Host: 255 will always be reserved as The Broadcast Address, to which the name suggests that it broadcasts a MSG to every device on that network
+
+        (i) Network Address
+            
+            (I) Network Address is always the first Address in your network for example:
+
+                (A) A Networking Ranging from 192.168.0.0 to 192.168.1.255
+                (B) Since they are 2 Subnets of the same networks their Subnet will be 255.255.254.0, making it become a classless network
+                (C) Since the first address is 192.168.0.0, It'll be the Network Address
+
+    (ii) Subnet Mask
+
+        (a) The Value of the Integers in IPv4 addresses depends on the Subnet Mask
+
+        (b) Subnet Mask consists of 8 bit 4 integers seperated by 3 Fullstops ('.')
+
+            255.255.255.0
+
+            (I) Each Integer in an IP Address Consists of 4 Number that are known as Octets
+
+        (c) If one of the octets in a SubnetMask is 255 then the corresponding octet in the IPv4 Address will be locked/Static meaning it won't change with-in your network, if one of the octets are 0 then that part is Dynamic and can anywhere in-between 0 and 255
+
+            255.255.255.0
+             ↓   ↓   ↓  ↓
+            192.168.1.24
+            192.168.1.205
+            192.168.1.47
+            192.168.1.36
+            192.168.1.94
+            192.168.1.78
+            192.168.1.64
+
+            (I) The Locked/Static Octets of an IPv4 Address are known as "Network Portion"
+            (II) The Non-Locked/Dynamic Octets of an IPv4 Address are known as "Host Portion"
+
+        (d) Subnet Mask in Binary
+
+               255  .   255   .  255   .   0
+                ↓        ↓        ↓        ↓
+            11111111.11111111.11111111.00000000
+
+            (I) all of the '1' in the Subnet Mask is a Network Bit
+            (II) all of the '0' in the Subnet Mask is a Host Bit
+
+            (III) the 1's and 0's must needs to be contiguous they, meaning you can't have 0 in the middle of 1's and vice versa
+
+            11111111.11101111.11111111.00000000 <-- THIS IS ILLEGAL IN SUBNETTING
+
+            (IV) Amount of The Hosts a Network can support is 2^x, x = Amount of 0's in the Subnet Mask
+
+                11111111.11111111.11111111.00000000
+                                           └┴┴┴┴┴┴┤
+                                                  ↓
+                                                  8
+                                            
+                Amount of Supported Hosts = 2^x
+                                          = 2^8
+                                          = 256
+
+            (IV) Amount of The Hosts a Network can support is 2^x, x = Amount of 0's in the Subnet Mask
+
+            (IV) Amount of The Utilizeable IPv4 address a Network can have is 2^x - 2 (-3 actually if you count The Router).
+            
+        (e) Subnetting
+
+            (I) in any Network The Amount of Hosts can't go below 256, however they can be divided into smaller Sub-Networks and the proccess is known as Subnetting
+
+            (II) This Equation is used when Sub-netting any network 255/a = b, and `a` needs to follow these rules: a < 256, and 2^x = a, and `b` will be the amount of Hosts that The Sub-Network can support.
+
+            (III) Suppose we have a complete normal LAN network and we want to divide it into 2 smaller Sub-Networks for Organizing IoT devices
+
+            (IV) `x` is the amount of 0's that'll become into 1's in the Subnet Mask (from the left side)
+
+            (V) Succesively Checking if the table of 2^x is equals to b and keep converting the 0's into 1's until we found that number from the left side
+
+                --------------------->
+                128 64 32 16 8 4 2 1
+
+                (A) Example:-
+
+                255/4 = 64
+
+                b = 64
+
+                --->64
+                128 64 32 16 8 4 2 1
+                 ↓   ↓  ↓  ↓ ↓ ↓ ↓ ↓
+                 1   1  0  0 0 0 0 0 <-- Binary
+                 ↓   ↓  ↓  ↓ ↓ ↓ ↓ ↓
+                128+64               = 192
+
+                255.255.255.192
+
+                192.168.0.<b-1>
+
+                Sub-Networks Created:
+
+                192.168.0.0 - 192.168.0.63 <-- Broadcast Addresses (The Last Addresses on any Network)
+                192.168.0.64 - 192.168.0.127
+                192.168.0.128 - 192.168.0.191
+                192.168.0.192 - 192.168.0.255
+                ↑
+                The Network Address
+
+            (VI) Succesively Checking if the table of 2^x is equals to `a` and keep converting the 0's into 1's until we found that number from the left side and the amount of 0's converted into 1's are the value of `x` and by shifting all the bits to the right side it can be converted into decimal
+
+                <---------------------
+                256 128 64 32 16 8 4 2 <- This Table is Different!
+
+                (A) Example
+
+                255/8 = 32
+
+                a = 8
+
+                                 8 <---------------------
+                256 128 64 32 16 8 4 2
+                 ↓   ↓   ↓  ↓  ↓ ↓ ↓ ↓   Divide them by 2
+                128 64  32 16  8 4 2 1
+                                 ↓ ↓ ↓   Convert to Binary
+                 ┌────────────── 1 1 1   Push them to the left side
+                 ↓
+                11100000 --> 224
+
+        (f) Subnetting in Reverse
+
+        (g) The Entire Subnet can be represeted usign `/x` and x = amount of network bits so a network with a subnet mask of 255.255.255.0 can be represeted as `/24`
+2. Ports
+    
+    (i) Essential Ports
+
+        Normal:
+
+        (a) FTP: 20, 21 data & command control
+        (b) SMTP: 25
+        (c) HTTP: 80
+        (d) POP3: 110
+        (e) NNTP: 119 
+        (f) IMAP: 143
+        (g) Telnet: 23
+        (h) DNS: 53
+        (i) NTP: 123
+
+        Encrypted:
+
+        (j) FTPS: 989, 990 data & command control
+        (k) SMTPS: 465
+        (l) HTTPS: 443
+        (m) POP3S: 995
+        (n) NTTPS: 563
+        (o) IMAPS: 993
+        (p) SSH/SCP/SFTP: 22
+
+    (ii) Registered Port Used by Popular Services
+
+        (a) HTTP Proxy: 80, 8080, 3128, 6588
+        (b) SOCKS Proxy: 1080
+        (c) OpenVPN: 1194
+        (d) UPnP: 1900, 5000
+        (e) VNC: 5900
+        (f) OpenPGP: 11371
+        (g) Oracle: 2483, 2484
+        (h) MySQL : 3306
+        (i) PostgreSQL: 5432
+        (j) Redis: 6379
+        (k) Cassandra: 7000, 7001, 7199, 9042
+        (l) MongoDB: 27017
+
+    (iii) All Ports
+
+        () `7` Echo:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Echo service
+        () `19` CHARGEN:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Character Generator Protocol, has severe vulnerabilities and thus is rarely used nowadays
+        () `20` FTP-data:
+
+            (I) Protocols: TCP, SCTP
+
+            (II) File Transfer Protocol data transfer
+        () `21` FTP:
+
+            (I) Protocols: TCP, UDP, SCTP
+
+            (II) File Transfer Protocol command control
+        () `22` SSH/SCP/SFTP:
+
+            (I) Protocols: TCP, UDP, SCTP 
+
+            (II) Secure Shell, secure logins, file transfers (scp, sftp), and port forwarding
+        () `23` Telnet:
+
+            (I) Protocols: TCP
+
+            (II) Telnet protocol, for unencrypted text communications
+        () `25` SMTP:
+
+            (I) Protocols: TCP
+
+            (II) Simple Mail Transfer Protocol, used for email routing between mail servers
+        () `42` WINS Replication:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Microsoft Windows Internet Name Service, vulnerable to attacks on a local network
+        () `43` WHOIS:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Whois service, provides domain-level information
+        () `49` TACACS:
+
+            (I) Protocols: UDP; can also use TCP but not necessarily on port 49
+
+            (II) Terminal Access Controller Access-Control System, provides remote authentication and related services for network access
+        () `53` DNS:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Domain Name System name resolver
+        () `67` DHCP/BOOTP:
+
+            (I) Protocols: UDP
+
+            (II) Dynamic Host Configuration Protocol and its predecessor Bootstrap Protocol Server; server port
+        () `68` DHCP/BOOTP:
+
+            (I) Protocols: UDP
+
+            (II) Dynamic Host Configuration Protocol and its predecessor Bootstrap Protocol Server; client port
+        () `69` TFTP:
+
+            (I) Protocols: UDP
+
+            (II) Trivial File Transfer Protocol
+        () `70` Gopher:
+
+            (I) Protocols: TCP
+
+            (II) Gopher is a communication protocol for distributing, searching, and retrieving documents in Internet Protocol (IP) networks
+        () `79` Finger:
+
+            (I) Protocols: TCP
+
+            (II) Name/Finger protocol and Finger user information protocol, for retrieving and manipulating user information
+        () `80` HTTP:
+
+            (I) Protocols: TCP, UDP, SCTP
+
+            (II) Hypertext Transfer Protocol (HTTP) uses TCP in versions 1.x and 2. HTTP/3 uses QUIC, a transport protocol on top of UDP
+        () `88` Kerberos:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Network authentication system
+        () `102` Microsoft Exchange ISO-TSAP:
+
+            (I) Protocols: TCP
+
+            (II) Microsoft Exchange ISO Transport Service Access Point (TSAP) Class 0 protocol
+        () `110` POP3:
+
+            (I) Protocols: TCP
+
+            (II) Post Office Protocol, version 3 (POP3)
+        () `113` Ident:
+
+            (I) Protocols: TCP
+
+            (II) Identification Protocol, for identifying the user of a particular TCP connection
+        () `119` NNTP (Usenet):
+
+            (I) Protocols: TCP
+
+            (II) Network News Transfer Protocol
+        () `123` NTP:
+
+            (I) Protocols: UDP
+
+            (II) Network Time Protocol
+        () `135` Microsoft RPC EPMAP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Microsoft Remote Procedure Call (RPC) Endpoint Mapper (EPMAP) service, for remote system access and management
+        () `137` NetBIOS-ns:
+
+            (I) Protocols: TCP, UDP
+
+            (II) NetBIOS Name Service, used for name registration and resolution
+        () `138` NetBIOS-dgm:
+
+            (I) Protocols: TCP, UDP
+
+            (II) NetBIOS Datagram Service, used for providing access to shared resources
+        () `139` NetBIOS-ssn:
+
+            (I) Protocols: TCP, UDP
+
+            (II) NetBIOS Session Service
+        () `143` IMAP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Internet Message Access Protocol (IMAP), management of electronic mail messages on a server
+        () `161` SNMP-agents (unencrypted):
+
+            (I) Protocols: UDP
+
+            (II) Simple network management protocol; agents communicate on this port
+        () `162` SNMP-trap (unencrypted):
+
+            (I) Protocols: UDP
+
+            (II) Simple network management protocol; listens for asynchronous traps
+        () `177` XDMCP:
+
+            (I) Protocols: UDP
+
+            (II) X Display Manager Control Protocol
+        () `179` BGP:
+
+            (I) Protocols: TCP
+
+            (II) Border Gateway Protocol
+        () `194` IRC:
+
+            (I) Protocols: UDP
+
+            (II) Internet Relay Chat
+        () `201` AppleTalk:
+
+            (I) Protocols: TCP, UDP
+
+            (II) AppleTalk Routing Maintenance. Trojan horses and computer viruses have used UDP port 201.
+        () `264` BGMP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Border Gateway Multicast Protocol
+        () `318` TSP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Time Stamp Protocol
+        () `381` HP Openview:
+
+            (I) Protocols: TCP, UDP
+
+            (II) HP performance data collector
+        () `383` HP Openview:
+
+            (I) Protocols: TCP, UDP
+
+            (II) HP data alarm manager
+        () `389` LDAP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Lightweight directory access protocol
+        () `411` (Multiple uses):
+
+            (I) Protocols: TCP, UDP
+
+            (II) Direct Connect Hub, Remote MT Protocol
+        () `412` (Multiple uses) :
+
+            (I) Protocols: TCP, UDP
+
+            (II) Direct Connect Client-to-Client, Trap Convention Port
+        () `427` SLP:
+
+            (I) Protocols: TCP
+
+            (II) Service Location Protocol
+        () `443` HTTPS (HTTP over SSL):
+
+            (I) Protocols: TCP, UDP, SCTP
+
+            (II) Hypertext Transfer Protocol Secure (HTTPS) uses TCP in versions 1.x and 2. HTTP/3 uses QUIC, a transport protocol on top of UDP.
+        () `445` Microsoft DS SMB:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Microsoft Directory Services: TCP for Active Directory, Windows shares; UDP for Server Message Block (SMB) file-sharing
+        () `464` Kerberos:
+
+            (I) Protocols: TCP, UDP
+
+            (II) For password settings on Kerberos
+        () `465` SMTP over TLS/SSL, SSM:
+
+            (I) Protocols: TCP
+
+            (II) Authenticated SMTP over TLS/SSL (SMTPS), URL Rendezvous Directory for Cisco’s Source Specific Multicast protocol (SSM)
+        () `497` Dantz Retrospect:
+
+            (I) Protocols: TCP, UDP
+
+            (II) A software suite for backing up operating systems
+        () `500` IPSec / ISAKMP / IKE:
+
+            (I) Protocols: UDP
+
+            (II) Internet Protocol Security / Internet Security Association and Key Management Protocol / Internet Key Exchange
+        () `512` rexec:
+
+            (I) Protocols: TCP
+
+            (II) Remote Process Execution
+        () `513` rlogin:
+
+            (I) Protocols: TCP
+
+            (II) The Unix program rlogin allows users to log in on another host using a network.
+        () `514` syslog:
+
+            (I) Protocols: UDP
+
+            (II) Syslog Protocol, for collecting and organizing all of the log files sent from the various devices on a network
+        () `515` LPD/LPR:
+
+            (I) Protocols: TCP
+
+            (II) Line Printer Daemon protocol, or Line Printer Remote protocol
+        () `520` RIP:
+
+            (I) Protocols: UDP
+
+            (II) Routing Information Protocol, used to find the optimal path between source and destination networks
+        () `521` RIPng (IPv6):
+
+            (I) Protocols: UDP
+
+            (II) Routing Information Protocol next generation, the IPv6 compatible version of RIP
+        () `540` UUCP:
+
+            (I) Protocols: TCP
+
+            (II) Unix-to-Unix Copy Protocol
+        () `548` AFP:
+
+            (I) Protocols: TCP
+
+            (II) Apple Filing Protocol
+        () `554` RTSP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Real Time Streaming Protocol
+        () `546` DHCPv6:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Dynamic Host Configuration Protocol version 6. DHCPv6 Clients listen for DHCPv6 messages on UDP port 546.
+        () `547` DHCPv6:
+
+            (I) Protocols: TCP, UDP
+
+            (II) DHCPv6 Servers and DHCPv6 Relay Agents listen for DHCPv6 messages on UDP port 547.
+        () `560` rmonitor:
+
+            (I) Protocols: UDP
+
+            (II) Remote Monitor
+        () `563` NNTP over TLS/SSL:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Network News Transfer Protocol with encryption and verification
+        () `587` SMTP:
+
+            (I) Protocols: TCP
+
+            (II) For email message submission via SMTP
+        () `591` FileMaker:
+
+            (I) Protocols: TCP
+
+            (II) FileMaker Web Companion, the web publishing technology available in FileMaker versions 4-6
+        () `593` Microsoft DCOM:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Distributed Component Object Model (DCOM)
+        () `596` SMSD:
+
+            (I) Protocols: TCP, UDP
+
+            (II) SysMan Station daemon
+        () `631` IPP:
+
+            (I) Protocols: TCP
+
+            (II) Internet Printing Protocol
+        () `636` LDAP over TLS/SSL:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Lightweight Directory Access Protocol over TLS/SSL
+        () `639` MSDP (PIM):
+
+            (I) Protocols: TCP
+
+            (II) Multicast Source Discovery Protocol, which is part of the Protocol Independent Multicast (PIM) family
+        () `646` LDP (MPLS):
+
+            (I) Protocols: TCP, UDP
+
+            (II) Label Distribution Protocol, applies to routers capable of Multiprotocol Label Switching (MPLS)
+        () `691` Microsoft Exchange:
+
+            (I) Protocols: TCP
+
+            (II) Microsoft Exchange Routing
+        () `860` iSCSI:
+
+            (I) Protocols: TCP
+
+            (II) Internet Small Computer Systems Interface
+        () `873` rsync:
+
+            (I) Protocols: TCP
+
+            (II) The rsync file synchronization protocol efficiently transfers and synchronizes files between devices and networked computers.
+        () `902` VMware Server:
+
+            (I) Protocols: TCP, UDP
+
+            (II) VMware ESXi, a hypervisor
+        () `989` FTPS:
+
+            (I) Protocols: TCP
+
+            (II) File Transfer Protocol (data) over TLS/SSL
+        () `990` FTPS:
+
+            (I) Protocols: TCP
+
+            (II) File Transfer Protocol (control) over TLS/SSL
+        () `993` IMAP over SSL (IMAPS):
+
+            (I) Protocols: TCP
+
+            (II) Internet Message Access Protocol over TLS/SSL
+        () `995` POP3 over SSL (POP3S):
+
+            (I) Protocols: TCP, UDP
+
+            (II) Post Office Protocol 3 over TLS/SSL
