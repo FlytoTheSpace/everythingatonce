@@ -1,0 +1,23 @@
+==========================================================================================================
+											Docker
+==========================================================================================================
+
+1. CLI
+
+    (i) `docker ps` list all the running Containers
+
+2. Docker File
+
+    (i) Guide:
+        
+        (a) create Docker file
+
+            touch Dockerfile
+
+        (b) Docker File Structure (<Name> is the parts in the Structure that needs to be user defined):
+
+            FROM <runTime/Base Image>
+
+    (ii) Config
+
+        (a) `FROM <runTime/Base Image>` Defines the Run Time environmental of the Container (ubuntu, debian, macOS, windows, nodejs etc).

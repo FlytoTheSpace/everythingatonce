@@ -857,3 +857,67 @@
             (I) Protocols: TCP, UDP
 
             (II) Post Office Protocol 3 over TLS/SSL
+
+Protocols:
+
+3. TCP
+
+    (i) TCP (Transmission Control Protocol) is one of the core protocols of the Internet Protocol Suite, which is essential for enabling reliable communication over networks. Here's an overview of how a TCP connection works:
+
+    (ii) Key Features of TCP
+    
+        (a) Connection-Oriented: TCP establishes a connection between the sender and receiver before data transfer begins.
+        (b) Reliable: Ensures that data is delivered accurately and in the same order in which it was sent.
+        (c) Error Checking: Includes mechanisms for error detection and correction.
+        (d) Flow Control: Manages the rate of data transmission to prevent network congestion.
+        (e) Congestion Control: Adjusts the rate of data transmission based on network traffic conditions.
+    
+    (iii) Establishing a TCP Connection (Three-Way Handshake)
+    
+        (a) SYN (Synchronize): The client initiates the connection by sending a TCP segment with the SYN flag set to the server. This segment includes an initial sequence number (ISN).
+
+        (b) SYN-ACK (Synchronize-Acknowledge): The server responds to the client's SYN segment with a segment of its own, which has both the SYN and ACK flags set. The server also includes its own ISN and acknowledges the client's ISN by setting the acknowledgment number to the client's ISN plus one.
+
+        (c) ACK (Acknowledge): The client responds with a segment that has the ACK flag set, acknowledging the server's ISN by setting the acknowledgment number to the server's ISN plus one.
+
+        (d) At this point, the connection is established, and both parties can start sending data.
+
+    (iv) Data Transfer
+    
+        (a) Data Segmentation: Large data streams are broken down into smaller segments for transmission.
+        (b) Sequence Numbers: Each segment is assigned a sequence number for tracking the order of bytes.
+        (c) Acknowledgments: The receiver sends acknowledgments (ACKs) back to the sender indicating which segments have been received.
+        (d) Retransmissions: If a segment is lost or corrupted, the sender retransmits the segment based on lack of acknowledgment within a certain time (timeout).
+    
+    (v) Closing a TCP Connection (Four-Way Handshake)
+    
+        (a) FIN (Finish): The client or server sends a segment with the FIN flag set, indicating it has finished sending data.
+        (b) ACK (Acknowledge): The receiver of the FIN segment acknowledges it by sending a segment with the ACK flag set.
+        (c) FIN (Finish): The receiver of the initial FIN now sends a FIN segment of its own to indicate it has finished sending data.
+        (d) ACK (Acknowledge): The initiator of the first FIN acknowledges the second FIN, completing the connection termination.
+    
+    (vi) Example
+    
+        Client to Server:
+           - Client sends: SYN, ISN = 1000
+           - Server responds: SYN-ACK, ISN = 2000, ACK = 1001
+           - Client sends: ACK, ACK = 2001
+
+        Data Transfer:
+           - Client sends: Data, Seq = 1001-2000
+           - Server acknowledges: ACK, ACK = 2001
+           - Server sends: Data, Seq = 2001-3000
+           - Client acknowledges: ACK, ACK = 3001
+
+        Connection Termination:
+           - Client sends: FIN, Seq = 3001
+           - Server acknowledges: ACK, ACK = 3002
+           - Server sends: FIN, Seq = 3002
+           - Client acknowledges: ACK, ACK = 3003
+    
+    (vii) Additional Features
+    
+        (a) Window Size: Part of the flow control mechanism, indicating the amount of data the receiver can accept.
+        (b) Checksum: Ensures data integrity by allowing the receiver to detect errors in transmitted segments.
+    
+    (viii) TCP is critical for applications requiring reliable data transfer, such as web browsing, email, and file transfers. It ensures that communication is robust and that data integrity is maintained across potentially unreliable networks.

@@ -4,170 +4,158 @@
 
 1. Commands:
     
-    () General
+    (i) General
 
-        () `echo "<Message>"`: Logs The Message in The Terminal
+        (a) `echo "<Message>"`: Logs The Message in The Terminal
     
             $ echo "Hello, World"
             Hello, World
 
-        () `clear` clear your terminal
-        () `date` returns the current Date
-        () `sleep <n>` pauses any further execution for `n` number of seconds (usefull in bash scripts)
-        () `man <command>` shows you the full documentation of the Specified Command if Available (External Packages Included)
-        () `whatis <command>` give you a quick summary of what the Specified command does
-        () `which <commands / packages / variable>` tells you where things are Located in the System
-        () `whereis <commands / packages / variable>` tells you exactly where things are Located in the System and also if They are located on multiple places
-        () `wget <URL>` let's you get Files from the Internet
-        () `curl <URL>` same as wget
-        () `exit` can be used to exit out of a lot of places
-        () `reboot` reboots your system
-        () `shutdown -h now` shutdowns your system
+        (b) `clear` clear your terminal
+        (c) `date` returns the current Date
+        (d) `sleep <n>` pauses any further execution for `n` number of seconds (usefull in bash scripts)
+        (e) `man <command>` shows you the full documentation of the Specified Command if Available (External Packages Included)
+        (f) `whatis <command>` give you a quick summary of what the Specified command does
+        (g) `which <commands / packages / variable>` tells you where things are Located in the System
+        (h) `whereis <commands / packages / variable>` tells you exactly where things are Located in the System and also if They are located on multiple places
+        (i) `wget <URL>` let's you get Files from the Internet
+        (j) `curl <URL>` same as wget
+        (k) `exit` can be used to exit out of a lot of places
+        (l) `reboot` reboots your system
+        (m) `shutdown -h now` shutdowns your system
 
-    () Navigation
+    (ii) Navigation
     
-        () `ls` Lists all the Files in the Current Working Directory
+        (a) `ls` Lists all the Files in the Current Working Directory
 
-            () `-l` Also Displays Meta Data About the File such as Permissions, Creation Date, name, etc.
-            () `-a` Displays Hidden Files
+            (I) `-l` Also Displays Meta Data About the File such as Permissions, Creation Date, name, etc.
+            (II) `-a` Displays Hidden Files
 
-        () `pwd` prints the Current Working Directory
+        (b) `pwd` prints the Current Working Directory
 
-        () `cd <PATH>` changes your Current Working to the Path
+        (c) `cd <PATH>` changes your Current Working to the Path
 
-            () `cd` changes your Current Working Directory to Your Home Directory
+            (I) `cd` changes your Current Working Directory to Your Home Directory
 
-        () `ln -s <Path+Name> <Link>` Create a link/Shortcut file that leads to the Specified file
+        (d) `ln -s <Path+Name> <Link>` Create a link/Shortcut file that leads to the Specified file
 
-    () Files and Directories
+    (iii) Files and Directories
 
-        () `touch <Path+Name...>` Creates a File, You can create multiple files by just typing their Path and Name side by side
+        (a) `touch <Path+Name...>` Creates a File, You can create multiple files by just typing their Path and Name side by side
 
-            () `-d <Date>` Schedule a File to be Created in the Future on <Date>
+            (I) `-d <Date>` Schedule a File to be Created in the Future on <Date>
 
-        () `cat <Path+Name>` Displays Contents of the File
-
-        () `cp <Path+Name> <NewPath>` Copies The File to The Specified New Path
-
-        () `mv <Path+Name> <NewPath>` Copies The File to The Specified New Path
-
-        () `mkdir <Path+Name>` creates a new Directory on the Path
-        
-        () `shred <Path+Name>` Obfuscates the File
-        
-        () `rm <Path+Name>` Deletes The File on the Path
+        (b) `cat <Path+Name>` Displays Contents of the File
+        (c) `cp <Path+Name> <NewPath>` Copies The File to The Specified New Path
+        (d) `mv <Path+Name> <NewPath>` Copies The File to The Specified New Path
+        (e) `mkdir <Path+Name>` creates a new Directory on the Path
+        (f) `shred <Path+Name>` Obfuscates the File
+        (g) `rm <Path+Name>` Deletes The File on the Path
             
             () `-r` Let's you Delete Folder even If they are not Empty
 
-        () `rmdir <Path>` Deletes The Directory on the Path, Only if  The Directory  is Empty
-
-        () `chmod <+ or -><permission> <Path>`: Adds or Removes File Permissions
+        (h) `rmdir <Path>` Deletes The Directory on the Path, Only if  The Directory  is Empty
+        (i) `chmod <+ or -><permission> <Path>`: Adds or Removes File Permissions
 
             $ # Executable File
             $ chmod +x script.sh
 
-        () `chown <username> <Path>` Changes Ownership of the File/Directory
+        (j) `chown <username> <Path>` Changes Ownership of the File/Directory
+        (k) `zip <Path+Name>.zip <files...>` Zips the Specified files with the Specified name
+        (l) `unzip <Path+Name>.zip` Unzips the Files
+        (m) `find <Path> -name "<Name>"` searches for Files in the Specified Directory
+        (n) `head <Path+Name>` Displays Heading of the File
+        (o) `less <Path+Name>` Displays Contents of the One Page at a Time
+        (p) `tail <Path+Name>` Displays Tail of the File
 
-        () `zip <Path+Name>.zip <files...>` Zips the Specified files with the Specified name
-        () `unzip <Path+Name>.zip` Unzips the Files
+        (q) `cmp <Path+Name> <Path+Name>` compares Both Files
+        (r) `diff <Path+Name> <Path+Name>` compares Both Files and tell you the Difference between Both Files
 
-        () `find <Path> -name "<Name>"` searches for Files in the Specified Directory
+        (m) `locate <fileName>` searches for the File Everywhere
 
-        () `head <Path+Name>` Displays Heading of the File
-        () `less <Path+Name>` Displays Contents of the One Page at a Time
-        () `tail <Path+Name>` Displays Tail of the File
-
-        () `cmp <Path+Name> <Path+Name>` compares Both Files
-        () `diff <Path+Name> <Path+Name>` compares Both Files and tell you the Difference between Both Files
-
-    () Users
+    (iv) Users
         
-        () `whoami` The User who you are Logged in as
+        (a) `whoami` The User who you are Logged in as
 
-        () `useradd <username>`: simply adds a new user by the name of <username> (Requires ROOT)
+        (b) `useradd <username>`: simply adds a new user by the name of <username> (Requires ROOT)
         
-        () `adduser <username>`: let's you configure settings for the new user such as Passwords etc. (Requires ROOT)
+        (c) `adduser <username>`: let's you configure settings for the new user such as Passwords etc. (Requires ROOT)
 
-        () `su <username>`: Switch to the Specified User, add prefix `sudo` and don't specify the username to log in as ROOT
+        (d) `su <username>`: Switch to the Specified User, add prefix `sudo` and don't specify the username to log in as ROOT
 
-        () `exit` exits out of the current user If is switched from a different user
+        (e) `exit` exits out of the current user If is switched from a different user
 
-        () `passwd <username>` changes password of the User, leave the username Empty to change your own Password (Requires ROOT)
+        (f) `passwd <username>` changes password of the User, leave the username Empty to change your own Password (Requires ROOT)
 
-    () Network
+    (v) Network
 
-        () `ping <domain/IP>` Let's you know if something is up running
+        (a) `ping <domain/IP>` Let's you know if something is up running
 
-            () `-c <Count>` Limits the amoung of Pings
-            () `-s <Size>` Sets the Size of the Packets in Bytes
+            (I) `-c <Count>` Limits the amoung of Pings
+            (II) `-s <Size>` Sets the Size of the Packets in Bytes
 
-        () `ssh <user>@<IPAddress>`
+        (b) `ssh <user>@<IPAddress>`
 
-            (a) `-p <PORT>` stands for PORT (default 22)
+            (I) `-p <PORT>` stands for PORT (default 22)
 
-        () `ifconfig` or `ip address` Let's you view your IP Details
+        (c) `ifconfig` or `ip address` Let's you view your IP Details
+        (d) `resolvectl status` Show you Details about Your DNS
+        (e) `traceroute <domain/IP>` Displays all of the Proxies you are passing through to get at the destination
+        (f) `netstat` or `ss` Displays all the Network Activity
 
-        () `resolvectl status` Show you Details about Your DNS
+            (I) `-t` or `--tcp`: limits to TCP Network Activity
+            (II) `-u` or `--udp`: limits to IP Address Ports etc
+            (III) `-l` or `--listening`: limits to Current Activity or if Enabled or Not
+            (IV) `-p` or `--programm`: limits to Programs Only
+            (V) `-n` or `--numeric`: limits to Numberic
+            (VI) `-tulpn` limits to Open Ports Only 
+
+        (g) `iptables` Your Firewall Settings on the different Ports
         
-        () `traceroute <domain/IP>` Displays all of the Proxies you are passing through to get at the destination
+        (h) `ufw` builds on top of `iptables` for making things easier 
 
-        () `netstat` or `ss` Displays all the Network Activity
+            (I) `ufw allow <PORT>` Opens up the Specified Port
+            (II) `ufw status` Check Firewall Status
+            (III) `ufw enable` enable Firewall
+            (IV) `ufw disable` disable Firewall
 
-            () `-t` or `--tcp`: limits to TCP Network Activity
-            () `-u` or `--udp`: limits to IP Address Ports etc
-            () `-l` or `--listening`: limits to Current Activity or if Enabled or Not
-            () `-p` or `--programm`: limits to Programs Only
-            () `-n` or `--numeric`: limits to Numberic
-            () `-tulpn` limits to Open Ports Only 
+    (vi) Utilities for Other Commands
 
-        () `iptables` Your Firewall Settings on the different Ports
-        () `ufw` builds on top of `iptables` for making things easier 
-        () `ufw allow <PORT>` Opens up the Specified Port
-        () `ufw status` Check Firewall Status
-        () `ufw enable` enable Firewall
-        () `ufw disable` disable Firewall
-
-    () Utilities for Other Commands
-
-        () `sudo <command>` makes the command Run as as the ROOT user
-
-        () `| sort` sorts in Alphabetical Order
-        
-        () `| grep <word>` let's you get Lines that starts with The `<word>`
-
-        () `| bc` evaluates an Arithemetic Expression
-
-        () `$(<command>)` let's you get the return values of the Commands
+        (a) `sudo <command>` makes the command Run as as the ROOT user
+        (b) `| sort` sorts in Alphabetical Order
+        (c) `| grep <word>` let's you get Lines that starts with The `<word>`
+        (d) `| bc` evaluates an Arithemetic Expression
+        (e) `$(<command>)` let's you get the return values of the Commands
 
             flytothespace@ubuntu:~$ me=$(whoami)
             flytothespace@ubuntu:~$ echo $me
             flytothespace
             flytothespace@ubuntu:~$ 
 
-        () `<Command> > <Path+Name>` creates a File on the path and inserts the Return Value of The Command into that file
+        (f) `<Command> > <Path+Name>` creates a File on the path and inserts the Return Value of The Command into that file
 
             $ echo "Hello, World" > file.txt
             $ cat file.txt
             Hello, World
 
-        () appending `&` sign at the end of a Command makes it run in the Background and Not Block the Main Thread
+        (g) appending `&` sign at the end of a Command makes it run in the Background and Not Block the Main Thread
 
-    () Hardware and OS
+    (vii) Operating System
 
-        () `uname` Information About your OS
-        () `free` Information About RAM and Swap
-        () `df -H` Information About Storage
-        () `ps -aux` Information About Running Processes on Your System
-        () `top` Information About CPU and RAM
-        () `htop` Information About CPU and RAM in a prettier way
-        () `kill -9 <ProcessID>` Kills the Process by It's ID
-        () `pkill -f <ProcessName>` Kills the Process by It's Name
+        (a) `uname` Information About your OS
+        (b) `free` Information About RAM and Swap
+        (c) `df -H` Information About Storage
+        (d) `ps -aux` Information About Running Processes on Your System
+        (e) `top` Information About CPU and RAM
+        (f) `htop` Information About CPU and RAM in a prettier way
+        (g) `kill -9 <ProcessID>` Kills the Process by It's ID
+        (h) `pkill -f <ProcessName>` Kills the Process by It's Name
 
-        () `systemctl` Services
+        (i) `systemctl` Services
 
-            () `systemctl status <ServiceName>` Shows Status of The Specified Service
-            () `systemctl start <ServiceName>` Starts The Specified Service
-            () `systemctl stop <ServiceName>` Stops The Specified Service
+            (I) `systemctl status <ServiceName>` Shows Status of The Specified Service
+            (II) `systemctl start <ServiceName>` Starts The Specified Service
+            (III) `systemctl stop <ServiceName>` Stops The Specified Service
 
 2. Package Managers
 

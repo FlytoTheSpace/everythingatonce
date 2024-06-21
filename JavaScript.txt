@@ -346,7 +346,7 @@ Section: Basics
 			(This Section is also Explained Later in The Notes)
 
 			let promise = new Promise((resolve, reject) => {
-			  	setTimeout(() => resolve("done"), 1000);
+			  	`setTimeout`(() => resolve("done"), 1000);
 			});
 
     	(k) `TypedArray`
@@ -3857,7 +3857,6 @@ Section: Key Concepts
 			     	document.getElementById('myButton').addEventListener('click', () => {
 			         	console.log(this); // 'this' refers to the global object or the enclosing function's scope
 			     	});
-			     	```
 
 		(i) Binding
 
@@ -5183,8 +5182,6 @@ Section: Object Oriented Programming
 			console.log(Array.of());
 			// Expected output: Array []
 
-
-
 26. Classes
 
 	(i) classes were introduced in ECMAScript 2015 (ES6) as a syntactical sugar over the prototype-based inheritance model. They provide a more straightforward and clearer way to create objects and deal with inheritance. Under the hood, classes are primarily constructor functions and prototypes. They make it easier to create object blueprints, which can be used to create new instances of objects.
@@ -5947,11 +5944,11 @@ Section: High-End/Advance JavaScript
 
 Section: Node.js
 
-34. Terminal
+35. Terminal
 
 	(i) `node {directory}` runs code for a specific directory in Node.js Environment 
 
-35. Package Managers
+36. Package Managers
 
 	(i) NPM
 		
@@ -6050,7 +6047,159 @@ Section: Node.js
 			(LIV) `npm whoami`: Display npm username
 			(LV) `npx`: Run a command from an npm package
 
-36. Modules Types
+		(c) NPX
+
+			(I) `npx` is a powerful command-line tool that comes with Node.js, starting from version 5.2.0 (and is included by default with npm version 5.2.0 and higher). It is designed to simplify the usage of Node.js packages by providing a straightforward way to execute binaries (executable files) from those packages without having to install them globally.
+
+			(II) Key Features of `npx`
+
+				(A) Execute Binaries from npm Packages: `npx` allows you to run binaries from npm packages without needing to install them globally. This is particularly useful for running tools and scripts on a one-time or infrequent basis.
+
+				(B) Package Execution Without Global Installation: It helps avoid global pollution of the system with many packages and their dependencies by allowing packages to be used locally.
+
+				(C) Run Local Project Binaries: If a binary is installed locally in the `node_modules/.bin` directory, `npx` can execute it directly.
+
+				(D) Package Auto-installation: If a required package is not installed, `npx` can fetch and install it temporarily before executing the command, and then clean up after execution.
+
+				(E) Interactive Package Installation: For packages not yet installed, `npx` can prompt the user to confirm installation before proceeding, ensuring control over what gets installed.
+
+			(III) Examples of `npx` Usage
+
+				(A) Creating A react App
+
+					$ npx create-react-app my-new-app
+				
+					I. This command fetches the `create-react-app` package, runs the command to create a new React app in the `my-new-app` directory, and then cleans up any temporary files created during execution.
+
+				(B) Running Local Binaries
+					
+					I. If you have a project with a local binary in `node_modules/.bin`, you can use `npx` to run it:
+
+					$ npx eslint .
+
+					II. This command will run `eslint` using the version installed locally in your project's `node_modules` directory.
+
+				(C) Specifying Package Versions
+					
+					I. You can specify the version of a package to use:
+
+					$ npx create-react-app@4.0.3 my-new-app
+
+					II.This command will use version 4.0.3 of `create-react-app` to create the new React app.
+
+				(D) Running Packages Temporarily
+					
+					I. For one-off tasks, you can use `npx` to run a package temporarily:
+
+					$ npx cowsay "Hello, world!"
+
+					II. If `cowsay` is not already installed, `npx` will fetch it, execute the command, and then remove the package.
+
+			(IV) Benefits of Using `npx`
+
+				(A) Reduced Global Installs: By using `npx`, you reduce the need for global installations of packages, keeping your global namespace clean and minimizing potential version conflicts.
+
+				(B) Ease of Use: Simplifies the process of running commands from npm packages, making it easier to manage and execute different tools and scripts.
+
+				(C) Temporary Execution: Perfect for running packages that you don't need to keep permanently, saving disk space and reducing clutter.
+
+				(D) Development Convenience: Useful for testing new tools or running project-specific binaries without dealing with global installations.
+
+		(d) WorkSpaces
+
+			(I) NPM workspaces are a feature introduced in npm 7 that facilitate managing multiple packages within a single, top-level package.json file. This is particularly useful for monorepos, which house multiple related projects or packages in a single repository. Workspaces allow you to streamline the development, build, and dependency management processes across these packages.
+
+			(II) Key Features of NPM Workspaces
+
+				(A) Multi-Package Management: Workspaces enable managing multiple packages under a single repository, sharing dependencies and scripts, and facilitating inter-package collaboration.
+
+				(B) Single `package.json`: The top-level `package.json` file contains configuration and dependency information for the entire repository, simplifying dependency management.
+
+				(C) Local Package Linking: Automatically links packages defined in the workspace, so changes in one package can be immediately reflected in others without needing to publish and reinstall.
+
+				(D) Unified Command Execution: Allows running scripts and commands across all workspaces or specific ones using a single command from the root directory.
+
+			(III) Setting Up NPM Workspaces
+
+				(A) Initialize a Monorepo: Start by creating a new directory for your monorepo and navigate into it.
+				     
+				    $ mkdir my-monorepo
+				    $ cd my-monorepo
+				     
+				(B) Create the Root `package.json`: Initialize a new npm project at the root level.
+				    
+					$ npm init -y
+
+				(C) Configure Workspaces in `package.json`: Add the `workspaces` field to your root `package.json` to specify the packages included in your workspace. 
+					
+				    {
+				       	"name": "my-monorepo",
+				       	"private": true,
+				       	"workspaces": [
+				         	"packages/*"
+				       	]
+				    }
+
+				(D) Create Package Directories: Create directories for your packages inside the `packages` folder.
+				     
+				    $ mkdir -p packages/client packages/server
+				    
+				(E) Initialize Individual Packages: Initialize each package with its own `package.json`.
+				     
+				    $ cd packages/client
+				    $ npm init -y
+				    $ cd ../server
+				    $ npm init -y
+				    $ cd ../../
+				    
+			(IV) Example Structure
+
+				my-monorepo/
+				├── package.json
+				└── packages/
+				    ├── client/
+				    │   └── package.json
+				    └── server/
+				        └── package.json
+
+			(V) Managing Dependencies
+
+				(A) Add Dependencies: Add dependencies to individual packages or to the root project. When you add dependencies at the root, they are shared across all workspaces.
+				     
+				    $ # Adding a dependency to package-a
+				    $ cd packages/client
+				    $ npm install lodash
+
+				    $ # Adding a dependency to the root (shared across all workspaces)
+				    $ cd ../../
+				    $ npm install express
+
+				(B) Automatic Linking: NPM will automatically link dependencies between workspaces. If `package-a` depends on `package-b`, you can add it as a dependency in `package-a`.
+				     
+				    $ cd packages/client
+				    $ npm install ../server
+				    
+			(VI) Running Scripts: You can run scripts across all workspaces or specific ones from the root level.
+
+				(A) Run a Script in All Workspaces:
+				   
+				   npm run test --workspaces
+
+				(B) Run a Script in a Specific Workspace:
+				   
+				   npm run build --workspace=client
+
+			(VII) Benefits of NPM Workspaces
+
+				(A) Simplified Dependency Management: Manage dependencies centrally, reducing duplication and version conflicts.
+
+				(B) Efficient Development Workflow: Work on multiple packages simultaneously with instant updates across linked packages.
+
+				(C) Consistent Versioning: Ensure consistent dependency versions across all packages.
+
+				(D) Scalable Monorepo Support: Easily scale your project by adding new packages without complex setup.
+
+37. Modules Types
 
 	(i) There are 2 types of Modules in javascript "CommonJS" and "ES6" Modules
 
@@ -6203,9 +6352,173 @@ Section: Node.js
 		reportArea(square1.length, reportList);
 		reportPerimeter(square1.length, reportList);
 
-The Above Section has Ended on 12 November 2023
+38. Global
 
-37. Built in Modules
+	(i) the `global` object is the global namespace object that allows you to define and access global variables and functions across your entire Node.js application. It is similar to the `window` object in a web browser but tailored for server-side operations.
+
+	(ii) Key Characteristics
+
+		(a) Global Scope: Variables and functions attached to the `global` object are accessible from anywhere in the application without needing to import or require them.
+
+		(b) Default Members: The `global` object includes several built-in objects and functions by default, such as `console`, `process`, `Buffer`, `setTimeout`, `setInterval`, `clearTimeout`, and `clearInterval`.
+
+		(c) Adding Custom Globals: You can add your own variables and functions to the `global` object. However, it's generally discouraged because it can lead to naming conflicts and make the code harder to debug and maintain.
+
+	(iii) Examples of Usage
+
+		console.log(global.console === console); // true
+		global.setTimeout(() => {
+		  console.log('Hello, world!');
+		}, 1000);
+
+		global.myGlobalVar = 'This is a global variable';
+		console.log(global.myGlobalVar); // Output: This is a global variable
+
+		global.myGlobalFunction = function() {
+		  return 'This is a global function';
+		};
+		console.log(global.myGlobalFunction()); // Output: This is a global function
+
+
+	(iv) Caution with Global Variables
+	
+		(a) While it's possible to use the `global` object to create globally accessible variables and functions, this practice is generally discouraged in favor of modularization for several reasons:
+
+		(b) Risk of Naming Conflicts: Multiple parts of the application might accidentally use the same global variable name, leading to unexpected behavior.
+
+		(c) Maintainability: Global variables make it harder to track where and how variables are modified, complicating debugging and maintenance.
+
+		(d) Testability: Functions and modules that rely on global variables are harder to test in isolation.
+
+	(v) Best Practices
+
+		(a) Modularization: Use modules and the `require` function to include dependencies, which keeps variable scope local to the module.
+
+		(b) Environment Variables: Use environment variables for configuration settings instead of global variables.
+
+		(c) Avoid Polluting the Global Namespace: Minimize the use of the `global` object to avoid potential conflicts and keep the application logic clean and maintainable.
+
+39. Process
+
+	(i) The `process` object in Node.js is a global object that provides information about, and control over, the current Node.js process. It can be accessed from anywhere in a Node.js application without requiring any imports. The `process` object is an instance of the `EventEmitter` class and provides various properties and methods to interact with the runtime environment.
+
+	(ii) Key Properties and Methods of the `process` Object
+	
+	(iii) Properties
+	
+		(a) `process.argv`: An array containing the command-line arguments passed when the Node.js process was launched.
+
+		   console.log(process.argv);
+
+		(b) `process.env`: An object containing the user environment variables.
+
+		   console.log(process.env.PATH);
+
+		(c) `process.exitCode`: A number that defines the exit code for the process. By default, it is `0` which means success.
+
+		   process.exitCode = 1;
+
+		(d) `process.pid`: The PID (Process ID) of the current process.
+
+		   console.log(process.pid);
+
+		(e) `process.ppid`: The PID of the parent process.
+
+		   console.log(process.ppid);
+
+		(f) `process.platform`: A string identifying the operating system platform.
+
+		   console.log(process.platform);
+
+		(g) `process.arch`: A string identifying the processor architecture.
+
+		   console.log(process.arch);
+
+		(h) `process.uptime()`: A method that returns the number of seconds the current Node.js process has been running.
+
+		   console.log(`Uptime: ${process.uptime()} seconds`);
+
+		(i) `process.memoryUsage()`: A method that returns an object describing the memory usage of the Node.js process.
+
+		   console.log(process.memoryUsage());
+	
+	(iv) Methods
+	
+		(a) `process.exit(<code>)`: Exits the process with the specified code. If omitted, the code defaults to `0`.
+
+		   	process.exit(1);
+
+			(I) the exit can either be 0 or 1, 0 stands for "Success" and 1 stands for "Something went Wrong/Error"
+
+		(b) `process.cwd()`: Returns the current working directory of the process.
+
+		   	console.log(process.cwd());
+
+		(c) `process.chdir(<directory>)`: Changes the current working directory to the specified path.
+
+		   	process.chdir('/path/to/directory');
+		   	console.log(process.cwd());
+
+		(d) `process.on(<event>, <listener>)`: Adds a listener function to the specified event. Commonly used events include `exit`, `uncaughtException`, `beforeExit`, and `SIGINT`.
+
+		   	process.on('exit', (code) => {
+		     	console.log(`About to exit with code: ${code}`);
+		   	});
+
+		(e) `process.kill(<pid>, <signal>)`: Sends a signal to the process identified by `pid`. The signal can be a string (e.g., `'SIGINT'`, `'SIGTERM'`) or a number.
+
+		   	process.kill(process.pid, 'SIGTERM');
+
+		(f) `process.nextTick(<callback>)`: Schedules a callback to be invoked in the next iteration of the event loop.
+
+		   	process.nextTick(() => {
+		     	console.log('Next tick callback');
+		   	});
+		   	console.log('This will run first');
+
+		(g) `process.hrtime(<time>)`: Returns the current high-resolution real time in `[seconds, nanoseconds]` tuple array. If a `time` argument is provided, it returns the difference between the current time and the time passed.
+
+		   	const start = process.hrtime();
+		   	// Do something
+		   	const end = process.hrtime(start);
+		   	console.log(`Execution time: ${end[0]}s ${end[1] / 1000000}ms`);
+	
+	(v) Use Cases and Examples
+	
+		(a) Handling Command-Line Arguments:
+
+		   	const args = process.argv.slice(2);
+		   	console.log(`Arguments: ${args}`);
+
+		(b) Gracefully Exiting:
+
+		   	process.on('SIGINT', () => {
+		     	console.log('Received SIGINT. Exiting gracefully...');
+		     	process.exit();
+		   	});
+
+		(c) Reading Environment Variables:
+
+		   	const dbPassword = process.env.DB_PASSWORD || 'default_password';
+		   	console.log(`Database Password: ${dbPassword}`);
+
+		(d) Monitoring Memory Usage:
+
+		   	setInterval(() => {
+		     	console.log(process.memoryUsage());
+		   	}, 10000);
+
+		(e) Setting Up a Clean-Up Routine Before Exit:
+
+		   	process.on('beforeExit', (code) => {
+		    	console.log('Process beforeExit event with code: ', code);
+		   	});
+
+		   	process.on('exit', (code) => {
+		     	console.log('Process exit event with code: ', code);
+		   	});
+
+40. Built in Modules
 
 	(i) `HTTP Module`:
 
@@ -6728,7 +7041,6 @@ The Above Section has Ended on 12 November 2023
 			       	console.log(`Bytes written: ${written}`);
 			       	fs.closeSync(fd);
 			   	});
-			   	```
 
 			(LII) `fs.writeFile(file, data[, options], callback)`: Writes data to a file, replacing the file if it already exists.
 			   	
@@ -6736,7 +7048,6 @@ The Above Section has Ended on 12 November 2023
 			       	if (err) throw err;
 			       	console.log('File written successfully');
 			   	});
-			   	```
 
 			(LIII) `fs.writev(fd, buffers[, position], callback)`: Writes multiple buffers to a file using a single system call.
 			   	
@@ -7206,13 +7517,58 @@ The Above Section has Ended on 12 November 2023
 	
 		(a) `http2`: Implements the HTTP/2 protocol.
 
-Section: 3rd Paty JavaScript
+41. Functions
 
-38. 3rd Party Modules
+	(i) `setImmediate(<callback>, <args...>)`:
+		
+		(a) The setImmediate function is designed to execute a specified callback function immediately after the I/O events callbacks and before any timers scheduled with `setTimeout` or `setInterval`. This makes setImmediate useful for deferring tasks that should be executed after the current I/O operations are completed but don't need to wait for the next tick of the event loop.
 
-39. FrontEnd Frameworks
+			console.log('Before setImmediate');
 
-40. Backend Frameworks
+			setImmediate((message) => {
+			  console.log(message);
+			}, 'Hello from setImmediate');
+
+			console.log('After setImmediate');
+
+			/*
+			Output:
+			Before setImmediate
+			After setImmediate
+			Hello from setImmediate
+			*/
+
+			(I) `setImmediate()`, `setTimeout()`, `process.nextTick()`, `Promise.then()`
+
+				const baz = () => console.log('baz');
+				const foo = () => console.log('foo');
+				const zoo = () => console.log('zoo');
+
+				const start = () => {
+				  	console.log('start');
+				  	setImmediate(baz);
+				  	new Promise((resolve, reject) => {
+				    	resolve('bar');
+				  	}).then(resolve => {
+				    	console.log(resolve);
+				    	process.nextTick(zoo);
+				  	});
+				  	process.nextTick(foo);
+				};
+
+				start();
+
+				// start foo bar zoo baz
+
+				// This code will first call start(), then call foo() in process.nextTick queue. After that, it will handle promises microtask queue, which prints bar and adds zoo() in process.nextTick queue at the same time. Then it will call zoo() which has just been added. In the end, the baz() in macrotask queue is called.
+
+Section: 3rd Party JavaScript
+
+42. 3rd Party Modules
+
+43. FrontEnd Frameworks
+
+44. Backend Frameworks
 
 	(i) Express.js
 
