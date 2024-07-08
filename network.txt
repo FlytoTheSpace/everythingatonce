@@ -92,7 +92,7 @@
                     B: 172.16.0.0 - 172.31.255.255  : 255.255.0.0
                     C: 192.168.0.0 - 192.168.255.255: 255.255.255.0
 
-                (D) Using Private IP Addresses We won't have to give Hundreds of Thousands Public IP's to each Device on a LAN and instead they will be given only 1 Public IP address to the Router which can be used for every device on that LAN which Solved our Issued of running out of IP addresses
+                (D) Using Private IP Addresses We won't have to give Hundreds of Thousands Public IP's to devices on a every LAN and instead they will be given only 1 Public IP address to the Router which can be used for every device on that LAN which Solved our Issued of running out of IP addresses
                 
                 (F) Network Address Translation - NAT
 
@@ -171,8 +171,10 @@
 
         (h) The First and Last IPv4 Address in any LAN Network is Always be Reserved
 
-            (I) Host: 0 will always be reserved as The Network Address
+            (I) Host: 0 will always be reserved as The Network Address 
             (II) Host: 255 will always be reserved as The Broadcast Address, to which the name suggests that it broadcasts a MSG to every device on that network
+
+            (unless the network can support more hosts than 256)
 
         (i) Network Address
             
@@ -469,6 +471,8 @@
         (j) Redis: 6379
         (k) Cassandra: 7000, 7001, 7199, 9042
         (l) MongoDB: 27017
+
+        (m) All Ports: 8080,3128,6588,1080,1194,1900,5000,5900,11371,2483,2484,3306,5432,6379,7000,7001,7199,9042,27017
 
     (iii) All Ports
 
@@ -919,5 +923,7 @@ Protocols:
     
         (a) Window Size: Part of the flow control mechanism, indicating the amount of data the receiver can accept.
         (b) Checksum: Ensures data integrity by allowing the receiver to detect errors in transmitted segments.
-    
-    (viii) TCP is critical for applications requiring reliable data transfer, such as web browsing, email, and file transfers. It ensures that communication is robust and that data integrity is maintained across potentially unreliable networks.
+
+
+
+

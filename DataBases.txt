@@ -7,32 +7,123 @@ Relational Databases:
 
 1. SQL
 
-    (i)
+    (i) DataTypes:
 
+        (a) `varchar(<size>)`: a String with Size Limit of <size>
+        (b) `int`: An Integer
+        (c) `NULL`: Representation of Literal 'NOTHING' / Absence of Value
+        (d) `boolean`: True or False, that's it!
+    
+    (ii) Operators:
+
+        (a) `=` : is Equal? 
+        (b) `<` : a is less than b?
+        (c) `>` : a is greater than b?
+    
+    Commands:
+
+    (Every Line in SQL must end with ";" otherwise it would assume that you're not done yet)
+
+    (ii) `use <DB_name>;` switch to Database
+
+    (iii) `show`:
+
+        (a) `show databases;`: Lists Tables in The Current Database
+        (b) `show tables;`: Lists Databases
+
+    (iv) `create`:
+        
+        (a) `create database <name>;` create a Database
+        (b) `create table <name> ( <<columnName> <DataType> , ...> );`
+
+            create table accounts (
+                username varchar(255),
+                email varchar(255),
+                password varchar(255),
+                age int,
+                verified: boolean,
+                userID int
+            );
+
+    (v) `describe`:
+
+        (a) `describe <table>;` Shows Info about the Table
+
+    (vi) `insert`:
+
+        (a) `insert into <table>`:
+
+            (I) `insert into <table> values (<Values...>)`:
+
+                insert into accounts values ("master", "user@example.com", "secretpassword", 1878429132);
+
+    (vii) `select <column | *> from <...> <'where'?>;`: Outputs The Data from The Table
+        
+        (in the place of <Data> put "*" to get All of the Data)
+
+        select * from accounts;
+        select username from accounts;
+        select * from account where username = "admin";
+        select * from account where username = "admin" or username "root";
+        select * from account where age > 13 and age < 18;
+        select * from account where not verified = True;
+    
+    (viii) `from <table>`: specified Table to look in
+
+    (ix) `where <<not?> <column> <operator> <value> <'or' | 'and'> ...>`: filters the search
+    
+    (x) `order by <column> <'asc', 'desc'>`: sorts the output of tables in either Ascending or Descending
+
+    (xi) `delete from <...> <'where'?>`
+
+        delete from accounts where username = "default";
+        delete * from account where verified = False;
+
+    (xii) `update <table>`:
+
+        (a) `update <table> set <column> = <value> <'where'?>;`
+
+            update accounts set password = "myNewPassword" where username = "master";
+
+    (xiii) `alter table <name>`:
+
+        (a) `alter table <name> add <column> <datatype>`: add a new Column to a Table
+        (b) `alter table <name> drop column <column>`: drop a column
+        (c) `alter table <name> rename column <old_name> to <new_name>`: rename a column
+        (d) `alter table <name> modify column <column> <datatype>`: change datatype of a row
+
+    (xiv) text after `--` or `#` can used to specify comments
 
 No-SQL Databases:
 
-1. MongoDB
+2. MongoDB
 
     (i) Structure: https://phoenixnap.com/kb/wp-content/uploads/2021/04/mongodb-vs-mysql-database-structure.png
 
-    (ii) Commands for Databases
+    (ii) Installation (Debian Based):
+
+        $ sudo apt-get install gnupg curl
+        $ curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+        $ echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] http://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+        $ sudo apt-get install -y mongodb-org
+
+    (iii) Commands for Databases
 
         (a) `show dbs` Lists Databases
         (b) `db` shows current Database
-        (c) `use <Database Name>` Creates or switches to The Database
+        (c) `use <DatabaseName>` Creates or switches to The Database
             (Note: When Creating a Database it Requires The Database to atleast have 1 Collection inside it or it'll be not Saved)
         (d) `db.dropDatabase()` Deletes Current Database
 
-    (iii) Commands Collections
+    (iv) Commands Collections
 
         (a) `show collections` shows Collections
         (b) `db.createCollection('<Collection Name>')` Creates a New Collection with the Specified Name
-        (c) `db.<Collection Name>.drop()` Deletes Specified Collection
+        (c) `db.<CollectionName>.drop()` Deletes Specified Collection
 
-    (iv) Commands for Documents (BSON)
+    (v) Commands for Documents (BSON)
 
-        (a) `db.<Collection Name>.insert(<Object>)` Insert a JavaScript Object as a BSON Document in the Collection as BSON
+        (a) `db.<CollectionName>.insert(<Object>)` Insert a JavaScript Object as a BSON Document in the Collection as BSON
 
             db.accounts.insert({
                 'username': 'FlytoTheSpace',
@@ -40,7 +131,7 @@ No-SQL Databases:
                 'password': '123abc'
             })
 
-        (b) `db.<Collection Name>.insertMany(<Array of Objects>)` Insert Many JavaScript Objects into individual BSON Documents in the Collection
+        (b) `db.<CollectionName>.insertMany(<Array of Objects>)` Insert Many JavaScript Objects into individual BSON Documents in the Collection
 
             db.accounts.insertMany([
                 {
@@ -50,7 +141,7 @@ No-SQL Databases:
                 },
                 {
                     'username': 'Sarah',
-                    'email': 'Sarah1234@hotmail.com',
+                    'email': 'Sarah1234@outlook.com',
                     'password': '123abc'
                 },
                 {
@@ -60,11 +151,24 @@ No-SQL Databases:
                 }
             ])
 
-        (c) `db.<Collection Name>.find()` Shows all the Documents BSON
+        (c) `db.<CollectionName>.find(<JSON>)` searches for Documents with the matching Key-Value Pairs,
 
-        (d) 
+            db.accounts.find({'username': 'Michael'})
+            db.accounts.find() // Returns all of the Documents in the Collection
 
-    (v) Examples:-
+        (d) `db.<CollectionName>.findOne(<JSON>)` same as `.find()` function but Stops The Search after just finding One Document
+
+        (e) `db.<CollectionName>.update(<searchJSON>, <UpdateToJSON>, <optionsJSON>)` first Argument is used to Search The Document in the Database and then the Key-Value pairs in the Second Argument will replace those one's in the Document
+
+            db.accounts.find({'username': 'Michael'}, {'password': "mysecretpassword"})
+
+            (I) <optionsJSON>:
+
+                (A) `upsert: boolean`: Whether to Insert a Document or Not If No Document is been found in the Search
+
+        (f) `db.<CollectionName>.remove(<JSON>)` removes the Documents
+
+    (vi) Examples:-
 
         (a) Create A Database
 
@@ -73,11 +177,142 @@ No-SQL Databases:
 
         (b)
 
-    (vi) Functions
+    (vii) Chained Functions
 
-        (a) `.pretty()` formats the Displaying Content
+        (a) `.pretty()` formats the Displaying Content of `.find()`
 
             db.accounts.find().pretty()
 
+        (b) `.limit(<count>)` Limits the Document Output of `.find()` function
+
+            db.accounts.find().pretty().limit(2) // Only shows 2 Documents
+
+        (c) `.count()` counts the Number of Documents found by `.find()` function (`.limit()` function will not effect this)
+
+            db.accounts.find().count()
+
+        (c) `.sort({<key>: <1 or -1>})` sorts the output of `.find()` function in Ascending/Descending order (1 for Ascend, 0 for Descend)
+
+            db.accounts.find().sort({since: 1}) // Ascending Order
+            db.accounts.find().sort({since: -1}) // Decending Order
         
 Other:
+
+3. Redis
+
+    (i) Installation:
+
+        $ sudo apt install redis
+        $ redis-server # start the server 
+        $ redis-cli # interact with the Server Server
+
+    (ii) `redis-cli` Connects to The Redis Database
+
+        (a) `-h <host>`
+        (b) `-p <port>`
+        (c) `-a <Password>`
+        (d) `-u <URI>` Requires the URI in the following Format:
+
+            redis://username:password@subdomain.hosted.com:16379/0
+                        ↓       ↓            ↓             ↓     ↓
+                    username password    Domain/IP        Port  Subnet
+
+
+    Commands:
+
+    (ii) `quit` quits out of the database
+    (iii) `clear` clears the terminal
+    (iv) `Info` Info about the Redis Server
+
+    (iv) CRUD:
+
+        (a) `set <key> <value>`: set a key-value pair
+        (b) `get <key>`: get a key-value pair
+        (c) `del <key>`: delete a key-value pair
+        (d) `exists <key>`: check if a key-value pair exists (1 for true, 0 for false)
+        (e) `keys <pattern>`: Shows Keys matching a certain Pattern
+
+            Patterns:
+
+            (I) `*` Shows all The Keys-value paris
+
+        (f) `flushall`: Empties the Database
+
+    (v) Expiry:
+
+        (a) `expire <key> <seconds>`: makes a Key-Value Pair Expire after <seconds>
+        (b) `ttl <key>:` shows the expiry (in-seconds) of the Key-Value Pair
+
+            (I) `-1` stands for "Permanent"
+            (II) `-2` stands for "Gone"
+
+        (c) `setex <key> <seconds> <value>`: make Expireable Key-value Pairs
+
+    (vi) List (Array):
+
+        (a) `lpush <key> <value> [<values...>]`: push values to the left side of a the List
+        (b) `rpush <key> <value> [<values...>]`: push values to the right side of a the List
+
+        (c) `lrange <listKey> <startIndex> <stopIndex>`: outputs all the values in a list
+
+                > lpush fruits apple
+                > lrange fruits 0 -1
+                (1) apple
+
+            (a) set <stopIndex> to `-1` to get all the Items in the List
+
+        (d) `lpop <listKey>`: removes the left most item in the list and returns it
+        (e) `rpop <listKey>`: removes the right most item in the list and returns it
+
+    (vii) SET:
+
+        (a) `sadd <key> <value> [<values...>]` create a SET
+        (b) `smembers <setKey>` outputs all the Key-Value Pairs inside the SET
+        (c) `srem <setKey> <value>` remove the value from the SET
+
+    (viii) Hashmap (Map, Dict, Object):
+
+        (a) `hset <key> <field> <value>` create a Hashmap
+
+            > hset person name Dave
+            > hset person age 29
+
+        (b) `hget <key> <field>`
+            
+            > hget person name
+            "Dave"
+
+        (c) `hgetall <key>` outputs all the fields and values
+
+            > hgetall person
+            (1) "name"
+            (2) "dave"
+            (3) "age"
+            (4) "29"
+
+        (d) `hdel <key> <field> [<fields...>]` deletes the specifed field-value pairs
+
+        (e) `hexists <key> <field>` check if the specified Field-Value Pair Exists
+
+    Redis for Programming Languages:
+
+    (ix) JavaScript
+
+        (i) Install redis:
+            
+            $ npm install redis
+
+        (ii) import Redis
+
+            import Redis from 'redis';
+
+        (iii) create a Client
+
+            const redisDB = new Redis();
+
+        (iv) Interact with The database
+
+            redisDB.set("test", "name")
+
+        (Note: All The Commands are the same but are Instead Represeted as Functions)
+   

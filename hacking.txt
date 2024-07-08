@@ -311,3 +311,285 @@ Network:
 
         $ nmap -v -iR 10000 -Pn -p 80
 
+6. Proxy Chaining
+
+    (i) Proxy chains are sequences of proxy servers through which internet traffic is routed to enhance privacy and anonymity. Each server in the chain forwards the data to the next, masking the original source IP address. This layered approach makes it harder to trace the user's online activity.
+
+    (ii) Setup
+
+        (Requires an Hacking OS like Kali Linux or Parrot OS)
+
+        (a) Locate the `proxychains` config file on your system
+
+            $ locate proxychains
+            /etc/proxychains4.conf
+            /etc/alternatives/proxychains
+            /etc/alternatives/proxychains.1.gz
+            /usr/bin/proxychains
+            ...
+
+            (I) the first line of the output will be the file
+
+        (b) Edit The file:
+
+            $ nano /etc/proxychains4.conf
+
+        Configuration:
+
+        (c) Pick one of 3 Proxy Options
+
+            (I) dynamic_chain: Chains all the Proxy's Together to make the set inbetween you and the Internet (unless one of the is not available then it just skips it over)
+
+            (II) strict_chain: (For Later...)
+
+            (III) random_chain: picks a random proxy from the proxy list and lets it sit in-between you and the internet (It doesn't chain proxies Together but keeps them guessing)
+
+            (IV) `proxychains4.conf`:
+
+                dynamic_chain
+                #strict_chain
+                #random_chain
+
+            (add a Hashtag "#" as the first character of that line disables it)
+
+        (d) `proxy_dns` Proxies your DNS request (Enabled by default). `proxychains4.conf`:
+
+            dynamic_chain
+            #strict_chain
+            #random_chain
+
+            proxy_dns
+
+        (e) Adding Proxies
+
+            (I) under `[Proxylist]` add proxies with the following format:
+
+            `<type> <IP> <Port> <username?> <password?>`
+
+            (II) type can be on of these: "http", "https", "socks4", "socks5" and "raw"
+
+            (III) <IP> will be the IP address of the Proxy
+
+            (IV) <username?> and <password?> are only required if the proxy requires them otherwise they are not needed
+
+            (V) `proxychains4.conf`:
+
+                dynamic_chain
+                #strict_chain
+                #random_chain
+
+                proxy_dns
+
+                remote_dns_subnet 224
+                tcp_read_time_out 15000
+                tcp_connect_time_out 8000
+
+                [Proxylist]
+                socks4 121.175.250.164 3128
+                socks4 88.255.64.83 1080
+                socks4 200.108.190.110 9800
+                http 109.230.72.236 8080
+
+            (VI) TOR the Onion Router: add `socks4 127.0.0.1 9050` to the list of Proxylist to use the Tor Onion Router (requires Tor Service to be enabled)
+
+        (f) Finalized config:
+
+            dynamic_chain
+            #strict_chain
+            #random_chain
+
+            proxy_dns
+
+            remote_dns_subnet 224
+            tcp_read_time_out 15000
+            tcp_connect_time_out 8000
+
+            [Proxylist]
+            socks4 121.175.250.164 3128
+            socks4 88.255.64.83 1080
+            socks4 200.108.190.110 9800
+            http 109.230.72.236 8080
+
+    (iii) Using Proxychains
+        
+        (a) `proxychains <cmd>` runs the specified command with the proxychains
+
+            $ proxychains firefox google.com
+            $ proxychains ping google.com
+            $ proxychains nmap -sT -p 80,443 192.168.0.1
+
+    (iv) How to find proxy server?
+
+        (a) Just google it: https://www.google.com/search?q=free+proxy+server+list
+
+        (b) Too Lazy to Search? here:
+
+            (Non-Associated)
+            https://geonode.com/free-proxy-list
+            https://netnut.io/free-proxy-list/
+            https://spys.one/
+
+Brute Force:
+
+7. Passwords
+
+    (i) Cracking Hashes
+
+    (ii) Online Attack
+
+        (a) Hydra:
+
+            (I) About:
+
+                (A) hydra - A network logon cracker which supports many different services
+                (B) Hydra is a parallelized login cracker which supports numerous protocols to attack. New modules are easy to add, beside that, it is flexible and very fast.
+                (C) supported Service protocols:
+
+                    I. adam6500
+                    II. afp
+                    III. asterisk
+                    IV. cisco
+                    V. cisco-enable
+                    VI. cvs
+                    VII. firebird
+                    VIII. ftp
+                    IX. ftps
+                    X. http[s]-{head|get|post}
+                    XI. http[s]-{get|post}-form
+                    XII. http-proxy
+                    XIII. http-proxy-urlenum
+                    XIV. icq
+                    XV. imap[s]
+                    XVI. irc
+                    XVII. ldap2[s]
+                    XVIII. ldap3[-{cram|digest}md5][s]
+                    XIX. mssql
+                    XX. mysql(v4)
+                    XXI. mysql5
+                    XXII. ncp
+                    XXIII. nntp
+                    XXIV. oracle
+                    XXV. oracle-listener
+                    XXVI. oracle-sid
+                    XXVII. pcanywhere
+                    XXVIII. pcnfs
+                    XXIX. pop3[s]
+                    XXX. postgres
+                    XXXI. rdp
+                    XXXII. radmin2
+                    XXXIII. redis
+                    XXXIV. rexec
+                    XXXV. rlogin
+                    XXXVI. rpcap
+                    XXXVII. rsh
+                    XXXVIII. rtsp
+                    XXXIX. s7-300
+                    XL. sapr3
+                    XLI. sip
+                    XLII. smb
+                    XLIII. smtp[s]
+                    XLIV. smtp-enum
+                    XLV. snmp
+                    XLVI. socks5
+                    XLVII. ssh
+                    XLVIII. sshkey
+                    XLIX. svn
+                    L. teamspeak
+                    LI. telnet[s]
+                    LII. vmauthd
+                    LIII. vnc
+                    LIV. xmpp
+
+            (II) Syntax:
+
+                $ hydra <`-l` username | `-L` wordlist>  <`-p` Password | `-P` wordlist | `-x` Opt-out> <IP> <Service> <Option Flags?>
+
+                (A) `-C` wordlist of both username and password seperated by a `:`
+
+                    $ cat wordlist.txt
+                    admin:123
+
+            (III) Options:
+
+                (A) `-R`: restore a previously aborted session. Requires a hydra.restore file was written. Options are restored, but can be changed by setting them after -R on the command line
+                (B) `-S`: connect via SSL
+                (C) `-O`: use old SSL v2 and v3
+                (D) `-s`: PORT: if the service is on a different default port, define it here
+                (E) `-l`: LOGIN
+
+                    I. or `-L` FILE login with LOGIN name, or load several logins from FILE
+
+                (F) `-p` Password
+
+                    I. or `-P` FILE try password PASS, or load several passwords from FILE
+
+                (G) `-x` min:max:charset
+
+                    I. generate passwords from min to max length. charset can contain 1
+                    II. for numbers, a for lowcase and A for upcase characters.
+                    III. Any other character is added is put to the list.
+                        ex:- 1:2:a1%.
+
+                        The generated passwords will be of length 1 to 2 and contain
+                        lowcase letters, numbers and/or percent signs and dots.
+
+                (H) `-y` disable use of symbols in -x bruteforce, see above
+                (I) `-e` nsr additional checks, "n" for null password, "s" try login as pass, "r" try the reverse login as pass
+                (J) `-C` FILE: colon separated "user:password" format, instead of -L/-P options
+                (K) `-u`: by default Hydra checks all passwords for one login and then tries the next login. This option loops around the passwords, so the first password is tried on all logins, then the next password.
+                (L) `-f`: exit after the first found login/password pair (per host if -M)
+                (M) `-F`: exit after the first found login/password pair for any host (for usage with -M)
+                (N) `-M` FILE: server list for parallel attacks, one entry per line
+                (O) `-o` FILE: write found login/password pairs to FILE instead of stdout
+                (P) `-b` FORMAT: specify the format for the `-o` FILE: text(default), json, jsonv1
+                (Q) `-t` TASKS: run TASKS number of connects in parallel (default: 16)
+                (R) `-m` OPTIONS: module specific options. See hydra -U <module> what options are available.
+                (S) `-w` TIME: defines the max wait time in seconds for responses (default: 32)
+                (T) `-W` TIME: defines a wait time between each connection a task performs. This usually only makes sense if a low task number is used, .e.g -t 1
+                (U) `-c` TIME: the wait time in seconds per login attempt over all threads (-t 1 is recommended) This usually only makes sense if a low task number is used, .e.g -t 1
+                (V) `-4` / `-6`: prefer IPv4 (default) or IPv6 addresses
+                (W) `-v` / `-V`: verbose mode / show login+pass combination for each attempt
+
+                (X) `-d` debug mode
+                (Y) `-I` ignore an existing restore file (don't wait 10 seconds)
+                (Z) `-h`, `--help` Show summary of options.
+
+8. Burp Suite
+
+9. Gobuster 
+
+Vunerabilites
+
+10. Telnet
+
+    (i) In Linux-based distributions Telnet could be bypassed by just entering username "root", if not properly Configured
+
+        user@kali~$ telnet 192.168.12.36
+
+        username> root
+
+        root@machine~#
+
+11. FTP
+
+    (i) username "anonymous" let's you login without having an account
+
+    $ ftp
+    username: anonymous
+    password: 123
+
+12. MariSQL
+
+    (a) username `root` allows us to log into this MariaDB instance without providing a password. 
+
+    $ mysql -u root -h <IP>
+
+13. SQL Injection
+
+    (a) SQL injection can be done if a Website Uses SQL and doesn't properly Sanitize Their User Input such websites are Vunerable to SQL Injections and SQL Injections are done with with simple SQL Query. This doesn't work with Websites that were built properly
+
+    (b) SQL injection String (Any Website that uses SQL and doesn't sanitize user input is vunerable to this):
+        
+        admin' OR '1'='1' -- 
+
+    
