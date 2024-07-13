@@ -7213,7 +7213,7 @@ Section: Node.js
 
 		Here are some common functions provided by the path module:
 
-		(b) `path.join([...paths])`: This method joins all the given path segments together. The resulting path is normalized, and any '..' or '.' segments are resolved.
+		(b) `path.join(...paths)`: This method joins all the given path segments together. The resulting path is normalized, and any '..' or '.' segments are resolved.
 
 			const path = require('path');
 
@@ -7222,14 +7222,14 @@ Section: Node.js
 			// Output on Unix-like systems: '/foo/bar/baz/asdf'
 			// Output on Windows: '\foo\bar\baz\asdf'
 
-		(c) `path.resolve([...paths])`: Resolves the specified paths into an absolute path. It behaves similarly to `path.join()`, but it also resolves any relative paths based on the current working directory.
+		(c) `path.resolve(...paths)`: Resolves the specified paths into an absolute path. It behaves similarly to `path.join()`, but it also resolves any relative paths based on the current working directory.
 
 			const fullPath = path.resolve('path', 'to', 'file.txt');
 			console.log(fullPath);
 			// Output on Unix-like systems: '/current/working/directory/path/to/file.txt'
 			// Output on Windows: 'C:\current\working\directory\path\to\file.txt'
 
-		(d) `path.basename(path[, ext])`: Returns the last portion of a path, similar to the Unix `basename` command. Optionally, you can provide an extension, and the base name will be without that extension.
+		(d) `path.basename(<path>, <ext?>)`: Returns the last portion of a path, similar to the Unix `basename` command. Optionally, you can provide an extension, and the base name will be without that extension.
 
 			const fileName = path.basename('/path/to/file.txt');
 			console.log(fileName); // Output: 'file.txt'
@@ -7503,7 +7503,372 @@ Section: Node.js
 
 	(xvii) `Child Process Module`:
 	
-		(a) `child_process`: Allows you to spawn child processes and interact with them.
+    	(a) Asynchronous process creation
+        	
+			(I) `child_process.exec(<command>, <options?>, <callback(error, stdout, stderr)>)`: Spawns a shell and runs a command within that shell, passing the stdout and stderr to a callback function when complete.  
+			   
+				const { exec } = require('child_process');
+
+				exec('ls -l', (error, stdout, stderr) => {
+			       	if (error) {
+			           	console.error(`Error: ${error.message}`);
+			           	return;
+			       	}
+			       	if (stderr) {
+			           	console.error(`stderr: ${stderr}`);
+			           	return;
+			       	}
+			       	console.log(`stdout: ${stdout}`);
+				});
+
+			(II) `child_process.execFile(<file>, <arguments: Array>, <options?>, <callback(error, stdout, stderr)>)`: Similar to `exec`, but spawns the executable directly without a shell. This makes it slightly more efficient than `exec` and avoids shell parsing/interpolation.  
+
+			   	const { execFile } = require('child_process');
+
+			   	execFile('node', ['--version'], (error, stdout, stderr) => {
+			       	if (error) {
+			           console.error(`Error: ${error.message}`);
+			           return;
+			       	}
+			       	if (stderr) {
+			           console.error(`stderr: ${stderr}`);
+			           return;
+			       	}
+			       	console.log(`stdout: ${stdout}`);
+			   	});
+
+			(III) `child_process.fork(<modulePath: path>, <arguments: Array>, <options>)`: Spawns a new Node.js process and invokes the specified module within it. This is special form of `spawn` that is optimized for spawning Node.js processes.
+
+			   	const { fork } = require('child_process');
+
+			   	const child = fork('child.js', ['arg1', 'arg2'], { silent: true });
+
+			   	child.on('message', (message) => {
+			       	console.log('Message from child', message);
+			   	});
+
+			   	child.send({ hello: 'world' });
+
+			(IV) `child_process.spawn(<command>, <args: Array>, <options?>)`: Spawns a new process using the given command, with arguments and options. This method allows for more fine-grained control over the child process compared to `exec` or	`execFile`.  
+			
+			   	const { spawn } = require('child_process');
+
+			   	const ls = spawn('ls', ['-lh', '/usr']);
+
+			   	ls.stdout.on('data', (data) => {
+			   	    console.log(`stdout: ${data}`);
+			   	});
+
+			   	ls.stderr.on('data', (data) => {
+			   	    console.error(`stderr: ${data}`);
+			   	});
+
+			   	ls.on('close', (code) => {
+			   	    console.log(`child process exited with code ${code}`);
+			   	});
+
+        	    (A) Options:
+
+					I. `options.detached`: The `detached` option in the `spawn()` function allows the child process to continue running even if the parent process exits. When a child process is spawned with `detached: true`, it becomes a process group leader and can run independently of its parent process.
+
+						const { spawn } = require('child_process');
+
+						const child = spawn('node', ['child.js'], {
+						    detached: true,
+						    stdio: 'ignore'
+						});
+
+						child.unref(); // Allow the parent to exit independently of the child
+
+					II. `options.stdio`: The `stdio` option in the `spawn()` function defines how the child process's input, output, and error streams (stdio) are handled. It can be used to specify the behavior of the standard input (`stdin`), standard output (`stdout`), and standard error (`stderr`) streams of the child process.
+
+					III. Possible Values:
+						'pipe': The default value, creates a pipe between the parent and child processes. This allows the parent process to communicate with the child process.
+						'ignore': The streams are ignored/discarded.
+						'inherit': The child process inherits the corresponding stdio streams from the parent process.
+						Stream object: You can pass an existing stream to be used for the stdio of the child process.
+						fd: You can pass a file descriptor to be used for the stdio of the child process.
+
+						const { spawn } = require('child_process');
+
+						const child = spawn('ls', ['-lh', '/usr'], {
+						    stdio: ['ignore', 'pipe', 'pipe']
+						});
+
+						child.stdout.on('data', (data) => {
+						    console.log(`stdout: ${data}`);
+						});
+
+						child.stderr.on('data', (data) => {
+						    console.error(`stderr: ${data}`);
+						});
+
+						child.on('close', (code) => {
+						    console.log(`child process exited with code ${code}`);
+						});
+
+						// Another but with Inherit
+						const { spawn } = require('child_process');
+
+						const child = spawn('ls', ['-lh', '/usr'], {
+						    stdio: 'inherit'
+						});
+
+		(b) Synchronous process creation
+
+			(I) `child_process.execSync(<command>, <options?>)`: Synchronously runs a shell command, Returns the stdout output as Buffer.
+
+			   
+			   const { execSync } = require('child_process');
+
+			   	try {
+			   	    const output = execSync('ls -l');
+			   	    console.log(`Output: ${output.toString()}`);
+			   	} catch (error) {
+			   	    console.error(`Error: ${error.message}`);
+			   	}
+
+			(II) `child_process.execFileSync(<file>, <args: Array>, <options?>)`: Synchronously runs a command specified by the `file` argument, Returns the stdout output as Buffer.
+
+			   	const { execFileSync } = require('child_process');
+
+			   	try {
+			       	const output = execFileSync('node', ['--version']);
+			       	console.log(`Output: ${output.toString()}`);
+			   	} catch (error) {
+			       	console.error(`Error: ${error.message}`);
+			   	}
+
+			(III) `child_process.spawnSync(<command>, <args: Array>, <options?>)`: Synchronously spawns a new process using the given `command`, with arguments and options.
+
+			   	const { spawnSync } = require('child_process');
+
+			   	const result = spawnSync('ls', ['-lh', '/usr']);
+
+			   	if (result.error) {
+			       	console.error(`Error: ${result.error.message}`);
+			   	} else {
+			       	console.log(`stdout: ${result.stdout.toString()}`);
+			       	console.log(`stderr: ${result.stderr.toString()}`);
+			   	}
+
+		(c) ChildProcess Class:
+
+			Events:
+
+			(I) `Event: 'close'` Emitted when the stdio streams of a child process have been closed.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('ls', ['-lh', '/usr']);
+
+			    child.on('close', (code) => {
+			        console.log(`Child process exited with code ${code}`);
+			    });
+
+			(II) `Event: 'disconnect'`: Emitted when the parent process manually calls `subprocess.disconnect()`.
+			   
+			    const { fork } = require('child_process');
+			    const child = fork('child.js');
+
+			    child.on('disconnect', () => {
+			        console.log('Child process disconnected');
+			    });
+
+			    child.disconnect();
+
+			(III) `Event: 'error'`: Emitted if the process could not be spawned or killed.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('invalid_command');
+
+			    child.on('error', (err) => {
+			        console.error('Failed to start subprocess:', err);
+			    });
+
+			(IV) `Event: 'exit'`: Emitted when the child process exits.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('ls', ['-lh', '/usr']);
+
+			    child.on('exit', (code, signal) => {
+			        if (code !== null) {
+			            console.log(`Child exited with code ${code}`);
+			        } else {
+			            console.log(`Child was terminated by signal ${signal}`);
+			        }
+			    });
+
+			(V) `Event: 'message'`: Emitted when a message is received from a child process.
+			   
+			    const { fork } = require('child_process');
+			    const child = fork('child.js');
+
+			    child.on('message', (message) => {
+			        console.log('Message from child:', message);
+			    });
+
+			    child.send({ hello: 'world' });
+
+			(VI) `Event: 'spawn'`: Emitted when the child process is spawned successfully.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('ls', ['-lh', '/usr']);
+
+			    child.on('spawn', () => {
+			        console.log('Child process spawned');
+			    });
+
+			Properties and Methods: 
+
+			(VII) `subprocess.channel`: Represents the communication channel between the parent and child processes.
+
+			   	(A) `subprocess.channel.ref()`: If the child process is unrefed, calling this method will re-reference the child process, keeping the event loop active.
+			     
+			       const { fork } = require('child_process');
+			       const child = fork('child.js');
+
+			       child.unref();
+			       // Later in code
+			       child.channel.ref();
+
+			   	(B) `subprocess.channel.unref()`: Calling this method will unreference the child process, allowing the parent to exit independently.
+			     
+			       const { fork } = require('child_process');
+			       const child = fork('child.js');
+
+			       child.channel.unref();
+			       
+			(VIII) `subprocess.connected`: A boolean that indicates whether the child process is connected to the parent.
+			   
+			     const { fork } = require('child_process');
+			     const child = fork('child.js');
+
+			     console.log(child.connected); // true or false
+			     
+			(IX) `subprocess.disconnect()`: Disconnects the parent and child processes, causing the 'disconnect' event to be emitted.
+			   
+			    const { fork } = require('child_process');
+			    const child = fork('child.js');
+
+			    child.disconnect();
+			     
+			(X) `subprocess.exitCode`: The exit code of the child process once it has exited.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('ls', ['-lh', '/usr']);
+
+			    child.on('exit', () => {
+			        console.log(`Exit code: ${child.exitCode}`);
+			    });
+			     
+			(XI) `subprocess.kill([signal])`: Sends a signal to the child process.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('node', ['child.js']);
+
+			    child.kill('SIGTERM');
+			     
+			(XII) `subprocess[Symbol.dispose]()`: Closes all stdio streams of the child process.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('node', ['child.js']);
+
+			    child[Symbol.dispose]();
+			     
+			(XIII) `subprocess.killed`: A boolean indicating whether the child process has been killed.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('node', ['child.js']);
+
+			    child.kill();
+			    console.log(child.killed); // true
+			     
+			(XIV) `subprocess.pid`: The PID (Process ID) of the child process.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('node', ['child.js']);
+
+			    console.log(`Child PID: ${child.pid}`);
+			     
+			(XV) `subprocess.ref()`: Ensures that the child process will not exit until the parent does.
+			   
+			    const { spawn } = require('child_process');
+			    const child = spawn('node', ['child.js']);
+
+			    child.ref();
+			     
+			(XVI) `subprocess.send(message[, sendHandle[, options]][, callback])`: Sends a message to the child process, optionally passing a handle to a server or socket.
+			    
+				const { fork } = require('child_process');
+				const child = fork('child.js');
+
+				child.send({ hello: 'world' });
+			      
+			(XVII) `subprocess.signalCode`: The signal code that caused the child process to terminate.
+			    
+				const { spawn } = require('child_process');
+				const child = spawn('node', ['child.js']);
+
+				child.on('exit', () => {
+					console.log(`Signal code: ${child.signalCode}`);
+				});
+			      
+			(XVIII) `subprocess.spawnargs`: The command-line arguments used to spawn the child process.
+			    
+				const { spawn } = require('child_process');
+				const child = spawn('ls', ['-lh', '/usr']);
+
+				console.log(child.spawnargs); // ['ls', '-lh', '/usr']
+			      
+			(XIX) `subprocess.spawnfile`: The executable file used to spawn the child process.
+			    
+				const { spawn } = require('child_process');
+				const child = spawn('ls', ['-lh', '/usr']);
+
+				console.log(child.spawnfile); // 'ls'
+			      
+			(XX) `subprocess.stderr`: A readable stream for the child process's stderr.
+			    
+				const { spawn } = require('child_process');
+				const child = spawn('ls', ['-lh', '/nonexistent']);
+
+				child.stderr.on('data', (data) => {
+					console.error(`stderr: ${data}`);
+				});
+			      
+			(XXI) `subprocess.stdin`: A writable stream for the child process's stdin.
+			    
+				const { spawn } = require('child_process');
+				const child = spawn('cat');
+
+				child.stdin.write('Hello World');
+				child.stdin.end();
+			      
+			(XXII) `subprocess.stdio`: An array of streams representing the child process's stdio streams.
+			    
+				const { spawn } = require('child_process');
+				const child = spawn('ls', ['-lh', '/usr']);
+
+				console.log(child.stdio); // [child.stdin, child.stdout, child.stderr]
+			      
+			(XXIII) `subprocess.stdout`: A readable stream for the child process's stdout.
+			    
+				const { spawn } = require('child_process');
+				const child = spawn('ls', ['-lh', '/usr']);
+
+				child.stdout.on('data', (data) => {
+					console.log(`stdout: ${data}`);
+				});
+			      
+			(XXIV) `subprocess.unref()`: Calling this method allows the parent process to exit independently of the child process.
+			    
+				const { spawn } = require('child_process');
+				const child = spawn('node', ['child.js'], {
+					detached: true,
+					stdio: 'ignore'
+				});
+
+				child.unref();
 
 	(xviii) `Zlib Module`:
 	
