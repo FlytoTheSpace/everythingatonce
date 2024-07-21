@@ -15,7 +15,7 @@ Basics:
         (c) `-<key>`: the dash "-" right before the key represets the "NOT" actions meaning It won't include it if the value matches
         (d) `intitle: "<title>"` searchs for pages with the specific title
 
-            (A) Examples:-
+            (I) Examples:-
 
             intitle: "webcamxp 5"
 
@@ -425,9 +425,10 @@ Network:
             https://spys.one/
 
 7. 
+
 Brute Force:
 
-7. Passwords
+8. Passwords
 
     (i) Cracking Hashes
 
@@ -849,9 +850,151 @@ Brute Force:
                 (Y) `-I` ignore an existing restore file (don't wait 10 seconds)
                 (Z) `-h`, `--help` Show summary of options.
 
-8. Burp Suite
+9. Hidden Web Discovery
 
-9. Gobuster 
+    (i) Burp Suite 
+
+    (ii) Gobuster
+
+        (a) Gobuster is tool used to discover hidden Webpage, subdomain, directories etc on websites, and is written in golang.
+
+            (I) Light-weight
+            (II) Multi-Threaded 
+            (III) Non-Recursive
+
+        (b) Installation
+
+            # install Goland First
+            sudo apt install golang-go
+            # install GoBuster
+            go install github.com/OJ/gobuster/v3@latest
+            # A repository of Wordlists that can be used for web-discovery
+            sudo apt install seclists
+
+        (c) Global Flags:
+
+            (I)        --delay duration :     Time each thread waits between requests (e.g. 1500ms)
+            (II)       --no-color :           Disable color output
+            (III)      --no-error :           Don't display errors
+            (IV)   -z, --no-progress :        Don't display progress
+            (V)    -o, --output string :      Output file to write results to (defaults to stdout)
+            (VI)   -p, --pattern string :     File containing replacement patterns
+            (VII)  -q, --quiet :              Don't print the banner and other noise
+            (VIII) -t, --threads int :        Number of concurrent threads (default 10)
+            (IX)   -v, --verbose :            Verbose output (errors)
+            (X)    -w, --wordlist string :    Path to the wordlist 
+
+        (c) Dir Mode
+
+            (I) Uses directory/file enumeration mode
+
+            (II) Syntax:
+                
+                gobuster dir [flags]
+
+            (III) Flags:
+            
+                (A) -f, --add-slash :                       Append / to each request
+                (B) -c, --cookies string :                  Cookies to use for the requests
+                (C) -d, --discover-backup :                 Also search for backup files by appending multiple backup extensions
+                (D)     --exclude-length ints :             exclude the following content length (completely ignores the status). Supply multiple times to exclude multiple sizes.
+                (E) -e, --expanded :                        Expanded mode, print full URLs
+                (F) -x, --extensions string :               File extension(s) to search for
+                (G) -r, --follow-redirect :                 Follow redirects
+                (H) -H, --headers stringArray :             Specify HTTP headers, -H 'Header1: val1' -H 'Header2: val2'
+                (I) -h, --help :                            help for dir
+                (J)     --hide-length :                     Hide the length of the body in the output
+                (K) -m, --method string :                   Use the following HTTP method (default "GET")
+                (L) -n, --no-status :                       Don't print status codes
+                (M) -k, --no-tls-validation :               Skip TLS certificate verification
+                (N) -P, --password string :                 Password for Basic Auth
+                (O)     --proxy string :                    Proxy to use for requests [http(s)://host:port]
+                (P)     --random-agent :                    Use a random User-Agent string
+                (Q)     --retry :                           Should retry on request timeout
+                (R)     --retry-attempts int :              Times to retry on request timeout (default 3)
+                (S) -s, --status-codes string :             Positive status codes (will be overwritten with status-codes-blacklist if set)
+                (T) -b, --status-codes-blacklist string :   Negative status codes (will override status-codes if set) (default "404")
+                (U)     --timeout duration :                HTTP Timeout (default 10s)
+                (V) -u, --url string :                      The target URL
+                (W) -a, --useragent string :                Set the User-Agent string (default "gobuster/3.2.0")
+                (X) -U, --username string :                 Username for Basic Auth
+
+            (IV) Seclist WorldLists:
+
+                /usr/share/wordlists/seclists/Discovery/Web-Content/
+
+            (V) Examples:
+
+                $ gobuster dir -u https://buffered.io -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt
+
+        (d) DNS Mode
+
+            (I) Uses DNS subdomain enumeration mode, can be used to discover dub-domains
+
+            (II) Syntax:
+                
+                $ gobuster dns [flags]
+
+            (III) Flags:
+
+                (A) -d, --domain string :      The target domain
+                (B) -h, --help :               help for dns
+                (C)     --no-fqdn :            Do not automatically add a trailing dot to the domain, so the resolver uses the DNS search domain
+                (D) -r, --resolver string :    Use custom DNS server (format server.com or server.com:port)
+                (E) -c, --show-cname :         Show CNAME records (cannot be used with '-i' option)
+                (F) -i, --show-ips :           Show IP addresses
+                (G)     --timeout duration :   DNS resolver timeout (default 1s)
+                (H)     --wildcard :           Force continued operation when wildcard found
+
+            (IV) Seclist Worldlists:
+
+                /usr/share/wordlists/seclists/Discovery/DNS/
+
+            (V) Examples:
+
+                $ gobuster dns -d example.com -w
+
+        (e) Virtual Host
+            
+            (I) Uses VHOST enumeration mode (you most probably want to use the IP address as the URL parameter)
+
+            (II) Usage:
+                
+                $ gobuster vhost [flags]
+
+            (III) Flags:
+            
+                ()     --append-domain :                     Append main domain from URL to words from wordlist. Otherwise the fully qualified domains need to be specified in the wordlist.
+                ()     --client-cert-p12 string :            a p12 file to use for options TLS client certificates
+                ()     --client-cert-p12-password string :   the password to the p12 file
+                ()     --client-cert-pem string :            public key in PEM format for optional TLS client certificates
+                ()     --client-cert-pem-key string :        private key in PEM format for optional TLS client certificates (this key needs to have no password)
+                () -c, --cookies string :                    Cookies to use for the requests
+                ()     --domain string :                     the domain to append when using an IP address as URL. If left empty and you specify a domain based URL the hostname from the URL is extracted
+                ()     --exclude-length string :             exclude the following content lengths (completely ignores the status). You can separate multiple lengths by comma and it also supports ranges like 203-206
+                () -r, --follow-redirect :                   Follow redirects
+                () -H, --headers stringArray :               Specify HTTP headers, -H 'Header1: val1' -H 'Header2: val2'
+                () -h, --help :                              help for vhost
+                () -m, --method string :                     Use the following HTTP method (default "GET")
+                ()     --no-canonicalize-headers :           Do not canonicalize HTTP header names. If set header names are sent as is.
+                () -k, --no-tls-validation :                 Skip TLS certificate verification
+                () -P, --password string :                   Password for Basic Auth
+                ()     --proxy string :                      Proxy to use for requests [http(s)://host:port] or [socks5://host:port]
+                ()     --random-agent :                      Use a random User-Agent string
+                ()     --retry :                             Should retry on request timeout
+                ()     --retry-attempts int :                Times to retry on request timeout (default 3)
+                ()     --timeout duration :                  HTTP Timeout (default 10s)
+                () -u, --url string :                        The target URL
+                () -a, --useragent string :                  Set the User-Agent string (default "gobuster/3.6")
+                () -U, --username string :                   Username for Basic Auth
+
+            (IV) Needs Custom/Specific worldlists
+
+                $ gobuster vhost -u example.com -w ~/custom-wordlist.txt
+
+10. WorldLists
+
+    (i) `rockyou.txt` /usr/share/wordlists
 
 Vunerabilites
 
@@ -887,4 +1030,5 @@ Vunerabilites
         
         admin' OR '1'='1' -- 
 
-    
+14. SMB
+

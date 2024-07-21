@@ -121,10 +121,10 @@
 
     (vi) Utilities for Other Commands
 
-        (a) `sudo <command>` makes the command Run as as the ROOT user
-        (b) `| sort` sorts in Alphabetical Order
+        (a) `sudo <command>` runs the command with Root Privelages
+        (b) `| sort <text>` sorts in Alphabetical Order
         (c) `| grep <word>` let's you get Lines that starts with The `<word>`
-        (d) `| bc` evaluates an Arithemetic Expression
+        (d) `| bc0` evaluates an Arithemetic Expression
         (e) `$(<command>)` let's you get the return values of the Commands
 
             flytothespace@ubuntu:~$ me=$(whoami)
@@ -138,7 +138,8 @@
             $ cat file.txt
             Hello, World
 
-        (g) appending `&` sign at the end of a Command makes it run in the Background and Not Block the Main Thread
+        (g) `<command1> | <command2>` passes the output of the first command and to the second command
+        (g) `<command> &` makes the command run in the background
 
     (vii) Operating System
 
@@ -185,7 +186,7 @@
         (b) installation
 
             $ # Debian based
-            $ sudo apt install finger
+            $ sudo apt install neofetch
 
         (c) `neofetch` Information about your Computer and OS
     
