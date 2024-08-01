@@ -569,7 +569,7 @@ Section: The Basics
             console.log(sum('**', 35, 2)) // 1225
             console.log(sum('%', 10, 3)) // 1
 
-9. Objects
+8. Objects
 
     (i) In TypeScript, objects are a fundamental construct used to store collections of values and more complex entities. An object in TypeScript is an instance which contains a set of key-value pairs. The keys in this collection are unique and associated with a specific value. TypeScript, being a superset of JavaScript, follows the same syntax and semantics for objects as JavaScript, but with additional type-checking and features.
 
@@ -633,13 +633,10 @@ Section: The Basics
             // [key: string]: string | number; // Error
             // [key: string]: string | number; // Error
 
-            // [key: string]: string | number | undefined; // ok
+            [key: string]: string | number | undefined; // ok
             /*
-            Using Types in Keys of Index Signatures leads to typescript allowing any properties to be accessed even undefined ones so it's Recommended to use Literals
-            like this :-
+            Using Types in Keys of Index Signatures leads to typescript allowing any properties to be accessed even undefined ones
             */
-
-            [key: 'name', 'roleNo', 'class', 'age']: string | number | undefined // The Best Way to use Index Signatures without any future Errors
 
             name: string,
             roleNo: number,
@@ -668,6 +665,10 @@ Section: The Basics
 
         // Exploit by using Types in Keys of Index Signatures
         console.log(student['teachersName']); // undefined
+
+        (a) Combine The Index Signatures with `readonly` to make every Key a Constant
+
+            readonly [key: string]: string;
 
     (vi) Extending Interfaces
 
@@ -743,6 +744,17 @@ Section: The Basics
 
             (III) After this operation, `PersonKeys` would be a type representing the union `"name" | "age" | "city"`.
 
+            (IV) chain it with `typeof` operator to extract types of Values
+
+                const person: Person = {
+                    name: 'Dave';
+                    age: 22;
+                    city: 'London';
+                }
+
+                for(let key of person){   
+                    console.log([key as keyof typeof person])
+                }
 
         (d) Accessing Properties Dynamically: `keyof` is often used to access object properties dynamically using bracket notation:
 
@@ -777,7 +789,7 @@ Section: The Basics
 
     (x) In TypeScript, objects are a versatile and powerful way to represent data structures. By leveraging TypeScript's type system, you can ensure your objects adhere to specific shapes, making your code more predictable and less prone to errors. With features like optional and readonly properties, index signatures, and the ability to create complex types through interfaces, type aliases, and intersection types, TypeScript provides a robust framework for working with objects.
 
-8. Classes
+9. Classes
 
     (i) In TypeScript, classes are a fundamental part of the language, enabling object-oriented programming features like encapsulation, inheritance, and polymorphism. TypeScript enhances the class-based concepts from JavaScript (ES6) by adding features like type annotations, access modifiers (like `public`, `private`, and `protected`), and more advanced capabilities such as abstract classes and decorators.
 
@@ -1009,3 +1021,6 @@ Section: The Basics
             constructor(public id: number, public name: string) { }
         }
 
+10. Generics
+
+    

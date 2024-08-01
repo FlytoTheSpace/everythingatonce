@@ -7881,6 +7881,279 @@ Section: Node.js
 	(xx) `HTTP2 Module`:
 	
 		(a) `http2`: Implements the HTTP/2 protocol.
+	
+	(xxi) Worker Threads
+
+		(a) Worker Threads Brings Multi-Threading in JavaScript
+
+		(b) Import
+
+			// ES6
+			import worker from 'node:worker_threads';
+
+			// Common.js
+			const worker = require('node:worker_threads');
+
+		(c) `worker.getEnvironmentData(key)`: Retrieves the environment data value associated with the given key.
+		   	
+		    const { getEnvironmentData } = require('worker_threads');
+		    const value = getEnvironmentData('key');
+
+		(d) `worker.isMainThread`: A boolean indicating if the code is running on the main thread.
+		   	
+		    const { isMainThread } = require('worker_threads');
+		    if (isMainThread) {
+		       	console.log('Running on the main thread');
+		    } else {
+		       	console.log('Running on a worker thread');
+		    }
+
+		(e) `worker.markAsUntransferable(object)`: Marks an object as non-transferable, preventing it from being passed to other threads.
+		   	
+		    const { markAsUntransferable } = require('worker_threads');
+		    markAsUntransferable(someObject);
+
+		(f) `worker.isMarkedAsUntransferable(object)`: Checks if an object has been marked as non-transferable.
+		   	
+		    const { isMarkedAsUntransferable } = require('worker_threads');
+		    console.log(isMarkedAsUntransferable(someObject)); // true or false
+
+		(g) `worker.moveMessagePortToContext(port, contextifiedSandbox)`: Moves a `MessagePort` to a different context.
+		   	
+		    const { moveMessagePortToContext } = require('worker_threads');
+		    moveMessagePortToContext(port, context);
+
+		(h) `worker.parentPort`: The `MessagePort` allowing communication with the parent thread.
+		   	
+		    const { parentPort } = require('worker_threads');
+		    parentPort.postMessage('Hello from the worker thread');
+
+		(i) `worker.postMessageToThread(threadId, value[, transferList][, timeout])`: Posts a message to a specific thread identified by `threadId`.
+		   	
+		    const { postMessageToThread } = require('worker_threads');
+		    postMessageToThread(threadId, 'message');
+
+		(j) `worker.receiveMessageOnPort(port)`: Receives the next message sent to the specified `MessagePort`.
+		   	
+		    const { receiveMessageOnPort } = require('worker_threads');
+		    const message = receiveMessageOnPort(port);
+
+		(k) `worker.resourceLimits`: Contains information about resource limits for the worker thread.
+		   	
+		    const { resourceLimits } = require('worker_threads');
+		    console.log(resourceLimits);
+
+		(l) `worker.SHARE_ENV`: A special value to share the environment variables with the worker thread.
+		    	
+		     const { Worker, SHARE_ENV } = require('worker_threads');
+		     new Worker('worker.js', { env: SHARE_ENV });
+
+		(m) `worker.setEnvironmentData(key[, value])`: Sets an environment data value for the specified key.
+		    	
+		     const { setEnvironmentData } = require('worker_threads');
+		     setEnvironmentData('key', 'value');
+
+		(n) `worker.threadId`: The ID of the current thread.
+		    	
+		     const { threadId } = require('worker_threads');
+		     console.log(`Thread ID: ${threadId}`);
+
+		(o) `worker.workerData`: Contains the data passed when the worker thread was created.
+		    	
+		     const { workerData } = require('worker_threads');
+		     console.log(workerData);
+
+		(p) Class: BroadcastChannel (extends EventTarget)
+
+			- Allows communication between different browsing contexts or worker threads.
+
+			() `new BroadcastChannel(name)`: Creates a new `BroadcastChannel` instance with the given `name`.
+
+			    const channel = new BroadcastChannel('channel-name');
+
+			() `broadcastChannel.close()`: Closes the `BroadcastChannel` connection.
+
+			    channel.close();
+
+			() `broadcastChannel.onmessage`: An event handler fired when a message is received.
+
+			    channel.onmessage = (event) => {
+			        console.log('Received message:', event.data);
+			    };
+
+			() `broadcastChannel.onmessageerror`: An event handler fired when there is an error in receiving a message.
+
+			    channel.onmessageerror = (event) => {
+			        console.error('Message error:', event);
+			    };
+
+			() `broadcastChannel.postMessage(message)`: Sends a message to the channel.
+
+			    channel.postMessage('Hello, world!');
+
+			() `broadcastChannel.ref()`: Ensures that the process will not exit as long as the `BroadcastChannel` is open.
+
+			    channel.ref();
+
+			() `broadcastChannel.unref()`: Allows the process to exit even if the `BroadcastChannel` is open.
+
+			    channel.unref();
+
+		(q) Class: MessageChannel
+
+			() Represents a channel with two `MessagePort` properties for sending data between different contexts.
+
+		(r) Class: MessagePort
+
+			() Represents one end of a `MessageChannel`.
+
+			() `Event: 'close'`: Emitted when the port is closed.
+
+			    port.on('close', () => {
+			        console.log('Port closed');
+			    });
+
+			() `Event: 'message'`: Emitted when a message is received.
+
+			    port.on('message', (event) => {
+			        console.log('Received message:', event.data);
+			    });
+
+			() `Event: 'messageerror'`: Emitted when an error occurs while receiving a message.
+
+			    port.on('messageerror', (event) => {
+			        console.error('Message error:', event);
+			    });
+
+			() `port.close()`: Closes the `MessagePort`.
+
+			    port.close();
+
+			() `port.postMessage(value[, transferList])`: Sends a message from one `MessagePort` to the other.
+
+			    port.postMessage('Hello, world!');
+
+			() `port.hasRef()`: Returns whether the `MessagePort` is keeping the process alive.
+
+			    console.log(port.hasRef()); // true or false
+
+			() `port.ref()`: Keeps the event loop active until the port is closed.
+
+			    port.ref();
+
+			() `port.start()`: Starts the receiving of messages on this `MessagePort`.
+
+			    port.start();
+
+			() `port.unref()`: Stops the `MessagePort` from keeping the process active.
+
+			    port.unref();
+
+		(s) Class: Worker
+
+			() Represents an isolated JavaScript execution environment. Workers can be used to run JavaScript code in parallel to the main thread, sharing no memory and communicating via 	message passing.
+
+			() `new Worker(filename, options)`: Creates a new `Worker` instance to run the specified script.
+
+			    const { Worker } = require('worker_threads');
+			    const worker = new Worker('worker.js');
+
+				() Options:
+
+					() workerData: Object, Arguments Given to The Worker Thread
+
+			() worker.on(event, callback(arg))
+
+				Events:
+
+				() `Event: 'error'`: Emitted if the worker encounters an error.
+
+				    worker.on('error', (err) => {
+				        console.error('Worker error:', err);
+				    });
+
+				() `Event: 'exit'`: Emitted when the worker exits.
+
+				    worker.on('exit', (code) => {
+				        console.log(`Worker exited with code ${code}`);
+				    });
+
+				() `Event: 'message'`: Emitted when the worker sends a message.
+
+				    worker.on('message', (message) => {
+				        console.log('Message from worker:', message);
+				    });
+
+				() `Event: 'messageerror'`: Emitted if there is an error in receiving a message from the worker.
+
+				    worker.on('messageerror', (error) => {
+				        console.error('Message error from worker:', error);
+				    });
+
+				() `Event: 'online'`: Emitted when the worker becomes ready to receive messages.
+
+				    worker.on('online', () => {
+				        console.log('Worker is online');
+				    });
+
+			() `worker.getHeapSnapshot([options])`
+
+			    worker.getHeapSnapshot().then((heapSnapshot) => {
+			        console.log('Heap snapshot captured');
+			    });
+
+			() `worker.performance`: Provides performance-related information and methods.
+
+			    const { performance } = require('perf_hooks');
+			    const start = performance.now();
+			    // Some operation
+			    const end = performance.now();
+			    console.log(`Operation took ${end - start} ms`);
+
+			   	() `performance.eventLoopUtilization([utilization1[, utilization2]])`: Measures the event loop utilization.
+
+			      const { performance } = require('perf_hooks');
+			      const utilization = performance.eventLoopUtilization();
+
+			() `worker.postMessage(value[, transferList])`: Sends a message to the worker.
+
+			    worker.postMessage('Hello, worker');
+
+			() `worker.ref()`: Keeps the event loop active until the worker is terminated.
+
+			    worker.ref();
+
+			() `worker.resourceLimits`: Contains information about the worker's resource limits.
+
+			    console.log(worker.resourceLimits);
+
+			() `worker.stderr`: A readable stream for the worker's stderr.
+
+			    worker.stderr.on('data', (data) => {
+			        console.error(`stderr: ${data}`);
+			    });
+
+			() `worker.stdin`: A writable stream for the worker's stdin.
+
+			    worker.stdin.write('Input data');
+
+			() `worker.stdout`: A readable stream for the worker's stdout.
+
+			    worker.stdout.on('data', (data) => {
+			        console.log(`stdout: ${data}`);
+			    });
+
+			() `worker.terminate()`: Terminates the worker.
+
+			    worker.terminate();
+
+			() `worker.threadId`: The ID of the worker's thread.
+
+			    console.log(`Worker thread ID: ${worker.threadId}`);
+
+			() `worker.unref()`: Allows the process to exit even if the worker is running.
+
+			    worker.unref();
 
 41. Functions
 
