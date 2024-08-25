@@ -45,11 +45,15 @@ Relational Databases:
                 userID int
             );
 
-    (v) `describe`:
+    (v) `drop table <table>;` Deletes the table
+
+    (vi) `truncate table <table>;` Deletes all the data inside the table
+
+    (vii) `describe`:
 
         (a) `describe <table>;` Shows Info about the Table
 
-    (vi) `insert`:
+    (viii) `insert`:
 
         (a) `insert into <table>`:
 
@@ -57,35 +61,43 @@ Relational Databases:
 
                 insert into accounts values ("master", "user@example.com", "secretpassword", 1878429132);
 
-    (vii) `select <column | *> from <...> <'where'?>;`: Outputs The Data from The Table
+    (ix) `select <column | *> from <...> <'where'?>;`: Outputs The Data from The Table
         
         (in the place of <Data> put "*" to get All of the Data)
 
         select * from accounts;
         select username from accounts;
         select * from account where username = "admin";
-        select * from account where username = "admin" or username "root";
+        select * from account where username = "admin" or username = "root";
         select * from account where age > 13 and age < 18;
         select * from account where not verified = True;
-    
-    (viii) `from <table>`: specified Table to look in
 
-    (ix) `where <<not?> <column> <operator> <value> <'or' | 'and'> ...>`: filters the search
-    
-    (x) `order by <column> <'asc', 'desc'>`: sorts the output of tables in either Ascending or Descending
+        (a) `limit <count>`: Limits The Output to <count>
 
-    (xi) `delete from <...> <'where'?>`
+            select username from account order by username limit 3
+
+        (b) `limit <count> offset <offset>`: Limits The Output and Skips the <offset> count of rows
+
+            select username from account order by username limit 3 offset 2
+    
+    (x) `from <table>`: specified Table to look in
+
+    (xi) `where <<not?> <column> <operator> <value> <'or' | 'and'> ...>`: filters the search
+    
+    (xii) `order by <column> <'asc', 'desc'>`: sorts the output of tables in either Ascending or Descending
+
+    (xiii) `delete from <...> <'where'?>`
 
         delete from accounts where username = "default";
         delete * from account where verified = False;
 
-    (xii) `update <table>`:
+    (xiv) `update <table>`:
 
         (a) `update <table> set <column> = <value> <'where'?>;`
 
             update accounts set password = "myNewPassword" where username = "master";
 
-    (xiii) `alter table <name>`:
+    (xv) `alter table <name>`:
 
         (a) `alter table <name> add <column> <datatype>`: add a new Column to a Table
         (b) `alter table <name> drop column <column>`: drop a column
@@ -93,6 +105,42 @@ Relational Databases:
         (d) `alter table <name> modify column <column> <datatype>`: change datatype of a row
 
     (xiv) text after `--` or `#` can used to specify comments
+
+    (xvi) Nodejs:
+
+        (a) `npm install mysql`
+        (b) `index.js`
+
+            import mysql from 'mysql';
+            const db = mysql.createConnection({
+                host: "localhost",
+                user: "user",
+                password: "password",
+                database: "my_db"
+                //... More Options Available see Documentation
+            });
+            // const db = mysql.createConnection('mysql://user:password@host/database?debug=true&charset=BIG5_CHINESE_CI&timezone=-0700');
+
+            db.connect();
+
+            db.query('SELECT * FROM accounts', (error, results, fields)=>{
+                if (error) {
+                    // Handle Error
+                    return null;
+                }
+            })
+
+            db.destroy(); 
+
+            // Pool
+
+            const dbPool  = mysql.createPool({
+                connectionLimit: 10,
+                host: 'localhost',
+                user: 'user',
+                password: 'password',
+                database: 'my_db'
+            });
 
 No-SQL Databases:
 
@@ -196,6 +244,10 @@ No-SQL Databases:
             db.accounts.find().sort({since: 1}) // Ascending Order
             db.accounts.find().sort({since: -1}) // Decending Order
         
+        (d) `.skip(<count>)` Skips The <count> of Documents
+
+            db.accounts.find().pretty().limit(2).skip() // Shows 3rd and 4th Document and skips 1st and 2nd
+
 Other:
 
 3. Redis
@@ -308,7 +360,7 @@ Other:
 
         (iii) create a Client
 
-            const redisDB = new Redis();
+            const redisDB = Redis.createClient({ url: '127.0.0.1:6379' });
 
         (iv) Interact with The database
 

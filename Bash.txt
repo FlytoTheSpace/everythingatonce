@@ -6,10 +6,14 @@
     
     (i) General
 
-        (a) `echo "<Message>"`: Logs The Message in The Terminal
+        (a) `echo "<Message>"`: Logs The Message in The Terminal, Prints The Message to The stdout
     
             $ echo "Hello, World"
             Hello, World
+
+            (I) `-n` Removes Trailing \n from the end
+            (II) `-e` Enable Escape Characters
+            (III) `-n` Disable Escape Characters
 
         (b) `clear` clear your terminal
         (c) `date` returns the current Date
