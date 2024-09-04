@@ -1,5 +1,5 @@
 ==========================================================================================================
-											Bash (Bourn Again Shell)
+											BASH (Bourn Again Shell), Linux
 ==========================================================================================================
 
 1. Commands:
@@ -500,3 +500,245 @@ Scripts:
         Hello, flytothespace
 
     (iv) `exit <0 or 1>` exits The Script with The Status of 0 or 1, 1 stands for Success and 0 stands for Error
+
+==========================================================================================================
+											Command Prompt (CMD), Windows
+==========================================================================================================
+
+1. Commands
+
+    (i) general
+
+        (a) `help`: helps you
+        (b) `<cmd> /?`: shows the manual of the command
+        (c) `<cmd> >> <file>`: writes stdout of the command to the file
+        (d) `doskey <switches?>`
+            
+            (I) `/history`: Shows The Command Cline History
+
+        (e) `start <URL>`: Opens Up the Specified URL in the default Browser
+        (f) Command Line Interface (CLI)
+
+            (I) `prompt <MSG>$G`: sets prompt
+
+                (Note: leaving everthing empty resets the prompt)
+                
+            (II) `title <MSG>`: Changes window title
+            (III) `color <bg><fg>`: Changes Background/Foreground Color
+
+                Colors:
+
+                (A) 0: Black
+                (B) 1: Blue
+                (C) 2: Green
+                (D) 3: Aqua/Cyan
+                (E) 4: Red
+                (F) 5: Purple
+                (G) 6: Yellow
+                (H) 7: White
+                (I) 8: Gray
+
+                Bright Colors:
+                
+                (J) 9: Bright Blue
+                (K) A: Bright Green
+                (L) B: Bright Aqua/Cyan
+                (M) C: Bright Red
+                (N) D: Bright Purple
+                (O) E: Bright Yellow
+                (P) F: Bright White
+
+        (g) Programs
+
+            (I) `explorer <path?>`: opens explorer
+            (I) `notepad <file>`: opens file with notepad
+            (I) `powershell <path?>`: opens powershell
+    
+    (ii) Navigation and File System
+
+        (a) `cd <path?>`: changes current working directory to path
+        (b) `dir <switches?>`: Lists Files/Folders, linux equivalent of `ls`
+
+            (I) `/r`: Shows ADS Files
+
+        (c) `del <switches?> <path>`: Deletes
+
+            (I)   `/q`:
+            (II)  `/f`:
+            (III) `/s`:
+
+        (d) `cipher <switches>`: Encrypts Files/Folders
+
+            (I) `/E`: Encrypting everything in the Current Working Directory
+
+        (e) `attrib <modifiers+attribute> <path>`
+
+            (I) modifiers: +, -
+            (II) Attributes
+
+                (A) `h`: hidden
+                (B) `s`: 
+                (C) `r`: 
+
+        (f) `subst <letter>: <path>`: mounts a path as a drive
+
+            (I) `/d <letter>`: unmounts a drive
+
+    (iii) Network
+
+        (a) `ping <options?> <URI>`: Pings The Server on URI 4 times
+
+            (I) `-t`: ping Infinitely unless exited
+
+        (b) ipconfig <switches?>: show network info
+
+            (I) `/all`: all information about your network
+            (II) `/release`: Releases Your Private IPv4
+            (III) `/release6`: Releases Your Private IPv6
+            (IV) `/renew`: get a new Private IPv4 from DHCP
+            (V) `/renew6`: get a new Private IPv6 from DHCP
+            (VI) `/displaydns`: every DNS record fetched
+            (VI) `/flushdns`: flushes DNS Records
+
+        (c) `nslookup <domain> <DNS server?> <options?>`: looks up the Domain based on query
+
+            (I) `-type=<record>`: find a specific type of DNS record
+
+        (d) `getmac <options?>`: Get's your MAC Addresses
+
+            (I) `/v`: Shows Every MAC Address of your Machine
+
+        (e) `netsh <subcommands/flags?>`: networking related things
+
+            subcommands:
+
+            (I) `interface`
+
+                (A) `show`
+
+                    I. `interface`: shows all network interfaces
+
+                (B) `ip`
+
+                    I. `show`
+
+                        A. `address`: shows IP Addresses
+                        B. `dnsservers`: shows DNS servers
+
+            (II) `wlan`
+
+                (A) `show`
+
+                    I. `wlanreport`: wlan status report (HTML)
+                    II. `profile <SSID?>`: shows Network Profile
+
+                        A. `key=<clear>`: shows Password in <clear> Text
+
+            (III) `advfirewall`
+
+                (A) `set`
+
+                    I. `allprofiles`
+
+                        A. `state <on/off>`: turns on/off the windows defender firewall
+
+            Flags:
+
+            (IV) `-e`: Network Stastics
+            (V) `-t <seconds>`: runs every <seconds> 
+            (VI) `-af`: ports open
+            (VII) `-o`: Network Processes
+
+        (f) `tracert <address> <flags?>`: traces network traffic and routers it's passing through and measures everything
+
+            (I) `-d`: traces faster
+
+        (g) `route <subcommands?>`: network routes
+
+            (a) `print`: prints all the network routes
+            (b) `add <IP> mask <subnetmask> <newRoute>`: adds a new network route to IP
+            (c) `delete <IP>`: removes IP from the network routes
+
+        (h) `scp <path> <user>@<host>:<remotepath>`: Copies File/Folder to The SSH Server, as user, on host, to remote-path
+
+        (i) `curl <flags?> <URI>`: fetches Data.
+
+            (I) `--head`: find Redirected Destination
+            (II) `--location <URI>`: Specify Location
+
+            (II) Some servers:
+
+                (A) `wttr.in/<city>`: city weather
+                (B) `ASCII.live/can-you-hear-me`: Rick ROLLLLLLLLLL!!!
+                (C) `checkip.amazonwas.com`: your Public IP Address
+                (D) `qrenco.de/<MSG>`: generate a QR code
+                (E) `dict.org/d:<word>`: define a new word (fake) in the dictionary.
+
+        (j) `telnet <URI>`: Connects to The Telnet Server on the URI
+
+            (I) Some servers
+
+                (A) `telehack.com`: some fun games and short films in CommandLine
+
+    (iv) System
+
+        (a) `systeminfo` Shows System Info
+
+        (b) `powercfg <switches>`:
+
+            (I) `/energy` : Energy Consumption Report (HTML)
+            (II) `/batteryreport` : Battery Health Report (HTML)
+
+        (c) `assoc <switches?>`: File Type Associations with Programs
+
+            (I) .<ext>=<program>: change File Type Association to a Program
+
+        (d) `chkdsk <switches?>`: checks up on your disk
+
+            (I) `/f`: goes through each disk and fixes Issues
+            (II) `/r`: fixes physical sector issues
+        
+        (e) `sfc <switches?>`: System File Checker
+
+            (I) `/scannow`: checks System Files and fixes corruptions
+
+        (f) `DISM <switches?>`: Deploying Image Servicing Management
+
+            (I) `/Online`: Online Mode
+            (II) `/Cleanup-Image`: Cleans up the System Image
+            (III) `/CheckHealth`: Checks System Image Health
+            (IV) `/RestoreHealth`: restore System Image Health
+
+        (g) `tasklist`: lists running tasks
+        (h) `taskkill <options>`: kills tasks
+
+            (I) `/f`: Force Kills a Task
+            (II) `/pid <PID>`: Specifies Unique PID of the Task
+
+        (i) `shutdown <switches?>`
+
+            (I)    `/?`:  Display help. This is the same as not typing any options.
+            (II)   `/i`:  Display the graphical user interface (GUI). This must be the first option.
+            (III)  `/l`:  Log off. This cannot be used with /m or /d options.
+            (IV)   `/s`:  Shutdown the computer.
+            (V)   `/sg`: Shutdown the computer. On the next boot, if Automatic Restart Sign-On is enabled, automatically sign in and lock last interactive user. After sign in, restart any registered applications.
+            (VI)   `/r`:  Full shutdown and restart the computer.
+            (VII)  `/g`:  Full shutdown and restart the computer. After the system is rebooted, if Automatic Restart Sign-On is enabled, automatically sign in and lock last interactive user. After sign in, restart any registered applications.
+            (VIII) `/a`:  Abort a system shutdown. This can only be used during the time-out period. Combine with /fw to clear any pending boots to firmware.
+            (IX)   `/p`:  Turn off the local computer with no time-out or warning. Can be used with /d and /f options.
+            (X)    `/h`:  Hibernate the local computer. Can be used with the /f option.
+            (XI) `/hybrid`: Performs a shutdown of the computer and prepares it for fast startup. Must be used with /s option.
+            (XII)    `/fw`: Combine with a shutdown option to cause the next boot to go to the firmware user interface.
+            (XIII)    `/e`: Document the reason for an unexpected shutdown of a computer.
+            (XIV)     `/o`: Go to the advanced boot options menu and restart the computer. Must be used with /r option.
+            (XV) `/m <host>`: Specify the target computer.
+            (XVI) `/t <xxx>`: Set the time-out period before shutdown to xxx seconds. The valid range is 0-315360000 (10 years), with a default of 30. If the timeout period is greater than 0, the /f parameter is implied.
+            (XVII) `/c "<comment>"`:  Comment on the reason for the restart or shutdown. Maximum of 512 characters allowed.
+            (XVIII) `/f`:             Force running applications to close without forewarning users. The /f parameter is implied when a value greater than 0 is specified for the /t parameter.
+            (XIX) `/d <[p|u:]xx:yy>`: Provide the reason for the restart or shutdown. p indicates that the restart or shutdown is planned. u indicates that the reason is user defined. If neither p nor u is specified the restart or shutdown is unplanned. xx is the major reason number (positive integer less than 256). yy is the minor reason number (positive integer less than 65536).
+            
+    (v) Piped
+
+        (a) `findstr <string>`: searches for the string inside the stdout of the Piped command
+        (b) `clip`: copies stdout to the Clipboard
+

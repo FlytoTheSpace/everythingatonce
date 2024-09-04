@@ -1386,7 +1386,7 @@ Section: Basics
 				
 	(v) Do While Loops
 
-		(a) Do While Loops is a Variant of While loop but it runs the code atleasst once and then checks if the condition is true, if it's true then it runs it again
+		(a) Do While Loops is a Variant of While loop but it runs the code atleast once and then checks if the condition is true, if it's true then it runs it again
 		
 		(b) Example:-
 
@@ -1439,7 +1439,7 @@ Section: Basics
 		        return -1; // return -1 if value is not found
 		    }
 
-		(v) `label` and `break`/`continue`: JavaScript allows labeling loops so that you can break or continue specific loops nested within other loops. This is achieved by adding a label before the loop statement and using that label with `break` or `continue`.
+		(v) `<break / continue> <label>`: JavaScript allows labeling loops so that you can break or continue specific loops nested within other loops. This is achieved by adding a label before the loop statement and using that label with `break` or `continue`.
 
 			(A) Syntax:
 
