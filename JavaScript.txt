@@ -8226,9 +8226,453 @@ Section: 3rd Party JavaScript
 			# Cd into the project folder
 			npm install
 		
-		(b) `.vue` files:
+		src/*.vue:
 
-			script
+		(b) JavaScript
+			
+			(I) Options API
+
+				(A) This API is Reactive by Default
+
+				(B) This API uses `export default` for JavaScript
+
+					Values in export default object:
+					
+					I. `data`?: a function which should return an Object containg Key-Value Pairs, All of Them will be Reactive
+
+					II. `methods`?: An Object containing Function that can be used in the DOM for events etc.
+
+						A. `this`: it's value will be the Object Returned by `data()` function, They're Reactive by Default
+
+					LifeCycle:
+
+					III. `beforeMount`?: Calls before mounting begins.
+					IV. `mounted`?: Calls when the component is mounted.
+					V. `beforeUpdate`?: Calls when reactive data changes before re-render.
+					VI. `updated`?: Calls after re-render.
+					VII. `beforeUnmount`?: Calls before the Vue instance is destroyed.
+					VIII. `unmounted`?: Calls after the instance is destroyed.
+					IX. `activated`?: Calls when a kept-alive component is Activated.
+					X. `deactivated`?: Callswhen a kept-alive component is Deactivated.
+					XI. `errorCaptured`?: Calls when an error is captured from a child component
+
+				(B) Example:
+
+					export default {
+						data: ()=>{
+							return {
+								msg: "Hello, World"
+							}
+						}
+					}
+				
+			(II) Composition API
+
+				(A) This API is not reactive by Default, but is More Flexible
+
+				(B) This API also uses `export default` for DOM manipulation
+
+					Values in export default object
+
+					I. `setup`: a function which returns An Object Containing Varaibles and Methods
+				
+				(C) making reactive:
+					
+					I. Import `ref` function from vue
+						
+						import { ref } from 'vue';
+					
+					II. define variables with `ref` function attached
+
+						let variable = ref("Value");
+						// value can only be accessed via "varible.value"
+						variable.value; // "Value"
+
+				(C) Example:
+
+					<script>
+					import { ref } from 'vue';
+					export default {
+						setup: ()=>{
+							const msg = ref("Hello, World");
+							let clickconter = ref(0);
+							const clickDetected = ()=>{
+								clickconter.value++;
+							};
+
+							return { msg, clickconter, clickDetected};
+						}
+					}
+					</script>
+					<template>
+						<h1>{{ msg }}</h1>
+						<button @click="clickDetected">Click Me</button>
+						<p v-if="clickconter">Clicks: {{ clickconter }}</p>
+					</template>
+
+				(D) Lifecycle Methods:
+
+					() Import:
+
+						import {onMounted} from 'vue';
+
+					() `onBeforeMount(callback)`: Calls before mounting begins.
+					() `onMounted(callback)`: Calls when the component is mounted.
+					() `onBeforeUpdate(callback)`: Calls when reactive data changes before re-render.
+					() `onUpdated(callback)`: Calls after re-render.
+					() `onBeforeUnmount(callback)`: Calls before the Vue instance is destroyed.
+					() `onUnmounted(callback)`: Calls after the instance is destroyed.
+					() `onActivated(callback)`: Calls when a kept-alive component is Activated.
+					() `onDeactivated(callback)`: Callswhen a kept-alive component is Deactivated.
+					() `onErrorCaptured(callback)`: Calls when an error is captured from a child component
+
+			(IV) Import
+
+				(A) Vue uses ES6 Module Type, and It can be used to Import Other Vue Components or Files
+
+				(B) Import a Vue Component
+
+					import Navbar from '@/components/Nav-bar.vue';
+
+				(C) `@` stands for the "src" directory
+ 
+		(c) HTML & CSS
+
+			(I) Reference a Varaible
+
+				(A) `{{ <variable> }}` Reference a JavaScript Variable
+
+				(B) Example:
+
+					<p> {{ name }}</p>
+
+			(I) Attributes
+
+				(A) Global
+
+					Conditions:
+
+					I. `v-if="<condition>"`: Displays The Element if <condition>, otherwise `display: none`
+						<p v-if="status === 'online'">🟢 online</p>
+					II. `v-else-if="<condition>"`: chained right 
+						<p v-if="status === 'online'">🟢 online</p>
+						<p v-else-if="status === 'doNotDisturb'">🔴 Do Not Disturb</p>
+					III. `v-else`: Chained below `v-if`/`v-else-if`, Displays if all condition(s) above doesn't match.
+						<p v-if="status === 'online'">🟢 online</p>
+						<p v-else-if="status === 'doNotDisturb'">🔴 Do Not Disturb</p>
+						<p v-else>⚫ Offline</p>
+					
+					Loop:
+
+					IV. `v-for="<for-in/for-of>"`: performs a for-in or for-of loop, Repeats The Element Until Loop ends
+
+						<li v-for="item of list" :key="item"> {{item}}</li>
+
+						A. Access `index`:
+
+						<li v-for="(key, index) in list" :key="key"> {{key}}</li>
+
+					
+					V. `:key="<variable>"` used with `v-for` to define loop variables
+
+					Using JavaScript in Attribute values:
+
+					VI. `v-bind:<attribute>="<variable>"`: allows use of javascript variables in the attribute value
+						<a v-bind:href="link">Click Me!</a>
+					VII. `:<attribute>="<variable>"`: allows use of javascript variables in the attribute value
+						<a :href="link">Click Me!</a>
+
+					Events:
+
+					VIII. `v-on:<event>="<handler>"`: Add an Event Listener
+
+						<script>
+						export default {
+							data: ()=>{
+								return { clicked: false }
+							},
+							methods: {
+								clickDetected: (){ this.clicked = true }
+							}
+						}
+						</script>
+						<template>
+							<button v-on:click="clickDetected">Click Me</button>
+							<p v-if="clicked">Click Detected!</p> <!-- This is Reactive! -->
+						</template>
+
+					VIII. `@<event>="<handler>"`: Add an Event Listener
+
+						<script>
+						export default {
+							data: ()=>{
+								return {
+									clickconter: 0
+								}
+							},
+							methods: {
+								clickDetected(){
+									this.clickconter++; 
+								}
+							}
+						}
+						</script>
+						<template>
+							<button @click="clickDetected">Click Me</button>
+							<p v-if="clickconter">Clicks: {{ clickconter }}</p>
+						</template>
+
+				(B) `style`
+
+					I. `scoped`: limits the Styles to Only the Current Component 
+
+				(C) `script`
+
+					I. `setup`: Turns the Script into a Composition API setup Script
+
+				Hybrid:
+
+				(D) `v-model="<variable>"`: A 2-Way Binding the Input Value of "Element" to a Variable
+					
+					I. <input>, <select>, <textarea>
+
+			(II) Events
+
+				() `click`: Fires when the left mouse button is clicked.
+				() `dblclick`: Fires when the left mouse button is double-clicked.
+				() `mousedown`: Fires when any mouse button is pressed down.
+				() `mouseup`: Fires when any mouse button is released.
+				() `mouseover`: Fires when the mouse pointer moves over an element.
+				() `mousemove`: Fires when the mouse pointer is moved.
+				() `mouseout`: Fires when the mouse pointer moves out of an element.
+				() `mouseenter`: Fires when the mouse pointer enters an element.
+				() `mouseleave`: Fires when the mouse pointer exits an element.
+				() `contextmenu`: Fires when the right mouse button is clicked, opening the context menu.
+		
+				Keyboard Events: 
+		
+				() `keydown`: Fires when any key is pressed down.
+				() `keypress`: Fires when a key is pressed down and released.
+				() `keyup`: Fires when a key is released.
+		
+				Form Events: 
+		
+				() `submit`: Fires when a form is submitted.
+					
+					() `submit.prevent`: Prevents Default and then triggers the event
+
+				() `reset`: Fires when a form is reset.
+				() `change`: Fires when the value of an input element is changed.
+				() `input`: Fires when the content of an input element is changed.
+				() `focus`: Fires when an input element receives focus.
+				() `blur`: Fires when an input element loses focus.
+		
+				Window Events: 
+		
+				() `load`: Fires when the page has finished loading.
+				() `unload`: Fires when the page is about to be unloaded.
+				() `resize`: Fires when the browser window is resized.
+				() `scroll`: Fires when the content of a window or element is scrolled.
+		
+				Touch Events (For Mobile and Tablets): 
+		
+				() `touchstart`: Fires when a touch point is placed on the touch surface.
+				() `touchend`: Fires when a touch point is removed from the touch surface.
+				() `touchmove`: Fires when a touch point is dragged across the touch surface.
+				() `touchcancel`: Fires when a touch point is disrupted, such as by an alert popping up.
+		
+				Media Events: 
+		
+				() `abort`: Fires when the loading of media is aborted.
+				() `canplay`: Fires when the media can be played.
+				() `canplaythrough`: Fires when the media can be played through to the end without buffering.
+				() `durationchange`: Fires when the duration of the media changes.
+				() `emptied`: Fires when the media is emptied.
+				() `ended`: Fires when the media has reached the end.
+				() `error`: Fires when an error occurs while loading or playing the media.
+				() `loadeddata`: Fires when the first frame of the media has finished loading.
+				() `loadedmetadata`: Fires when the metadata of the media has finished loading.
+				() `loadstart`: Fires when the browser starts to load the media.
+				() `pause`: Fires when the media is paused.
+				() `play`: Fires when the media starts playing.
+				() `playing`: Fires when the media is playing.
+				() `progress`: Fires periodically as the media is loading.
+				() `ratechange`: Fires when the playback rate of the media changes.
+				() `seeked`: Fires when the seeking operation has finished.
+				() `seeking`: Fires when the seeking operation starts.
+				() `stalled`: Fires when the media is unable to play due to an error.
+				() `suspend`: Fires when the loading of the media is suspended.
+				() `timeupdate`: Fires when the current playback position of the media changes.
+				() `volumechange`: Fires when the volume of the media changes.
+				() `waiting`: Fires when the media is waiting for more data to load.
+		
+				Drag Events: 
+		
+				() `drag`: Fires when an element is being dragged.
+				() `dragend`: Fires when a drag operation is completed.
+				() `dragenter`: Fires when an element is dragged over a target element.
+				() `dragleave`: Fires when an element is dragged out of a target element.
+				() `dragover`: Fires when an element is being dragged over a target element.
+				() `dragstart`: Fires when a drag operation starts.
+				() `drop`: Fires when a dragged element is dropped onto a target element.
+		
+				Clipboard Events: 
+		
+				() `copy`: Fires when content is copied to the clipboard.
+				() `cut`: Fires when content is cut to the clipboard.
+				() `paste`: Fires when content is pasted from the clipboard.
+
+		(d) Components:
+
+			(I) Create Component
+
+				(A) `src/components/Nav-bar.vue`:
+
+					<!-- Script is not Required here, It's only for defining Attributes -->
+					<script>
+					/*
+					export default {
+						props: {
+							title: {
+								type: String,
+								default: "Title!"
+							}
+						}
+					}
+					*/
+					</script>
+					<script setup>
+						import { defineProps } from 'vue';
+
+						defineProps({
+							title: {
+								type: String,
+								default: "Title!"
+							}
+						})
+					</script>
+					<template>
+						<nav class="navbar navbar-expand-lg bg-body-tertiary">
+							<div class="container-fluid">
+								<a class="navbar-brand" href="#">{{title}}</a>
+								<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+								<div class="collapse navbar-collapse" id="navbarSupportedContent">
+									<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+										<li class="nav-item">
+											<a class="nav-link active" aria-current="page" href="#">Home</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Link</a>
+										</li>
+										<li class="nav-item dropdown">
+											<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+												Dropdown
+											</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#">Action</a></li>
+												<li><a class="dropdown-item" href="#">Another action</a></li>
+												<li><hr class="dropdown-divider"></li>
+												<li><a class="dropdown-item" href="#">Something else here</a></li>
+											</ul>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link disabled" aria-disabled="true">Disabled</a>
+										</li>
+									</ul>
+									<form class="d-flex" role="search">
+										<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+										<button class="btn btn-outline-success" type="submit">Search</button>
+									</form>
+								</div>
+							</div>
+						</nav>
+					</template>
+				
+				(B) `src/App.vue`:
+
+					<script>
+					import Navbar from '@/components/Nav-bar.vue';
+					export default {
+						components: {
+							Navbar
+						}
+					}
+					</script>
+					<template>
+						<Navbar title="Test" />
+					</template>
+
+			(II) Attributes:
+
+				(A) Props: are Attributes that can be passed to a Component.
+
+				(A) `props`: An Export Default property, consists of an object containing `key-value` pairs, keys being the attribute names
+
+					I. Attribute keys can either have a Type Class, or an Object containing:
+						
+						<attrib>: {
+							type: <DataType>,
+							default?: <default value>,
+							required?: <boolean>
+						}
+
+						<attrib>: <DataType>
+					
+					// Composition/Options API
+					export default {
+						props: {
+							title: {
+								type: String,
+								default: "Title!"
+								required: 
+							},
+							title: {
+								type: String,
+								default: "Title!"
+							}
+						}
+					}
+				
+				(B) `defineProps(<PropsObject>)`: An Object for Defining Props in 
+				`setup` script
+
+			(III) Wrapper Components:
+
+				(A) `<slot></slot>`: used inside a Component, replaces itself with the passed 
+
+				Example:
+
+				(A) `src/components/Card.vue`
+
+					<template>
+					    <div class="card" style="width: 18rem;">
+					      <div class="card-body">
+					        <slot></slot> // <slot> will be replaced by the Input Content
+					      </div>
+					    </div>
+					</template>
+
+				(B) `src/App.vue`
+
+					<script>
+					import Card from '@/components/Card.vue';
+					export default {
+						components: {
+							Card
+						}
+					}
+					</script>
+					<template>
+						<Card>
+							<h5 class="card-title">Card title</h5>
+					        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+					        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					        <a href="#" class="card-link">Card link</a>
+					        <a href="#" class="card-link">Another link</a>
+						</Card>
+					</template>
 
 44. Backend Frameworks
 
