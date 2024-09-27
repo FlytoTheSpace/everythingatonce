@@ -68,6 +68,7 @@ Example:-
 | Oxalic Acid               | Spinach            |
 | Ascorbic Acid (Vitamin C) | Sour               |
 | Tararic Acid              | Grapes, Mangoes    |
+| Nitric Acid               | Bat Caves          |
 
 
 | Base                | Found            |
@@ -200,7 +201,7 @@ Prefixes:
 **General Terms**:
 | Term            | Description                 | Examples |
 | --------------- | --------------------------- | -------- |
-| `element` Oxide | unknown amount of oxygen    | CO<sub>2</sub>, SiO<sub>3</sub> |
+| *`element`* Oxide | unknown amount of oxygen    | CO<sub>2</sub>, SiO<sub>3</sub> |
 
 **Silicate**: Elements Related with [Silicon](#Chemistry)
 
@@ -211,3 +212,41 @@ Prefixes:
 - 
 
 **Chemical**: 
+
+# Biology
+## Microorganisms
+**Microorganisms**/**Microbes**: living organisms that are so small that they can't be seen without a microscope
+
+**Microorganisms** (Major 4):
+- **Bacteria**
+- **Fungi**
+- **Protozoa**
+- **Algae**
+
+**Non-Microorganism**:
+- Virus
+
+
+### Diseases
+
+Human Diseases:
+
+| Disease           | Transmission | Preventation      |
+| ----------------- | ------------ | ----------------- |
+**Bacteria**:
+| Tuberculosis (TB) | Air          | Isolation         |
+| Typhoid           | Water        |                   |
+| Cholera           | Water, Food  |                   |
+**Fungi**:
+| Aspergillus       | Air          | -                 |
+**Protozoa**:
+| Dysentery         | -            | -                 |
+| Malaria           | Mosquito     | Spray, nets, etc. |
+**Algae**:
+**Virus**:
+| Cold              | -            | -                 |
+| Influenza (flu)   | -            | -                 |
+| Measles           | Air          | Isolation         |
+| Chicken Pox       | Air, Contact |                   |
+| Polio             | Air, Water   |                   |
+| Hepatitis A       | Water        | Clean Water       |

@@ -72,13 +72,9 @@ $
 
 **Division** `(Divide)`: Subtraction of One Number from another
 
-$
-a / b
-$
+$ a / b $
 
-$
-a \div b
-$
+$ a \div b $
 - Divison of $a$ into `b` count of Parts/Components Evenly
 
 # Algebra
@@ -113,6 +109,16 @@ $
 - $D: 500$
 - $M: 1000$
 
+Rules:
+
+- Every 2nd (eg $V, L, D... $) Roman Numeral Aplhabet is are Never:
+  - Written behind the Symbol with Greater Value
+  - Repeated
+  - Subtracted
+- Non Second Roman Number (eg $I, X, C, M ...$)
+  - Not Repeated more then `3` times
+  - Can only be used for Subtraction for Alphabets up to `+2` next to it
+
 | Roman    | Normal  | Interpretation |
 | -------- | ------- | -------------- |
 | $$I   $$ | $$1  $$ | $$1         $$ |
@@ -121,6 +127,37 @@ $
 | $$IV $$  | $$4  $$ | $$-1+5      $$ |
 | $$V $$   | $$5  $$ | $$5         $$ |
 | $$...$$  | $$...$$ | $$...       $$ |
+
+**Expanded Form**: large numbers are represeted as Unit Places, example:
+
+$$
+214 = 2 \times 100  + 1 \times 10 + 4 \times 1
+$$
+
+**Measurement Units**
+
+- **Metric System**
+
+| Unit | Unit (Expanded) | Comparison |
+| ---- | --------------- | ---------- |
+**Length**
+| mm   | Milimeter       | 0.001m     |
+| cm   | Centimeter      | 0.01m      |
+| dm   | Decimeter       | 0.1m       |
+| m    | Meter           | Base Unit  |
+| dam  | Decameter       | 10m        |
+| hm   | Hectometer      | 100m       |
+| km   | Kilometer       | 1,000m     |
+
+- **Imperial System**
+
+| Unit | Unit (Expanded) | Comparison |
+| ---- | --------------- | ---------- |
+**Length**
+| in   | Inch            | $ft\div12$ |
+| ft   | Foot            | Base Unit  |
+| yd   | Yard            | 3ft        |
+| mi   | Mile            | 5,280 ft   |
 
 ## Number System
 Different Type of Number System that are used in Mathematics:
@@ -169,7 +206,8 @@ $$
 \frac{a}{b} = \frac{a\times c}{b\times c} = \frac{a\div c}{b\div c}
 $$
 
-**Proper Fractions**: fractions where Nominator
+**Proper Fractions**: fractions where Nominator is smaller than The Denominator
+
 **Arithmetic Operations**:
 
 Addition:
@@ -233,13 +271,86 @@ $$
 2a+1
 $$
 - These Number must always have  any of $1, 3, 5, 6, 9$ in the *one's unit digit place*
+
 **Prime Numbers**: Numbers that can only be divided by $1$ and *itself*, having exactly 2 factors
-**Composite Numbers**: Numbers that can only be divided by $1$ and *itself*, having more than 2 factors
+
+$$
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97...
+$$
+
+- Every Prime Number is an Odd-Number except `2`
+- **Twin Primes**: difference between 2 Prime Number is `2`
+  
+  $(a+2 = b) ⟹ a, b$
+
+  `(Note: Both Numbers Need to Prime Numbers for this to be true)`
+
+**Composite Numbers**: Numbers that doesn't have exactly 2 factors
+
+$$
+1, 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30, 32, 33, 34, 35, 36...
+$$
 
 **Decimals**: Floating Point Numbers that exists in-between Numbers
 $$
 1.001, 1.002, 1.0000434 ...
 $$
+
+## Factors
+
+A Number is a multiple of each of it's factors
+
+- **1** is The Factor of every Number
+
+  $1\times a = a$ 
+
+- Every Number is a Factor of itself
+
+  $a \div a = 1 $
+
+- Every factor is an Exact divisor of that number and The Remainder should be `0`
+
+  $ a \mod b = 0$ ✅
+
+  $ a \mod b \neq 0$ ❌
+
+- Every factor is Either Equal or Less than the number
+
+  $ a \geq b $
+  
+  - `b` is factor of `a`
+
+- Count of Factors is of a Number is **Finite**
+- Count of Multiples of a Number is **Infinite**
+
+| Number | Factors        | isPrime |
+| ------ | -------------- | ------- |
+| $1$    | $1$            | ❌      |
+| $2$    | $1,2$          | ✅      |
+| $3$    | $1,3$          | ✅      |
+| $4$    | $1,2,4$        | ❌      |
+| $5$    | $1,5$          | ✅      |
+| $6$    | $1,2,3,6$      | ❌      |
+| $7$    | $1,7$          | ✅      |
+| $8$    | $1,2,4,8$      | ❌      |
+| $9$    | $1,3,9$        | ❌      |
+| $10$   | $1,2,5,10$     | ❌      |
+| $11$   | $1,11$         | ✅      |
+| $12$   | $1,2,3,4,6,12$ | ❌      |
+
+Divisibility Rule
+
+| Number | Rule                                          |
+| ------ | --------------------------------------------- |
+| 2      | If Even                                       |
+| 3      | Sum of All digits is Multiple of 3            |
+| 4      | with 3+ digits, last 2 digits divisible by it |
+| 5      | `0` or `5` in one's place                     |
+| 6      | Divisible by both 2 and 3                     |
+| 8      | with 4+ digits, last 3 digits divisible by it |
+| 9      | sum of all digits divisible by it             |
+| 10     | `0` in one's place                            |
+| 11     | -                                             |
 
 # Calculus
 # Differential Equations

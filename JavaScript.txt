@@ -5954,13 +5954,175 @@ Section: High-End/Advance JavaScript
 		(b) The event loop pushes the tasks from the tasks queue to stack
 		(c) `setTimeout(()=>{}, 0)` in this code the function inside setTimeout will defer until all the tasks have been executed if you simplify want it to run without delay just don't provide it a second argument.
 
+35. Modules Types
+
+	(i) There are 2 types of Modules in javascript "CommonJS" and "ES6" Modules
+
+	(ii) Basic example structure
+		
+		(a) In the following example (see basic-modules) we have a file structure as follows:
+
+			index.html
+			main.js
+			modules/
+			    canvas.js
+			    square.js
+
+		(b) The modules directory's two modules are described below:
+
+			(I) canvas.js — contains functions related to setting up the canvas:
+
+				(a) `create()`: creates a canvas with a specified width and height inside a wrapper <div> with a specified ID, which is itself appended inside a specified parent element. Returns an object containing the canvas's 2D context and the wrapper's ID.
+				(b) `createReportList()`: creates an unordered list appended inside a specified wrapper element, which can be used to output report data into. Returns the list's ID.
+
+			(I) square.js — contains:
+
+				(a) `name`: a constant containing the string 'square'.
+				(b) `draw()`: draws a square on a specified canvas, with a specified size, position, and color. Returns an object containing the square's size, position, and color.
+				(c) `reportArea()`: writes a square's area to a specific report list, given its length.
+				(d) `reportPerimeter()`: writes a square's perimeter to a specific report list, given its length.
+
+	(iii) Module File Types:
+
+		(a) `.js`: normal JavaScript Files, Implicit Module System.
+		(b) `.mjs`: Explicit JavaScript ES6 Module System.
+		(c) `.cjs`: Explicit JavaScript Common.js System.
+		
+		(d) Why Explicit File Types?:
+
+			(I) It is good for clarity, i.e. it makes it clear which files are modules, and which are regular JavaScript.
+			(II) It ensures that your module files are parsed as a module by runtimes such as Node.js, and build tools such as Babel.`
+
+		(e) Browser:
+			
+			(I) for Modules to Work in the browser make sure that `Content-Type` header that contains a JavaScript MIME type such as `text/javascript`. If you don't, you'll get a strict MIME type checking error along the lines of "The server responded with a non-JavaScript MIME type" and the browser won't run your JavaScript. Most servers already set the correct type for `.js` files, but not yet for `.mjs` files. Servers that already serve `.mjs` files correctly include GitHub Pages and http-server for Node.js.
+
+			(II) you need to set `type="module"`: for using Module Scripts in the Browser
+
+				<script type="module">
+					import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+					// ...
+				</script>
+
+		(d) If you really value the clarity of using `.mjs` for modules versus using `.js` for "normal" JavaScript files, but don't want to run into the problem described above, you could always use `.mjs` during development and convert them to .js during your build step.
+
+	(iv) Exporting module features
+
+		(a) ES6 Method is the easiest way to use it, using `export` & `default` keyword:
+
+			export const name = "square";
+
+			export function draw(ctx, length, x, y, color) {
+			  	ctx.fillStyle = color;
+				ctx.fillRect(x, y, length, length);
+
+				return { length, x, y, color };
+			}
+
+			(I) You can export `functions`, `var`, `let`, `const`, and `classes`. They need to be top-level items; you can't use export inside a function, for example.
+			(II) A more convenient way of exporting all the items you want to export is to use a single export statement at the end of your module file, followed by a comma-separated list of the features you want to export wrapped in curly braces. For example:
+
+				export { name, draw, reportArea, reportPerimeter };
+
+			(III) `default` keyword let's you export `functions`, `var`, `let`, `const`, and `classes` retrieve it without destructuring, it will not effect other types of export from the same file and be safely Destructed along with the default export
+
+				export default name;
+
+		(b) in Common.js, they needed to be assigned to `module.exports` as an Object
+			
+			for example:-
+
+				const sayHello = (name)=>{
+					console.log(`hello ${name}!`)
+				}
+				const sayGoodMorning = (name)=>{
+					console.log(`good morning ${name}!`)
+				}
+				module.exports = {sayHello, sayGoodMorning};
+		
+	(v) Importing module features into your script
+		
+		(a) ES6 Method is (Again) the easiest way to use it, using `import`/`from` keyword:
+
+			import { name, draw } from "./modules/square.js";
+
+			// If you've used `default` keyword
+
+			import name, {draw} from "./modules/square.js"; // can import both default export and normal export
+			
+			(I) use the `import` statement, followed by a comma-separated list of the features you want to import wrapped in curly braces, followed by the keyword `from`, followed by the module specifier.
+
+			(II) Absolute and relative Paths:
+
+				`C:/Users/default/Documents/project/examples/modules/square.js` becomes `./modules/square.js`
+
+			(III) you can import them by a specific Variable name using `as` syntax: `<original> as <newName>`
+
+				import name {draw as drawShape} from "./modules/square.js"
+
+			(IV) `import.meta`
+
+				() `import.meta.dirname` shows the path of the directory where the current file is
+
+					console.log(import.meta.dirname) // C:\Users\default\Desktop\Documents\Projects
+
+				() `import.meta.filename` shows the complete path to the current file
+
+					console.log(import.meta.filename) // C:\Users\default\Desktop\Documents\Projects\index.js
+
+				() `import.meta.url` shows the complete path to the current file but as a URL
+
+					console.log(import.meta.url) // file:///C:/Users/default/Desktop/Documents/Projects/index.js
+
+
+		(b) Common.JS Module import uses `require()` function, which allows you to load and used external modules (pieces of code) in a Node.js application
+
+			(I) Loading Modules: When you use `require()`, you provide the path to the module you want to load. This can be a relative path to a local file or the name of a module installed via npm.
+
+				(A) Example for loading a local file:
+
+					const myModule = require('./myModule');
+
+				(B) Example for loading an npm module:
+
+					const express = require('express');
+			
+			(II) Path Resolution:
+
+				(A) If the path provided to `require()` is a local file, Node.js resolves the path based on the current file's location. Relative paths (`./`, `../`) are resolved relative to the current file.
+				(B) If the path is a module name (like 'express'), Node.js looks for the module in the `node_modules` folder in the current directory and its parent directories.
+
+			(III) Common.js wraps your code inside a Function which give you 3 extra variables and functions your can use
+
+				(A) `__dirname` represents the current directory that the file is stored in
+
+					console.log(path.join(__dirname))
+					// C:/users/documents/project
+
+				(B) `__filename` represents the current file
+
+					console.log(path.join(__filename))
+					// C:/users/documents/project/index.js
+
+				(C) `require(path)`: imports a module/package
+
+	(vi) Once you've imported the features into your script, you can use them just like they were defined inside the same file. The following is found in main.js, below the import lines:
+
+		const myCanvas = create("myCanvas", document.body, 480, 320);
+		const reportList = createReportList(myCanvas.id);
+
+		const square1 = draw(myCanvas.ctx, 50, 50, 100, "blue");
+		reportArea(square1.length, reportList);
+		reportPerimeter(square1.length, reportList);
+
 Section: Node.js
 
-35. Terminal
+36. Terminal
 
 	(i) `node {directory}` runs code for a specific directory in Node.js Environment 
 
-36. Package Managers
+37. Package Managers
 
 	(i) NPM
 		
@@ -6210,159 +6372,6 @@ Section: Node.js
 				(C) Consistent Versioning: Ensure consistent dependency versions across all packages.
 
 				(D) Scalable Monorepo Support: Easily scale your project by adding new packages without complex setup.
-
-37. Modules Types
-
-	(i) There are 2 types of Modules in javascript "CommonJS" and "ES6" Modules
-
-	(ii) Basic example structure
-		
-		(a) In the following example (see basic-modules) we have a file structure as follows:
-
-			index.html
-			main.js
-			modules/
-			    canvas.js
-			    square.js
-
-		(b) The modules directory's two modules are described below:
-
-			(I) canvas.js — contains functions related to setting up the canvas:
-
-				(a) `create()`: creates a canvas with a specified width and height inside a wrapper <div> with a specified ID, which is itself appended inside a specified parent element. Returns an object containing the canvas's 2D context and the wrapper's ID.
-				(b) `createReportList()`: creates an unordered list appended inside a specified wrapper element, which can be used to output report data into. Returns the list's ID.
-
-			(I) square.js — contains:
-
-				(a) `name`: a constant containing the string 'square'.
-				(b) `draw()`: draws a square on a specified canvas, with a specified size, position, and color. Returns an object containing the square's size, position, and color.
-				(c) `reportArea()`: writes a square's area to a specific report list, given its length.
-				(d) `reportPerimeter()`: writes a square's perimeter to a specific report list, given its length.
-
-	(iii) Aside — `.mjs` versus `.js` we've used `.js` extensions for our module files, but in other resources you may see the .mjs extension used instead. V8's documentation recommends this, for example. The reasons given are:
-
-		(a) It is good for clarity, i.e. it makes it clear which files are modules, and which are regular JavaScript.
-		(b) It ensures that your module files are parsed as a module by runtimes such as Node.js, and build tools such as Babel.
-
-		(c) However, we decided to keep using `.js`, at least for the moment. To get modules to work correctly in a browser, you need to make sure that your server is serving them with a Content-Type header that contains a JavaScript MIME type such as `text/javascript`. If you don't, you'll get a strict MIME type checking error along the lines of "The server responded with a non-JavaScript MIME type" and the browser won't run your JavaScript. Most servers already set the correct type for `.js` files, but not yet for `.mjs` files. Servers that already serve `.mjs` files correctly include GitHub Pages and http-server for Node.js.
-
-		(d) If you really value the clarity of using `.mjs` for modules versus using `.js` for "normal" JavaScript files, but don't want to run into the problem described above, you could always use `.mjs` during development and convert them to .js during your build step.
-
-	(iv) Exporting module features
-
-		(a) ES6 Method is the easiest way to use it, using `export` & `default` keyword:
-
-			export const name = "square";
-
-			export function draw(ctx, length, x, y, color) {
-			  	ctx.fillStyle = color;
-				ctx.fillRect(x, y, length, length);
-
-				return { length, x, y, color };
-			}
-
-			(I) You can export `functions`, `var`, `let`, `const`, and `classes`. They need to be top-level items; you can't use export inside a function, for example.
-			(II) A more convenient way of exporting all the items you want to export is to use a single export statement at the end of your module file, followed by a comma-separated list of the features you want to export wrapped in curly braces. For example:
-
-				export { name, draw, reportArea, reportPerimeter };
-
-			(III) `default` keyword let's you export `functions`, `var`, `let`, `const`, and `classes` retrieve it without destructuring
-
-				export default name;
-
-		(b) in Common.JS, Assign Values to `module.exports` to export them!.
-			
-			for example:-
-
-				const sayHello = (name)=>{
-					console.log(`hello ${name}!`)
-				}
-				const sayGoodMorning = (name)=>{
-					console.log(`good morning ${name}!`)
-				}
-				module.exports = {sayHello, sayGoodMorning};
-
-			This above code is same as:
-
-				export const sayHello = (name)=>{
-					console.log(`hello ${name}!`)
-				}
-				export const sayGoodMorning = (name)=>{
-					console.log(`good morning ${name}!`)
-				}
-		
-	(v) Importing module features into your script
-		
-		(a) ES6 Method is (Again) the easiest way to use it, using `import`/`from` keyword:
-
-			import { name, draw} from "./modules/square.js";
-
-			// If you've used `default` keyword
-
-			import name {draw} from "./modules/square.js";
-			
-			(I) use the `import` statement, followed by a comma-separated list of the features you want to import wrapped in curly braces, followed by the keyword `from`, followed by the module specifier.
-
-			(II) The module specifier provides a string that the JavaScript environment can resolve to a path to the module file. In a browser, this could be a path relative to the site root, which for our basic-modules example would be `/js-examples/module-examples/basic-modules`. However, here we are instead using the dot (`.`) syntax to mean "the current location", followed by the relative path to the file we are trying to find. This is much better than writing out the entire absolute path each time, as relative paths are shorter and make the URL portable — the example will still work if you move it to a different location in the site hierarchy.  for example:
-
-				`C:/Users/Admin/Documents/project/examples/modules/square.js` becomes `./modules/square.js`
-
-			(III) you can import them by a specific Variable name using `as` syntax: `<original> as <newName>`
-
-				import name {draw as drawShape} from "./modules/square.js"
-
-			(IV) `import.meta`
-
-				() `import.meta.dirname` shows the path of the directory where the current file is
-
-					console.log(import.meta.dirname) // C:\Users\default\Desktop\Documents\Projects
-
-				() `import.meta.filename` shows the complete path to the current file
-
-					console.log(import.meta.filename) // C:\Users\default\Desktop\Documents\Projects\index.js
-
-				() `import.meta.url` shows the complete path to the current file but as a URL
-
-					console.log(import.meta.url) // file:///C:/Users/default/Desktop/Documents/Projects/index.js
-
-
-		(b) Common.JS Module import uses `require()`function, which allows you to load and used external modules (pieces of code) in a Node.js application
-
-			(I) Loading Modules: When you use `require()`, you provide the path to the module you want to load. This can be a relative path to a local file or the name of a module installed via npm.
-
-				(A) Example for loading a local file:
-
-					const myModule = require('./myModule');
-
-				(B) Example for loading an npm module:
-
-					const express = require('express');
-			
-			(II) Path Resolution:
-
-				(A) If the path provided to `require()` is a local file, Node.js resolves the path based on the current file's location. Relative paths (`./`, `../`) are resolved relative to the current file.
-				(B) If the path is a module name (like 'express'), Node.js looks for the module in the `node_modules` folder in the current directory and its parent directories.
-
-			(III) CommonJS provides you two variables to know the location of your current working file
-
-				(A) `__dirname` represents the current directory that the file is stored in
-
-					console.log(path.join(__dirname))
-					// C:/users/documents/project
-
-				(B) `__filename` represents the current file
-
-					console.log(path.join(__filename))
-					// C:/users/documents/project/index.js
-
-	(vi) Once you've imported the features into your script, you can use them just like they were defined inside the same file. The following is found in main.js, below the import lines:
-
-		const myCanvas = create("myCanvas", document.body, 480, 320);
-		const reportList = createReportList(myCanvas.id);
-
-		const square1 = draw(myCanvas.ctx, 50, 50, 100, "blue");
-		reportArea(square1.length, reportList);
-		reportPerimeter(square1.length, reportList);
 
 38. Global
 
