@@ -42,6 +42,10 @@ Section: The Basics
     (ii) Syntax:
 
         <declaration> <variable>: <type>
+        <declaration> <variable>: <type> = <expression>
+
+        declaration variable: type
+        declaration variable: type = expression
 
     (iii) Example:-
         
@@ -85,10 +89,10 @@ Section: The Basics
 
         (a) Syntax:
             
-            <declaration> <Variable>: Array<<Type of Value it Contains>>
-            <declaration> <Variable>: <Type of Value it Contains>[]
+            Array<Type>
+            <Type>[]
             
-            <declaration> <Variable>: ReadonlyArray<Type of Value it Contains>
+            ReadonlyArray<Type>
 
         const a: Array<string> = ["dave", "john", "Youtube"];
         const b: Array<string | number> = ["dave", "john", 2054, 8702, "Youtube"];
@@ -116,7 +120,9 @@ Section: The Basics
         
         (a) Syntax:
             
-            <declaration> <Variable>: [<Type>...]
+            [<Type...>]
+
+            [type...]
 
         let x: [string, number];
         x = ['hello', 10]; 
@@ -142,35 +148,46 @@ Section: The Basics
             console.log('This is a warning message');
         }
 
-    (x) null and undefined: Represents the null and undefined values respectively.
+    (x) `null` and `undefined`: Represents the null and undefined values respectively.
 
         let u: undefined = undefined;
         let n: null = null;
 
 4. Type Casting
     
-    (i) `as` keyword is used for type assertions, which is a way to tell the TypeScript compiler that you know the type of a value better than it does. Type assertions are similar to type casting in other languages but do not perform any special checking or restructuring of data. They are purely a way to inform TypeScript about the type of a variable.
+    (i) Type Casting a way to tell the TypeScript compiler to Override the Previously Written Type and Follow Your Defined Type
 
     Here's how the `as` keyword is used in TypeScript:
 
     (ii) Syntax:
 
-        <variable> as <type>
-        <<type>><variable>
+        <expression> as <type>
+        expression as type
 
-    (iii) Basic Usage
-        
-        (a) You use `as` to assert the type of a variable. This is useful when TypeScript cannot infer the correct type of the variable, or you have knowledge about the type that TypeScript isn't aware of.
+        <<type>><expression>
+
+        <type>expression
+
+    (iii) Non-Null Assertion
+
+        (a) Tells The TypeScript Compiler that the Value can't be null, and to keep any other Types it may have
+
+
+            const img: HTMLImageElement = document.querySelector('img'); // error, img can be Null
+            const img: HTMLImageElement = document.querySelector('img')!; // no rrror
+
+
+        (b) Syntax:
+
+            <expression>!
+
+    (iii) example:
 
         let someValue: any = 'this is a string';
 
         let strLength: number = (someValue as string).length;
 
-        (b) In this example, `someValue` is of type `any`, so TypeScript doesn't know what methods are available on it. By asserting `someValue` as a `string`, you're telling TypeScript that `someValue` should be treated as a string, and thus it's safe to access the `length` property.
-
     (iv) Changing Perceived Type
-            
-        (a) Type assertions can be used to treat a variable as a different type than the one TypeScript inferred. This is helpful when you're working with a variable whose type is more specific than TypeScript can understand.
 
         interface Cat {
             meow(): void;
@@ -282,14 +299,15 @@ Section: The Basics
             let code: Allchars = 'h8-🍔' // Intellisense will prompt for every possible combination
             code = 'b4-🍕';
 
-        (i) Literal types in TypeScript are a powerful feature for writing more descriptive and safer code. They enable you to enforce stricter type checking and make your intentions clear, reducing the likelihood of bugs and errors.
-    
     (ii) Interfaces: Interfaces are one of the primary mechanisms for defining custom types in TypeScript. They allow you to define the shape of an object, specifying the names and types of its properties. Interfaces are often used to define contracts for classes or objects.
 
         (a) Syntax:
 
-            interface <TypeName> {
+            interface <Type> {
                 <key>: <value> 
+            }
+            interface Type {
+                key: value
             }
 
         (b) Example:-
@@ -310,12 +328,20 @@ Section: The Basics
 
             (I) Syntax:
 
-                interface <TypeName> {
+                interface <Type> {
                     <key>: <value> 
                 }
+                interface Type {
+                    key: value
+                }
 
-                interface <Type2> extends <TypeName> {
+
+
+                interface <Type2> extends <Type> {
                     <key>: <value> 
+                }
+                interface Type2 extends Type {
+                    key: value
                 }
 
             interface Person {
@@ -327,55 +353,14 @@ Section: The Basics
                 studentId: number;
             }
 
-        (c) Optional Properties: add `?` operator right after the name of the property to make it optional
-
-            (I) Syntax:
-
-                interface <TypeName> {
-                    <key>?: <value> 
-                }
-
-            (II) Example:-
-
-                interface SquareConfig {
-                    color?: string;
-                    width?: number;
-                }
-
-                function createSquare(config: SquareConfig): { color: string; area: number } {
-                    let newSquare = { color: "white", area: 100 };
-                    if (config.color) {
-                        newSquare.color = config.color;
-                    }
-                    if (config.width) {
-                        newSquare.area = config.width * config.width;
-                    }
-                    return newSquare;
-                }
-
-                let mySquare = createSquare({ color: "black" });
-
-        (d) Read Only Properties: You can defined properties that can't be changed after declaration by adding `readonly` keyword right before the key
-
-            (I) Syntax:
-
-                interface <TypeName> {
-                    readonly <key>: <value> 
-                }
-
-            interface Point {
-                readonly x: number;
-                readonly y: number;
-            }
-
-            let p1: Point = { x: 10, y: 20 };
-            p1.x = 5; // error! Cannot assign to 'x' because it is a read-only property.
-
     (iii) Type Aliases: Type aliases allow you to create a new name for an existing type or define a complex type that can be reused throughout your codebase. They are particularly useful for simplifying complex type definitions or creating more descriptive names for types.
 
         (a) Syntax:
 
             type <TypeName> = <value/AnotherType>
+
+            type TypeName = value
+            type TypeName = anotherType
 
         type Point = {
             x: number;
@@ -393,11 +378,20 @@ Section: The Basics
             (I) Syntax:
                 
                 type <TypeName> = {
-                    ...<key>: <values>
+                    <key>: <values>
                 };
 
                 type <TypeName2> = <TypeName> & {
-                    ...<key>: <values> // Key-Values To Extend with
+                    <key>: <values> // Key-Values To Extend with
+                };
+
+
+                type TypeName = {
+                    <key>: <values>
+                };
+
+                type Type2 = TypeName & {
+                    <key>: <values> // Key-Values To Extend with
                 };
 
             type Person = {
@@ -466,30 +460,25 @@ Section: The Basics
 
     (i) Syntax:
 
-        function(args: <Param type>...): <Return Value Type> {
-            <code>
+        function(args: <ParamType>): <returnType> {
+            // ...
         }
-        function <name> (args: <Param type>...): <Return Value Type> {
-            <code>
-        }
-
-        (args: <Param type>...): <Return Value Type> => {
-            <code>
+        function <name> (args: <ParamType>): <returnType> {
+            // ...
         }
 
-        (args: <Param type>...): <Return Value Type> => <return value>
-
-    (ii) Dynamically Typed Vs Statically Typed:-
-
-        // We Know this Function is for Adding 2 two numbers but what if someone puts something else?
-        const sum = (a, b)=>{
-            return a + b
-        }
-        const sum = (a: number, b: number): number =>{
-            return a + b
+        (args: <ParamType>): <returnType> => {
+            // ...
         }
 
-    (iii) Traditional and Arrow Functions Statically Typed :-
+        (args: <ParamType>): <returnType> => <return value>
+
+        // Function Types:
+
+        <functionName>(...params): <return Type>
+        (...params): <return Type>
+
+    (iii) example
 
         function sum (a: number, b: number): number {
             return a + b
@@ -503,6 +492,7 @@ Section: The Basics
 
     (iv) Custom Types in Functions
 
+
         (Note: You cannot use default Values with Aliases)
         // With Type
         type MathFunction = (a: number, b: number) => number
@@ -513,27 +503,19 @@ Section: The Basics
         }
 
         // Removing Some extra Boiler Plate Code
-        const add: MathFunction = (c, d)=>{
-            return c + d
-        }
-        const subtract: MathFunction = (c, d)=>{
-            return c - d
-        }
-        const multiply: MathFunction = (c, d)=>{
-            return c * d
-        }
-        const divide: MathFunction = (c, d)=>{
-            return c / d
-        }
-        const power: MathFunction = (c, d)=>{
-            return c ** d
-        }
+        const add: MathFunction = (c, d) => c + d;
+        const subtract: MathFunction = (c, d) => c - d;
+        const multiply: MathFunction = (c, d) => c * d;
+        const divide: MathFunction = (c, d) => c / d;
+        const power: MathFunction = (c, d) => c ** d;
 
     (v) Optional Arguments: You can Provide Optional Arguments to Your Function using `?`:-
 
         (a) Syntax:
 
-            <arguments>?
+            <argument>?
+
+            argument?
         
         (Note: Your Optional Parameter have to be the last parameter)
         
@@ -553,27 +535,11 @@ Section: The Basics
         const power3 = (a: number = 2, b: number): number => a ** b;
         console.log(power3(undefined, 3)) // 8, It has to be explicit
 
-    (vi) Rest Parameters:
-        
-        (a) Just like Vanilla JavaScript you can use spread operator to have infinite parameters password to your function:
-
-            type ArithmeticOperators = '+' | '-' | '*' | '/' | '%' | '**';
-
-            const sum = (action: ArithmeticOperators = '+', ...values: number[]): number => values.reduce((pre, cur) => eval(`${pre} ${action} ${cur}`))
-
-            console.log(sum('+', 123, 7, 15)) // 145
-            console.log(sum(undefined, 123, 7, 15)) // 145
-            console.log(sum('-', 123, 7, 15)) // 101
-            console.log(sum('*', 123, 7, 15)) // 12915
-            console.log(sum('/', 225, 15)) // 15
-            console.log(sum('**', 35, 2)) // 1225
-            console.log(sum('%', 10, 3)) // 1
-
 8. Objects
 
     (i) In TypeScript, objects are a fundamental construct used to store collections of values and more complex entities. An object in TypeScript is an instance which contains a set of key-value pairs. The keys in this collection are unique and associated with a specific value. TypeScript, being a superset of JavaScript, follows the same syntax and semantics for objects as JavaScript, but with additional type-checking and features.
 
-    (ii) Basic Object Types
+    (ii) example
 
         (a) To define an object type in TypeScript, you can use an interface or a type alias. Here's an example using an interface:
 
@@ -591,7 +557,7 @@ Section: The Basics
 
     (iii) Optional Properties
 
-        (a) TypeScript allows object properties to be marked as optional:
+        (a) `<property>?` allows object properties to be marked as optional:
         
         interface Person {
             name: string;
@@ -602,11 +568,11 @@ Section: The Basics
             name: "Bob"
         };
 
-        Here, `age` is an optional property.
+        // Here, `age` is an optional property.
 
     (iv) Readonly Properties
 
-        (a) TypeScript provides a `readonly` modifier to make properties immutable:
+        (a) `readonly` a modifier to make properties immutable:
 
         interface Person {
             readonly name: string;
@@ -626,7 +592,9 @@ Section: The Basics
 
         (b) Syntax:
 
-            [<anyNameYouWant>: <type of keys: string | symbol | number | Literals> ]: <...typeof of values>
+            [<key>: <keyValueType> ]: <ValueType>
+
+            [key: keyValueType ]: ValueType
 
         interface Student {
             // [key: string]: string; // Error
@@ -669,51 +637,6 @@ Section: The Basics
         (a) Combine The Index Signatures with `readonly` to make every Key a Constant
 
             readonly [key: string]: string;
-
-    (vi) Extending Interfaces
-
-        (a) Interfaces can extend other interfaces to create new types:
-
-        interface NamedEntity {
-            name: string;
-        }
-
-        interface Employee extends NamedEntity {
-            department: string;
-        }
-
-        const employee: Employee = {
-            name: "Eve",
-            department: "HR"
-        };
-
-    (vii) Intersection Types
-
-        (a) You can combine multiple types into one using intersection types:
-
-        type Person = {
-            name: string;
-            age: number;
-        };
-
-        type Employee = {
-            department: string;
-        };
-
-        type PersonEmployee = Person & Employee;
-
-        const personEmployee: PersonEmployee = {
-            name: "Frank",
-            age: 35,
-            department: "IT"
-        };
-
-    (viii) Type Assertions and Casting
-
-        (a) TypeScript allows for type assertions, which is a way to tell the compiler the type of an object:
-
-        const person: any = getPerson();
-        const personCasted = person as Person; // Type assertion
 
     (ix) `keyof`
         
@@ -787,8 +710,6 @@ Section: The Basics
 
         In summary, `keyof` is a powerful tool in TypeScript for working with object types, allowing you to extract keys dynamically and perform type-safe operations on object properties. It's a key feature for writing robust and maintainable code in TypeScript.
 
-    (x) In TypeScript, objects are a versatile and powerful way to represent data structures. By leveraging TypeScript's type system, you can ensure your objects adhere to specific shapes, making your code more predictable and less prone to errors. With features like optional and readonly properties, index signatures, and the ability to create complex types through interfaces, type aliases, and intersection types, TypeScript provides a robust framework for working with objects.
-
 9. Classes
 
     (i) In TypeScript, classes are a fundamental part of the language, enabling object-oriented programming features like encapsulation, inheritance, and polymorphism. TypeScript enhances the class-based concepts from JavaScript (ES6) by adding features like type annotations, access modifiers (like `public`, `private`, and `protected`), and more advanced capabilities such as abstract classes and decorators.
@@ -846,8 +767,11 @@ Section: The Basics
 
         (d) Syntax:
 
-            <access modifier> <property>: <type>
-            <access modifier> <method>
+            <AccessModifier?> <property>: <type>
+            <AccessModifier?> <method>
+
+            AccessModifier? property: type
+            AccessModifier? method
 
         class Person {
             // <access modifier> <property>: <type>
@@ -930,18 +854,14 @@ Section: The Basics
         (i) TypeScript supports getters and setters for implementing encapsulation.
         
         (ii) Syntax:
-
-            class Person {
-                <keyword?> _<property>: <property> = <default?>;
         
-                get age(...params): <return Type> {
-                    <code to run>
+                get <name>(...params): <return Type> {
+                    // ...
                 }
         
-                set age(...params): ...params  {
-                    <code to run>
+                set <name>(...params): ...params  {
+                    // ...
                 }
-            }
 
         class Person {
             private _age: number = 0;
@@ -1005,12 +925,10 @@ Section: The Basics
         (iii) Syntax:
 
             interface <InterfaceName> {
-                <interface Here>
-
-                <functionName>(...params): <return Type> // A Function Type
+                // ...
             }
             class <className> implements <InterfaceName> {
-                <content of class Here>
+                // ...
             }
 
         interface Identifiable {
@@ -1023,4 +941,130 @@ Section: The Basics
 
 10. Generics
 
+    (i) where you could Pass in the Type of a variable manually, useful for utility functions
+
+    (ii) Syntax:
+
+        // Defining:
+
+        function<<GenericType>>(args: <ParamType>): <returnType> { /* ...*/ };
+        function <name><<GenericType>>(args: <ParamType>): <returnType> { /* ...*/ };
+
+        <<GenericType>>(args: <ParamType>): <returnType> => { /* ...*/ };
+
+        <<GenericType>>(args: <ParamType>): <returnType> => <returnValue>
+        
+        
+        function<GenericType>(args: ParamType): returnType { /* ...*/ };
+        function name<GenericType>(args: ParamType): returnType { /* ...*/ };
+
+        <GenericType>(args: ParamType): returnType => { /* ...*/ };
+
+        <GenericType>(args: ParamType): returnType => returnValue
+
+        // Defining Function Types:
+
+        <functionName><<GenericType>>(args: <ParamType>): <returnType>
+        <<GenericType>>(args: <ParamType>): <return Type>
+        
+        functionName(args: ParamType): returnType
+        <GenericType>(args: ParamType): returnType
+
+        // Calling:
+
+        <name>(<...args>)
+        <name><<GenericType>>(<...args>)
+        name(...args)
+        name<GenericType>(...args) // can manually pass Generic Type if needed
+
+    (iii) Extendation: Generic Types can be Extended using the `extends` keyword, It Requires the generic Type to be following The Interface
+
+        (a) Syntax:
+
+            <Type> extends <Type2>
+            Type extends Type2
+
+        interface User {
+            username: string,
+            email: string,
+            ID: number
+        }
+
+        const getAll = <T extends User, K extends keyof T>(users: T[], key: K): T[K][] => {
+            const values = []
+            for(let i = 0; i<users.length; i++){
+                values.push(users[i][key])
+            }
+            return values
+        }
+
+        const users: User[] = [
+            {
+                username: 'foo',
+                email: 'example@gmail.com',
+                ID: 12341
+            },
+            {
+                username: 'bar',
+                email: 'example@proton.me',
+                ID: 64423
+            }
+        ]
+
+        console.log(getAll(users, "username")) // [ 'foo', 'bar' ]
+
+    (iv) Type, Interface and Classes
+
+        (a) Syntax:
+
+            // Type
+            type <Type><<...inputTypes>> = /*...*/
+            type Type<T> = /*...*/
+
+            // Interface
+            interface <Type><<...inputTypes>> {
+                // ...
+            }
+            interface Type<T> {
+                // ...
+            }
+
+            // Class
+            class <ClassName><<GenericType>> {
+                // ...
+            }
+            class ClassName<GenericType> {
+                // ...
+            }
+            new <ClassName><<GenericType>>(/* ... */);
+            new ClassName<GenericType>(/* ... */);
+
+    (v) Conditional Types
+        
+        (a) in Types and interface, it returns a Boolean which is used with Ternary Operators to make conditional operators
+
+        // with Function Overriding:
+
+
+        function printArgs(type: 'number', value: number): void;
+        function printArgs(type: 'string', value: string): void;
+        function printArgs(type: 'boolean', value: boolean): void;
+
+        function printArgs(type: 'number' | 'string' | 'boolean', value: number | string | boolean){
+                console.log(value)
+        }
+
+        // with Extendation
+
+        type ArgtoType<T> =
+                T extends 'number'? number : 
+                T extends 'string'? string :
+                T extends 'boolean'? boolean :
+                unknown;
+
+        function printArgs<T extends 'number' | 'string' | 'boolean'>(type: T, value: ArgtoType<T>): void{
+                console.log(value)
+        }
     
+
+

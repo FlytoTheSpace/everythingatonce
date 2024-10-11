@@ -2800,6 +2800,7 @@ Section: Modules
 
 		(Not Supported for GET/DELETE Requests):
 		(k) `.json()`: Parses The Response Data as JSON
+		
 		(m) `.text`: Returns Data in UTF-8 Format
 		(l) `.content`: Returns The Reponse Data in Bytes
 		(m) `.raw`: Returns Raw Data sent from the Server 

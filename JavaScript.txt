@@ -8236,6 +8236,22 @@ Section: 3rd Party JavaScript
 			npm install
 		
 		src/*.vue:
+		
+		(b) Structure
+
+			- /
+			|-- node_modules/
+			|   |
+			|   |-- <Modules>
+			|
+			|-- public/
+			|   |
+			|   |-- <Static Content>
+			|   |-- favicon.ico
+			|
+			|-- src/
+			|   |
+			|   |-- 
 
 		(b) JavaScript
 			
@@ -8362,11 +8378,16 @@ Section: 3rd Party JavaScript
 					Conditions:
 
 					I. `v-if="<condition>"`: Displays The Element if <condition>, otherwise `display: none`
+					
 						<p v-if="status === 'online'">🟢 online</p>
+					
 					II. `v-else-if="<condition>"`: chained right 
+
 						<p v-if="status === 'online'">🟢 online</p>
 						<p v-else-if="status === 'doNotDisturb'">🔴 Do Not Disturb</p>
+					
 					III. `v-else`: Chained below `v-if`/`v-else-if`, Displays if all condition(s) above doesn't match.
+					
 						<p v-if="status === 'online'">🟢 online</p>
 						<p v-else-if="status === 'doNotDisturb'">🔴 Do Not Disturb</p>
 						<p v-else>⚫ Offline</p>
@@ -8379,21 +8400,44 @@ Section: 3rd Party JavaScript
 
 						A. Access `index`:
 
-						<li v-for="(key, index) in list" :key="key"> {{key}}</li>
+							<li v-for="(key, index) in list" :key="key"> {{key}}</li>
 
 					
-					V. `:key="<variable>"` used with `v-for` to define loop variables
+					V. `:key="<variable>"` used with `v-for` to define loop variables.
 
 					Using JavaScript in Attribute values:
 
-					VI. `v-bind:<attribute>="<variable>"`: allows use of javascript variables in the attribute value
-						<a v-bind:href="link">Click Me!</a>
-					VII. `:<attribute>="<variable>"`: allows use of javascript variables in the attribute value
-						<a :href="link">Click Me!</a>
+					VI. `v-bind`
+						
+						A. `v-bind:<attribute>="<variable>"`: allows use of javascript variables in the attribute value
+							
+							<a v-bind:href="link">Click Me!</a>
+
+						B. Assigning Directly
+
+							js:
+							const objectOfAttrs = {
+							  id: 'container',
+							  class: 'wrapper',
+							  style: 'background-color:green'
+							}
+
+							// Assigns all the properties of `objectOfAttrs` to the element
+							<div v-bind="objectOfAttrs"></div>
+
+						C. `:<attribute>="<variable>"`: Short hand for `v-bind`
+
+							<a :href="link">Click Me!</a>
+
+						D. Not passing the value after binding automatically binds it's value to the Varaible with the same name as the Attribute name:
+
+							<a :href></a>
+							<!-- same as: -->
+							<a :href="href"></a>
 
 					Events:
 
-					VIII. `v-on:<event>="<handler>"`: Add an Event Listener
+					VII. `v-on:<event>="<handler>"`: Add an Event Listener
 
 						<script>
 						export default {
@@ -8410,26 +8454,18 @@ Section: 3rd Party JavaScript
 							<p v-if="clicked">Click Detected!</p> <!-- This is Reactive! -->
 						</template>
 
-					VIII. `@<event>="<handler>"`: Add an Event Listener
+						B. `@<event>="<handler>"`: Short ahnd for `v-on`
 
-						<script>
-						export default {
-							data: ()=>{
-								return {
-									clickconter: 0
-								}
-							},
-							methods: {
-								clickDetected(){
-									this.clickconter++; 
-								}
-							}
-						}
-						</script>
-						<template>
-							<button @click="clickDetected">Click Me</button>
-							<p v-if="clickconter">Clicks: {{ clickconter }}</p>
-						</template>
+							<template>
+								<button @click="clickDetected">Click Me</button>
+								<p v-if="clickconter">Clicks: {{ clickconter }}</p>
+							</template>
+
+					VIII. `v-html="<rawHtml>"`: renders the raw HTML instead inside of the parent element
+
+					X. `[<expresion>]`: Set Dynamic Arguments/Attribute
+
+						<a []>
 
 				(B) `style`
 

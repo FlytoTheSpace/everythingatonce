@@ -590,7 +590,7 @@ Scripts:
 
             (I) `-t`: ping Infinitely unless exited
 
-        (b) ipconfig <switches?>: show network info
+        (b) `ipconfig <switches?>`: show network info
 
             (I) `/all`: all information about your network
             (II) `/release`: Releases Your Private IPv4
