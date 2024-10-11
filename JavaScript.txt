@@ -3951,6 +3951,13 @@ Section: Key Concepts
 
 	(iv) `in`
 
+		(a) Syntax:
+
+			<Index/Key> in <Arr/Obj>
+
+		(b) with Arrays, whether the specified index exists in the Array or Not.
+		(c) with Objects, whether the specified key-value pair exists in the Object or Not.
+
 		(a) `in` operator returns true if the specified property is in the specified object or its prototype chain.
 
 			// Arrays

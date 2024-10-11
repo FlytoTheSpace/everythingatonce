@@ -153,6 +153,43 @@ Section: The Basics
         let u: undefined = undefined;
         let n: null = null;
 
+    Utility Types:
+
+
+    Objects:
+
+    (xi) `Record<Key, Value>`: takes Type of "Key" and "Value" sets Index Signature to corresponding to those values and returns the Interface
+
+    (xii) `Partial<T>`: takes an Interface, allows any Interface with any of It's Properties
+
+    (xiii) `Required<T>`: takes an Interface, converts all the optional parameters to be required
+
+    (xiv) `Readonly<T>`: takes an Interface, converts all the parameters to be Read-Only
+    
+    (xv) `Pick<T, K>`: takes an Interface `T` and Keys `K`, creates a new Interface that contains `K` properties on Interface `T`.
+
+    (xvi) `Omit<T, K>`: takes an Interface `T` and Keys `K`, creates a new Interface that Does NOT contain `K` properties on Interface `T`.
+
+    Unions:
+
+    (xvii) `Extract<T, K>`: takes Literal/Union `T` and `K` Type, creates a new Type that only includes `K`.
+
+    (xviii) `Exclude<T, K>`: takes Literal/Union `T` and `K` Type, creates a new Type that Does NOT includes `K`.
+
+    (xix) `NonNullable<T>`: takes Literal/Union `T` and removes `null` and `undefined` if contains
+
+    Functions:
+
+    (xx) `ReturnType<T>`: takes a Function Type `T`, and returns It's Return Type
+
+    (xxi) `Paramters<T>`: takes a Function Type `T`, and returns It's Paramters Type as a Tuple
+
+    Promise:
+
+    (xxii) `Promise<T>`: A JavaScript Asynchronous Promise
+
+    (xxii) `Awaited<T>`: Removes Promise from `T`.
+
 4. Type Casting
     
     (i) Type Casting a way to tell the TypeScript compiler to Override the Previously Written Type and Follow Your Defined Type
@@ -213,7 +250,7 @@ Section: The Basics
 
         // As syntax
         let strLength: number = (someValue as string).length;
-
+    
 5. Operators
 
     (ii) Pipe '|' operator represent 'OR' logic for Types and separates each type, so for example `number | string | boolean` is the type of a value that can be a number, a string, or a boolean.
@@ -638,7 +675,62 @@ Section: The Basics
 
             readonly [key: string]: string;
 
-    (ix) `keyof`
+    (ix) Index Access Types
+
+        (a) Index Access Types are used to access Type of value in an Object's Interface by it's key, and the Key is also a Type
+
+        (b) Syntax:
+
+            <interface>[<key>]
+
+            interface[key]
+
+        type Person = { age: number; name: string; alive: boolean };
+        type Age = Person["age"];
+
+    (x) Mapped Types
+
+        (a) Object Types in which the keys of a type is dependent on another Type
+
+            [<Property> in <Type>]
+
+            [Property in Type]
+
+        (b) Syntax:
+
+
+
+        (d) Modifiers:
+
+            (I) `+<modifier>`: Adds Modifier
+            (II) `-<modifier>`: Removes Modifier
+
+            Modifiers:
+
+            (III) `readonly`
+            (IV) `?`
+
+
+        (c) Example:
+
+            type OptionsFlags<T> = {
+                [Property in keyof T]: boolean;
+            };
+
+            type Features = {
+                darkMode: () => void;
+                newUserProfile: () => void;
+            };
+
+            // same as:
+            // type FeatureOptions = {
+            //     darkMode: boolean;
+            //     newUserProfile: boolean;
+            // }
+ 
+type FeatureOptions = OptionsFlags<Features>;
+
+    (xi) `keyof`
         
         (a) `keyof` keyword is a powerful operator used to extract the keys of a given type as a union of string or numeric literal types. It allows you to programmatically access and work with the keys of an object type without hardcoding them, providing type safety and flexibility in your code.
 
@@ -1041,7 +1133,7 @@ Section: The Basics
 
     (v) Conditional Types
         
-        (a) in Types and interface, it returns a Boolean which is used with Ternary Operators to make conditional operators
+        (a) in Types and interfaces, `extends` returns a Boolean which is used with Ternary Operators to make conditional operators
 
         // with Function Overriding:
 
@@ -1051,7 +1143,7 @@ Section: The Basics
         function printArgs(type: 'boolean', value: boolean): void;
 
         function printArgs(type: 'number' | 'string' | 'boolean', value: number | string | boolean){
-                console.log(value)
+            console.log(value)
         }
 
         // with Extendation
@@ -1063,7 +1155,7 @@ Section: The Basics
                 unknown;
 
         function printArgs<T extends 'number' | 'string' | 'boolean'>(type: T, value: ArgtoType<T>): void{
-                console.log(value)
+            console.log(value)
         }
     
 
