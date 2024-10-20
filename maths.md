@@ -24,6 +24,11 @@ Applied Mathematics
 - [Game Theory](#game-theory)
 
 
+# Other
+
+## Symbols
+
+## Constants
 
 # Pure Mathematics
 
@@ -265,12 +270,106 @@ Truth Table:
 
 # Geometry
 **Geometry**: a field of Mathematics consisting Entirely of Geometric Shapes and their Properties
-
 Properties:
+- **Vertex**: Meeting Point of 2 Line Segments
 - **Adjacent sides**: lines that share a common vertex.
 - **Adjacent angles**: angles that share a common side.
 
+## Symmetry
+
+**Symmetry**: Figures with Evenly Balanced Proportions
+
 ## 2D
+
+**Perimeter**: Length along the Boundaries of any Shape.
+
+**Area**: Amount of area covered by any Shape.
+
+### Lines
+
+**Line Segment**: A Line that stop at 2 distinct points.
+
+**Parallel lines**: Lines that can Never Meet at any point.
+
+**Bisector**: a Line that divides another linee or any Shape into 2 Pieces
+
+**Perpendicular**: when 2 Lines meet at 1 point and the Angle between them is $90\deg$ (`Right Angle`)
+
+**Perpendicular Bisector**: When a Line Bisects another line or Shape and the angle between them is a Right Angle
+
+### Curves
+
+**Simple Curve**: A Curve that doesn't cross itself
+
+**Open Curve**: A Curve whose both points doesn't join each other
+
+**Closed Curve**: A Curve whose both points joins each other
+
+- **Interior**: Area Inside the Curve
+- **Boundary**: Boundary of the Curve
+- **Exterior**: Area Outside the Curve
+- **Region**: Interior and Boundary
+
+### Angles
+
+Unit:
+
+Angles measured in degrees 
+
+- $A$ = angle
+
+- $A°$ $A\deg$
+
+- $360°$ is the maximum value.
+
+Properties
+- **Acute Angle**: in which angle is $<90°$
+- **Right Angle**: in which angle is $90°$
+- **Obtuse Angle**: in which angle is greater than $90°$ and less than $180°$.
+
+  $A > 90° ∧ A < 180°$
+
+- **Straight Angle**: in which angle is $180°$
+- **Reflex Angle**: in which angle is greater than $180°$ and less than $360°$.
+
+  $A > 180° ∧ A < 360°$
+
+- **Complete Angle**: in which angle is $360°$
+
+### Circle
+
+Line Segments and Curves:
+
+- **Radius**, $r$: length from the Center of the circle to it's boundary in a straight line.
+  - *Raddi*: plural for 2Radius
+
+- **Diameter**, $2r$: length from one side of the boundary of the circle to it's opposite side boundary in a straight line.
+
+- **Circumference**: Length of the Entire Boundary (`Perimeter`) of the Circle
+
+  $$
+  2\pi r
+  $$
+
+- **Chord**: a Line Connecting 2 Points on the Boundary of the Circle
+
+Areas:
+
+- **Complete Area**:
+    
+    $$
+    \pi r^2
+    $$
+
+- **Arc**: A specific area of the Boundary of the Circle
+
+- **Sector**: Region in the interior of a circle enclosed by Arc and Raddi
+
+- **Segment**: Region in the interior of a circle enclosed by a chord and the arc
+
+Similar Shapes
+- **Semi-circle**: Half of a Circle
+- **Quadrant**: Quarter of a Circle
 
 ### Polygon
 **Polygon**: A simple closed Shape made up only line segments
@@ -283,20 +382,33 @@ Properties:
 
 Types:
 
-**Regular Polygon**: A Polygon which is Both Equiangular and Equilateral
-**Concave Polygon**: A Polygon with an In-words Curve
-**Convex Polygon**: A Polygon with no In-words Curve
+- **Regular Polygon**: A Polygon which is Both Equiangular and Equilateral
+- **Concave Polygon**: A Polygon with an In-words Curve
+- **Convex Polygon**: A Polygon with no In-words Curve
 
 ---
-#### **Quadrilateral**: A type of Polygon with only 4 Sides and Vertex
+#### **Triangle**: A Polygon with 3 sides
+
+Properties: 
+- $180\deg$ Sum of all Interior Angles
+- Regular: $60\deg$
+
+---
+#### **Quadrilateral**: A Polygon with 4 Sides and Vertexes
+
+Properties: 
+- $360\deg$ Sum of all Interior Angles
+- Regular: $90\deg$
 
 **Trapezium**: A Quadrilateral with a Set of parallel lines
 
-![123](./img/shapes/trapezium.png)
+![](./img/shapes/trapezium.png)
 
 **Kite**: a Quadrilateral with 2 distinct consecutive pairs of equal length
 
 **Parallelogram**: a Quadrilateral with 2 Pairs of Parallel Lines
+
+![](./img/shapes/parallelogram.png)
 
 **Rhombus**: a Quadrilateral, Equilateral
 
@@ -309,7 +421,7 @@ Types:
 # Trignometry
 **Trignometry**: a sub-field of Geometry only consisting of Triangles and Their Angles related Geometry
 # Number Theory
-## Number Writing System:
+## Base
 
 **Internation System of Numerals**: every *comma* `(,)` is placed after every 3rd digit
 
@@ -343,7 +455,7 @@ Rules:
   - Not Repeated more then `3` times
   - Can only be used for Subtraction for Alphabets up to `+2` next to it
 
-| Roman    | Normal  | Interpretation |
+| Roman    | Western | Interpretation |
 | -------- | ------- | -------------- |
 | $$I   $$ | $$1  $$ | $$1         $$ |
 | $$II  $$ | $$2  $$ | $$1+1       $$ |
@@ -357,32 +469,6 @@ Rules:
 $$
 214 = 2 \times 100  + 1 \times 10 + 4 \times 1
 $$
-
-**Measurement Units**
-
-- **Metric System**
-
-| Unit | Unit (Expanded) | Comparison |
-| ---- | --------------- | ---------- |
-**Length**
-| mm   | Milimeter       | 0.001m     |
-| cm   | Centimeter      | 0.01m      |
-| dm   | Decimeter       | 0.1m       |
-| m    | Meter           | Base Unit  |
-| dam  | Decameter       | 10m        |
-| hm   | Hectometer      | 100m       |
-| km   | Kilometer       | 1,000m     |
-
-- **Imperial System**
-
-| Unit | Unit (Expanded) | Comparison |
-| ---- | --------------- | ---------- |
-**Length**
-| in   | Inch            | $ft\div12$ |
-| ft   | Foot            | Base Unit  |
-| yd   | Yard            | 3ft        |
-| mi   | Mile            | 5,280 ft   |
-
 ## Number System
 Different Type of Number System that are used in Mathematics:
 
@@ -614,11 +700,46 @@ $$
 1.001, 1.002, 1.0000434 ...
 $$
 
+- **Unit Digit**: number in one's place of any number
 
+  $
+  a \mod 10
+  $
+
+## Ratio
+
+**Ratio**: Comparison of any 2 or more values, that shows the relative size of one to another.
+
+$$
+a \colon b
+$$
+
+Properties:
+- Can only be compared with the same units
+- **Equivalent Ratios**: when 2 Ratios are equivalent to one another
+
+### Proportion
+**Proportion**: Property of Equivality of 2 ratios
+
+  $a \colon b = c \colon d$
+
+  $a \colon b :: c \colon d$
+
+**Respective Terms**: all 4 Terms involved `[a, b, c, d]`
+
+**Extreme Terms**: First and the Last Terms `[a, d]`
+
+**Middle Terms**: Second and the Third Terms `[b, c]`
 
 ## Factors
 
-A Number is a multiple of each of it's factors
+**Factors**: Numbers that can be multiplied to obtain a new Number, those number will become the factors of the new Numbers
+
+$a \times b = c$
+
+Properties:
+
+- A Number is a multiple of each of it's factors
 
 - **1** is The Factor of every Number
 
@@ -638,7 +759,7 @@ A Number is a multiple of each of it's factors
 
   $ a \geq b $
   
-  - `b` is factor of `a`
+  - `b` is a factor of `a`
 
 - Count of Factors is of a Number is **Finite**
 - Count of Multiples of a Number is **Infinite**
@@ -662,16 +783,22 @@ Divisibility Rule
 
 | Number | Rule                                          |
 | ------ | --------------------------------------------- |
-| 1      | Always                                        |
-| 2      | If Even                                       |
-| 3      | Sum of All digits is Multiple of 3            |
-| 4      | with 3+ digits, last 2 digits divisible by it |
-| 5      | `0` or `5` in one's place                     |
-| 6      | Divisible by both 2 and 3                     |
-| 8      | with 4+ digits, last 3 digits divisible by it |
-| 9      | sum of all digits divisible by it             |
-| 10     | `0` in one's place                            |
-| 11     | -                                             |
+| $1$    | Always                                        |
+| $2$    | If Even                                       |
+| $3$    | Sum of All digits is Multiple of 3            |
+| $4$    | with 3+ digits, last 2 digits divisible by it |
+| $5$    | `0` or `5` in one's place                     |
+| $6$    | Divisible by both 2 and 3                     |
+| $8$    | with 4+ digits, last 3 digits divisible by it |
+| $9$    | sum of all digits divisible by it             |
+| $10$   | `0` in one's place                            |
+| $11$   | -                                             |
+
+### Prime Factorisation
+
+**Prime Factorisation**: A type of Factorisation in which the only remaining Factors are Prime Numbers and `1`
+
+- **Greatest Common Divisior** `GCD`: The Biggest Factor any 2 or more Numbers that are all divisible by it.
 
 ## Exponentiation
 **Exponentiation/Power**: A Level Above Multiplication where a Number is Multiplied by itself `n` count of times.
@@ -688,28 +815,28 @@ $$
 
 
 **Exponent Table**:
-| Base | 2     | 3      | 4        |
-| ---- | ----- | ------ | -------- |
-| $1$  | $1$   | $1$    | $1$
-| $2$  | $4$   | $8$    | $16$
-| $3$  | $9$   | $27$   |
-| $4$  | $16$  | $64$   |
-| $5$  | $25$  | $125$  |
-| $6$  | $36$  | $216$  |
-| $7$  | $49$  | $343$  |
-| $8$  | $64$  | $516$  |
-| $9$  | $81$  | $729$  |
-| $10$ | $100$ | $1000$ |
-| $11$ | $121$ | $1331$ |
-| $12$ | $144$ | $1728$ |
-| $13$ | $169$ | $2197$ |
-| $14$ | $196$ | $2744$ |
-| $15$ | $225$ | $3375$ |
-| $16$ | $256$ | $4096$ |
-| $17$ | $289$ | $4913$ |
-| $18$ | $324$ | $5832$ |
-| $19$ | $361$ | $6859$ |
-| $20$ | $400$ | $8000$ |
+| Base | 2     | 3      | 4        | 5         |
+| ---- | ----- | ------ | -------- | --------- |
+| $1$  | $1$   | $1$    | $1$      | $1$       |
+| $2$  | $4$   | $8$    | $16$     | $32$      |
+| $3$  | $9$   | $27$   | $81$     | $243$     |
+| $4$  | $16$  | $64$   | $256$    | $1024$    |
+| $5$  | $25$  | $125$  | $625$    | $3125$    |
+| $6$  | $36$  | $216$  | $1296$   | $7776$    |
+| $7$  | $49$  | $343$  | $2401$   | $16807$   |
+| $8$  | $64$  | $516$  | $4096$   | $32768$   |
+| $9$  | $81$  | $729$  | $6561$   | $59049$   |
+| $10$ | $100$ | $1000$ | $10000$  | $100000$  |
+| $11$ | $121$ | $1331$ | $14641$  | $161051$  |
+| $12$ | $144$ | $1728$ | $20736$  | $248832$  |
+| $13$ | $169$ | $2197$ | $28561$  | $371293$  |
+| $14$ | $196$ | $2744$ | $38416$  | $537824$  |
+| $15$ | $225$ | $3375$ | $50625$  | $759375$  |
+| $16$ | $256$ | $4096$ | $65536$  | $1048576$ |
+| $17$ | $289$ | $4913$ | $83521$  | $1419857$ |
+| $18$ | $324$ | $5832$ | $104976$ | $1889568$ |
+| $19$ | $361$ | $6859$ | $130321$ | $2476099$ |
+| $20$ | $400$ | $8000$ | $160000$ | $3200000$ |
 
 **Standard Form**: Representation of Very Large/Small Numbers using:
 $$a \times 10^n$$
@@ -757,17 +884,17 @@ $$
 a^{-n} = \frac{1}{a} \times \frac{1}{a} ... = \frac{1}{a^n}
 $$
 
-## Square
+### Square
 **Square**: Where Numbers are Exponentiated to The Power of 2, and It create a Geometric 2 Dimentional Square
 $$
 a^2 = a \times a
 $$
 
 
-## Cube
+### Cube
 **Cube**: Where Numbers are Exponentiated to The Power of 3, and It create a Geometric 3 Dimentional Cube
 $$
-a^3
+a^3 = a \times a \times a
 $$
 
 # Calculus

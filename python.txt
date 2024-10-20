@@ -3556,11 +3556,11 @@ Section: Object Oriented Programming
 
 		james = Person # Reference
 
-	(v) Classes are Objects (Dictionaries) that stores data and Methods for us to use and Classes They are Highly Customizeable compared to Objects and whenever making an instance of it Copy of The Class as an Object (Dictionary) is assigned to The Instance and we can use the methods defined the class on the instance
+	(iv) Constructors
+		
+		(a) Special Functions in Classes that are called during declaration of the Instance of The Class, The Constructors require a Special Name `__init__`
 
-	(vi) Constructors: Constructor are Special Functions in Classes that are called during declaration of the Instance of The Class, The Constructors require a Special Name `__init__`
-
-		(a) Syntax:
+		(b) Syntax:
 
 			# In The Class
 			def __init__ (self, <args...>):
@@ -3577,47 +3577,10 @@ Section: Object Oriented Programming
 		        self.age = age
 
 		james = Person("James", 36)
+
+	(vii) Methods
 		
-	(v) `self` keyword represents The instanced object (dictionary) and not the class
-		
-		class Person:
-		    # Constructor (initializer) method
-		    def __init__(self, name, age):
-		        self.name = name
-		        self.age = age
-
-		    # Instance method
-
-		    def info(self):
-		        return self.age
-
-		james = Person("James", 36)
-		dave = Person("Dave", 47)
- 
-		james.age # 36
-		dave.age # 47
-
-		# `self` keyword is dynamic
-
-	(vi) `cls` keyword takes place of `self` keyword in arguments and instead represents the class instead of the Object meaning It can modify The Class.
-
-		class Counter:
-		
-		    i = 0
-		    @classmethod
-		    def __init__(cls):
-		        cls.i += 1
-		        print(cls.i)
-		
-		counter1 = Counter() # 1
-		counter2 = Counter() # 2
-		counter3 = Counter() # 3
-		counter4 = Counter() # 4
-		counter5 = Counter() # 5
-
-		# `cls` keyword is static
-
-	(vii) Methods are functions defined within a class. They can operate on the object's data (attributes) and perform actions.
+		(a) Methos are functions defined within a class. They can operate on the object's data (attributes) and perform actions.
 
 		class Person:
 		    def introduce(self):
@@ -3626,6 +3589,47 @@ Section: Object Oriented Programming
 		james = Person()
 		james.name = 'James'
 		james.introduce() # Prints: Hi I'm James
+		
+	(v) Dynamic/Static Methods
+		
+		(a) `self` keyword represents The instanced object (dictionary) and not the class
+		
+			class Person:
+			    # Constructor (initializer) method
+			    def __init__(self, name, age):
+			        self.name = name
+			        self.age = age
+
+			    # Instance method
+
+			    def info(self):
+			        return self.age
+
+			james = Person("James", 36)
+			dave = Person("Dave", 47)
+	
+			james.age # 36
+			dave.age # 47
+
+			# `self` keyword is dynamic
+
+		(b) `cls` keyword takes place of `self` keyword in arguments and instead represents the class instead of the Object meaning It can modify The Class.
+
+			class Counter:
+
+			    i = 0
+			    @classmethod
+			    def __init__(cls):
+			        cls.i += 1
+			        print(cls.i)
+
+			counter1 = Counter() # 1
+			counter2 = Counter() # 2
+			counter3 = Counter() # 3
+			counter4 = Counter() # 4
+			counter5 = Counter() # 5
+
+			# `cls` keyword is static
 
 	(viii) Getters and Setters
 
@@ -3724,8 +3728,6 @@ Section: Object Oriented Programming
 		
 				(A) In this example, `@property` is used to define a getter method, and `@value.setter` is used to define a setter method for the `value` property. This syntax provides a more elegant way to define getters and setters in Python classes.
 
-		(e) Using getters and setters in Python allows for controlled access to class attributes, promoting encapsulation and ensuring data integrity within the class. However, they should be used judiciously and only when necessary, as excessive use of getters and setters can lead to code verbosity and decreased readability.
-
 	(ix) Inheritance
 		
 		(a) Inheritance allows a class (subclass) to inherit attributes and methods from another class (superclass). It promotes code reuse and supports the creation of hierarchical relationships.
@@ -3778,11 +3780,11 @@ Section: Object Oriented Programming
 					|				|
 				ChildClass1    ChildClass2
 
-		(b) Syntax:
+		(c) Syntax:
 
 			class <Child_Class>(<Parent_Class>):
 
-		(c) Example:
+		(d) Example:
 
 			class Person:
 			    def __init__ (self, name, age):
