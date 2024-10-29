@@ -1,7 +1,7 @@
 
 # Hacking
 
-Basics:
+# Basics
 
 ## Recon (FootPrinting): Gathering Public Information
 
@@ -113,7 +113,7 @@ Black Eye:
 
         (Attempting to phish a Very Important / Powerful / Influential Person is called Whaling)
 
-Network:
+# Network
 
 ## Nmap
 
@@ -224,7 +224,7 @@ Network:
     - `--spoof-mac <mac address/prefix/vendor name>`: Spoof your MAC address
     - `--badsum`:                                     Send packets with a bogus TCP/UDP/SCTP checksum
 
-    (xii) SCRIPT SCAN:
+- SCRIPT SCAN:
 
     - `-sC`:                               equivalent to --script=default
     - `--script <name>`:                   runs one of the automated hacking scripts listed at https://nmap.org/nsedoc/scripts/
@@ -245,7 +245,7 @@ Network:
         - `vuln`: A General Script for Scanning for Vunerabilites
         - `smb-enum-users.nse`: Gathers Information about The user on the Target machine which uses SMB Protocol (445 for Microsoft-DS)
 
-    (xiii) OUTPUT:
+- OUTPUT:
 
     - `-oN/-oX/-oS/-oG <file>`:  Output scan in normal, XML, s|rIpt kIddi3, and Grepable format, respectively, to the given filename.
     - `-oA <basename>`:          Output in the three major formats at once
@@ -275,17 +275,18 @@ Network:
     - `-V`:                   Print version number
     - `-h`:                   Print this help summary page.
 
-- Examples:-
+Examples:-
 
-    ```bash
-    $ nmap -v -A scanme.nmap.org
-    ```
-    ``` bash
-    $ nmap -v -sn 192.168.0.0/16 10.0.0.0/8
-    ```
-    ``` bash
-    $ nmap -v -iR 10000 -Pn -p 80
-    ```
+```bash
+$ nmap -v -A scanme.nmap.org
+```
+``` bash
+$ nmap -v -sn 192.168.0.0/16 10.0.0.0/8
+```
+``` bash
+$ nmap -v -iR 10000 -Pn -p 80
+```
+
 ## Proxy Chaining
 
 - Proxy chains are sequences of proxy servers through which internet traffic is routed to enhance privacy and anonymity. Each server in the chain forwards the data to the next, masking the original source IP address. This layered approach makes it harder to trace the user's online activity.
@@ -513,7 +514,7 @@ Network:
 
 ## DNS
 
-- Host
+- `host`
 
     - DNS Discovery
 
@@ -550,7 +551,7 @@ Network:
     - `-4`: use IPv4 query transport only
     - `-6`: use IPv6 query transport only
 
-- Ns Lookup
+- `nslookup`
         
     - nslookup: is a program to query Internet domain name servers. nslookup has two modes: interactive and non-interactive. Interactive mode allows the user to query name servers for information about various hosts and domains
        or to print a list of hosts in a domain.  Non-interactive mode prints just the name and requested information for a host or domain.
@@ -614,9 +615,35 @@ Network:
             - `novc`:           This keyword indicates that a virtual circuit should always be used when sending requests to the server.  novc is the default.
             - `nofail`:         This keyword tries the next nameserver if a nameserver responds with SERVFAIL or a referral (nofail), or terminates the query (fail) on such a response. The default is nofail.
 
-- Dig
+- `dig`
 
-Brute Force:
+- `dnsenum`
+    - DNS Enumerations Tool
+- `dnsrecon`
+    - DNS Enumeration Tool, Gathers Comprehensive Information 
+
+- `whois`
+    - Gathers info about a host
+
+    ```
+    $ whois google.com
+    ```
+
+## Network Capture
+
+- `tcpdump`
+    - Analysises Real-Time TCP Network Traffic
+
+    ```bash
+    $ tcpdump -i eth0
+    ```
+- `tcpflow`
+- `wireshark`
+- `tshark`
+- `nbtscan`
+    - Discoveres Windows Machines on a Network
+
+# Brute Force
 
 ## Passwords
 
@@ -1223,7 +1250,7 @@ Brute Force:
     - `/usr/share/wordlists/seclists/Passwords/`
     - `/usr/share/wordlists/seclists/Discovery/`
 
-Other:
+# Exploit
 
 ## Metasploit Framework
 
@@ -1376,7 +1403,7 @@ $ sudo responder -I eth0
     - `-l`, `--log`:                        Log the WinRM session
     - `-h`, `--help`:                       Help
 
-Vunerabilites:
+# Vunerabilites
 
 ## Telnet
 

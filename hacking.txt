@@ -1202,7 +1202,7 @@ Brute Force:
         (b) /usr/share/wordlists/seclists/Passwords/
         (b) /usr/share/wordlists/seclists/Discovery/
 
-Other:
+Expolit:
 
 13. Metasploit Framework
 
