@@ -36,14 +36,14 @@ $f(1) = 1$
 
 $f(n) = f(n-1) + f(n-2)$
 
-| Symbol | Name               				 | Value                       | Obtain |
+| Symbol | Name               				 | Decimal Value               | Obtain |
 | ------ | --------------------------------- | --------------------------- | ------ |
 | $\pi$  | **Pi**             				 | $3.14159265358979323846...$ |        |
 | $\tau$ | **tau**            				 | $6.28318530717958647692...$ | $2\pi$ |
-| $e$    | **Euler's Number** 				 | $2.71828182845904523536...$ | $$\displaystyle\sum_{n=0}^\infty\frac{1}{n!} = \frac{1 + \sqrt5}{2}$$ |
+| $e$    | **Euler's Number** 				 | $2.71828182845904523536...$ | $$\sum_{n=0}^\infty\frac{1}{n!} = \frac{1 + \sqrt5}{2}$$ |
 | $i$ 	 | **Imaginary Unit** 				 | $i$						   | $\sqrt{-1}$ |
 | $\phi$ | **Golden Ratio**   				 | $1.61803398874989484820...$ | $$\lim_{n \to \infty}\frac{f(n)}{f(n-1)}$$ |
-| $\psi$ | **Reciprocal Fibbonaci Constant** | $1.61803398874989484820...$ | $$ |
+| $\psi$ | **Reciprocal Fibbonaci Constant** | $3.35988566624317755317...$ | $$\sum_{n=1}^{\infty}\frac{1}{f(n)}$$ |
 
 # Pure Mathematics
 
@@ -55,73 +55,192 @@ $f(n) = f(n-1) + f(n-2)$
 
 **Successor**: A Number `+1` of The Previous One
 
-$
-a+1
-$
+$a+1$
 
 **Predecessor**: A Number `-1` for the Previous one
 
-$
-a-1
-$
+$a-1$
 
 ## Addition, Subtraction
 **Addition** `(Add)`: Sum of any 2 Numbers
 
-$
-a+b
-$
+$a\color{lime}+\color{white}b$
 
 - Repeated Succession $b$ count of times on $a$
 
 **Subtraction** `(Subtract)`: Subtraction of One Number from another
 
-$
-a-b
-$
+$a\color{red}-\color{white}b$
 
 - Repeated Predecession $b$ count of times on $a$
 
 ## Multiplication, Division
 **Multiplication** `(Multiply)`: Multiplication
 
-$
-a \times b
-$
+$a\color{lime}\times\color{white}b$
 - Repeated Addition of `a` with itself `b` count of times
 
 **Division** `(Divide)`: Divison of a Number in `b`  count of peices
 
-$ a / b $
-
-$ a \div b $
+$a\color{red}\div\color{white}b$
 - Divison of $a$ into `b` count of Parts/Components Evenly
+
+## BEDMAS
+
+**BEDMAS** is the standard for math operations evaluation Order, each letter corresponding to a specific Operation
+
+1. **Border**
+2. **Exponent**
+3. **Division**
+4. **Multiplication**
+5. **Addition**
+6. **Subtraction**
+
 
 # Algebra
 **Algebra**: a field of Mathematics consisting of English Aplhabet Represeting Number, with many use cases such as Representing Unknown/Dynamic Values.
 
-## Identities
+## Core Algebra
 
-**Binomial**:
+**Constant**: a Number with a Fixed Value
+
+**Components**:
+- **Expression**: contains all the terms and operands
+
+	$\color{MediumSeaGreen}4x^2 - 3xy$
+
+	- **Monomial**: expression with $1$ terms.
+	- **Bionomial**: expression with $2$ terms.
+	- **Trinomial**: expression with $3$ terms.
+	- **Polynomial**: expression with any count of terms $n$.
+- **Terms**: Parts that needs to be solved independently
+	
+	$\color{MediumSeaGreen}{4x^2} \color{white}{ - } \color{MediumSeaGreen}{3xy}$ 
+
+	- **Like Terms**: when Algebraic Factors of 2 terms are the same
+	- **Unlike Terms**: when Algebraic Factors of 2 terms are not the same
+
+- **Factors**: all of the individual factors of the expression
+
+	$(\color{MediumSeaGreen}4 \color{white}\times \color{MediumSeaGreen}x \color{white}\times \color{MediumSeaGreen}x\color{white}) - (\color{MediumSeaGreen}3 \color{white}\times \color{MediumSeaGreen}x \color{white}\times \color{MediumSeaGreen}y\color{white})$ 
+- **Coefficient**: The Other Factors in the Same Term
+
+	- **Numerical Coefficients/Factors**: Constants in a term
+
+		$\color{MediumSeaGreen}3\color{white}xy$ 
+
+	- **Algebraic Coefficients/Factors**: Algebraic variables in a term
+
+		$3\color{MediumSeaGreen}xy\color{white}$ 
+
+### Equations
+
 $$
-(a + b)^2 = a^2 + 2ab + b^2
+LHS = RHS
+$$
+
+**Transposing**: Switch of Terms from one side to another, along with the inversion of Operand
+
+- Addition/Subtraction
+
+	$$a + b = c$$
+	
+	$$a = c - b$$
+
+- Multiplication/Division
+
+$$
+a \times b = c
 $$
 $$
-(a - b)^2 = a^2 - 2ab + b^2
+a = c \div b
+$$
+
+<br>
+
+$$
+a \times b = c + d
 $$
 $$
-(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3
+a = \frac{c + d}{b}
+$$
+
+### Addition/Subtraction
+
+- Terms can Only be Added together when the Algebraic Factors are the same
+
+$$
+a + a = 2a
 $$
 $$
-(a - b)^3 = a^3 - 3a^2b + 3ab^2 + b^3
+ab \pm ac = a(b \pm c)
 $$
-**Factorization**:
+
+Not Allowed:
 $$
-ab + ac = a(b + c )
+a^2 + a \neq 2a^2
+$$
+
+### Multiplication/Divison
+
+- **Monomial**, **Monomial**
+
+	- Multiplication
+	$$a \times a = a^2$$
+	$$a \times b = ab$$
+
+	- Division:
+	$$a^n \div a = a^{n-1}$$
+	$$a \div b = \frac{a}{b}$$
+	$$ab \div b = a$$
+
+- **Monomial**, **Binomial**
+
+	- Multiplication
+	$$a \times (b + c) = ab + ac$$
+
+	- Division
+	> $a \neq 0$, $b + c \neq 0$
+
+
+	$$\frac{a}{ab + ac} = \frac{a}{a} \cdot \frac{1}{b + c} = \frac{1}{b + c}$$
+
+	$$\frac{ab + ac}{a} = \frac{a(b + c)}{a \cdot 1} = \frac{a}{a} \cdot \frac{b + c}{1} = b + c$$
+- **Binomial**, **Binomial**
+
+	- Multiplication
+	$$(a + b)(c + d) = a(c + d) + b(c + d) = ac + ad + bc + bd$$
+
+	$$(a + b)^2 = (a + b)(a + b) = a^2 + 2ab + b^2$$
+
+	- Division
+	> $c + d \neq 0$
+
+	$$\frac{a + b}{c + d} = \frac{a}{c + d} + \frac{b}{c + d}$$
+
+- **Binomial**, **Trinomial**
+
+	- Multiplication
+
+	$$(a + b)(x + y + z) = a(x + y + z) + b(x + y + z) = ax + ay + az + bx + by + bz$$
+
+### Binomial Theorem
+
+$$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^n \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
+
+### Factorization
+
+$$
+a^2 \pm ab = a(a \pm b)
 $$
 $$
--a(b) + a(c) = -a(b -c) = a(-b + c)
+\pm ab \pm ac = \pm a(b + c) = a(\pm b \pm c)
 $$
+$$
+\pm ab \mp ac = a(b \mp c) = \mp a ( \mp b \pm c)
+$$
+
+## Abstract Algebra
 
 ## Boolean Algebra
 **Boolean Algebra**: A Branch of Algebra where the Variables can only have 2 possible states
@@ -130,6 +249,9 @@ $$
 - `0` standing for **FALSE**, **OFF**.
 
 ### Units
+
+---
+
 These Boolean Algebra Variables are used in Sets when representing Data
 - **Bit**: A Single Variable, with only possible states of `0` and `1`.
 - **Nibble**: a set of 4 Bits, with $2^4$ combinations with `0`'s and `1`'s.
@@ -170,8 +292,9 @@ These Boolean Algebra Variables are used in Sets when representing Data
 | **ZibiByte** `ZiB` | `1024 ExbiBytes` | $2^{70}$ |
 | **YobiByte** `YiB` | `1024 ZibiBytes` | $2^{80}$ |
 
----
 ### Logic Gates:
+
+---
 
 Logic Gates are Gates that Determine the Output of Certain Inputs based on Logic which they Represent
 
@@ -225,6 +348,8 @@ Main Logic Gates:
 
 ### Latches
 
+---
+
 **SR Latch**: A Latch that can Hold upto 1 Bit of Data, with 2 Inputs and 2 Outputs
 
 - `S`, `R` Inputs
@@ -244,8 +369,9 @@ Truth Table:
 | $0$ | $1$ | $0$    | $1$    |
 | $1$ | $1$ | $0$    | $0$    |
 
----
 ### Arithmetic
+
+---
 
 **Addition**: An Special Type of XOR Operation of Inputs, `a`, `b` and *Carry*
 
@@ -279,12 +405,50 @@ Truth Table:
 | $1$   | $1$ | $0$  | $0$          | $0$        |
 | $1$   | $1$ | $1$  | $1$          | $1$        |
 
+**Multiplication**: An `AND` Operation On Every Combination of Inputs `a` and `b`, there's no carry.
+
+| $a$ | $b$ | $r$ |
+| --- | --- | --- |
+| $0$ | $0$ | $0$ |
+| $0$ | $1$ | $0$ |
+| $1$ | $0$ | $0$ |
+| $1$ | $1$ | $1$ |
+
+- for `n` count of inputs
+
 # Linear Alegbra
 **Linear**: a subfield of Algebra where All the Algebraic factors in an expression have a power of 1
 
+## Linear Equations in One Variable
+where the all the terms in the expression either have 0 or only 1 algebraic factor.
+
+examples:
+
+$2x - 3 = x + 2$
+
+$2x - x - 3 = 2$
+
+$x - 3 = 2$
+
+$x = 2 + 3$
+
+$x = 5$
 
 # Geometry
 **Geometry**: a field of Mathematics consisting Entirely of Geometric Shapes and their Properties
+
+- [Symmetry](#symmetry)
+- [2D](#2D)
+	- [Lines](#lines)
+	- [Curves](#curves)
+	- [Angles](#angles)
+	- [Circle](#circle)
+	- [Polygon](#polygon)
+- [3D](#3D)
+	- [Segments](#segments)
+	- [Sphere](#sphere)
+	- [Cube](#Cube)
+
 Properties:
 - **Vertex**: Meeting Point of 2 Line Segments
 - **Adjacent sides**: lines that share a common vertex.
@@ -302,8 +466,9 @@ Properties:
 
 **Area**: Amount of area covered by any Shape.
 
----
 ### Lines
+
+---
 
 **Line Segment**: A Line that stop at 2 distinct points.
 
@@ -322,8 +487,9 @@ Properties:
 
 
 
----
 ### Curves
+
+---
 
 **Simple Curve**: A Curve that doesn't cross itself
 
@@ -336,8 +502,9 @@ Properties:
 - **Exterior**: Area Outside the Curve
 - **Region**: Interior and Boundary
 
----
 ### Angles
+
+---
 
 Unit:
 
@@ -349,22 +516,32 @@ Angles measured in degrees
 
 - $360\degree$ is the maximum value.
 
-Properties
+Types:
 - **Acute Angle**: in which angle is $<90\degree$
 - **Right Angle**: in which angle is $90\degree$
 - **Obtuse Angle**: in which angle is greater than $90\degree$ and less than $180\degree$.
 
-	$A > 90\degree ∧ A < 180\degree$
+	$\angle a > 90\degree ∧ \angle a < 180\degree$
 
 - **Straight Angle**: in which angle is $180\degree$
 - **Reflex Angle**: in which angle is greater than $180\degree$ and less than $360\degree$.
 
-	$A > 180\degree ∧ A < 360\degree$
+	$\angle a > 180\degree ∧ \angle a < 360\degree$
 
 - **Complete Angle**: in which angle is $360\degree$
 
----
+Sum Types:
+- **Complementary Angles**: when sum of 2 angles equals to $90\degree$
+
+	$\angle a + \angle b = 90\degree$
+
+- **Supplementary Angles**: when sum of 2 angles equals to $180\degree$
+
+	$\angle a + \angle b = 180\degree$
+
 ### Circle
+
+---
 
 Line Segments and Curves:
 
@@ -402,6 +579,8 @@ Similar Shapes
 - **Quadrant**: Quarter of a Circle
 
 ### Polygon
+
+---
 **Polygon**: A simple closed Shape made up only line segments
 
 Properties:
@@ -416,8 +595,9 @@ Types:
 - **Concave Polygon**: A Polygon with an In-words Curve
 - **Convex Polygon**: A Polygon without any In-words Curve
 
----
 #### **Triangle**: A Polygon with 3 sides
+
+---
 
 Properties: 
 - $180\deg$ Sum of all Interior Angles
@@ -447,8 +627,9 @@ Properties:
 	- **Obtuse Angled Triangle**: A Triangle with any one Angle Greater than $90\deg$
 	$$90 \deg > a ∨ b ∨ c$$
 
----
 #### **Quadrilateral**: A Polygon with 4 Sides and Vertex
+
+---
 
 Properties: 
 - $360\deg$ Sum of all Interior Angles
@@ -486,10 +667,14 @@ Properties:
 
 #### **Pentagon**: A Polygon with 5 sides and vertex
 
+---
+
 - $540\deg$: sum of All Interior Angles
 - Regular: $108\deg$
 
 #### **Hexagon**: A Polygon with 6 sides and vertex
+
+---
 
 - $720\deg$: sum of All Interior Angles
 - Regular: $120\deg$
@@ -498,7 +683,11 @@ Properties:
 
 ### Segments
 
+---
+
 **Surface Area**: Amount of Area exposed to the Outside of an object
+- **Net**: Flattened version of Surface of a 3D shape into a 2D space
+- **Cross-Section**: Area which gets exposed when cutting open a 3D Object
 
 **Volume**: Amount of Space occupied by a 3D Object
 
@@ -509,25 +698,36 @@ Properties:
 **Vertex**: Intersection point of 3 
 
 ### Sphere
+
+---
+
 **Sphere**: A 3 Dimentional Circle
 
 ### **Cube**
 
 ---
+
 ### **Triangular**
 
 ---
+
 #### **Pyramid**
 
 ---
+
 #### **Tetrahedron**
+
+---
 
 # Trignometry
 **Trignometry**: a sub-field of Geometry only consisting of Triangles and Their Angles related Geometry
 # Number Theory
 ## Base
 
-## Base 10
+### Base 10
+
+---
+
 **Internation System of Numerals**: every *comma* `(,)` is placed after every 3rd digit
 
 $
@@ -578,24 +778,33 @@ $$
 Different Type of Number System that are used in Mathematics:
 
 ### Natural Numbers/Positive Numbers
+
+---
+
 **Natural Numbers**/**Positive Numbers**: a Set of every number that be found in Nature and it does Exists.
 $$
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
----
 ### Negative Numbers
+
+---
+
 **Negative Numbers**: a Set of Negative Version of every *Positive Numbers*.
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1
 $$
----
 ### Whole Numbers
+
+---
+
 **Whole Numbers**: A Set of every *Positive Numbers* and The Number `0`.
 $$
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
----
 ### Integers
+
+---
+
 **Integers**: A Set containing All *Positive* and *Negative* Numbers also also `0`
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
@@ -614,15 +823,18 @@ $$
 $$
 \pm a \times \mp b = -a \times b = a \times -b = -c
 $$
----
+
 ### Fractions
+
+---
+
 **Fractions**: Numbers that can be represented as a Fraction of a Number, can be both Positive/Negative, can also Represent *some* Decimal Numbers
 $$
 \frac{a}{b}
 $$
 
 Properties:
-- $a/0$ is Not Allowed, $b$ must not be `0`
+- $b \neq 0$, `b` must not be equal to $0$
 - **Nominator**/**Numerator**: value That Sits on Top of The Fraction
 - **Dominator**/**Denomitor** */: value That Sits on Bottom of The Fraction
 
@@ -641,12 +853,12 @@ $$
 
 **Proper Fractions**: fractions where Nominator is <u>smaller</u> than The Denominator
 
-**Improper Fractions**: fractions where Nominator is <u>Bigger</u> than The Denominator
+**Improper Fractions**: fractions where Nominator is <u>bigger</u> than The Denominator
 
 **Mixed Fractions**: A mix of an Integer and A Fraction
 
 $$
-c + \frac{a}{b}
+c \frac{a}{b} = c + \frac{a}{b}
 $$
 - To Mixed:
 	- `c` must be floored to the Nearest Integer
@@ -657,11 +869,11 @@ $$
 n \div b = c
 $$
 $$
-\frac{n}{b} = (n \div b) + \frac{(n \mod b)}{b} = c + \frac{a}{b}
+\frac{n}{b} = (n \div b) + \frac{(n \mod b)}{b} = c \frac{a}{b}
 $$
 - From Mixed:
 $$
-c + \frac{a}{b} = \frac{cb + a}{b} = \frac{n}{b}
+c \frac{a}{b} = \frac{cb + a}{b} = \frac{n}{b}
 $$
 **Arithmetic Operations**:
 
@@ -694,8 +906,11 @@ $$
 $$
 \frac{a}{b} \div \frac{c}{d} = \frac{a \div c}{b \div d} = \frac{a \times d}{b \times c}
 $$
----
+
 ### Rational Numbers
+
+---
+
 **Rational Numbers**: Includes All of The Integers and Fractions
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
@@ -712,8 +927,9 @@ $$
 \frac{a}{b} \times \frac{b}{a} = \frac{a \div a}{b \div b} = \frac{1}{1} = 1
 $$
 
----
 ### Properties:
+
+---
 
 - `0` Additive Identity for Rationals
 - `1` Multiplicative Identity for Rationals
@@ -762,8 +978,10 @@ $$
 
 
 
----
 ### Other Number Types:
+
+---
+
 **Even Numbers**: Numbers that can only be represeted as a Multiple of $2$
 
 $$
@@ -771,11 +989,22 @@ $$
 $$
 - These Number must always have  any of $0, 2, 4, 6, 8$ in the *one's unit digit place*
 
+- sum of `n` count of consecutive even numbers starting from 2
+$$
+\sum_{k=2}^n 2k = n(n+1)
+$$
+
 **Odd Numbers**: Numbers that can't be represeted as a Multiple of $2$
 
 $$
 2a+1
 $$
+
+- sum of `n` count of consecutive odd numbers starting from 1
+$$
+\sum_{k=1}^n (2k-1) = n^2
+$$
+
 - These Number must always have  any of $1, 3, 5, 6, 9$ in the *one's unit digit place*
 
 **Prime Numbers**: Numbers that can only be divided by $1$ and *itself*, having exactly 2 factors
@@ -793,7 +1022,13 @@ $$
 
 - **Co-Prime Numbers**: 2 numbers with only 1 as a common factor.
 
-
+	```python
+	def isPrime(n):
+	    if n < 2: return False;
+	    for i in range(2, int(n**0.5) + 1):
+	        if n % i == 0: return False;
+	    return True
+	```
 **Composite Numbers**: Numbers that doesn't have exactly 2 factors
 
 $$
@@ -812,12 +1047,10 @@ a \mod 10
 $$
 
 To Fraction:
-> for this examples `n` is count of Decimal Digits after the Decimal point, and `a` is the decimal number
-
+> `n` is count of Decimal Digits after the Decimal point before $0$ or repeat, and `a` is the decimal number
 $$
 a = \frac{a \times 10^n}{10^n} = \frac{10^na}{10^n}
 $$
-
 
 
 ## Ratio
@@ -833,17 +1066,20 @@ Properties:
 - **Equivalent Ratios**: when 2 Ratios are equivalent to one another
 
 ### Proportion
+
+---
+
 **Proportion**: Property of Equivality of 2 ratios
 
 $a \colon b = c \colon d$
 
 $a \colon b :: c \colon d$
 
-**Respective Terms**: all 4 Terms involved `[a, b, c, d]`
+- **Respective Terms**: all 4 Terms involved `[a, b, c, d]`
 
-**Extreme Terms**: First and the Last Terms `[a, d]`
+- **Extreme Terms**: First and the Last Terms `[a, d]`
 
-**Middle Terms**: Second and the Third Terms `[b, c]`
+- **Middle Terms**: Second and the Third Terms `[b, c]`
 
 ## Factors
 
@@ -910,6 +1146,8 @@ Divisibility Rule
 
 ### Prime Factorisation
 
+---
+
 **Prime Factorisation**: A type of Factorisation in which the only remaining Factors are Prime Numbers and `1`
 
 - **Greatest Common Divisior** `GCD`: The Biggest Factor any 2 or more Numbers that are all divisible by it.
@@ -927,7 +1165,7 @@ $$
 (-a)^{n} = -a \times -a ...
 $$
 $$
-\displaystyle\prod_{k=1}^n a = a^n
+\prod_{k=1}^n a = a^n
 $$
 
 
@@ -960,6 +1198,8 @@ $$a \times 10^n$$
 
 ### Laws of Exponent
 
+---
+
 $$
 a^m \times a^n = a^{m+n}
 $$
@@ -976,6 +1216,31 @@ $$
 (a^m)^n = a^{mn}
 $$
 
+More Rules:
+
+- $1$ to the power of any integer exponent `n` always results in $1$
+$$1^n = 1$$
+
+- $-1$ to the power of even number exponent `2a` will result in $1$ and $-1$ if odd
+$$(-1)^{2a} = 1$$
+
+$$(-1)^{2a+1} = (-1)$$
+- $10^n$ will result in $1$ followed by `n` count of zeros,
+
+	$10^3 = 1000$
+
+	- if `n` is negative then It'll be `n` count of decimal places and then a $1$
+
+		$10^{-3} = 0.001$
+
+- Odd Number to the Power of `n` will always result in an Odd Number
+$$(2a + 1)^n = 2(\frac{(2a + 1)^n - 1}{2}) + 1$$
+- Even Number to the Power of `n` will always result in an Even Number, as long as $n \neq 0$
+$$(2a)^n = 2(\frac{(2a)^n}{2})$$
+
+### Power
+
+---
 
 **Integer Exponents**: where `n` is Integer
 
@@ -1012,19 +1277,170 @@ $$
 $$
 a^{1/n} = \sqrt[n]{a}
 $$
+$$
+a^{m/n} = (\sqrt[n]{a})^m
+$$
 
 ### Square
+
+---
+
+
 **Square**: Where Numbers are Exponentiated to The Power of 2, and It create a Geometric 2 Dimentional Square
 $$
 a^2 = a \times a
 $$
 
+$$(a + b)^2 = a^2 + 2ab = b^2$$
+$$(a - b)^2 = a^2 - 2ab = b^2$$
+$$a^2 - b^2 = (a + b)(a - b)$$
+
+**Square Numbers**/ **Perfect Square Numbers**: numbers that can be expressed as $a^2$, where $a$ is an Integer
+$$
+a^2 = b
+$$
+
+| Number | Square Unit Digit |
+| ------ | ----------------- |
+| $1, 9$ | $1$				 |
+| $2, 8$ | $4$				 |
+| $3, 7$ | $9$				 |
+| $4, 6$ | $6$				 |
+| $5$ 	 | $5$				 |
+
+- `n` is the Count of Digits in $\sqrt{a}$, the amount of digits in the Square Root of the Number will be:
+	
+	$$n = 2x ⇒ \frac{n}{2}$$
+	$$n = 2x + 1 ⇒ \frac{n + 1}{2}$$
+
+**Triangular Number**: where the Number can Geometrically arranged to create a Triangle
+
+$$
+a = \sum_{k=1}^n k
+$$
+- Sum 2 Consecutive Square Number Results in a Square number
+$$
+(\sum_{k=1}^n k) + (\sum_{k=1}^{n-1} k) = n^2
+$$
+**Odd Numbers**: sum of `n` count of consecutive odd numbers starting from 1 is $n^2$
+
+$$
+\sum_{k=1}^n (2k-1) = n^2
+$$
+$$
+a - (\sum_{k=1}^n (2k -1)) = 0 ⇒ \sqrt{a} = n
+$$
+
+Square Rule of 5: any Number `a` where the Unit Digit of it is 5, then It'll follow this rule:
+
+$$a \mod 10 = 5 ⇒$$
+
+$$a = 10k + 5$$
+$$k = \frac{a - 5}{10}$$
+$$a^2 = 100k(k + 1) + 25$$
+
+**Pythagorian Triplets**:
+$$
+2m, m^2 - 1, m^2 + 1
+$$
+$$
+a = 2m
+$$
+$$
+b = m^2 - 1
+$$
+$$
+c = m^2 + 1
+$$
+$$
+a^2 + b^2 = c^2
+$$
+$$
+(2m)^2 + (m^2 - 1)^2 = (m^2 + 1)^2
+$$
+
+<details>
+<summary>
+Patterns:
+</summary>
+
+$1^2 = 1$
+
+$11^2 = 121$
+
+$111^2 = 12321$
+
+$1111^2 = 1234321$
+
+$11111^2 = 123454321$
+
+$...$
+
+$7^2 = 49$
+
+$67^2 = 4489$
+
+$667^2 = 444889$
+
+$6667^2 = 44448889$
+
+$66667^2 = 4444488889$
+
+$666667^2 = 444444888889$
+
+$...$
+
+$11^2 = 121$
+$101^2 = 10201$
+$1001^2 = 1002001$
+$10001^2 = 100020001$
+
+$...$
+
+$11^2 = 121$
+
+$101^2 = 10201$
+
+$10101^2 = 102030201$
+
+$1010101^2 = 1020304030201$
+
+$...$
+
+</details>
 
 ### Cube
+
+---
+
 **Cube**: Where Numbers are Exponentiated to The Power of 3, and It create a Geometric 3 Dimentional Cube
 $$
 a^3 = a \times a \times a
 $$
+
+$$(a + b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$$
+$$(a - b)^3 = a^3 - 3a^2b + 3ab^2 - b^3$$
+
+$$
+a^2 - b^2 = (a)(a) - (b)(b) = (a-b)(a+b)
+$$
+$$
+a^3 - b^3 = (a)(a)(a) - (b)(b)(b) = (a-b)(a+b)^2
+$$
+
+**Cube Numbers**/ **Perfect Cube Numbers**: numbers that can be expressed as $a^3$, where $a$ is an Integer
+$$
+a^3 = b
+$$
+
+| Number | Cube Unit Digit |
+| ------ | ----------------- |
+| $1, 9$ | $1$				 |
+| $2, 8$ | $4$				 |
+| $3, 7$ | $9$				 |
+| $4, 6$ | $6$				 |
+| $5$ 	 | $5$				 |
+
 
 # Calculus
 # Differential Equations
