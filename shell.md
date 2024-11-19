@@ -55,20 +55,20 @@
 - `rmdir <Path>` Deletes The Directory on the Path, Only if  The Directory  is Empty
 - `chmod <+ or -><permission> <Path>`: Adds or Removes File Permissions
 -  $ # Executable File
-- $ chmod +x script.sh-j) `chown <username> <Path>` Changes Ownership of the File/Directory
-(k) `zip <Path+Name>.zip <files...>` Zips the Specified files with the Specified name
-(l) `unzip <Path+Name>.zip` Unzips the Files
-(m) `find <Path> -name "<Name>"` searches for Files in the Specified Directory
-(n) `head <Path+Name>` Displays Heading of the File
-(o) `less <Path+Name>` Displays Contents of the One Page at a Time
-(p) `tail <Path+Name>` Displays Tail of the File
+- $ chmod +x script.sh-j `chown <username> <Path>` Changes Ownership of the File/Directory
+- `zip <Path+Name>.zip <files...>` Zips the Specified files with the Specified name
+- `unzip <Path+Name>.zip` Unzips the Files
+- `find <Path> -name "<Name>"` searches for Files in the Specified Directory
+- `head <Path+Name>` Displays Heading of the File
+- `less <Path+Name>` Displays Contents of the One Page at a Time
+- `tail <Path+Name>` Displays Tail of the File
 
-(q) `cmp <Path+Name> <Path+Name>` compares Both Files
-(r) `diff <Path+Name> <Path+Name>` compares Both Files and tell you the Difference between Both Files
+- `cmp <Path+Name> <Path+Name>` compares Both Files
+- `diff <Path+Name> <Path+Name>` compares Both Files and tell you the Difference between Both Files
 
-(m) `locate <fileName>` searches for the File Everywhere
+- `locate <fileName>` searches for the File Everywhere
 
-    (iv) Users
+### Users
 
 - `whoami` The User who you are Logged in as
 
@@ -78,56 +78,60 @@
 
 - `su <username>`: Switch to the Specified User, add prefix `sudo` and don't specify the -rname to log in as ROOT
 - `exit` exits out of the current user If is switched from a different user-f) `passwd <username>` changes password of the User, leave the username Empty to change-ur own Password (Requires ROOT)-   (v) Network- `ping <domain/IP>` Let's you know if something is up running
--  - `-c <Count>` Limits the amoung of Pings
-- - `-s <Size>` Sets the Size of the Packets in Bytes- `ssh <user>@<IPAddress>`
+- `-c <Count>` Limits the amoung of Pings
+- `-s <Size>` Sets the Size of the Packets in Bytes- `ssh <user>@<IPAddress>`
 
     - `-p <PORT>` stands for PORT (default 22)
 
-- `ifconfig` or `ip address` Let's you view your IP Details
+- `ifconfig`, `ip address` Let's you view your IP Details
 - `resolvectl status` Show you Details about Your DNS
 - `traceroute <domain/IP>` Displays all of the Proxies you are passing through to get at the destination
-- `netstat` or `ss` Displays all the Network Activity-   - `-t` or `--tcp`: limits to TCP Network Activit-   - `-u` or `--udp`: limits to IP Address Ports etc
-    - `-l` or `--listening`: limits to Current Activity or if Enabled or Not
-    (IV) `-p` o---programm`: limits to Programs Only
-    (V) `-n` or--numeric`: limits to Numberic
-    (VI) `-tulp-limits to Open Ports Only -g) `iptables` Your Firewall Settings on the different Port-(h) `ufw` builds on top of `iptables` for making things easier 
+- `netstat`, `ss` Displays all the Network Activity-   - `-t` or `--tcp`: limits to TCP Network Activit-   - `-u` or `--udp`: limits to IP Address Ports etc
+    - `-l`, `--listening`: limits to Current Activity or if Enabled or Not
+    - `-p`, `---programm`: limits to Programs Only
+    - `-n`, `--numeric`: limits to Numberic
+    - `-tulp-limits to Open Ports Only -g) `iptables` Your Firewall Settings on the different Port-(h) `ufw` builds on top of `iptables` for making things easier 
 
+- `ufw`
     - `ufw allow <PORT>` Opens up the Specified Port
     - `ufw status` Check Firewall Status
     - `ufw enable` enable Firewall
-    (IV) `ufw disable` disable Firewall
+    - `ufw disable` disable Firewall
 
-    (vi) Utilities for Other Commands
+### Utilities
 
-- `sudo <command>` runs the command with Root Privelages
-- `| sort <text>` sorts in Alphabetical Order
-- `| grep <word>` let's you get Lines that starts with The `<word>`
+- `sudo command` runs the command with Root Privelages
+- `cmd1 | cmd2`: Pipes stdout of first command as the input for the second command
+- `| sort text` sorts in Alphabetical Order
+- `| grep word` let's you get Lines that starts with The `word`
 - `| bc0` evaluates an Arithemetic Expression
-- `$(<command>)` let's you get the return values of the Commands
+- `$(cmd)` captures *stdout* as a String
 
-```bash
-flytothespace@debian:~$ me=$(whoami)
-flytothespace@debian:~$ echo $me
-flytothespace
-flytothespace@debian:~$ -f `<Command> > <Path+Name>` creates a File on the path and inserts the Return Value- The Command into that file
-```
--  $ echo "Hello, World" > file.txt
-- $ cat file.txt
-- Hello, World
+    ```bash
+    flytothespace@debian:~$ me=$(whoami)
+    flytothespace@debian:~$ echo $me
+    flytothespace
+    ```
 
-- `<command1> | <command2>` passes the output of the first command and to the second command
-- `<command> &` makes the command run in the background
+- `cmd > FILE`: writes *stdout* to a fil
+- `command &` makes the command run in the background
 
-    (vii) Operating System
+### Operating System
 
 - `uname` Information About your OS
 - `free` Information About RAM and Swap
 - `df -H` Information About Storage
-- `ps -aux` Information About Running Processes on Your System
+- `ps` Information About Running Processes on Your System
+    - `-a`
+    - `-u`
+    - `-x`
 - `top` Information About CPU and RAM
 - `htop` Information About CPU and RAM in a prettier way
 - `kill -9 <ProcessID>` Kills the Process by It's ID
-- `pkill -f <ProcessName>` Kills the Process by It's Name-i) `systemctl` Services
+- `pkill <ProcessName>` Kills the Process by It's Name
+    - `f`
+
+`systemctl` Services
 
     - `systemctl status <ServiceName>` Shows Status of - Specified Service
     - `systemctl start <ServiceName>` Starts The Speci-d Service
@@ -137,9 +141,9 @@ flytothespace@debian:~$ -f `<Command> > <Path+Name>` creates a File on the path 
 - `apt upgrade` installs your updates your Package Repositories
 - `apt install <name>` installs the Specified Package by Name
 
-3. External Packages
+## External Packages
     
-    (i) finger
+### finger
 
 - Let's You Inspect Other Users
 
@@ -167,13 +171,14 @@ sudo apt install finger
 - Gives you a Calender in Your terminal
 
 -  installation
-
-    $ # Debian Based
-    # sudo apt install cal
+    
+    ```bash
+    $ sudo apt install cal
+    ```
 
 - `cal` Displays a Calender
 
-4. Comments
+## Comments
 
     (i) Comments are peices of text that are Ignored by the interpreter/Compiler for Guidance and Other Purposes
 
@@ -185,7 +190,7 @@ echo "hello, World"
 $ bash script.sh
 hello, World
 
-5. Permissions:
+## Permissions:
 
     (i) Ownerships: There are 3 types of Ownerships in Linux:
 
@@ -412,11 +417,12 @@ script.sh <-- Bash Script
 
 ### add "#!/bin/bash" to the first line of the Script to Define that it must be run by Bash and not any other kind of Scripting Language
 
-#!/bin/bash
+#!/bin/bash`
 echo "Hello, World"
 
     (iii) Running a Bash Script: `bash <path>` or `<path>`
 
+```bash
 $ bash script.sh
 Hello, World
 
@@ -424,7 +430,7 @@ $ # Make the File Executable
 $ chmod +x script.sh
 $ ./script.sh
 Hello, World
-
+```
 11. More About Scripts
 
     (i) `read <variableName>` while the Script is Running It takes An Input from the User and Stores it in the given Variable

@@ -1,0 +1,1030 @@
+Networking
+
+# Network Types
+
+**PAN** - Private Area Network
+
+- Bluetooth, USB etc.
+- can extends up to 10m in Radius
+
+**LAN** - Local Area Network (Provided by Routers)
+
+- Home Network
+- can extends up to 100m in Radius
+
+- WLAN - Wireless Local Area Network
+- VLAN - Virtual Local Area Network
+    
+**CAN** - Campus Area Network
+
+- An Interconnection of Multiple LANS throught out a Town/Small Area
+- can extends up to 10km in Radius
+    
+**MAN** - Metropolitan Area Network
+
+- An Interconnection of Multiple LANS throught out a Town/City
+- can extends up to 50km in Radius
+
+**WAN** - Wide Area Network
+
+- An Interconnection of Multiple LANS throught out a The Globe
+- No-Limit
+
+# IP Addresses
+
+## IPv4
+
+An IPv4 address is provided by your Router via Wifi/Ethernet
+
+**Dynamic Host Configuration Protocol** (DHCP): a network management protocol used on IP networks for automatically assigning IP addresses and other communication parameters to devices connected to the network using a client–server architecture.
+
+- IPv4 addresses consists of 8 bit 4 integers seperated by 3 Fullstops ('.')
+
+    `192.168.0.1`
+
+    - Each Integer in an IP Address Consists of 4 Number that are known as Octets
+    - There are a total of 2^32 IPv4 Addresses which is equivalent to 4,294,967,296 Addresses
+
+- Obtain IP
+
+    Windows: `ipconfig`
+    Unix/Linux: `ifconfig` or `ip address`
+
+        
+### IPv4 Classes
+
+**Public IPv4 Addresses**: are addressed that are exposed to the Internet
+
+ are Seperated into 4 Classes A, B, C, D and E
+
+| IPv4 | Range                         |  Subnet Mask    |
+| ---- | ----------------------------- | --------------- |
+| A    | $1.0.0.0 - 126.255.255.255$   | $255.0.0.0$     |
+| B    | $128.0.0.0 - 191.255.0.0$     | $255.255.0.0$   |
+| C    | $192.0.0.0 - 223.255.255.0$   | $255.255.255.0$ |
+| D    | $224.0.0.0 - 239.255.255.255$ | -               |
+| E    | $240.0.0.0 - 255.255.255.255$ | -               |
+
+Unuseable Range:
+- Class D IPv4 Addresses are Reserved for Multicast
+- Class E IPv4 Addresses are Experimental
+
+The **Internet Assigned Numbers Authority (IANA)** is a standards organization that oversees global IP address allocation, autonomous system number allocation, root zone management in the Domain Name System, media types, and other Internet Protocol–related symbols and Internet numbers.
+
+---
+
+**Private IPv4 Addresses**: are Addresses that 
+
+Private IPv4 addresses are reserved ip's that only exists within the LAN and
+
+| IPv4 Addresses Range            | Network Bits | Host Bits | Subnet Mask     |
+| ------------------------------- | ------------ | --------- | --------------- |
+| $10.0.0.0 - 10.255.255.255$     | $8$          | $24$      | $255.0.0.0$     |
+| $172.16.0.0 - 172.31.255.255$   | $16$         | $16$       | $255.255.0.0$   |
+| $192.168.0.0 - 192.168.255.255$ | $24$         | $8$       | $255.255.255.0$ |
+        
+- **NAT**: Network Address Translation
+
+    - Translates a Private IPv4 Address into a Public IPv4 Address for in/out going packets
+
+**Loop Back Address**: is a range IP address, that when used loops back into current machine
+
+Range: $127.0.0.0 - 127.255.255.255$
+
+Subnet: $255.0.0.0$
+
+**Network Address**: The very first IP in the network, reserved
+
+**Broadcast Address**: The very Last IP in the network, reserved, broadcasts messages to every device in the lan
+
+---
+
+### Subnet Mask
+
+Controls the IPv4 ranage
+- consists of 4 unsigned integers of 8 bits, seperated by dots `.`
+
+
+
+- **Network Portion**: `1`'s in the subnetmask
+- **host Portion**: `0`'s in the subnetmask
+- Binary representation must be a contiguous string of `1`'s before switching to another contiguous string of `0`'s
+
+**Classful Networks**: networks that follow the subnet mask of their class
+
+**Classless Networks**: networks that don't follow the subnet mask of their class
+
+> `a` is the count of all of the network bits, while `b` is the count of all the hosts
+
+- Count of All supported hosts:
+
+$$2^b$$
+
+---
+
+**Sub Networking**: dividing a network into smaller sub-networks
+
+
+- Amount of Hosts can't go below their amount of supported IP's
+
+    - Class A: $2^{24}$, $16777216$ Minimum
+    - Class B: $2^{16}$, $65536$ Minimum
+    - Class C: $2^{8}$, $256$ Minimum
+
+> `m` is the count of host bits in the Minimum Supported
+
+Dividing:
+
+$$\frac{2^m}{2^x} = y$$
+
+- $2^m$ is the Minimum Count of Supported IP's
+- $2^x$ is the count of Sub-Networks that will be created
+- $x$ is the count of Host Bits that needs to be set to `1` to create the network
+- $y$ is the count of supported hosts in each of the new sub-networks
+
+- Example `(with a class C network)`:
+
+    $$255.255.255.0_{10} = 11111111.11111111.11111111.00000000_{2}$$
+    
+    $$\frac{2^{8}}{4} = y$$
+    $$\frac{2^{8}}{2^2} = y$$
+    $$2^{8-2} = y$$
+    $$2^{6} = y$$
+    $$64 = y$$
+
+    - $2^m = 2^8$ minimum supported for class c networks
+    - $2^x = 4$ the count of all the new sub-networks
+    - $x = 2$ the count of all the bits needed to be changed to `1`
+    - $y = 64$ the count of all the hosts each network has
+
+    New Network:
+
+    $$11111111.11111111.11111111.00000000_{2} ⇒ 11111111.11111111.11111111.\color{MediumSeaGreen}11\color{white}000000_{2}$$
+    $$11111111.11111111.11111111.11000000_{2} = 255.255.255.192_{10}$$
+
+    192.168.0.0 - 192.168.0.63
+    
+    192.168.0.64 - 192.168.0.127
+    
+    192.168.0.128 - 192.168.0.191
+    
+    192.168.0.192 - 192.168.0.255
+
+- Each Sub-network will have it's own Network Address and Broadcast Address
+
+- **Classless Inter-Domain Routing (CIDR)**:
+    
+    - **CIDR Notation**: a compact representation of an IP address and its associated network mask
+
+        `IP/d`
+
+        - *`IP`* the indented address
+        - *`d`* the Network Prefix, The count of the Network Bits
+
+
+
+    (g) Subnetting in Reverse
+
+            (I) Subnetting in Reverse can be done to combine Multiple Smaller Networks into Bigger Networks
+
+            (II) Subnetting Network Beyond their Default Supported:
+
+                (A) Subnetting a Class C beyond 8 Host Bits let's you increase The Amount of Hosts Supported by your Netowrk
+
+                192.168.0.0/23
+
+                Network:
+
+                192.168.0.0 - 192.168.1.255
+
+                One Network
+
+                (B) Keep in Mind that The Network will remain as 1 Big Network and will not be divided, but if it were a Class B network with the same Subnet Mask then It'll have 128 Subnetworks and not 1 big network
+
+                172.16.0.0/23
+
+                172.16.0.0 - 172.16.1.255
+                172.16.2.0 - 172.16.3.255
+                172.16.4.0 - 172.16.5.255
+                172.16.6.0 - 172.16.7.255
+                172.16.8.0 - 172.16.9.255
+                ...
+
+                Multiple Subnetworks
+
+                (C) The same Thing will happen to a Class B network if it goes beyond it's 2^16 (65536) Limit
+
+            Example:-
+
+            (III) Let's say our network is 172.16.0.0/20, Because It's a Class B network It'll have 65536 Default/Minimum Supported Hosts and have a total of 4 Sub-Networks
+
+            (IV) we need to find The Amount of supported Hosts (`b`)
+
+            (V) So The Amount supported Hosts by the Entire Network is 65536, so 65536/a = b
+        
+        (h) Subnetting a Subnet / Recursive Subnetting
+
+            (I) An Already Subnetted Network can be Subnetted Again and Again Recursively by Variable Length Subnet Mask (VLSM)
+
+            (II) Example:
+                
+                (A) Let's say we want to subnet this Network: 192.168.1.0/24 into new Subnets with DIFFERENT AMOUNTS OF HOSTS?:
+
+                Network: 192.168.1.0/24
+
+                (B) We want 4 Subnet with The Amount of Hosts = 115, 27, 53, 12
+                (C) We can do that by Recursively Subnetting the Network based on the Host Requirements and we Start from the Biggest Host Requirements
+
+                Subnetting Order: 115, 53, 27, 12
+
+                128 (2^x) is closest and bigger than 115
+                so,
+
+                128 -128                  = 0
+                      ↓    
+                     128 64 32 16 8 4 2 1
+                      ↓   ↓  ↓  ↓ ↓ ↓ ↓ ↓
+                      1   0  0  0 0 0 0 0
+
+                    11111111.11111111.11111111.10000000 → /25
+                            ↓
+                    255.255.255.128
+
+                so we get out first two networks:
+
+                192.168.1.0/25
+                192.168.1.0 - 192.168.1.127
+                192.168.1.128 - 192.168.1.255
+
+                (D) but we can further subnet our second Sub-Network using the same process
+
+                53 closest and smaller than 64
+
+                255.255.255.64 → /26
+
+                192.168.1.128/26
+                192.168.1.128 - 192.168.1.191
+                192.168.1.192 - 192.168.1.255
+
+                (E) and Keep Doing that recursively
+
+                27 closest and smaller than 32
+
+                255.255.255.32 → /27
+
+                192.168.1.192/27
+                192.168.1.192 - 192.168.1.223
+                192.168.1.224 - 192.168.1.255
+
+
+
+                12 closest and smaller than 16
+
+                255.255.255.16 → /28
+
+                192.168.1.224/28
+                192.168.1.224 - 192.168.1.239
+                192.168.1.240 - 192.168.1.255
+
+                (F) In the End we get:
+
+                            192.168.1.0/24
+                                    │
+                     ┌──────────────┴───────────┐
+                     ↓              ┌───────────┴────────────────┐
+                    128             ↓                ┌───────────┴────────────────┐
+                192.168.1.0/25      64               ↓                ┌───────────┴──────┐
+                               192.168.1.128/26      32               ↓                  ↓
+                                                192.168.1.192/27      16                 16
+                                                                        192.168.1.224/27
+                
+                Ranges:
+
+                192.168.1.0   - 192.168.1.127 : 128 Hosts
+                192.168.1.128 - 192.168.1.191 : 64 Hosts
+                192.168.1.192 - 192.168.1.223 : 32 Hosts
+                192.168.1.224 - 192.168.1.239 : 16 Hosts
+                192.168.1.240 - 192.168.1.255 : 16 Hosts
+
+# Ports
+    
+    (i) Essential Ports
+
+        Normal:
+
+        (a) FTP: 20, 21 data & command control
+        (b) SMTP: 25
+        (c) HTTP: 80
+        (d) POP3: 110
+        (e) NNTP: 119 
+        (f) IMAP: 143
+        (g) Telnet: 23
+        (h) DNS: 53
+        (i) NTP: 123
+
+        Encrypted:
+
+        (j) FTPS: 989, 990 data & command control
+        (k) SMTPS: 465
+        (l) HTTPS: 443
+        (m) POP3S: 995
+        (n) NTTPS: 563
+        (o) IMAPS: 993
+        (p) SSH/SCP/SFTP: 22
+
+    (ii) Registered Port Used by Popular Services
+
+        (a) HTTP Proxy: 80, 8080, 3128, 6588
+        (b) SOCKS Proxy: 1080
+        (c) OpenVPN: 1194
+        (d) UPnP: 1900, 5000
+        (e) VNC: 5900
+        (f) OpenPGP: 11371
+        (g) Oracle: 2483, 2484
+        (h) MySQL : 3306
+        (i) PostgreSQL: 5432
+        (j) Redis: 6379
+        (k) Cassandra: 7000, 7001, 7199, 9042
+        (l) MongoDB: 27017
+
+        (m) All Ports: 8080,3128,6588,1080,1194,1900,5000,5900,11371,2483,2484,3306,5432,6379,7000,7001,7199,9042,27017
+
+    (iii) All Ports
+
+        () `7` Echo:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Echo service
+        () `19` CHARGEN:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Character Generator Protocol, has severe vulnerabilities and thus is rarely used nowadays
+        () `20` FTP-data:
+
+            (I) Protocols: TCP, SCTP
+
+            (II) File Transfer Protocol data transfer
+        () `21` FTP:
+
+            (I) Protocols: TCP, UDP, SCTP
+
+            (II) File Transfer Protocol command control
+        () `22` SSH/SCP/SFTP:
+
+            (I) Protocols: TCP, UDP, SCTP 
+
+            (II) Secure Shell, secure logins, file transfers (scp, sftp), and port forwarding
+        () `23` Telnet:
+
+            (I) Protocols: TCP
+
+            (II) Telnet protocol, for unencrypted text communications
+        () `25` SMTP:
+
+            (I) Protocols: TCP
+
+            (II) Simple Mail Transfer Protocol, used for email routing between mail servers
+        () `42` WINS Replication:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Microsoft Windows Internet Name Service, vulnerable to attacks on a local network
+        () `43` WHOIS:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Whois service, provides domain-level information
+        () `49` TACACS:
+
+            (I) Protocols: UDP; can also use TCP but not necessarily on port 49
+
+            (II) Terminal Access Controller Access-Control System, provides remote authentication and related services for network access
+        () `53` DNS:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Domain Name System name resolver
+        () `67` DHCP/BOOTP:
+
+            (I) Protocols: UDP
+
+            (II) Dynamic Host Configuration Protocol and its predecessor Bootstrap Protocol Server; server port
+        () `68` DHCP/BOOTP:
+
+            (I) Protocols: UDP
+
+            (II) Dynamic Host Configuration Protocol and its predecessor Bootstrap Protocol Server; client port
+        () `69` TFTP:
+
+            (I) Protocols: UDP
+
+            (II) Trivial File Transfer Protocol
+        () `70` Gopher:
+
+            (I) Protocols: TCP
+
+            (II) Gopher is a communication protocol for distributing, searching, and retrieving documents in Internet Protocol (IP) networks
+        () `79` Finger:
+
+            (I) Protocols: TCP
+
+            (II) Name/Finger protocol and Finger user information protocol, for retrieving and manipulating user information
+        () `80` HTTP:
+
+            (I) Protocols: TCP, UDP, SCTP
+
+            (II) Hypertext Transfer Protocol (HTTP) uses TCP in versions 1.x and 2. HTTP/3 uses QUIC, a transport protocol on top of UDP
+        () `88` Kerberos:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Network authentication system
+        () `102` Microsoft Exchange ISO-TSAP:
+
+            (I) Protocols: TCP
+
+            (II) Microsoft Exchange ISO Transport Service Access Point (TSAP) Class 0 protocol
+        () `110` POP3:
+
+            (I) Protocols: TCP
+
+            (II) Post Office Protocol, version 3 (POP3)
+        () `113` Ident:
+
+            (I) Protocols: TCP
+
+            (II) Identification Protocol, for identifying the user of a particular TCP connection
+        () `119` NNTP (Usenet):
+
+            (I) Protocols: TCP
+
+            (II) Network News Transfer Protocol
+        () `123` NTP:
+
+            (I) Protocols: UDP
+
+            (II) Network Time Protocol
+        () `135` Microsoft RPC EPMAP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Microsoft Remote Procedure Call (RPC) Endpoint Mapper (EPMAP) service, for remote system access and management
+        () `137` NetBIOS-ns:
+
+            (I) Protocols: TCP, UDP
+
+            (II) NetBIOS Name Service, used for name registration and resolution
+        () `138` NetBIOS-dgm:
+
+            (I) Protocols: TCP, UDP
+
+            (II) NetBIOS Datagram Service, used for providing access to shared resources
+        () `139` NetBIOS-ssn:
+
+            (I) Protocols: TCP, UDP
+
+            (II) NetBIOS Session Service
+        () `143` IMAP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Internet Message Access Protocol (IMAP), management of electronic mail messages on a server
+        () `161` SNMP-agents (unencrypted):
+
+            (I) Protocols: UDP
+
+            (II) Simple network management protocol; agents communicate on this port
+        () `162` SNMP-trap (unencrypted):
+
+            (I) Protocols: UDP
+
+            (II) Simple network management protocol; listens for asynchronous traps
+        () `177` XDMCP:
+
+            (I) Protocols: UDP
+
+            (II) X Display Manager Control Protocol
+        () `179` BGP:
+
+            (I) Protocols: TCP
+
+            (II) Border Gateway Protocol
+        () `194` IRC:
+
+            (I) Protocols: UDP
+
+            (II) Internet Relay Chat
+        () `201` AppleTalk:
+
+            (I) Protocols: TCP, UDP
+
+            (II) AppleTalk Routing Maintenance. Trojan horses and computer viruses have used UDP port 201.
+        () `264` BGMP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Border Gateway Multicast Protocol
+        () `318` TSP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Time Stamp Protocol
+        () `381` HP Openview:
+
+            (I) Protocols: TCP, UDP
+
+            (II) HP performance data collector
+        () `383` HP Openview:
+
+            (I) Protocols: TCP, UDP
+
+            (II) HP data alarm manager
+        () `389` LDAP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Lightweight directory access protocol
+        () `411` (Multiple uses):
+
+            (I) Protocols: TCP, UDP
+
+            (II) Direct Connect Hub, Remote MT Protocol
+        () `412` (Multiple uses) :
+
+            (I) Protocols: TCP, UDP
+
+            (II) Direct Connect Client-to-Client, Trap Convention Port
+        () `427` SLP:
+
+            (I) Protocols: TCP
+
+            (II) Service Location Protocol
+        () `443` HTTPS (HTTP over SSL):
+
+            (I) Protocols: TCP, UDP, SCTP
+
+            (II) Hypertext Transfer Protocol Secure (HTTPS) uses TCP in versions 1.x and 2. HTTP/3 uses QUIC, a transport protocol on top of UDP.
+        () `445` Microsoft DS SMB:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Microsoft Directory Services: TCP for Active Directory, Windows shares; UDP for Server Message Block (SMB) file-sharing
+        () `464` Kerberos:
+
+            (I) Protocols: TCP, UDP
+
+            (II) For password settings on Kerberos
+        () `465` SMTP over TLS/SSL, SSM:
+
+            (I) Protocols: TCP
+
+            (II) Authenticated SMTP over TLS/SSL (SMTPS), URL Rendezvous Directory for Cisco’s Source Specific Multicast protocol (SSM)
+        () `497` Dantz Retrospect:
+
+            (I) Protocols: TCP, UDP
+
+            (II) A software suite for backing up operating systems
+        () `500` IPSec / ISAKMP / IKE:
+
+            (I) Protocols: UDP
+
+            (II) Internet Protocol Security / Internet Security Association and Key Management Protocol / Internet Key Exchange
+        () `512` rexec:
+
+            (I) Protocols: TCP
+
+            (II) Remote Process Execution
+        () `513` rlogin:
+
+            (I) Protocols: TCP
+
+            (II) The Unix program rlogin allows users to log in on another host using a network.
+        () `514` syslog:
+
+            (I) Protocols: UDP
+
+            (II) Syslog Protocol, for collecting and organizing all of the log files sent from the various devices on a network
+        () `515` LPD/LPR:
+
+            (I) Protocols: TCP
+
+            (II) Line Printer Daemon protocol, or Line Printer Remote protocol
+        () `520` RIP:
+
+            (I) Protocols: UDP
+
+            (II) Routing Information Protocol, used to find the optimal path between source and destination networks
+        () `521` RIPng (IPv6):
+
+            (I) Protocols: UDP
+
+            (II) Routing Information Protocol next generation, the IPv6 compatible version of RIP
+        () `540` UUCP:
+
+            (I) Protocols: TCP
+
+            (II) Unix-to-Unix Copy Protocol
+        () `548` AFP:
+
+            (I) Protocols: TCP
+
+            (II) Apple Filing Protocol
+        () `554` RTSP:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Real Time Streaming Protocol
+        () `546` DHCPv6:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Dynamic Host Configuration Protocol version 6. DHCPv6 Clients listen for DHCPv6 messages on UDP port 546.
+        () `547` DHCPv6:
+
+            (I) Protocols: TCP, UDP
+
+            (II) DHCPv6 Servers and DHCPv6 Relay Agents listen for DHCPv6 messages on UDP port 547.
+        () `560` rmonitor:
+
+            (I) Protocols: UDP
+
+            (II) Remote Monitor
+        () `563` NNTP over TLS/SSL:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Network News Transfer Protocol with encryption and verification
+        () `587` SMTP:
+
+            (I) Protocols: TCP
+
+            (II) For email message submission via SMTP
+        () `591` FileMaker:
+
+            (I) Protocols: TCP
+
+            (II) FileMaker Web Companion, the web publishing technology available in FileMaker versions 4-6
+        () `593` Microsoft DCOM:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Distributed Component Object Model (DCOM)
+        () `596` SMSD:
+
+            (I) Protocols: TCP, UDP
+
+            (II) SysMan Station daemon
+        () `631` IPP:
+
+            (I) Protocols: TCP
+
+            (II) Internet Printing Protocol
+        () `636` LDAP over TLS/SSL:
+
+            (I) Protocols: TCP, UDP
+
+            (II) Lightweight Directory Access Protocol over TLS/SSL
+        () `639` MSDP (PIM):
+
+            (I) Protocols: TCP
+
+            (II) Multicast Source Discovery Protocol, which is part of the Protocol Independent Multicast (PIM) family
+        () `646` LDP (MPLS):
+
+            (I) Protocols: TCP, UDP
+
+            (II) Label Distribution Protocol, applies to routers capable of Multiprotocol Label Switching (MPLS)
+        () `691` Microsoft Exchange:
+
+            (I) Protocols: TCP
+
+            (II) Microsoft Exchange Routing
+        () `860` iSCSI:
+
+            (I) Protocols: TCP
+
+            (II) Internet Small Computer Systems Interface
+        () `873` rsync:
+
+            (I) Protocols: TCP
+
+            (II) The rsync file synchronization protocol efficiently transfers and synchronizes files between devices and networked computers.
+        () `902` VMware Server:
+
+            (I) Protocols: TCP, UDP
+
+            (II) VMware ESXi, a hypervisor
+        () `989` FTPS:
+
+            (I) Protocols: TCP
+
+            (II) File Transfer Protocol (data) over TLS/SSL
+        () `990` FTPS:
+
+            (I) Protocols: TCP
+
+            (II) File Transfer Protocol (control) over TLS/SSL
+        () `993` IMAP over SSL (IMAPS):
+
+            (I) Protocols: TCP
+
+            (II) Internet Message Access Protocol over TLS/SSL
+        () `995` POP3 over SSL (POP3S):
+
+            (I) Protocols: TCP, UDP
+
+            (II) Post Office Protocol 3 over TLS/SSL
+
+Transmission
+
+4. TCP
+
+    (i) TCP (Transmission Control Protocol) is one of the core protocols of the Internet Protocol Suite, which is essential for enabling reliable communication over networks. Here's an overview of how a TCP connection works:
+
+    (ii) Key Features of TCP
+    
+        (a) Connection-Oriented: TCP establishes a connection between the sender and receiver before data transfer begins.
+        (b) Reliable: Ensures that data is delivered accurately and in the same order in which it was sent.
+        (c) Error Checking: Includes mechanisms for error detection and correction.
+        (d) Flow Control: Manages the rate of data transmission to prevent network congestion.
+        (e) Congestion Control: Adjusts the rate of data transmission based on network traffic conditions.
+    
+    (iii) Establishing a TCP Connection (Three-Way Handshake)
+    
+        (a) SYN (Synchronize): The client initiates the connection by sending a TCP segment with the SYN flag set to the server. This segment includes an initial sequence number (ISN).
+
+        (b) SYN-ACK (Synchronize-Acknowledge): The server responds to the client's SYN segment with a segment of its own, which has both the SYN and ACK flags set. The server also includes its own ISN and acknowledges the client's ISN by setting the acknowledgment number to the client's ISN plus one.
+
+        (c) ACK (Acknowledge): The client responds with a segment that has the ACK flag set, acknowledging the server's ISN by setting the acknowledgment number to the server's ISN plus one.
+
+        (d) At this point, the connection is established, and both parties can start sending data.
+
+    (iv) Data Transfer
+    
+        (a) Data Segmentation: Large data streams are broken down into smaller segments for transmission.
+        (b) Sequence Numbers: Each segment is assigned a sequence number for tracking the order of bytes.
+        (c) Acknowledgments: The receiver sends acknowledgments (ACKs) back to the sender indicating which segments have been received.
+        (d) Retransmissions: If a segment is lost or corrupted, the sender retransmits the segment based on lack of acknowledgment within a certain time (timeout).
+    
+    (v) Closing a TCP Connection (Four-Way Handshake)
+    
+        (a) FIN (Finish): The client or server sends a segment with the FIN flag set, indicating it has finished sending data.
+        (b) ACK (Acknowledge): The receiver of the FIN segment acknowledges it by sending a segment with the ACK flag set.
+        (c) FIN (Finish): The receiver of the initial FIN now sends a FIN segment of its own to indicate it has finished sending data.
+        (d) ACK (Acknowledge): The initiator of the first FIN acknowledges the second FIN, completing the connection termination.
+    
+    (vi) Example
+    
+        Client to Server:
+           - Client sends: SYN, ISN = 1000
+           - Server responds: SYN-ACK, ISN = 2000, ACK = 1001
+           - Client sends: ACK, ACK = 2001
+
+        Data Transfer:
+           - Client sends: Data, Seq = 1001-2000
+           - Server acknowledges: ACK, ACK = 2001
+           - Server sends: Data, Seq = 2001-3000
+           - Client acknowledges: ACK, ACK = 3001
+
+        Connection Termination:
+           - Client sends: FIN, Seq = 3001
+           - Server acknowledges: ACK, ACK = 3002
+           - Server sends: FIN, Seq = 3002
+           - Client acknowledges: ACK, ACK = 3003
+    
+    (vii) Additional Features
+    
+        (a) Window Size: Part of the flow control mechanism, indicating the amount of data the receiver can accept.
+        (b) Checksum: Ensures data integrity by allowing the receiver to detect errors in transmitted segments.
+
+Protocols:
+
+5. FTP
+
+6. SMB
+
+    (i) smbclient
+        
+        (a) smbclient — ftp-like client to access SMB/CIFS resources on servers
+        
+        (b) Syntax:
+            
+            smbclient <servicename> <password> <Flags>
+
+        (c) Description
+
+            (I) `servicename`
+
+                servicename is the name of the service you want to use on the server. A service name takes the form //server/service where server is the NetBIOS name of the SMB/CIFS server offering the desired service and service is the name of the service offered. Thus to connect to the service "printer" on the SMB/CIFS server "smbserver", you would use the servicename //smbserver/printer
+
+                Note that the server name required is NOT necessarily the IP (DNS) host name of the server ! The name required is a NetBIOS server name, which may or may not be the same as the IP hostname of the machine running the server.
+
+                The server name is looked up according to either the -R|--name-resolve parameter to smbclient or using the name resolve order parameter in the smb.conf(5) file, allowing an administrator to change the order and methods by which server names are looked up. 
+            
+            (II) password
+
+                The password required to access the specified service on the specified server. If this parameter is supplied, the -N option (suppress password prompt) is assumed.
+
+                There is no default password. If no password is supplied on the command line (either by using this parameter or adding a password to the -U option (see below)) and the -N option is not specified, the client will prompt for a password, even if the desired service does not require one. (If no password is required, simply press ENTER to provide a null password.)
+
+                Note: Some servers (including OS/2 and Windows for Workgroups) insist on an uppercase password. Lowercase or mixed case passwords may be rejected by these servers.
+
+                Be cautious about including passwords in scripts. 
+        
+        (d) Flags
+
+            (I) -M --message NetBIOS name
+
+                This options allows you to send messages using the "WinPopup" protocol, to another computer. Once a connection is established you then type your message, pressing ^D  (control-D) to end.,
+
+                If the receiving computer is running WinPopup the user will receive the message and probably a beep. If they are not running WinPopup the message will be lost, and no  error message will occur.
+
+                The message is also automatically truncated if the message is over 1600 bytes, as this is the limit of the protocol.
+
+                One useful trick is to pipe the message through smbclient. For example: smbclient -M FRED < mymessage.txt will send the message in the file mymessage.txt to the machine    FRED.
+
+                You may also find the -U and -I options useful, as they allow you to control the FROM and TO parts of the message.
+
+                See the message command parameter in the smb.conf(5) for a description of how to handle incoming WinPopup messages in Samba.
+
+                Note: Copy WinPopup into the startup group on your WfWg PCs if you want them to always be able to receive messages. 
+            () -p   --port <port>: Port to Connect to
+            () -g   --grepable: This parameter provides combined with -L easy parseable output that allows processing with utilities such as grep and cut. 
+            () -m   --max-protocol <protocol>: This allows the user to select the highest SMB protocol level that smbclient will use to connect to the server. By default this is set to highest available SMB3    protocol version. To connect using SMB2 or SMB1 protocol, use the strings SMB2 or NT1 respectively. Note that to connect to a Windows 2012 server with encrypted   transport selecting a max-protocol of SMB3 is required. 
+            () -P   --machine-pass: Make queries to the external server using the machine account of the local server. 
+            () -I   --ip-address <IPaddress>: IP Address
+            () -E   --stderr: Writes output of stderr (Standard Error Stream)
+            () -L   --list: This option allows you to look at what services are available on a server. You use it as smbclient -L host and a list should appear. The -I option may be useful if your    NetBIOS names don't match your TCP/IP DNS host names or if you are trying to reach a host on another network. 
+            () -b   --send-buffer <buffersize>: When sending or receiving files, smbclient uses an internal buffer sized by the maximum number of allowed requests to the connected server. This command allows this    size to be set to any range between 0 (which means use the default server controlled size) bytes and 16776960 (0xFFFF00) bytes. Using the server controlled size is the    most efficient as smbclient will pipeline as many simultaneous reads or writes needed to keep the server as busy as possible. Setting this to any other size will slow     down the transfer. This can also be set using the iosize command inside smbclient. 
+            () -B   --browse: Browse SMB servers using DNS.
+            () -t   --timeout <timeout-seconds>: Set Timeouts (20s Default)
+            () -T   --tar tar options:
+
+                () smbclient may be used to create tar(1) compatible backups of all the files on an SMB/CIFS share. The secondary tar flags that can be given to this option are:
+
+                () c - Create a tar backup archive on the local system. Must be followed by the name of a tar file, tape device or "-" for standard output. If using standard output   you must turn the log level to its lowest value -d0 to avoid corrupting your tar file. This flag is mutually exclusive with the x flag.
+                () n - In combination with the c flag, do not actually create the archive, instead perform a dry run that attempts everything that involved in creation other than     writing the file.
+                () x - Extract (restore) a local tar file back to a share. Unless the -D option is given, the tar files will be restored from the top level of the share. Must be  followed by the name of the tar file, device or "-" for standard input. Mutually exclusive with the c flag. Restored files have their creation times (mtime) set to  the date saved in the tar file. Directories currently do not get their creation dates restored properly.
+                () I - Include files and directories. Is the default behavior when filenames are specified above. Causes files to be included in an extract or create (and therefore   everything else to be excluded). See example below. Filename globbing works in one of two ways. See r below.
+                () X - Exclude files and directories. Causes files to be excluded from an extract or create. See example below. Filename globbing works in one of two ways. See r below.
+                () F - File containing a list of files and directories. The F causes the name following the tarfile to create to be read as a filename that contains a list of files   and directories to be included in an extract or create (and therefore everything else to be excluded). See example below. Filename globbing works in one of two   ways. See r below.
+                () b - Blocksize. Must be followed by a valid (greater than zero) blocksize. Causes tar file to be written out in blocksize*TBLOCK (512 byte) blocks.
+                () g - Incremental. Only back up files that have the archive bit set. Useful only with the c flag.
+                () v - Verbose. Makes tar print out the files being processed. By default tar is not verbose. This is the same as tarmode verbose.
+                () r - Use wildcard matching to include or exclude. Deprecated.
+                () N - Newer than. Must be followed by the name of a file whose date is compared against files found on the share during a create. Only files newer than the file  specified are backed up to the tar file. Useful only with the c flag.
+                () a - Set archive bit. Causes the archive bit to be reset when a file is backed up. Useful with the g and c flags. 
+
+                () Examples
+
+                    #Restore from tar file backup.tar into myshare on mypc (no password on share).
+                    smbclient //mypc/myshare "" -N -Tx backup.tar
+                    #Restore everything except users/docs
+                    smbclient //mypc/myshare "" -N -TXx backup.tar users/docs
+                    #Create a tar file of the files beneath users/docs.
+                    smbclient //mypc/myshare "" -N -Tc backup.tar users/docs
+                    #Create the same tar file as above, but now use a DOS path name.
+                    smbclient //mypc/myshare "" -N -Tc backup.tar users\edocs
+                    #Create a tar file of the files listed in the file tarlist.
+                    smbclient //mypc/myshare "" -N -TcF backup.tar tarlist
+                    #Create a tar file of all the files and directories in the share.
+                    smbclient //mypc/myshare "" -N -Tc backup.tar * 
+
+            () -D   --directory initial directory: Change to initial directory before starting. Probably only of any use with the tar -T option. 
+            () -c   --command command string: command string is a semicolon-separated list of commands to be executed instead of prompting from stdin. -N is implied by -c.
+            () -?   --help: Print a summary of command line options. 
+            () --usage: Display brief usage message. 
+            () -l   --log-basename=logdirectory: Base directory name for log/debug files. The extension ".progname" will be appended (e.g. log.smbclient, log.smbd, etc...). The log file is never removed by the client. 
+            () -V   --version: Prints the program version number. 
+            () -R   --name-resolve=NAME-RESOLVE-ORDER
+
+                This option is used to determine what naming services and in what order to resolve host names to IP addresses. The option takes a space-separated string of different   name resolution options. The best ist to wrap the whole --name-resolve=NAME-RESOLVE-ORDER into quotes.
+
+                The options are: "lmhosts", "host", "wins" and "bcast". They cause names to be resolved as follows:
+
+                    lmhosts: Lookup an IP address in the Samba lmhosts file. If the line in lmhosts has no name type attached to the NetBIOS name (see the lmhosts(5) for details) then     any name type matches for lookup.
+                    host: Do a standard host name to IP address resolution, using the system /etc/hosts, NIS, or DNS lookups. This method of name resolution is operating system    dependent, for instance on IRIX or Solaris this may be controlled by the /etc/nsswitch.conf file). Note that this method is only used if the NetBIOS name type being   queried is the 0x20 (server) name type, otherwise it is ignored.
+                    wins: Query a name with the IP address listed in the wins server parameter. If no WINS server has been specified this method will be ignored.
+                    bcast: Do a broadcast on each of the known local interfaces listed in the interfaces parameter. This is the least reliable of the name resolution methods as it     depends on the target host being on a locally connected subnet. 
+
+                If this parameter is not set then the name resolve order defined in the ${prefix}/etc/smb.conf file parameter (name resolve order) will be used.
+                The default order is lmhosts, host, wins, bcast. Without this parameter or any entry in the name resolve order parameter of the ${prefix}/etc/smb.conf file, the name   resolution methods will be attempted in this order. 
+
+            () -O   --socket-options=SOCKETOPTIONS: TCP socket options to set on the client socket. See the socket options parameter in the ${prefix}/etc/smb.conf manual page for the list of valid options. 
+            () -m   --max-protocol=MAXPROTOCOL: The value of the parameter (a string) is the highest protocol level that will be supported by the client.
+            () -n   --netbiosname=NETBIOSNAME: This option allows you to override the NetBIOS name that Samba uses for itself. This is identical to setting the netbios name parameter in the ${prefix}/etc/smb.conf   file. However, a command line setting will take precedence over settings in ${prefix}/etc/smb.conf. 
+            () -W   --workgroup=WORKGROUP: Set the SMB domain of the username. This overrides the default domain which is the domain defined in smb.conf. If the domain specified is the same as the servers   NetBIOS name, it causes the client to log on using the servers local SAM (as opposed to the Domain SAM).
+            () -r   --realm=REALM: Set the realm for the domain.
+            () -U   --user=[DOMAIN\]USERNAME[%PASSWORD]
+
+                () Sets the SMB username or username and password.
+
+                () If %PASSWORD is not specified, the user will be prompted. The client will first check the USER environment variable (which is also permitted to also contain the    password separated by a %), then the LOGNAME variable (which is not permitted to contain a password) and if either exists, the value is used. If these environmental   variables are not found, the username found in a Kerberos Credentials cache may be used.
+                () A third option is to use a credentials file which contains the plaintext of the username and password. This option is mainly provided for scripts where the admin does  not wish to pass the credentials on the command line or via environment variables. If this method is used, make certain that the permissions on the file restrict access     from unwanted users. See the -A for more details.
+
+            () -N   --no-pass: If specified, this parameter suppresses the normal password prompt from the client to the user. This is useful when accessing a service that does not require a password.
+            () --password: Specify the password on the commandline.
+            
+            () -A   --authentication-file=filename: This option allows you to specify a file from which to read the username and password used in the connection. The format of the file is:
+
+                username = <value>
+                password = <value>
+                domain   = <value>
+
+                () Make certain that the permissions on the file restrict access from unwanted users! 
+
+            () -P   --machine-pass: Use stored machine account password. 
+
+            --client-protection=sign|encrypt|off
+
+                Sets the connection protection the client tool should use.
+
+                Note that specifying this parameter here will override the client protection parameter in the ${prefix}/etc/smb.conf file.
+
+                In case you need more fine grained control you can use: --option=clientsmbencrypt=OPTION, --option=clientipcsigning=OPTION, --option=clientsigning=OPTION. 
+
+        (e) Commands:
+
+            () `? [command]`:         If command is specified, the ? command will display a brief informative message about the specified command. If no command is specified, a list of available commands will be displayed. 
+            () `! [shell command]`:   If shell command is specified, the ! command will execute a shell locally and run the specified shell command. If no command is specified, a local shell will be run. 
+            () `allinfo <file>`:      The client will request that the server return all known information about a file or directory (including streams). 
+            () `altname file`:        The client will request that the server return the "alternate" name (the 8.3 name) for a file or directory. 
+            () `archive <number>`:    Sets the archive level when operating on files. 0 means ignore the archive bit, 1 means only operate on files with this bit set, 2 means only operate on files with this bit set and reset it after operation, 3 means operate on all files and reset it after operation. The default is 0. 
+            () `backup`:              Toggle the state of the "backup intent" flag sent to the server on directory listings and file opens. If the "backup intent" flag is true, the server will try and bypass some file system checks if the user has been granted SE_BACKUP or SE_RESTORE privileges. This state is useful when performing a backup or restore operation. 
+            () `blocksize <number>`:  Sets the blocksize parameter for a tar operation. The default is 20. Causes tar file to be written out in blocksize*TBLOCK (normally 512 byte) units. 
+            () `cancel jobid0 [jobid1] ... [jobidN]`: The client will request that the server cancel the printjobs identified by the given numeric print job ids. 
+            () `case_sensitive`:      Toggles the setting of the flag in SMB packets that tells the server to treat filenames as case sensitive. Set to OFF by default (tells file server to treat filenames as case insensitive). Only currently affects Samba 3.0.5 and above file servers with the case sensitive parameter set to auto in the smb.conf. 
+            () `cd <directory name>`: If "directory name" is specified, the current working directory on the server will be changed to the directory specified. This operation will fail if for any reason the specified directory is inaccessible.
+            () `chmod <file> <mode> in octal`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. The client requests that the server change the UNIX permissions to the given octal mode, in standard UNIX format. 
+            () `chown <file> <uid> <gid>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. The client requests that the server change the UNIX user and group ownership to the given decimal values. Note there is currently no way to remotely look up the UNIX uid and gid values for a given name. This may be addressed in future versions of the CIFS UNIX extensions. 
+            () `close <fileid>`:      Closes a file explicitly opened by the open command. Used for internal Samba testing purposes. 
+            () `del <mask>`:          The client will request that the server attempt to delete all files matching mask from the current working directory on the server. 
+            () `deltree <mask>`:      The client will request that the server attempt to delete all files and directories matching mask from the current working directory on the server. Note this will recursively delete files and directories within the directories selected even without the recurse command being set. If any of the delete requests fail the command will stop processing at that point, leaving files and directories not yet processed untouched. This is by design.
+            () `dir <mask>`:          A list of the files matching mask in the current working directory on the server will be retrieved from the server and displayed. 
+            () `du <filename>`:       Does a directory listing and then prints out the current disk usage and free space on a share. 
+            () `echo <number> <data>`: Does an SMBecho request to ping the server. Used for internal Samba testing purposes. 
+            () `exit`:                Terminate the connection with the server and exit from the program. 
+            () `get <remote file name> [local file name]`: Copy the file called remote file name from the server to the machine running the client. If specified, name the local copy local file name. Note that all transfers in smbclient are binary. See also the lowercase command. 
+            () `getfacl <filename>`:  Requires the server support the UNIX extensions. Requests and prints the POSIX ACL on a file. 
+            () `hardlink <src> <dest>`: Creates a hardlink on the server using Windows CIFS semantics. 
+            () `help [command]`:      See the ? command above. 
+            () `history`:             Displays the command history.
+            () `iosize <bytes>`:      When sending or receiving files, smbclient uses an internal buffer sized by the maximum number of allowed requests to the connected server. This command allows this size to be set to any range between 0 (which means use the default server controlled size) bytes and 16776960 (0xFFFF00) bytes. Using the server controlled size is the most efficient as smbclient will pipeline as many simultaneous reads or writes needed to keep the server as busy as possible. Setting this to any other size will slow down the transfer. 
+            () `lcd [directory name]`: If directory name is specified, the current working directory on the local machine will be changed to the directory specified. This operation will fail if for any reason the specified directory is inaccessible.
+            () `link <target> <linkname>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. The client requests that the server create a hard link between the linkname and target files. The linkname file must not exist. 
+            () `listconnect`:         Show the current connections held for DFS purposes. 
+            () `lock <filenum> <r|w> <hex-start> <hex-len>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. Tries to set a POSIX fcntl lock of the given type on the given range. Used for internal Samba testing purposes. 
+            () `logon <username> <password>`: Establishes a new vuid for this session by logging on again. Replaces the current vuid. Prints out the new vuid. Used for internal Samba testing purposes. 
+            () `logoff`:              Logs the user off the server, closing the session. Used for internal Samba testing purposes. 
+            () `lowercase`:           Toggle lowercasing of filenames for the get and mget commands.
+            () `ls <mask>`:           See the dir command above. 
+            () `mask <mask>`:         This command allows the user to set up a mask which will be used during recursive operation of the mget and mput commands.
+            () `md <directory name>`: See the mkdir command. 
+            () `mget <mask>`:         Copy all files matching mask from the server to the machine running the client.
+            () `mkdir <directory name>`: Create a new directory on the server (user access privileges permitting) with the specified name. 
+            () `more <file name>`:    Fetch a remote file and view it with the contents of your PAGER environment variable. 
+            () `mput <mask>`:         Copy all files matching mask in the current working directory on the local machine to the current working directory on the server.
+            () `notify <dir name>`:   Query a directory for change notifications. This command issues a recursive filechangenotify call for all possible changes. As changes come in will print one line per change. See https://msdn.microsoft.com/en-us/library/dn392331.aspx for a description of the action numbers that this command prints.
+            () `posix`:               Query the remote server to see if it supports the CIFS UNIX extensions and prints out the list of capabilities supported. If so, turn on POSIX pathname processing and large file read/writes (if available),. 
+            () `posix_encrypt <domain> <username> <password>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. Attempt to negotiate SMB encryption on this connection. If smbclient connected with kerberos credentials (-k) the arguments to this command are ignored and the kerberos credentials are used to negotiate GSSAPI signing and sealing instead. See also the -e option to smbclient to force encryption on initial connection. This command is new with Samba 3.2. 
+            () `posix_open <filename> <octal mode>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. Opens a remote file using the CIFS UNIX extensions and prints a fileid. Used for internal Samba testing purposes. 
+            () `posix_mkdir <directoryname> <octal mode>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. Creates a remote directory using the CIFS UNIX extensions with the given mode. 
+            () `posix_rmdir <directoryname>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. Deletes a remote directory using the CIFS UNIX extensions. 
+            () `posix_unlink <filename>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. Deletes a remote file using the CIFS UNIX extensions. 
+            () `posix_whoami`:        Query the remote server for the user token using the CIFS UNIX extensions WHOAMI call. Prints out the guest status, user, group, group list and sid list that the remote server is using on behalf of the logged on user. 
+            () `print <file name>`:   Print the specified file from the local machine through a printable service on the server. 
+            () `prompt`:              Toggle prompting for filenames during operation of the mget and mput commands.
+            () `put <local file name> [remote file name]`: Copy the file called local file name from the machine running the client to the server. If specified, name the remote copy remote file name. Note that all transfers in smbclient are binary. See also the lowercase command. 
+            () `queue`:               Displays the print queue, showing the job id, name, size and current status. 
+            () `quit`:                See the exit command. 
+            () `readlink symlinkname`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. Print the value of the symlink "symlinkname". 
+            () `rd <directory name>`: See the rmdir command. 
+            () `recurse`:             Toggle directory recursion for the commands mget and mput.
+            () `rename <old filename> <new filename> [-f]`: Rename files in the current working directory on the server from old filename to new filename. The optional -f switch allows for superseding the destination file, if it exists. This is supported by NT1 protocol dialect and SMB2 protocol family.
+            () `rm <mask>`:           Remove all files matching mask from the current working directory on the server. 
+            () `rmdir <directory name>`: Remove the specified directory (user access privileges permitting) from the server. 
+            () `scopy <source filename> <destination filename>`: Attempt to copy a file on the server using the most efficient server-side copy calls. Falls back to using read then write if server doesn't support server-side copy. 
+            () `setmode <filename> <perm=[+|\-]rsha>`: A version of the DOS attrib command to set file permissions. For example:
+            () `showconnect`:         Show the currently active connection held for DFS purposes. 
+            () `stat <file>`:         This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. The client requests the UNIX basic info level and prints out the same info that the Linux stat command would about the file. This includes the size, blocks used on disk, file type, permissions, inode number, number of links and finally the three timestamps (access, modify and change). If the file is a special file (symlink, character or block device, fifo or socket) then extra information may also be printed. 
+            () `symlink target linkname`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. The client requests that the server create a symbolic hard link between the target and linkname files. The linkname file must not exist. Note that the server will not create a link to any path that lies outside the currently connected share. This is enforced by the Samba server. 
+            () `tar <c|x>[IXbgNa]`:   Performs a tar operation - see the -T command line option above. Behavior may be affected by the tarmode command (see below). Using g (incremental) and N (newer) will affect tarmode settings. Note that using the "-" option with tar x may not work - use the command line option instead.
+            () `blocksize <blocksize>`: Blocksize. Must be followed by a valid (greater than zero) blocksize. Causes tar file to be written out in blocksize*TBLOCK (512 byte) blocks. 
+            () `tarmode <full|inc|reset|noreset|system|nosystem|hidden|nohidden|verbose|noverbose>`: Changes tar's behavior with regard to DOS attributes. There are 4 modes which can be turned on or off.
+
+                () Incremental mode (default off). When off (using full) tar will back up everything regardless of the archive bit setting. When on (using inc), tar will only back up files with the archive bit set.
+                () Reset mode (default off). When on (using reset), tar will remove the archive bit on all files it backs up (implies read/write share). Use noreset to turn off.
+                () System mode (default on). When off, tar will not backup system files. Use nosystem to turn off.
+                () Hidden mode (default on). When off, tar will not backup hidden files. Use nohidden to turn off.
+
+            () `timeout <per-operation timeout in seconds>`: This allows the user to tune the default timeout used for each SMB request. The default setting is 20 seconds. Increase it if requests to the server sometimes time out. This can happen when SMB3 encryption is selected and smbclient is overwhelming the server with requests. 
+            () `unlock <filenum> <hex-start> <hex-len>`: This command depends on the server supporting the CIFS UNIX extensions and will fail if the server does not. Tries to unlock a POSIX fcntl lock on the given range. Used for internal Samba testing purposes. 
+            () `volume`:              Prints the current volume name of the share. 
+            () `vuid <number>`:       Changes the currently used vuid in the protocol to the given arbitrary number. Without an argument prints out the current vuid being used. Used for internal Samba testing purposes. 
+            () `tcon <sharename>`:    Establishes a new tree connect (connection to a share). Replaces the current tree connect. Prints the new tid (tree id). Used for internal Samba testing purposes. 
+            () `tdis`:                Close the current share connection (tree disconnect). Used for internal Samba testing purposes. 
+            () `tid <number>`:        Changes the current tree id (tid) in the protocol to a new arbitrary number. Without an argument, it prints out the tid currently used. Used for internal Samba testing purposes. 
+            () `utimes <filename> <create time> <access time> <write time> < change time>`: Changes the timestamps on a file by name. Times should be specified in the format [YY]YY:MM:DD-HH:MM:SS or -1 for no change. 
+
