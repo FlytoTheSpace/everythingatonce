@@ -1,72 +1,3 @@
-# Physics
-
-## Units
-
-
-- **Metric System**
-
-| Unit | Unit (Expanded) | Comparison |
-| ---- | --------------- | ---------- |
-**Length**
-| mm   | Milimeter       | 0.001m     |
-| cm   | Centimeter      | 0.01m      |
-| dm   | Decimeter       | 0.1m       |
-| m    | Meter           | Base Unit  |
-| dam  | Decameter       | 10m        |
-| hm   | Hectometer      | 100m       |
-| km   | Kilometer       | 1,000m     |
-
-- **Imperial System**
-
-| Unit | Unit (Expanded) | Comparison |
-| ---- | --------------- | ---------- |
-**Length**
-| in   | Inch            | $ft\div12$ |
-| ft   | Foot            | Base Unit  |
-| yd   | Yard            | 3ft        |
-| mi   | Mile            | 5,280 ft   |
-
-### Length/Distance
-
-### Mass/Weight
-
-### Time
-
-### Temperature
-
-### Volume
-
-### Capacity
-
-### Area
-
-### Energy/Work
-
-### Power
-
-### Pressure
-
-### Electric Current
-
-### Voltage
-
-### Resistance
-
-### Capacitance
-
-### Inductance
-
-### Frequency
-
-### Luminous Intensity
-
-### Illuminance
-
-### Radioactivity
-
-### Absorbed dose of Radiation
-
-### Dose Equivalent Radiation 
 
 # Chemistry
 ## Acids and Bases
@@ -151,7 +82,7 @@ Example:-
 
 ## Periodic Table
 
-![](./img/periodic_table.png)
+![](../img/periodic_table.png)
 
 ### Elements:
 
@@ -282,41 +213,3 @@ Prefixes:
 - 
 
 **Chemical**: 
-
-# Biology
-## Microorganisms
-**Microorganisms**/**Microbes**: living organisms that are so small that they can't be seen without a microscope
-
-**Microorganisms** (Major 4):
-- **Bacteria**
-- **Fungi**
-- **Protozoa**
-- **Algae**
-
-**Non-Microorganism**:
-- Virus
-
-
-### Diseases
-
-Human Diseases:
-
-| Disease           | Transmission | Preventation      |
-| ----------------- | ------------ | ----------------- |
-**Bacteria**:
-| Tuberculosis (TB) | Air          | Isolation         |
-| Typhoid           | Water        |                   |
-| Cholera           | Water, Food  |                   |
-**Fungi**:
-| Aspergillus       | Air          | -                 |
-**Protozoa**:
-| Dysentery         | -            | -                 |
-| Malaria           | Mosquito     | Spray, nets, etc. |
-**Algae**:
-**Virus**:
-| Cold              | -            | -                 |
-| Influenza (flu)   | -            | -                 |
-| Measles           | Air          | Isolation         |
-| Chicken Pox       | Air, Contact |                   |
-| Polio             | Air, Water   |                   |
-| Hepatitis A       | Water        | Clean Water       |
