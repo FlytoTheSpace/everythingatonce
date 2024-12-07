@@ -1,5 +1,21 @@
-by: [ConnerWill](https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b)
 
+# Data Structures
+
+
+## Array-Like
+
+| **Data Structure** | **Definition**                                          | **Ordered** | **Mutable** | **Indexed** | **Duplicates** | **Key Operations**                  | Space Time |
+| ------------------ | ------------------------------------------------------- | ----------- | ----------- | ----------- | -------------- |------------------------------------ | ---------- |
+| **Array**          | Fixed-size collection of elements of the same type.     | ✅         | ❌          | ✅         | ✅             | `Access`, `Update`, `Delete`        | $O(1)$     |
+| **List**           | Dynamic-size collection of elements.                    | ✅         | ✅          | ✅         | ✅             | `Append`, `Pop`, `Insert`, `Access` | $O(1)$     |
+| **Tuple**          | Immutable collection of elements.                       | ✅         | ❌          | ✅         | ✅             | `Access`                            | $O(1)$     |
+| **Set**            | Unordered collection of unique elements.                | ❌         | ✅          | ❌         | ❌             | `Add`, `Remove`, `Check Membership` | $O(1)$     |
+| **Queue**          | FIFO (First In First Out) collection.                   | ✅         | ✅          | ❌         | ❌             | `Enqueue`, `Dequeue`, `Front`       | $O(1)$     |
+| **Stack**          | LIFO (Last In First Out) collection.                    | ✅         | ✅          | ❌         | ❌             | `Push`, `Pop`, `Top`                | $O(1)$     |
+| **Linked List**    | Collection of nodes where each node points to the next. | ✅         | ✅          | ❌         | ✅             | `Add` `Node`, `Remove Node`         | $O(n)$     |
+
+
+# ASCII Table
 ## Unprintable
 
 | DEC | OCT | HEX | BIN      | SYM | HTML-UM | HTML-NAME |   DESCRIPTION  |
@@ -282,6 +298,9 @@ Encodings:
 | --- | --- | --- | -------- | --- | ------- | --------- | ----------- |
 | 27  | 033 | 1B  | 00011011 | ESC | \&#27;	 |	         | Escape      |
 
+
+## Escape Squence
+by: [ConnerWill](https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113fd25b)
 ### Cursor Control
 
 | ESC Code Sequence    |   Description                                          |
