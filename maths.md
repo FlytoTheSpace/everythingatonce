@@ -28,7 +28,127 @@ Applied Mathematics
 
 ## Symbols
 
+| Symbol                                | Name                          | Syntax                            |
+| ------------------------------------- | ----------------------------- | --------------------------------- |
+**Arithmetic**
+| $+$                                   | **Addition**                  | $a + b$ <br> $+ a$                |
+| $-$                                   | **Subtraction**               | $b - a$ <br> $- a$                |
+| $\times$ <br> $\ast$ <br> $\cdot$     | **Multiplication**            | $a \times b$ <br> $a \ast b$ <br> $a \cdot b$ <br> $ab$ |
+| $\div$ <br> $:$ <br> $\frac{a}{b}$    | **Division**                  | $a \div b$ <br> $a : b$ <br> $\frac{a}{b}$ |
+| $\mod{}$                              | **Remainder, Modulo**         | $a \mod b$                        |
+| $\pm$                                 | **Plus-Minus**                | $a \pm b$                         |
+| $\mp$                                 | **Minus-Plus**                | $a \mp b$                         |
+| $\sqrt{}$                             | **Root**                      | $\sqrt{a}$ <br> $\sqrt[n]{a}$     |
+**Equality**
+| $=$                                   | **Equal**                     | $a = b$                           |
+| $\neq$                                | **Not Equal**                 | $a \neq b$                        |
+| $\sim$ <br> $\propto$                 | **Similar, Proportion**       | $a \sim b$ <br> $a\propto b$      |
+| $\equiv$                              | **Identity, Equivalent**      | $a \equiv b$                      |
+**Comparison**
+| $<$                                   | **Less Than**                 | $a < b$                           |
+| $>$                                   | **Greater Than**              | $a > b$                           |
+| $\leq$                                | **Greater Than or Equal**     | $a \leq b$                        |
+| $\geq$                                | **Greater Than or Equal**     | $a \geq b$                        |
+| $\ll$                                 | **Much Less**                 | $a \ll b$                         |
+| $\gg$                                 | **Much Greater**              | $a \gg b$                         |
+**Set Theory**
+| $\emptyset$                           | **Empty Set**                 | $\emptyset$                       |
+| $\#$ <br> $\|A\|$                     | **Cardinality**               | $\#A$ <br> $\|A\|$                |
+| $\in$                                 | **Element of**                | $a \in A$                         |
+| $\notin$                              | **Not Element of**            | $a \notin A$                      |
+| $\subset$                             | **Subset**                    | $A \subset B$                     |
+| $\subseteq$                           | **Subset or Equal**           | $A \subseteq B$                   |
+| $\subsetneq$                          | **Proper Subset**             | $A \subsetneq B$                  |
+| $\supset$                             | **Superset**                  | $A \supset B$                     |
+| $\supseteq$                           | **Superset or Equal**         | $A \supseteq B$                   |
+| $\supsetneq$                          | **Proper Superset**           | $A \supsetneq B$                  |
+| $\cup$                                | **Union**                     | $A \cup B$                        |
+| $\cap$                                | **Intersection**              | $A \cap B$                        |
+| $\setminus$                           | **Difference**                | $A \setminus B$                   |
+| $\ominus$ <br> $\Delta$               | **Symmetrical Difference**    | $A \ominus B$ <br> $A \Delta B$   |
+**Logic**
+| $\land$                               | **AND**                       | $A \land B$                       |
+| $\lor$                                | **OR**                        | $A \lor B$                        |
+| $\lnot$                               | **NOT**                       | $\lnot A$                         |
+| $\oplus$                              | **Exclusive OR**              | $A \oplus B$                      |
+| $\implies$                            | **Implies**                   | $A \implies B$                    |
+| $\iff$                                | **Logical Equivalence**       | $A \iff B$                        |
+| $\therefore$                          | **Therefore**                 | $A \therefore B$                  |
+| $\because$                            | **Because**                   | $A \because B$                    |
+| $\top$                                | **Tee, True**                 | $\top$                            |
+| $\bot$                                | **Up Tack, False**            | $\bot$                            |
+| $\dashv$                              | **Asserted**                  | $A \dashv B$                      |
+| $\vdash$                              | **Provable**                  | $A \vdash B$                      |
+| $\models$                             | **Entails**                   | $A \models B$                     |
+| $\forall$                             | **Universal Quantifier**      | $\forall A$                       |
+| $\exists$                             | **Existential Quantifier**    | $\exists A$                       |
+| $\nexists$                            | **Not Exists Quantifier**     | $\nexists A$                      |
+| $\exists!$                            | **Uniqueness Quantifier**     | $\exists! A$                      |
+**Deriavative**
+| $'$                                   | **Langrange's Notation**      | $f'$                              |
+| $\dot{}$                              | **Netwon's Notation**         | $\dot{x}$                         |
+| $$\frac{dy}{dx}$$                     | **Lebniz's Notation**         | $$\frac{df}{dx}$$                 |
+| $$\frac{\partial f}{\partial x}$$     | **Lebniz's Notation**         | $$\frac{\partial f}{\partial x}$$ |
+**Calculus**
+| $$\infty$$                            | **Infinity**                  | $$\infty$$                        |
+| $$\int$$                              | **Integral**                  | $$\int_a^b$$                      |
+| $\mapsto$                             | **Namesless Function**        | $x \mapsto y$                     |
+| $\log$                                | **Logarithm**                 | $\log_ab = n$<br>$a^n = b$        |
+| $\ln$                                 | **Natural Logarithm**         | $\log_ea$                         |
+| $$\lim$$                              | **Limit**                     | $$\lim_{a \to b}x = y$$           |
+| $$\sum$$                              | **Capital Sigma**             | $$\sum_{k = 0}^xy$$               |
+| $$\prod$$                             | **Capital Pi**                | $$\prod_{k = 0}^xy$$              |
+**Number Theory**
+| $\Re$                                 | **Real**                      | $\Re(x)$                          |
+| $\Im$                                 | **Imaginary**                 | $\Im(x)$                          |
+| $\bar{}$                              | **Complex Conjugate**         | $\bar{x}$                         |
+| $!$                                   | **Factorial**                 | $a!$                              |
+| $\begin{pmatrix}n \cr k\end{pmatrix}$ | **Binomial Coefficient**      | $\begin{pmatrix}n \cr k\end{pmatrix}$ |
+| $\|x\|$                               | **Absolute**                  | $\|x\|$                           |
+| $\lfloor x \rfloor$                   | **Floor**                     | $\lfloor x \rfloor$               |
+| $\lceil x \rceil$                     | **Ceil**                      | $\lceil x \rceil$                 |
+| $\lfloor x \rceil$                    | **Nearest**                   | $\lfloor x \rceil$                |
+| $\mid$                                | **Divisible**                 | $a \mid b$                        |
+| $\nmid$                               | **Not Divisible**             | $a \nmid b$                       |
+**Geometry**
+| $\parallel$                           | **Parallel**                  | $AB \parallel CD$                 |
+| $\nparallel$                          | **Not Parallel**              | $AB \nparallel CD$                |
+| $\perp$                               | **Perpendicularity, Coprime** | $AB \perp CD$<br> $a \perp b$     |
+| $\overline{AB}$                       | **Line**                      | $\overline{AB}$                   |
+| $\overrightarrow{AB}$                 | **Arrow**                     | $\overrightarrow{AB}$             |
+| $\overleftrightarrow{AB}$             | **Bidirectional Arrow**       | $\overleftrightarrow{AB}$         |
+
+**Greek Alphabet**:
+
+| Name        | Symbol (Lower) | Symbol (Upper) |
+| ----------- | -------------- | -------------- |
+| **Alpha**   | $\alpha$       | $\Alpha$       |
+| **Beta**    | $\beta$        | $\Beta$        |
+| **Gamma**   | $\gamma$       | $\Gamma$       |
+| **Delta**   | $\delta$       | $\Delta$       |
+| **Epsilon** | $\epsilon$     | $\Epsilon$     |
+| **Zeta**    | $\zeta$        | $\Zeta$        |
+| **Eta**     | $\eta$         | $\Eta$         |
+| **Theta**   | $\theta$       | $\Theta$       |
+| **Iota**    | $\iota$        | $\Iota$        |
+| **Kappa**   | $\kappa$       | $\Kappa$       |
+| **Lambda**  | $\lambda$      | $\Lambda$      |
+| **Mu**      | $\mu$          | $\Mu$          |
+| **Nu**      | $\nu$          | $\Nu$          |
+| **Xi**      | $\xi$          | $\Xi$          |
+| **Omicron** | $\omicron$     | $\Omicron$     |
+| **Pi**      | $\pi$          | $\Pi$          |
+| **Rho**     | $\rho$         | $\Rho$         |
+| **Sigma**   | $\sigma$       | $\Sigma$       |
+| **Tau**     | $\tau$         | $\Tau$         |
+| **Upsilon** | $\upsilon$     | $\Upsilon$     |
+| **Phi**     | $\phi$         | $\Phi$         |
+| **Chi**     | $\chi$         | $\Chi$         |
+| **Psi**     | $\psi$         | $\Psi$         |
+| **Omega**   | $\omega$       | $\Omega$       |
+
 ## Constants
+
 
 $f(0) = 0$
 
@@ -36,14 +156,14 @@ $f(1) = 1$
 
 $f(n) = f(n-1) + f(n-2)$
 
-| Symbol | Name               				 | Decimal Value               | Obtain |
-| ------ | --------------------------------- | --------------------------- | ------ |
-| $\pi$  | **Pi**             				 | $3.14159265358979323846...$ |        |
-| $\tau$ | **tau**            				 | $6.28318530717958647692...$ | $2\pi$ |
-| $e$    | **Euler's Number** 				 | $2.71828182845904523536...$ | $$\sum_{n=0}^\infty\frac{1}{n!} = \frac{1 + \sqrt5}{2}$$ |
-| $i$ 	 | **Imaginary Unit** 				 | $i$						   | $\sqrt{-1}$ |
-| $\phi$ | **Golden Ratio**   				 | $1.61803398874989484820...$ | $$\lim_{n \to \infty}\frac{f(n)}{f(n-1)}$$ |
-| $\psi$ | **Reciprocal Fibbonaci Constant** | $3.35988566624317755317...$ | $$\sum_{n=1}^{\infty}\frac{1}{f(n)}$$ |
+| Symbol | Name                              | Decimal Value               | Obtain                                                   |
+| ------ | --------------------------------- | --------------------------- | -------------------------------------------------------- |
+| $\pi$  | **Pi**                            | $3.14159265358979323846...$ |                                                          |
+| $\tau$ | **tau**                           | $6.28318530717958647692...$ | $2\pi$                                                   |
+| $e$    | **Euler's Number**                | $2.71828182845904523536...$ | $$\sum_{n=0}^\infty\frac{1}{n!} = \frac{1 + \sqrt5}{2}$$ |
+| $i$    | **Imaginary Unit**                | $i$                         | $\sqrt{-1}$                                              |
+| $\phi$ | **Golden Ratio**                  | $1.61803398874989484820...$ | $$\lim_{n \to \infty}\frac{f(n)}{f(n-1)}$$               |
+| $\psi$ | **Reciprocal Fibbonaci Constant** | $3.35988566624317755317...$ | $$\sum_{n=1}^{\infty}\frac{1}{f(n)}$$                    |
 
 # Pure Mathematics
 
@@ -105,6 +225,10 @@ $a\color{red}\div\color{white}b$
 **Constant**: a Number with a Fixed Value
 
 **Components**:
+- **Equation**: A Statement with atleast 2 Expressions divided by an Equality Sign
+
+$\color{MediumSeaGreen}4x^2 - 3xy = \color{MediumSeaGreen}6x^2 - 2x^2 - 3xy$
+
 - **Expression**: contains all the terms and operands
 
 	$\color{MediumSeaGreen}4x^2 - 3xy$
@@ -135,6 +259,8 @@ $a\color{red}\div\color{white}b$
 
 ### Equations
 
+---
+
 $$
 LHS = RHS
 $$
@@ -164,6 +290,24 @@ $$
 $$
 a = \frac{c + d}{b}
 $$
+
+### Linear Equations
+
+---
+
+where the all the terms in the expression either have 0 or only 1 algebraic factor.
+
+#### One Variable:
+
+$2x - 3 = x + 2$
+
+$2x - x - 3 = 2$
+
+$x - 3 = 2$
+
+$x = 2 + 3$
+
+$x = 5$
 
 ### Addition/Subtraction
 
@@ -225,8 +369,10 @@ $$
 	$$(a + b)(x + y + z) = a(x + y + z) + b(x + y + z) = ax + ay + az + bx + by + bz$$
 
 ### Binomial Theorem
-
+> $n \in \mathbb{Z}^+$
 $$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^n \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
+> $n \notin \mathbb{Z}^+$
+$$(a + b)^n = \sum_{k = 0}^\infty \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^\infty \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
 
 ### Factorization
 
@@ -273,12 +419,12 @@ These Boolean Algebra Variables are used in Sets when representing Data
 | ------------------ | ---------------- | --------- |
 | **KiloByte** `KB`  | `1000 Bytes`     | $10^{3}$  |
 | **MegaByte** `MB`  | `1000 KiloBytes` | $10^{6}$  |
-| **GigaByte** `GB`  | `1000 MegaBytes`  | $10^{9}$  |
-| **TeraByte** `TB`  | `1000 GigaBytes`  | $10^{12}$ |
-| **PetaByte** `PB`  | `1000 TeraBytes`  | $10^{15}$ |
-| **ExaByte** `EB`   | `1000 PetaBytes`  | $10^{18}$ |
-| **ZetaByte** `ZB`  | `1000 ExaBytes`   | $10^{21}$ |
-| **YottaByte** `YB` | `1000 ZetaBytes`  | $10^{24}$ |
+| **GigaByte** `GB`  | `1000 MegaBytes` | $10^{9}$  |
+| **TeraByte** `TB`  | `1000 GigaBytes` | $10^{12}$ |
+| **PetaByte** `PB`  | `1000 TeraBytes` | $10^{15}$ |
+| **ExaByte** `EB`   | `1000 PetaBytes` | $10^{18}$ |
+| **ZetaByte** `ZB`  | `1000 ExaBytes`  | $10^{21}$ |
+| **YottaByte** `YB` | `1000 ZetaBytes` | $10^{24}$ |
 
 **Bytes**,  `(base 2)`:
 | Unit               | Comparison       | Bytes    |
@@ -305,17 +451,17 @@ Main Logic Gates:
 - **Negation**, **NOT** `(1 input)`: Inverts the given Input.
 - **Exclusive OR**, **XOR** `(2 inputs)`: returns `1` if both inputs are not the same.
 
-| $a$ | `NOT` $¬a$ |
-| --- | ---------- |
-| $0$ | $1$        |
-| $1$ | $0$        |
+| $a$ | `NOT` $\lnot a$ |
+| --- | --------------- |
+| $0$ | $1$             |
+| $1$ | $0$             |
 
-| $a$ | $b$ | `AND` $a∧b$ | `OR` $a∨b$ | `XOR` $a \otimes b$ |
-| --- | --- | ----------- | ---------- | ------------------- |
-| $0$ | $0$ | $0$         | $0$        | $0$                 |
-| $0$ | $1$ | $0$         | $1$        | $1$                 |
-| $1$ | $0$ | $0$         | $1$        | $1$                 |
-| $1$ | $1$ | $1$         | $1$        | $0$                 |
+| $a$ | $b$ | `AND` $a\land b$ | `OR` $a\lor b$ | `XOR` $a \oplus b$ |
+| --- | --- | ---------------- | -------------- | ------------------- |
+| $0$ | $0$ | $0$              | $0$            | $0$                 |
+| $0$ | $1$ | $0$              | $1$            | $1$                 |
+| $1$ | $0$ | $0$              | $1$            | $1$                 |
+| $1$ | $1$ | $1$              | $1$            | $0$                 |
 
 **Inverted Logic Gates**:
 
@@ -323,12 +469,12 @@ Main Logic Gates:
 - **NOT Disjunction**,  **NOR** `(2 inputs)`: returns `1` if any of the inputs are NOT `1`.
 - **NOT Exclusive OR**, **XNOR** `(2 inputs)`: returns `1` if both inputs ARE the same.
 
-| $a$ | $b$ | `NAND` $¬(a∧b)$ | `NOR` $¬(a∨b)$ | `XNOR` $¬(a \otimes b)$ |
-| --- | --- | --------------- | -------------- | ----------------------- |
-| $0$ | $0$ | $1$             | $1$            | $1$                     |
-| $0$ | $1$ | $1$             | $0$            | $0$                     |
-| $1$ | $0$ | $1$             | $0$            | $0$                     |
-| $1$ | $1$ | $0$             | $0$            | $1$                     |
+| $a$ | $b$ | `NAND` $\lnot (a\land b)$ | `NOR` $\lnot (a\lor b)$ | `XNOR` $\lnot (a \oplus b)$ |
+| --- | --- | ------------------------- | -------------- | ----------------------- |
+| $0$ | $0$ | $1$                       | $1$            | $1$                     |
+| $0$ | $1$ | $1$                       | $0$            | $0$                     |
+| $1$ | $0$ | $1$                       | $0$            | $0$                     |
+| $1$ | $1$ | $0$                       | $0$            | $1$                     |
 
 **Totality of Logic Gates / Truth Tables**:
 
@@ -352,17 +498,17 @@ Main Logic Gates:
 
 **SR Latch**: A Latch that can Hold upto 1 Bit of Data, with 2 Inputs and 2 Outputs
 
-- `S`, `R` Inputs
-- `Q`, `¬Q` Outputs
-- `S` Sets The Output `Q` to 1, `¬Q` to 0 
-- `R` Sets The Output `Q` to 0, `¬Q` to 1
-- `¬Q` is Invert of The Main Output `Q`
-- value of `Q` can be 0 or 1 depending on it's initial value
-- `S` and `R` both 1 at the same is Invalid, as it's not supposed to happen and both Output `Q` and `¬Q` will be set to 0
+- $S$, $R$ Inputs
+- $Q$, $\lnot Q$ Outputs
+- $S$ Sets The Output $Q$ to 1, $\lnot Q$ to 0 
+- $R$ Sets The Output $Q$ to 0, $\lnot Q$ to 1
+- $\lnot Q$ is Invert of The Main Output $Q$
+- value of $Q$ can be 0 or 1 depending on it's initial value
+- $S$ and $R$ both 1 at the same is Invalid, as it's not supposed to happen and both Output $Q$ and $\lnot Q$ will be set to 0
 
 Truth Table:
 
-| `S` | `R` | `Q`    | `¬Q`   |
+| $S$ | $R$ | $Q$    | $\lnot Q$   |
 | --- | --- | ------ | ------ |
 | $0$ | $0$ | $1, 0$ | $0, 1$ |
 | $1$ | $0$ | $1$    | $0$    |
@@ -419,20 +565,86 @@ Truth Table:
 # Linear Alegbra
 **Linear**: a subfield of Algebra where All the Algebraic factors in an expression have a power of 1
 
-## Linear Equations in One Variable
-where the all the terms in the expression either have 0 or only 1 algebraic factor.
+## Cordinate System
 
-examples:
+A coordinate system specifies positions in space using numerical values relative to defined reference axes or points.
 
-$2x - 3 = x + 2$
+- **X**: The Plane of Length
+- **Y**: The Plane of Width
+- **Z**: The Plane of Depth
 
-$2x - x - 3 = 2$
+## Scalar
 
-$x - 3 = 2$
+A Number that scales a Vector
+$$
+\color{MediumSeaGreen}a\color{white}\mathbf{\vec{v}}
+$$
+$$
+\begin{bmatrix}\color{MediumSeaGreen}x\cr \color{MediumSeaGreen}y \end{bmatrix}
+$$
+$$
+\color{MediumSeaGreen}x\color{white}\hat{i} + \color{MediumSeaGreen}y\color{white}\hat{j}
+$$
 
-$x = 2 + 3$
+## Vectors
 
-$x = 5$
+**Vectors**: Arrow that point to a specific point in space
+
+Representation:
+$$
+\vec{v}, \mathbf{\vec{v}}, \overline{v}, \begin{bmatrix}x\cr y \end{bmatrix}
+$$
+
+> $x\in \R$
+
+> $y\in \R$
+
+Properties:
+- **Length**
+$$
+| v | = \sqrt{ x^2 + y^2}
+$$
+$$
+| v | = \sqrt{ x^2 + y^2 + z^2}
+$$
+- **Pointed Space**
+$$
+\mathbf{\vec{v}} = \begin{bmatrix} x_1 \cr y_1 \end{bmatrix} = x_0 \hat{i} + y_0 \hat{j}
+$$
+
+**Arithmetic**:
+$$
+\begin{bmatrix} x_1 \cr y_1 \end{bmatrix} + \begin{bmatrix} x_2 \cr y_2 \end{bmatrix} 
+= \begin{bmatrix} x_1 + x_2 \cr y_1 + y_2 \end{bmatrix}
+$$
+
+$$
+a \cdot \begin{bmatrix} x \cr y \end{bmatrix} = \begin{bmatrix} ax \cr ay \end{bmatrix}
+$$
+
+### Unit Vectors
+
+---
+**Unit Vectors**: are vectors that defines the Units in a specific Plane of the Cordinate System
+
+| Vector                          | Plane | Initial Position                                                    |
+| ------------------------------- | ----- | ------------------------------------------------------------------- |
+| $\color{MediumSeaGreen}\hat{i}$ | **X** | $\begin{bmatrix} \color{MediumSeaGreen}1 \cr 0 \cr 0 \end{bmatrix}$ |
+| $\color{Orange}\hat{j}$         | **Y** | $\begin{bmatrix} 0 \cr \color{Orange}1 \cr 0 \end{bmatrix}$         |
+| $\color{DodgerBlue}\hat{k}$     | **Z** | $\begin{bmatrix} 0 \cr 0 \cr \color{DodgerBlue}1 \end{bmatrix}$     |
+
+**Basis Vectors**: The Unit Vectors that defines the Planes of the Cordinate System
+
+### Span
+
+---
+
+
+**Span**: every point in space that a sum of 2 or more vectors can reach
+
+## Matrix
+
+## Tensor
 
 # Geometry
 **Geometry**: a field of Mathematics consisting Entirely of Geometric Shapes and their Properties
@@ -521,12 +733,12 @@ Types:
 - **Right Angle**: in which angle is $90\degree$
 - **Obtuse Angle**: in which angle is greater than $90\degree$ and less than $180\degree$.
 
-	$\angle a > 90\degree ∧ \angle a < 180\degree$
+	$\angle a > 90\degree \land  \angle a < 180\degree$
 
 - **Straight Angle**: in which angle is $180\degree$
 - **Reflex Angle**: in which angle is greater than $180\degree$ and less than $360\degree$.
 
-	$\angle a > 180\degree ∧ \angle a < 360\degree$
+	$\angle a > 180\degree \land  \angle a < 360\degree$
 
 - **Complete Angle**: in which angle is $360\degree$
 
@@ -620,12 +832,12 @@ Properties:
 - **Angle Based**:
 	- **Acute Angled Triangle**: A Triangle with All angles less than $90\deg$
 
-	$$90 \deg > a ∧ b ∧ c$$
+	$$90 \deg > a \land  b \land  c$$
 	- **Right Angled Triangle**: A Triangle with any one Angle equivalent to $90\deg$
 
-	$$90 \deg = a ∨ b ∨ c$$
+	$$90 \deg = a \lor  b \lor  c$$
 	- **Obtuse Angled Triangle**: A Triangle with any one Angle Greater than $90\deg$
-	$$90 \deg > a ∨ b ∨ c$$
+	$$90 \deg > a \lor  b \lor  c$$
 
 #### **Quadrilateral**: A Polygon with 4 Sides and Vertex
 
@@ -832,7 +1044,7 @@ Different Type of Number System that are used in Mathematics:
 
 ---
 
-**Natural Numbers**/**Positive Numbers**: a Set of every number that be found in Nature and it does Exists.
+**Natural Numbers**/**Positive Numbers**: $\mathbb{N}$ a Set of every number that be found in Nature and it does Exists.
 $$
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
@@ -840,7 +1052,7 @@ $$
 
 ---
 
-**Negative Numbers**: a Set of Negative Version of every *Positive Numbers*.
+**Negative Numbers**: $\mathbb{Z}^-$ a Set of Negative Version of every *Positive Numbers*.
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1
 $$
@@ -848,7 +1060,7 @@ $$
 
 ---
 
-**Whole Numbers**: A Set of every *Positive Numbers* and The Number `0`.
+**Whole Numbers**: $\mathbb{W}$ A Set of every *Positive Numbers* and The Number `0`.
 $$
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
@@ -856,7 +1068,7 @@ $$
 
 ---
 
-**Integers**: A Set containing All *Positive* and *Negative* Numbers also also `0`
+**Integers**: $\mathbb{Z}$ A Set containing All *Positive* and *Negative* Numbers also also `0`
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
@@ -912,15 +1124,14 @@ $$
 c \frac{a}{b} = c + \frac{a}{b}
 $$
 - To Mixed:
-	- `c` must be floored to the Nearest Integer
 $$
 n \mod b = a
 $$
 $$
-n \div b = c
+\lfloor n \div b \rfloor = c
 $$
 $$
-\frac{n}{b} = (n \div b) + \frac{(n \mod b)}{b} = c \frac{a}{b}
+\frac{n}{b} = (\lfloor n \div b \rfloor) + \frac{(n \mod b)}{b} = c \frac{a}{b}
 $$
 - From Mixed:
 $$
@@ -962,7 +1173,7 @@ $$
 
 ---
 
-**Rational Numbers**: Includes All of The Integers and Fractions
+**Rational Numbers**: $\mathbb{Q}$ Includes All of The Integers and Fractions
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
@@ -989,11 +1200,11 @@ $$
 
 | Number System    | Addition | Subtraction | Multiplication | Division |
 | ---------------- | -------- | ----------- | -------------- | -------- |
-| Natural/Positive | ✅      | ❌          | ✅            | ❌       |
-| Negative         | ✅      | ❌          | ❌            | ❌       |
-| Whole            | ✅      | ❌          | ✅            | ❌       |
-| Integers         | ✅      | ✅          | ✅            | ❌       |
-| Rationals        | ✅      | ✅          | ✅            | ❌       |
+| Natural/Positive | ✅        | ❌           | ✅              | ❌        |
+| Negative         | ✅        | ❌           | ❌              | ❌        |
+| Whole            | ✅        | ❌           | ✅              | ❌        |
+| Integers         | ✅        | ✅           | ✅              | ❌        |
+| Rationals        | ✅        | ✅           | ✅              | ❌        |
 
 **Communicativity**: Describes whether changing the Order of Operands in an expression, results in the same output.
 
@@ -1016,11 +1227,11 @@ $$
 **Associativity and Communicativity For**:
 | Number System    | Addition | Subtraction | Multiplication | Division |
 | ---------------- | -------- | ----------- | -------------- | -------- |
-| Natural/Positive | ✅      | ❌          | ✅            | ❌       |
-| Negative         | ✅      | ❌          | ✅            | ❌       |
-| Whole            | ✅      | ❌          | ✅            | ❌       |
-| Integers         | ✅      | ❌          | ✅            | ❌       |
-| Rationals        | ✅      | ❌          | ✅            | ❌       |
+| Natural/Positive | ✅        | ❌           | ✅              | ❌        |
+| Negative         | ✅        | ❌           | ✅              | ❌        |
+| Whole            | ✅        | ❌           | ✅              | ❌        |
+| Integers         | ✅        | ❌           | ✅              | ❌        |
+| Rationals        | ✅        | ❌           | ✅              | ❌        |
 
 **Distributive**: 
 $$
@@ -1116,6 +1327,9 @@ Properties:
 - Can only be compared with the same units
 - **Equivalent Ratios**: when 2 Ratios are equivalent to one another
 
+$$k = x \cdot y$$
+$$k \propto y$$
+
 ### Proportion
 
 ---
@@ -1167,18 +1381,18 @@ Properties:
 
 | Number | Factors        | isPrime |
 | ------ | -------------- | ------- |
-| $1$    | $1$            | ❌      |
-| $2$    | $1,2$          | ✅      |
-| $3$    | $1,3$          | ✅      |
-| $4$    | $1,2,4$        | ❌      |
-| $5$    | $1,5$          | ✅      |
-| $6$    | $1,2,3,6$      | ❌      |
-| $7$    | $1,7$          | ✅      |
-| $8$    | $1,2,4,8$      | ❌      |
-| $9$    | $1,3,9$        | ❌      |
-| $10$   | $1,2,5,10$     | ❌      |
-| $11$   | $1,11$         | ✅      |
-| $12$   | $1,2,3,4,6,12$ | ❌      |
+| $1$    | $1$            | ❌       |
+| $2$    | $1,2$          | ✅       |
+| $3$    | $1,3$          | ✅       |
+| $4$    | $1,2,4$        | ❌       |
+| $5$    | $1,5$          | ✅       |
+| $6$    | $1,2,3,6$      | ❌       |
+| $7$    | $1,7$          | ✅       |
+| $8$    | $1,2,4,8$      | ❌       |
+| $9$    | $1,3,9$        | ❌       |
+| $10$   | $1,2,5,10$     | ❌       |
+| $11$   | $1,11$         | ✅       |
+| $12$   | $1,2,3,4,6,12$ | ❌       |
 
 Divisibility Rule
 
@@ -1353,16 +1567,16 @@ $$
 
 | Number | Square Unit Digit |
 | ------ | ----------------- |
-| $1, 9$ | $1$				 |
-| $2, 8$ | $4$				 |
-| $3, 7$ | $9$				 |
-| $4, 6$ | $6$				 |
-| $5$ 	 | $5$				 |
+| $1, 9$ | $1$               |
+| $2, 8$ | $4$               |
+| $3, 7$ | $9$               |
+| $4, 6$ | $6$               |
+| $5$    | $5$               |
 
 - `n` is the Count of Digits in $\sqrt{a}$, the amount of digits in the Square Root of the Number will be:
 	
-	$$n = 2x ⇒ \frac{n}{2}$$
-	$$n = 2x + 1 ⇒ \frac{n + 1}{2}$$
+	$$(n = 2x) \implies \frac{n}{2}$$
+	$$(n = 2x + 1) \implies \frac{n + 1}{2}$$
 
 **Triangular Number**: where the Number can Geometrically arranged to create a Triangle
 
@@ -1379,12 +1593,12 @@ $$
 \sum_{k=1}^n (2k-1) = n^2
 $$
 $$
-a - (\sum_{k=1}^n (2k -1)) = 0 ⇒ \sqrt{a} = n
+a - (\sum_{k=1}^n (2k -1)) = 0 \implies \sqrt{a} = n
 $$
 
 Square Rule of 5: any Number `a` where the Unit Digit of it is 5, then It'll follow this rule:
 
-$$a \mod 10 = 5 ⇒$$
+$$a \mod 10 = 5 \implies$$
 
 $$a = 10k + 5$$
 $$k = \frac{a - 5}{10}$$
@@ -1409,6 +1623,8 @@ $$
 $$
 (2m)^2 + (m^2 - 1)^2 = (m^2 + 1)^2
 $$
+
+
 
 <details>
 <summary>
@@ -1485,13 +1701,25 @@ a^3 = b
 $$
 
 | Number | Cube Unit Digit |
-| ------ | ----------------- |
-| $1, 9$ | $1$				 |
-| $2, 8$ | $4$				 |
-| $3, 7$ | $9$				 |
-| $4, 6$ | $6$				 |
-| $5$ 	 | $5$				 |
+| ------ | --------------- |
+| $1, 9$ | $1$             |
+| $2, 8$ | $4$             |
+| $3, 7$ | $9$             |
+| $4, 6$ | $6$             |
+| $5$    | $5$             |
 
+### Root
+
+#### Square Root
+
+---
+
+$$\sqrt{3} 
+= \sqrt{4-1} 
+= \sqrt{4(1 - \frac{1}{4})} 
+= 2\sqrt{1-\frac{1}{4}} 
+= 2(1-\frac{1}{4})^{1/2} 
+= \sum_{k=0}^{-1/4} 2\cdot \frac{(-1/4)!}{k!(-1/4 - k)!}\cdot 1^{-1/4 - k}(-\frac{1}{4})^k $$
 
 # Calculus
 # Differential Equations
