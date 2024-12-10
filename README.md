@@ -12,3 +12,7 @@ An attempt to Mapping out all of major subjects and Knowledge The World has to o
 
 > `(This Repository is currently private but it's meant to be published in the near future)`
 
+Subject:
+
+- [Maths](./maths/maths.md)
+- [Science](./science/science.md)
