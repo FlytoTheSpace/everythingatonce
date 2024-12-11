@@ -20,19 +20,17 @@ Properties:
 
 **Congruent**: when 2 shapes are equal and have the same size
 
-## Symmetry
+# Symmetry
 
 **Symmetry**: Figures with Evenly Balanced Proportions
 
-## 2D
+# 2D
 
 **Perimeter**: Length along the Boundaries of any Shape.
 
 **Area**: Amount of area covered by any Shape.
 
-### Lines
-
----
+## Lines
 
 **Line Segment**: A Line that stop at 2 distinct points.
 
@@ -49,11 +47,7 @@ Properties:
 
 - **Transversal**: A lines that intersects two or more lines at distinct points
 
-
-
-### Curves
-
----
+## Curves
 
 **Simple Curve**: A Curve that doesn't cross itself
 
@@ -66,9 +60,7 @@ Properties:
 - **Exterior**: Area Outside the Curve
 - **Region**: Interior and Boundary
 
-### Angles
-
----
+## Angles
 
 Unit:
 
@@ -103,9 +95,7 @@ Sum Types:
 
 	$\angle a + \angle b = 180\degree$
 
-### Circle
-
----
+## Circle
 
 Line Segments and Curves:
 
@@ -142,9 +132,8 @@ Similar Shapes
 - **Semi-circle**: Half of a Circle
 - **Quadrant**: Quarter of a Circle
 
-### Polygon
+## Polygon
 
----
 **Polygon**: A simple closed Shape made up only line segments
 
 Properties:
@@ -159,9 +148,11 @@ Types:
 - **Concave Polygon**: A Polygon with an In-words Curve
 - **Convex Polygon**: A Polygon without any In-words Curve
 
-#### **Triangle**: A Polygon with 3 sides
+### Triangle
 
 ---
+
+**Triangle**: A Polygon with 3 sides
 
 Properties: 
 - $180\deg$ Sum of all Interior Angles
@@ -191,9 +182,11 @@ Properties:
 	- **Obtuse Angled Triangle**: A Triangle with any one Angle Greater than $90\deg$
 	$$90 \deg > a \lor  b \lor  c$$
 
-#### **Quadrilateral**: A Polygon with 4 Sides and Vertex
+### Quadrilateral
 
 ---
+
+**Quadrilateral**: A Polygon Type with 4 Sides and Vertexes
 
 Properties: 
 - $360\deg$ Sum of all Interior Angles
@@ -229,25 +222,27 @@ Properties:
 - **Area**: 
 	$a^2$
 
-#### **Pentagon**: A Polygon with 5 sides and vertex
+### Pentagon
 
 ---
+
+**Pentagon**: A Polygon with 5 sides and vertex
 
 - $540\deg$: sum of All Interior Angles
 - Regular: $108\deg$
 
-#### **Hexagon**: A Polygon with 6 sides and vertex
+### Hexagon
 
 ---
+
+**Hexagon**: A Polygon with 6 sides and vertex
 
 - $720\deg$: sum of All Interior Angles
 - Regular: $120\deg$
 
 ## 3D
 
-### Segments
-
----
+## Segments
 
 **Surface Area**: Amount of Area exposed to the Outside of an object
 - **Net**: Flattened version of Surface of a 3D shape into a 2D space
@@ -261,24 +256,21 @@ Properties:
 
 **Vertex**: Intersection point of 3 
 
-### Sphere
+## Sphere
 
----
 
 **Sphere**: A 3 Dimentional Circle
 
-### **Cube**
+## **Cube**
+
+
+## **Triangular**
+
+
+### **Pyramid**
 
 ---
 
-### **Triangular**
-
----
-
-#### **Pyramid**
-
----
-
-#### **Tetrahedron**
+### **Tetrahedron**
 
 ---

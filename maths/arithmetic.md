@@ -2,7 +2,7 @@
 
 **Arithmetic**: a field of Mathematics containing the very Foundational Basics about it
 
-## Successor, Predecessor
+# Successor, Predecessor
 
 **Successor**: A Number `+1` of The Previous One
 
@@ -12,7 +12,7 @@ $a+1$
 
 $a-1$
 
-## Addition, Subtraction
+# Addition, Subtraction
 **Addition** `(Add)`: Sum of any 2 Numbers
 
 $a\color{lime}+\color{white}b$
@@ -25,7 +25,7 @@ $a\color{red}-\color{white}b$
 
 - Repeated Predecession $b$ count of times on $a$
 
-## Multiplication, Division
+# Multiplication, Division
 **Multiplication** `(Multiply)`: Multiplication
 
 $a\color{lime}\times\color{white}b$
@@ -36,7 +36,7 @@ $a\color{lime}\times\color{white}b$
 $a\color{red}\div\color{white}b$
 - Divison of $a$ into `b` count of Parts/Components Evenly
 
-## BEDMAS
+# BEDMAS
 
 **BEDMAS** is the standard for math operations evaluation Order, each letter corresponding to a specific Operation
 

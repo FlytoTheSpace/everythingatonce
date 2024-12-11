@@ -1,7 +1,7 @@
 # Algebra
 **Algebra**: a field of Mathematics consisting of English Aplhabet Represeting Number, with many use cases such as Representing Unknown/Dynamic Values.
 
-## Core Algebra
+# Core Algebra
 
 **Constant**: a Number with a Fixed Value
 
@@ -38,7 +38,7 @@ $\color{MediumSeaGreen}4x^2 - 3xy = \color{MediumSeaGreen}6x^2 - 2x^2 - 3xy$
 
 		$3\color{MediumSeaGreen}xy\color{white}$ 
 
-### Equations
+## Equations
 
 ---
 
@@ -72,13 +72,13 @@ $$
 a = \frac{c + d}{b}
 $$
 
-### Linear Equations
+## Linear Equations
 
 ---
 
 where the all the terms in the expression either have 0 or only 1 algebraic factor.
 
-#### One Variable:
+### One Variable:
 
 $2x - 3 = x + 2$
 
@@ -106,7 +106,7 @@ $$
 a^2 + a \neq 2a^2
 $$
 
-### Multiplication/Divison
+## Multiplication/Divison
 
 - **Monomial**, **Monomial**
 
@@ -149,13 +149,13 @@ $$
 
 	$$(a + b)(x + y + z) = a(x + y + z) + b(x + y + z) = ax + ay + az + bx + by + bz$$
 
-### Binomial Theorem
+## Binomial Theorem
 > $n \in \mathbb{Z}^+$
 $$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^n \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
 > $n \notin \mathbb{Z}^+$
 $$(a + b)^n = \sum_{k = 0}^\infty \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^\infty \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
 
-### Factorization
+## Factorization
 
 $$
 a^2 \pm ab = a(a \pm b)
@@ -167,15 +167,15 @@ $$
 \pm ab \mp ac = a(b \mp c) = \mp a ( \mp b \pm c)
 $$
 
-## Abstract Algebra
+# Abstract Algebra
 
-## Boolean Algebra
+# Boolean Algebra
 **Boolean Algebra**: A Branch of Algebra where the Variables can only have 2 possible states
 
 - `1` standing for **TRUE**, **ON**.
 - `0` standing for **FALSE**, **OFF**.
 
-### Units
+## Units
 
 ---
 
@@ -273,7 +273,7 @@ Main Logic Gates:
 | $1$ | $0$ | $0$   | $1$  | $1$   | $1$    | $0$   | $0$    |
 | $1$ | $1$ | $1$   | $1$  | $0$   | $0$    | $0$   | $1$    |
 
-### Latches
+## Latches
 
 ---
 
@@ -296,7 +296,7 @@ Truth Table:
 | $0$ | $1$ | $0$    | $1$    |
 | $1$ | $1$ | $0$    | $0$    |
 
-### Arithmetic
+## Arithmetic
 
 ---
 

@@ -1,12 +1,10 @@
 # Number Theory
 
-## General Number Theory
+# General Number Theory
 
-### Base
+## Base
 
----
-
-**Base 10**:
+### Base 10
 
 ---
 
@@ -57,6 +55,10 @@ $$
 214 = 2 \times 100  + 1 \times 10 + 4 \times 1
 $$
 
+### Base 2
+
+---
+
 ### Ratio
 
 ---
@@ -74,7 +76,7 @@ Properties:
 $$k = x \cdot y$$
 $$k \propto y$$
 
-#### Proportion
+### Proportion
 
 ---
 
@@ -90,9 +92,7 @@ $a \colon b :: c \colon d$
 
 - **Middle Terms**: Second and the Third Terms `[b, c]`
 
-### Factors
-
----
+## Factors
 
 **Factors**: Numbers that can be multiplied to obtain a new Number, those number will become the factors of the new Numbers
 
@@ -155,7 +155,7 @@ Divisibility Rule
 | $10$   | `0` in one's place                            |
 | $11$   | -                                             |
 
-#### Prime Factorisation
+### Prime Factorisation
 
 ---
 
@@ -163,7 +163,7 @@ Divisibility Rule
 
 - **Greatest Common Divisior** `GCD`: The Biggest Factor any 2 or more Numbers that are all divisible by it.
 
-### Exponentiation
+## Exponentiation
 
 **Exponentiation/Power**: A Level Above Multiplication where a Number is Multiplied by itself `n` count of times.
 
@@ -208,7 +208,7 @@ $$
 **Standard Form**: Representation of Very Large/Small Numbers using:
 $$a \times 10^n$$
 
-#### Laws of Exponent
+### Laws of Exponent
 
 ---
 
@@ -250,7 +250,7 @@ $$(2a + 1)^n = 2(\frac{(2a + 1)^n - 1}{2}) + 1$$
 - Even Number to the Power of `n` will always result in an Even Number, as long as $n \neq 0$
 $$(2a)^n = 2(\frac{(2a)^n}{2})$$
 
-#### Power
+### Power
 
 ---
 
@@ -293,7 +293,7 @@ $$
 a^{m/n} = (\sqrt[n]{a})^m
 $$
 
-#### Square
+### Square
 
 ---
 
@@ -423,7 +423,7 @@ $...$
 
 </details>
 
-#### Cube
+### Cube
 
 ---
 
@@ -455,7 +455,7 @@ $$
 | $4, 6$ | $6$             |
 | $5$    | $5$             |
 
-#### Root
+### Root
 
 ---
 
@@ -466,36 +466,28 @@ $$\sqrt{3}
 = 2(1-\frac{1}{4})^{1/2} 
 = \sum_{k=0}^{-1/4} 2\cdot \frac{(-1/4)!}{k!(-1/4 - k)!}\cdot 1^{-1/4 - k}(-\frac{1}{4})^k $$
 
-## Number System
+# Number System
 Different Type of Number System that are used in Mathematics:
 
-### Natural Numbers/Positive Numbers
-
----
+## Natural Numbers/Positive Numbers
 
 **Natural Numbers**/**Positive Numbers**: $\mathbb{N}$ a Set of every number that be found in Nature and it does Exists.
 $$
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
-### Negative Numbers
-
----
+## Negative Numbers
 
 **Negative Numbers**: $\mathbb{Z}^-$ a Set of Negative Version of every *Positive Numbers*.
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1
 $$
-### Whole Numbers
-
----
+## Whole Numbers
 
 **Whole Numbers**: $\mathbb{W}$ A Set of every *Positive Numbers* and The Number `0`.
 $$
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
-### Integers
-
----
+## Integers
 
 **Integers**: $\mathbb{Z}$ A Set containing All *Positive* and *Negative* Numbers also also `0`
 $$
@@ -516,9 +508,7 @@ $$
 \pm a \times \mp b = -a \times b = a \times -b = -c
 $$
 
-### Fractions
-
----
+## Fractions
 
 **Fractions**: Numbers that can be represented as a Fraction of a Number, can be both Positive/Negative, can also Represent *some* Decimal Numbers
 $$
@@ -598,9 +588,7 @@ $$
 \frac{a}{b} \div \frac{c}{d} = \frac{a \div c}{b \div d} = \frac{a \times d}{b \times c}
 $$
 
-### Rational Numbers
-
----
+## Rational Numbers
 
 **Rational Numbers**: $\mathbb{Q}$ Includes All of The Integers and Fractions
 $$
@@ -618,9 +606,7 @@ $$
 \frac{a}{b} \times \frac{b}{a} = \frac{a \div a}{b \div b} = \frac{1}{1} = 1
 $$
 
-### Properties:
-
----
+## Properties:
 
 - `0` Additive Identity for Rationals
 - `1` Multiplicative Identity for Rationals
@@ -669,9 +655,7 @@ $$
 
 
 
-### Other Number Types:
-
----
+## Other Number Types:
 
 **Even Numbers**: Numbers that can only be represeted as a Multiple of $2$
 

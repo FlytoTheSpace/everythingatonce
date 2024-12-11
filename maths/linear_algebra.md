@@ -1,7 +1,7 @@
 # Linear Alegbra
 **Linear**: a subfield of Algebra where All the Algebraic factors in an expression have a power of 1
 
-## Cordinate System
+# Cordinate System
 
 A coordinate system specifies positions in space using numerical values relative to defined reference axes or points.
 
@@ -9,7 +9,7 @@ A coordinate system specifies positions in space using numerical values relative
 - **Y**: The Plane of Width
 - **Z**: The Plane of Depth
 
-## Scalar
+# Scalar
 
 A Number that scales a Vector
 $$
@@ -22,7 +22,7 @@ $$
 \color{MediumSeaGreen}x\color{white}\hat{i} + \color{MediumSeaGreen}y\color{white}\hat{j}
 $$
 
-## Vectors
+# Vectors
 
 **Vectors**: Arrow that point to a specific point in space
 
@@ -58,7 +58,7 @@ $$
 a \cdot \begin{bmatrix} x \cr y \end{bmatrix} = \begin{bmatrix} ax \cr ay \end{bmatrix}
 $$
 
-### Unit Vectors
+## Unit Vectors
 
 ---
 **Unit Vectors**: are vectors that defines the Units in a specific Plane of the Cordinate System
@@ -71,13 +71,10 @@ $$
 
 **Basis Vectors**: The Unit Vectors that defines the Planes of the Cordinate System
 
-### Span
-
----
-
+## Span
 
 **Span**: every point in space that a sum of 2 or more vectors can reach
 
 ## Matrix
 
-## Tensor
+# Tensor

@@ -8,7 +8,7 @@
 - **Adjacent**: The shorter side, next to the angle $\theta$
 - **Opposite**: The side that the angle $\theta$ does not lie next to
 
-## Pythagoream Theorem
+# Pythagoream Theorem
 This Theorem that a Right Angled Triangle with sides $a$, $b$, $c$ where $a$ and $b$ are the legs of the right angled triangle, while $c$ is the Hypotenuse, have the following relation:
 $$
 a^2 + b^2 = c^2
@@ -16,7 +16,7 @@ $$
 
 <!-- ![](./img/shapes/right_triangle_abc_squared.png) -->
 
-## Trigometric Functions
+# Trigometric Functions
 
 **Sine**, **sin**: The Ratio between the Opposite and the Hypotenuse side.
 
