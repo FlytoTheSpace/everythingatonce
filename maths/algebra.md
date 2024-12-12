@@ -1,5 +1,23 @@
+
+- [Back to Maths](./maths.md)
+- [Back to Home](../README.md)
+
 # Algebra
 **Algebra**: a field of Mathematics consisting of English Aplhabet Represeting Number, with many use cases such as Representing Unknown/Dynamic Values.
+
+- [Core Algebra](#core-algebra)
+	- [Addition/Subtraction](#additionsubtraction)
+	- [Multiplication/Divison](#multiplicationdivison)
+	- [Factorization](#factorization)
+	- [Equations](#equations)
+		- [Linear Equations](#linear-equations)
+		- [Quadratics](#quadratics)
+- [Abstract Algebra](#abstract-algebra)
+- [Boolean Algebra](#boolean-algebra)
+	- [Units](#units)
+	- [Logic Gates](#logic-gates)
+	- [Latches](#latches)
+	- [Arithmetic](#arithmetic)
 
 # Core Algebra
 
@@ -38,59 +56,7 @@ $\color{MediumSeaGreen}4x^2 - 3xy = \color{MediumSeaGreen}6x^2 - 2x^2 - 3xy$
 
 		$3\color{MediumSeaGreen}xy\color{white}$ 
 
-## Equations
-
----
-
-$$
-LHS = RHS
-$$
-
-**Transposing**: Switch of Terms from one side to another, along with the inversion of Operand
-
-- Addition/Subtraction
-
-	$$a + b = c$$
-	
-	$$a = c - b$$
-
-- Multiplication/Division
-
-$$
-a \times b = c
-$$
-$$
-a = c \div b
-$$
-
-<br>
-
-$$
-a \times b = c + d
-$$
-$$
-a = \frac{c + d}{b}
-$$
-
-## Linear Equations
-
----
-
-where the all the terms in the expression either have 0 or only 1 algebraic factor.
-
-### One Variable:
-
-$2x - 3 = x + 2$
-
-$2x - x - 3 = 2$
-
-$x - 3 = 2$
-
-$x = 2 + 3$
-
-$x = 5$
-
-### Addition/Subtraction
+## Addition/Subtraction
 
 - Terms can Only be Added together when the Algebraic Factors are the same
 
@@ -149,12 +115,6 @@ $$
 
 	$$(a + b)(x + y + z) = a(x + y + z) + b(x + y + z) = ax + ay + az + bx + by + bz$$
 
-## Binomial Theorem
-> $n \in \mathbb{Z}^+$
-$$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^n \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
-> $n \notin \mathbb{Z}^+$
-$$(a + b)^n = \sum_{k = 0}^\infty \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^\infty \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
-
 ## Factorization
 
 $$
@@ -167,6 +127,70 @@ $$
 \pm ab \mp ac = a(b \mp c) = \mp a ( \mp b \pm c)
 $$
 
+
+## Equations
+
+$$
+LHS = RHS
+$$
+
+**Transposing**: Switch of Terms from one side to another, along with the inversion of Operand
+
+- Addition/Subtraction
+
+	$$a + b = c$$
+	
+	$$a = c - b$$
+
+- Multiplication/Division
+
+$$
+a \times b = c
+$$
+$$
+a = c \div b
+$$
+
+<br>
+
+$$
+a \times b = c + d
+$$
+$$
+a = \frac{c + d}{b}
+$$
+
+
+### Linear Equations
+
+---
+
+where the all the terms in the expression either have 0 or only 1 algebraic factor.
+
+**One Variable**:
+
+---
+
+$2x - 3 = x + 2$
+
+$2x - x - 3 = 2$
+
+$x - 3 = 2$
+
+$x = 2 + 3$
+
+$x = 5$
+
+### Quadratics
+
+---
+
+## Binomial Theorem
+> $n \in \mathbb{Z}^+$
+$$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^n \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
+> $n \notin \mathbb{Z}^+$
+$$(a + b)^n = \sum_{k = 0}^\infty \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^\infty \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
+
 # Abstract Algebra
 
 # Boolean Algebra
@@ -176,8 +200,6 @@ $$
 - `0` standing for **FALSE**, **OFF**.
 
 ## Units
-
----
 
 These Boolean Algebra Variables are used in Sets when representing Data
 - **Bit**: A Single Variable, with only possible states of `0` and `1`.
@@ -219,9 +241,7 @@ These Boolean Algebra Variables are used in Sets when representing Data
 | **ZibiByte** `ZiB` | `1024 ExbiBytes` | $2^{70}$ |
 | **YobiByte** `YiB` | `1024 ZibiBytes` | $2^{80}$ |
 
-### Logic Gates:
-
----
+## Logic Gates:
 
 Logic Gates are Gates that Determine the Output of Certain Inputs based on Logic which they Represent
 
@@ -275,8 +295,6 @@ Main Logic Gates:
 
 ## Latches
 
----
-
 **SR Latch**: A Latch that can Hold upto 1 Bit of Data, with 2 Inputs and 2 Outputs
 
 - $S$, $R$ Inputs
@@ -297,8 +315,6 @@ Truth Table:
 | $1$ | $1$ | $0$    | $0$    |
 
 ## Arithmetic
-
----
 
 **Addition**: An Special Type of XOR Operation of Inputs, `a`, `b` and *Carry*
 
