@@ -1,0 +1,2455 @@
+======================================================================================================================================================================================
+                                                                                        C
+======================================================================================================================================================================================
+
+C a General-Purpose, Low-level, Compiled, Fast Programming Language
+
+Basics
+
+1. File Structure
+
+    (i) "Hello, World!"
+
+        #include<stdio.h>
+
+        int main(){
+            printf("Hello, World!");
+            return 0;
+        }
+
+    (ii) Main Structure of Code
+        
+        <Libaries>
+
+        int main(){
+            <Main Logic>;
+            return <exitCode>;
+        }
+
+        (a) <Libaries> is the Part where you can import libraries to provide additional functionality to your code, this section of the code is also known as the header
+        (b) `int main(){}` is the main function where the execution of the actual code begins and it's return value is the exit Code of the Program (0 for success and 1 for error)x
+        (c) <Main Logic> is where your code actual code runs
+
+    (iii) Rules:
+
+        (a) Every line of Code Statmenets inside the `main()` function must end with a semicolumn ";"
+        (b) if the the <exitCode> is returned before the actual code in the program then It'll end the Program right there
+
+2. Variables
+
+    (i) Variables are Addresses in the RAM that store Certain Kinds of Data such as strings, integers, floats etc.
+
+    (ii) Declaration:
+
+        (a) Syntax:
+
+            <type> <Name> = <Expression>;
+            <Name> = <Expression>; 
+
+        (b) Example:
+
+            int number = 255;
+            
+            number2 = 64;
+
+            number = 32; // Overwrite previously written data
+
+    (iii) Contants:
+        
+        (a) Constants are Read-only, they can't be overwriten after declaration, are stored in ROM (Read-Only-Memory)
+
+        (b) Syntax:
+
+            const <type> <Name> = <Expression>;
+            const <Name> = <Expression>;
+
+        (c)
+
+    (iv) Rules for Variable Names:
+        
+        (a) Variables Names are Case Sensitive, meaning that variables `a` is the same as variables `A`.
+        (b) No Spaces or Comma Allowed (' ', ',').
+        (c) No Special Characters are allowed other than underscore (_).
+        (d) First Character must be an Aplhabet or underscore (a-z, '_').
+
+    (v) Keywords are reserved words by The C Compiler and can't be used as Variable Names, List:
+
+        (a) `auto`
+        (b) `break`
+        (c) `case`
+        (d) `char`
+        (e) `const`
+        (f) `continue`
+        (g) `default`
+        (h) `do`
+        (i) `double`
+        (j) `long`
+        (k) `return`
+        (l) `register`
+        (m) `short`
+        (n) `signed`
+        (o) `sizeof`
+        (p) `static`
+        (q) `int`
+        (r) `else`
+        (s) `enum`
+        (t) `extern`
+        (u) `float`
+        (v) `for`
+        (w) `goto`
+        (x) `if`
+        (y) `struct`
+        (z) `switch`
+        (za) `typedef`
+        (zb) `union`
+        (zc) `unsigned`
+        (zd) `void`
+        (ze) `volatile`
+        (zf) `while`
+
+    (vi) Memory Address
+
+        (a) `&<variable>`: get the Memory Address of a Variable
+        (b) Pointer, a Variable that contains Memory Address of Another Variable
+
+            (I) Syntax:
+
+                <datatype> *<pointername>
+                <datatype> *<pointername> = &<variable>
+
+                <pointername> // reference the Memory Address
+                *<pointername> // reference VALUE at the Memory Address / Dereference, will not Work IF the Pointer DataType is `void`
+
+            // declaration
+            int a = 25;
+    
+            int *pointer = &a;
+
+            printf("Address: %p\n", pointer); // Address: 0061FF18
+            printf("int: %d\n", *pointer); // int: 25
+
+            (II) 
+
+            (II) Size: 32 bits, 4 Bytes
+            (III) Format Specifier: `%p`
+
+        (c) Pointer Arithmetic
+
+            (I) The Pointer is a 32 bit Number meaning it can be Added/Subtracted to found Adjacent Elements
+            (II) depending size of the type of pointer, the added/subtracted number will be multiplied by that number, skipping all the memory blocks that are used by that variable
+
+                ptr + n;
+                ptr - n;
+
+            int list[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+            printf("Address: %p Value: %d\n", list, *list);
+            printf("Address: %p Value: %d\n", list+1, *list+1);
+            printf("Address: %p Value: %d\n", list+2, *list+2);
+
+            /*
+            Address: 000000C14E5FF6A0 Value: 1
+            Address: 000000C14E5FF6A4 Value: 2
+            Address: 000000C14E5FF6A8 Value: 3
+            */
+
+3. Data Types
+
+    (i) Data Types are Types of Data that can be stored in Variables
+    
+    (ii) Primitive
+
+        (a) `char` A Single Byte Character
+
+            char c = 'a';
+
+            (I) Size: 1 Byte, 8bit
+            (II) Range: (-128 to 127) or (0 to 255)
+            (III) Format Specifier: %c
+            (IV) it only accepts inputs in single quotes (''),  double quotes are not supported
+
+        (b) `signed char`
+
+          	(I) Size: 1 Byte, 8bit
+          	(II) Range: -128 to 127 
+          	(III) Format Specifier: %c 
+
+        (c) `unsigned char`
+
+          	(I) Size: 1 Byte, 8bit
+          	(II) Range: 0 - 255 
+          	(III) Format Specifier: %c 
+        
+        (d) `int` an Integer Number
+            
+            int a = 2;
+
+            (I) Size: 4 Bytes, 32bit
+            (II) Range: -2,147,483,648 - 2,147,483,647 
+            (III) Format Specifier: %d
+
+        (e) `short int`
+
+          	(I) Size: 2 Bytes, 16bit
+          	(II) Range: -32,768 - 32,767 
+          	(III) Format Specifier: %hd
+
+        (f) `unsigned short int`
+
+          	(I) Size: 2 Bytes, 16 bit
+          	(II) Range: 0 - 65,535 
+          	(III) Format Specifier: %hu
+
+        (g) `unsigned int`
+
+          	(I) Size: 4 Bytes, 32bit
+          	(II) Range: 0 - 4,294,967,295 
+          	(III) Format Specifier: %u 
+
+        (h) `long int`
+        
+          	(I) Size: 4 Bytes, 32bit
+          	(II) Range: -2,147,483,648 - 2,147,483,647 
+          	(III) Format Specifier: %ld 
+
+        (i) `unsigned long int`
+
+          	(I) Size: 4 Bytes, 32bit
+          	(II) Range: 0 - 4,294,967,295 
+          	(III) Format Specifier: %lu 
+
+        (j) `long long int`
+
+          	(I) Size: 8 Bytes, 64bit
+          	(II) Range: -(2^63) to (2^63)-1 
+          	(III) Format Specifier: %lld 
+
+        (k) `unsigned long long int`
+
+          	(I) Size: 8 Bytes, 64bit
+          	(II) Range: 0 to 18,446,744,073,709,551,615 
+          	(III) Format Specifier: %llu  
+
+        (l) `float` a Decimal Number
+
+            float b = 1.4;
+
+            (I) Size: 4 Bytes, 32bit
+          	(II) Range: 1.2E-38 to 3.4E+38
+            (III) Format Specifier: %f 
+
+        (m) `double`
+
+          	(I) Size: 8 Bytes, 64bit
+          	(II) Range: 1.7E-308 to 1.7E+308
+            (III) Format Specifier: %lf 
+
+        (n) `long double`
+
+          	(I) Size: 16 Bytes, 128bit
+          	(II) Range: 3.4E-4932 to 1.1E+4932
+            (III) Format Specifier: %Lf 
+
+        // Modifiers
+
+        (o) `signed`: represents both Positive and Negative Values, used with either int or char
+        (p) `unsigned`: represents only Negative Values, used with either int or char
+
+    (iii) Derived
+
+        (a) Functions
+
+        (b) Arrays
+
+        (c) Pointer
+
+    (iv) User defined
+
+        (a) Structures
+
+    (v) Format Specifiers:
+
+        (a) Format Specifiers Allows Specificies which Data Type is being Passed
+
+        (b) %[flags][width][.precision][length]specifier.
+
+
+        (c) flags - Optional. A sequence of any of the following characters:
+
+            (I)   `-` - Makes the output left-justified by adding any padding spaces to the right instead of to the left.
+            (II)  `#` - Shows an alternate representation of the formatted data depending on the conversion.
+            (III) `+` - Causes positive numbers to always be prefixed with "+".
+            (IV)  ` ` - (A space character) This prefixes a space to positive numbers, primarily so that the digits can be lined up with the digits of negative numbers.
+            (V)   `0` - Pads numbers with zeroes on the left.
+
+        (d) width - Optional. A whole number specifying the minimum number of characters that the output should occupy. If necessary, spaces are added to the right to reach this number, or to the left if the - flag is used. If an *asterisk is used then the width is given by the argument preceding the one being represented.
+        (e) .precision - Optional. A . followed by a whole number indicating how many decimal digits to show in the formatted data.
+        length - Optional. A sequence of characters which changes the expected data type of the argument. It can be one of the following:
+
+            () hh - Expect char type for whole numbers.
+            () h - Expect short int type for whole numbers.
+            () l - Expect long int type for whole numbers.
+                () Expect wint_t type for characters.
+                () Expect wchar_t* type for strings.
+            () ll - Expect long long int type for whole numbers.
+            () j - Expect intmax_tor uintmax_t type for whole numbers.
+            () z - Expect size_t type for whole numbers.
+            () t - Expect ptrdiff_t type for whole numbers.
+            () L - Expect long double type for floating point numbers.
+
+        (f) specifier - Required. A character which indicates how an argument's data should be represented
+
+            () `c`      : char, signed char, unsigned char
+            () `d`, `i` : Decimal Integer
+            () `u`      : Unsigned Decimal
+            () `o`      : Octal Number (base 7), `#` prefixes with "0"
+            () `x`, `X` : Hexadecimal Integer, upper/lower case, `#` prefixes with "0x"
+            () `f`, `F` : Floating Point Number, upper/lower case, `#` forces decimal point
+            () `e`, `E` : Floating Point Number in Scientific Notation, upper/lower case, `#` forces decimal point
+            () `g`, `G` : Shortest Representation between `f` and `e`, upper/lower for corresponding `f` and `e`.
+            () `a`, `A` : Floating Point Number as Hexadecimal as Internal Representation, upper/lower case.
+            () `s`      : String
+            () `p`      : pointer, Memory Address
+            () `n`      : no output
+            () `zu`     : function output
+            () `%`      : literal `%`
+
+        (f) Syntax: 
+            
+            "%<specifier>", <variables>
+
+        (g) Example:-
+
+            int myNum = 15;
+            float myFloatNum = 5.99;
+            char myLetter = 'D';
+            
+            printf("%d", myNum);
+            printf("%f", myFloatNum);
+            printf("%c", myLetter); 
+
+    (vi) Type Casting
+
+        (a) Cast a Value into a DataType
+            
+            (<DataType>) <value/variable>;
+
+        (b) Example:
+
+            int = 5;
+            float b = (float) a;
+
+        (c) Type Conversion
+
+            (I) Type Conversion can only be done Upstream and not Downstream, otherwise It can cause Data loss
+
+            bool -> char -> short int -> int -> unsigned int -> long -> unsigned -> long long -> float -> double -> long double
+
+        (d) bool
+
+            (I) In Type Conversion to boolean every Value other than 0 is represeted as `true` (1)
+
+                bool a = (bool) 0; // false
+                bool a = (bool) 1; // true
+                bool a = (bool) 2; // true
+                bool a = (bool) 5.3; // true
+                bool a = (bool) 'f'; // true
+                bool a = (bool) 2*2*2*2*2*2*2*2 - 1; // true
+
+4. Comments
+
+    (i) Comments are Peice of Text in The Source Code that are made to be ignored by the Interpreter/Compiler
+
+    (ii) `// <TEXT>` a One Line Comment
+
+        int main(){
+            // This is a Comment, It won't effect the code and is usually used for Documentation in code;
+            printf("Hello");
+            return 0;
+        };
+
+    (iii) `/* <TEXT> */` A Comment that only exists in-between `/*` and `*/`, it can also be multi-line
+
+        int main(){
+            printf("Hello"); /* This is a Multi-
+            Line Comment
+            */
+            return 0;
+        };
+
+5. Declaration, Expressions, Statements
+
+    (i) Declarations: defining/initialization of variables, functions, structs etc.
+    (ii) Expressions: are a set of operations that do not impact the control flow of the program and returns a value. eg Operators, function calling etc.
+    (iii) Statements: Controls that Impact the Control Flow of the Executing Program, eg If, switch, loops etc.
+    (iv) Labels: A Group of Statements Labeled with a unique name
+
+        printf("Outside\n");
+
+        label1:
+            printf("Label 1\n");
+            
+        label2:
+            printf("Label 2\n");
+            char a = 5;
+        
+        (a) `goto <label>`: a jump statement / unconditional jump statement which allows skipping of statements and jump to given label
+
+            printf("Outside\n");
+
+            goto label2;
+
+            // These lines won't run:
+            printf("After Jump\n");
+
+            label1:
+                printf("Label 1\n");
+
+            printf("Middle\n");
+
+            // Lines from here will run:
+            label2:
+                printf("Label 2\n");
+                char a = 5;
+
+            // a is still accessible
+            printf("a: %d\n", a);
+            printf("End\n");
+
+            /* stdout
+            Outside
+            Label 2
+            a: 5
+            End
+            */
+
+6. Operators
+
+    (i) Arithmetic
+
+        (a) + 	(a + b): Addition, Adds together two values
+            int a + b
+        (b) - 	(a - b): Subtraction, Subtracts one value from another
+            int a - b
+        (c) * 	(a * b): Multiplication, Multiplies two values
+            int a * b
+        (d) / 	(a / b): Division, Divides one value by another
+            int a / b
+        (e) % 	(a % b): Modulus (Division Remainder), Returns the division remainder
+            int a % b
+        (f) ++ 	(++a) Prefix, (a++) Postfix: Increment, Increases the value of a variable by 1 and Assignment
+            ++a
+        (g) -- 	(--a) Prefix, (a--) Postfix: Decrement, Decreases the value of a variable by 1 and Assignment
+            --a
+
+        (h) Evaluation
+
+            (I) Arithmetic Expressions in C doesn't Follow rules of BEDMAS/BODMAS and instead uses it's own Evaluation System
+
+            (II) Expressions Inside Brackets are Always Evaluated Seperately regardless of the Rules
+
+            (III) Operator Precendence: Arithmetic Operator in C have their Own Priority List:
+
+                I. *, /, % : Multiplication, Division, Modulus
+                II. +, - : Addition, Subtraction
+                III. = : Evaluation
+
+            (IV) Operator Associativity: If 2 Arithmetic Operators are on the Same Priority, then Their Order is Used to Evaluate Them:
+
+                a*b/c == (a*b)/c
+
+                a/b*c == (a/b)*c
+
+    (ii) Comparison Operators
+
+        () == 	(Equal to): Returns 1 if the values are equal
+            
+            a == b
+        () != 	(Not equal): Returns 1 if the values are not equal
+            
+            a != b
+        () > 	(Greater than): Returns 1 if the first value is greater than the second value
+            
+            a > b
+        () < 	(Less than): Returns 1 if the first value is less than the second value
+            
+            a < b
+        () >= 	(Greater than or equal to): Returns 1 if the first value is greater than, or equal to, the second value
+            
+            a >= b
+        () <= 	(Less than or equal to): Returns 1 if the first value is less than, or equal to, the second value
+            
+            a <= b
+
+    (iii) Logic Operators
+
+        () &&  	AND 	x < 5 &&  x < 10 	Returns 1 if both statements are true 	
+        () ||  	OR 	x < 5 || x < 4 	Returns 1 if one of the statements is true 	
+        () ! 	NOT 	!(x < 5 && x < 10) 	Reverse the result, returns 0 if the result is 1
+
+    (iv) Assignment
+
+        () = 	(a = b): Assignment
+            
+            int a = 5
+
+            (b) Same as: `a = 5`
+        () += 	(a += b): Addition Assignment
+            
+            int a += 3
+
+            (b) Same as: `a = a + 3`
+        () -= 	(a -= b): Subtraction Assignment
+            
+            int a -= 3
+
+            (b) Same as: `a = a - 3`
+        () *= 	(a *= b): MultiplicationAssignment
+            
+            int a *= 3
+
+            (b) Same as: `a = a * 3`
+        () /= 	(a /= b): Division Assignment
+            
+            int a /= 3
+
+            (b) Same as: `a = a / 3`
+        () %= 	(a %= b): Modulus Assignment
+            
+            int a %= 3
+
+            (b) Same as: `a = a % 3`
+
+        () &= 	(a &= b): Bitwise AND Assignment
+            
+            int a &= 3
+
+            (b) Same as: `a = a & 3`
+        () |= 	(a |= b): Bitwise OR Assignment
+            
+            int a |= 3
+
+            (b) Same as: `a = a | 3`
+        () ^= 	(a ^= b): Bitwise XOR Assignment
+            
+            int a ^= 3
+
+            (b) Same as: `a = a ^ 3`
+        () >>= 	(a >>= b): Left Shift Assignment
+            
+            int a >>= 3
+
+            (b) Same as: `a = a >> 3`
+        () <<= 	(a <<= b): Right Shift Assignment
+            
+            int a <<= 3
+
+            (b) Same as: `a = a <<`
+
+    (v) Bitwise
+
+        (a) &  (a & b) bitwise AND: takes two numbers as operands and does AND on every bit of two numbers. The result of AND is 1 only if both bits are 1.  
+        (b) |  (a | b) bitwise OR: takes two numbers as operands and does OR on every bit of two numbers. The result of OR is 1 if any of the two bits is 1. 
+        (c) ^  (a ^ b) bitwise XOR: takes two numbers as operands and does XOR on every bit of two numbers. The result of XOR is 1 if the two bits are different. 
+        (d) <<  (a << b) left shift: takes two numbers, the left shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+        (e) >>  (a >> b) right shift: takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+        (f) ~  (~a) bitwise NOT: takes one number and inverts all bits of it.
+
+        (g) Logic Gates
+
+            (I) AND (Conjunction)
+
+                ---------------
+                | A | B | OUT |
+                | 0 | 0 |  0  |
+                | 1 | 0 |  0  |
+                | 0 | 1 |  0  |
+                | 1 | 1 |  1  |
+                ---------------
+
+            (II) OR (Disjunction)
+
+                ---------------
+                | A | B | OUT |
+                | 0 | 0 |  0  |
+                | 1 | 0 |  1  |
+                | 0 | 1 |  1  |
+                | 1 | 1 |  1  |
+                ---------------
+
+            (III) NOT (Negation)
+
+                -----------
+                | A | OUT |
+                | 0 |  1  |
+                | 1 |  0  |
+                -----------
+            
+            () XOR
+
+                ---------------
+                | A | B | OUT |
+                | 0 | 0 |  0  |
+                | 1 | 0 |  1  |
+                | 0 | 1 |  1  |
+                | 1 | 1 |  0  |
+                ---------------
+
+            (IV) NAND: NOT AND
+
+                ---------------
+                | A | B | OUT |
+                | 0 | 0 |  1  |
+                | 1 | 0 |  1  |
+                | 0 | 1 |  1  |
+                | 1 | 1 |  0  |
+                ---------------
+
+            (IV) NOR: NOT OR
+
+                ---------------
+                | A | B | OUT |
+                | 0 | 0 |  1  |
+                | 1 | 0 |  0  |
+                | 0 | 1 |  0  |
+                | 1 | 1 |  0  |
+                ---------------
+
+            () XNOR: NOT XOR
+
+                ---------------
+                | A | B | OUT |
+                | 0 | 0 |  1  |
+                | 1 | 0 |  0  |
+                | 0 | 1 |  0  |
+                | 1 | 1 |  1  |
+                ---------------
+
+    (vi) Unary
+
+        (a) Unary operators are the operators that perform operations on a single operand to produce a new value.
+
+        (b)  –  (–a): Unary minus
+        (c) ++ 	(++a) Prefix, (a++) Postfix: Increment, Increases the value of a variable by 1 and Assignment
+            ++a
+        (d) -- 	(--a) Prefix, (a--) Postfix: Decrement, Decreases the value of a variable by 1 and Assignment
+            --a
+        (e)  !  (!a): NOT
+        (f)  &  (&a): Addressof operator
+
+    (vii) Misc Operators 
+
+        (a) `&` Returns the address of a variable. &a; returns the actual address of the variable.
+            &a
+        (b) `*` Pointer to a Variable
+            *a
+        (c) `?:` Ternary Expression, minimized version of IF-ELSE but as Expression.
+            a? b : c
+        (d) `.` 	Member access operator
+            struct.property
+        (e) `−>` Access a property of a Structure with it's pointer
+            structPtr->property
+
+    (viii) Operator Precendence
+
+        (a) Evaluation Order:
+
+        I.    !              : NOT
+        II.   *, /, %        : MULTIPLY, DIVISION, MODULUS
+        III.  +, -           : ADDITION, SUBTRACTION
+        IV.   <, >, <=, >=   : GREATER-THAN, LESS-THAN, GREATER-THAN-OR-EQUAL, LESS-THAN-OR-EQUAL
+        V.    ==, !=         : EQUAL, NOT-EQUAL
+        VI.   &&             : AND
+        VII.  ||             : OR
+        VIII. =              : ASSIGMENT
+
+7. Conditions
+
+    (i) if Statement
+
+        (a) Syntax:
+
+            if (<condition>){
+                // Execute on condition
+            };
+
+        (b) Runs a Specific Block of Code ONLY IF The Condition is met
+        
+        (c) Example
+
+            int a = 5;
+            int b = 3;
+            if(a>b){
+                printf("A is Bigger than B");
+            };
+
+            /*
+            stdout:
+            A is Bigger than B
+            */
+
+            int a = 2;
+            int b = 10;
+            if(a>b){
+                printf("A is Bigger than B");
+            };
+
+            if(a%2==0){
+                printf("A is an Even Number!");
+            };
+
+            /*
+            stdout:
+            A is an Even Number!
+            */
+        
+    (ii) if-else Statmenet
+
+        (a) Syntax:
+
+            if (<condition>){
+                // Execute on condition
+            } else {
+                // Execute if the condition is NOT met
+            }
+
+        (b) It's Chained with IF-Statment and runs a Peice of Block only IF the Condition Fails/doesn't met
+        
+        (c) Example
+
+            int a = 2;
+            int b = 10;
+            if(a>b){
+                printf("A is Bigger than B");
+            } else {
+                printf("A is Not Bigger than B");
+            };
+
+            /*
+            stdout:
+            A is Not Bigger than B
+            */
+
+    (iii) if-else-if-...-else Statment
+
+        (a) Syntax:
+
+            if (<condition>){
+                // Execute on condition
+            } else if (<anotherCondition>){
+                // Execute if anotherCondition is met and 1st one is not met
+            }
+            // else-if ...
+            else {
+                // Execute if All of The Conditions in IF and ELSE IF Statments are Not Met or Failed
+            }
+
+        (b) It Must be Chained In-between IF and ELSE Statment, Theses are allowed Infinitely in-between If and Else;
+        
+        (c) Example
+
+            int a = 5;
+            int b = 10;
+            if(a>b){
+                printf("A is Bigger than B\n");
+            } else if (a % 2 != 0){
+                printf("A is Odd Number");
+            } else {
+                printf("A is Smaller than B and A is Even");
+            };
+
+            /*
+            stdout:
+            A is Odd Number
+            */
+
+            int a = 4;
+            int b = 10;
+            if(a>b){
+                printf("A is Bigger than B\n");
+            } else if(a<3){
+                printf("A is Smaller than 3\n");
+            } else if (a % 2 != 0){
+                printf("A is Odd Number\n");
+            } else {
+                printf("A is Smaller than B and A is Even\n");
+            };
+
+            /*
+            stdout:
+            A is Smaller than B and A is Even
+            */
+
+            int a = 2; // less than 3 and is Even
+            int b = 10;
+            if(a>b){
+                printf("A is Bigger than B\n");
+            } else if(a<3){ // true
+                printf("A is Smaller than 3\n");
+            } else if (a % 2 != 0){ // also true, but will be skipped due to the upper one is also true
+                printf("A is Odd Number\n");
+            } else {
+                printf("A is Smaller than B and A is Even\n");
+            };
+
+            // Order Matters
+
+            /*
+            stdout:
+            A is Smaller than 3
+            */
+
+    (iv) Ternary
+
+        (a) Similar to If-else Statment, but is an Expression, meaning it doesn't allows code to be run inside blocks and instead return's a value/expression
+
+        (b) Syntax:
+
+            <condition>? <If-value> : <Else-value>
+
+        (c) Example:
+
+            char mychar = (5>2)? 'a': 'b';
+            printf("%c\n", mychar); // a
+
+            char mychar2 = (2>5)? 'a': 'b';
+            printf("%c\n", mychar2); // b
+
+    (v) Switch-Case
+
+        (a) A special type of IF-statement which takes a variable and "cases" and if the value of "cases" matched the variable then executes a specific block of code 
+        (b) Syntax:
+
+            switch (<variable>){
+                case <value1>:
+                    // If variable == value1
+                // more cases...
+            };
+
+            switch (<variable>){
+                case <value1>:
+                    // If variable == value1
+                case <value2>:
+                    // If variable == value2
+                // more cases....
+                case <valueN>:
+                    // If variable == valueN
+                default:
+                    // If none of the above matches
+            };
+
+            switch (<variable>){
+                case <value1>:
+                    // If variable == value1
+                    break;
+                case <value2>:
+                    // If variable == value2
+                    break;
+                // more cases....
+                case <valueN>:
+                    // If variable == valueN
+                    break;
+                default:
+                    // If none of the above matches
+                    break;
+            };
+
+        (c) Examples:-
+
+            switch (myChar){
+                case 'b': // Doesn't match
+                    printf("case 'b' matched!\n");
+                case 'c': // Doesn't match
+                    printf("case 'c' matched!\n");
+                case 'a': // Matches
+                    printf("case 'a' matched!\n");
+                case 'd': // Doesn't matches but there's no Break Statement Above
+                    printf("case 'd' matched!\n");
+                default: // isn't true, but there's no Break Statement Above
+                    printf("No Case Matched!\n");
+            };
+
+            /* Output:
+            case 'a' matched!
+            case 'd' matched!
+            No Case Matched!
+            */
+
+            // With break Statement
+            char myChar = 'a';
+            switch (myChar){
+                case 'b': // Doesn't match
+                    printf("case 'b' matched!\n");
+                    break;
+                case 'c': // Doesn't match
+                    printf("case 'c' matched!\n");
+                    break;
+                case 'a': // Matches
+                    printf("case 'a' matched!\n");
+                    break;
+                case 'd': // Doesn't match
+                    printf("case 'd' matched!\n");
+                    break;
+                default: // One Matched, doesn't runs
+                    printf("No Case Matched!\n");
+                    break;
+            };
+
+            /* Output:
+            case 'a' matched!
+            */
+
+8. Loops
+
+    (i) For
+
+        (a) Runs a Specific Peice of Code until the Iteration Ends
+
+        (b) Syntax:
+
+            for(<declaration>; <condition>; <modification>){
+                // Block of Code to Run until <condition> is no-longer true
+            };
+
+        (c) Example:-
+
+            for(int i = 1; i<=10; i++){
+                printf("This Code Ran [%d] Times!\n",i);
+            };
+            /*
+            This Code Ran [1] Times!
+            This Code Ran [2] Times!
+            This Code Ran [3] Times!
+            This Code Ran [4] Times!
+            This Code Ran [5] Times!
+            This Code Ran [6] Times!
+            This Code Ran [7] Times!
+            This Code Ran [8] Times!
+            This Code Ran [9] Times!
+            This Code Ran [10] Times!
+            */
+
+            // Reverse Loop
+            for(int i = 10; i>0; i--){
+                printf("Value of i is [%d]\n", i);
+            };
+            /* Output:
+            Value of i is [10]
+            Value of i is [9]
+            Value of i is [8]
+            Value of i is [7]
+            Value of i is [6]
+            Value of i is [5]
+            Value of i is [4]
+            Value of i is [3]
+            Value of i is [2]
+            Value of i is [1]
+            */
+
+    (ii) While
+        
+        (a) Traditional Version of Loops, Checks if the Condition is True, then runs the code for each iteration
+
+        (b) Syntax:
+
+            while(<condition>){
+                // Code to Runs While <condition> is true
+            }
+
+        (c) Example:
+
+            int i = 0;
+            while (i<=10){
+                printf("It Ran %d Times!\n", i);
+                i++; // WARNING: If the Condition Doesn't never becomes 'false', It will cause a An Infinite Loop        
+            };
+
+            // Progress Bar:
+            int i = 1;
+            while (i<=100){
+                printf("\rProgressed [%d]", i);
+                i++; // Increases Progress by 1
+                sleep(1); // Pause for 1 second
+            };
+            printf("\n");
+
+    (iii) Do-While Loops
+
+        (a) A Variant of Traditional While Loops, but it runs the Code First and then checks the condition, and if the conditon matches it continues with the next iteration
+        (b) Syntax:
+
+            do {
+                // Code to Run
+            } while (<condition>);
+
+        (c) Examples:-
+
+            int i = 5;
+            do {
+                // Runs atleast once
+                printf("%d\n", i);
+            } while (i>10); // Checks Conditon for the Next Iteration
+            // stdout: 5
+
+
+
+            int i = 2;
+            do {
+                // Runs atleast once
+                printf("%d\n", i);
+                i++;
+            } while (i<10); // Checks Conditon for the Next Iteration
+            /* stdout:
+            2
+            3
+            4
+            5
+            6
+            7
+            8
+            9
+            */
+
+    (iv) Loop Controls
+
+        (a) `break`: Exists The Loop
+
+            for (int i = 1; i<=10; i++){
+                if(i == 6){ break; };
+                printf("i: %d\n", i);
+            };
+            printf("Loop Ended\n");
+            
+            // Loop Ends after 5th iteration, even though it should have continued until 10th
+            /* stdout:
+            i: 1
+            i: 2
+            i: 3
+            i: 4
+            i: 5
+            Loop Ended
+            */
+
+        (a) `continue`: Skips the Current Iteration
+
+            for (int i = 1; i<=10; i++){
+                if(i == 6){ continue; };
+                printf("i: %d\n", i);
+            };
+            printf("Loop Ended\n");
+
+            // Skips The 6th Iteration
+            /* stdout:
+            i: 1
+            i: 2
+            i: 3
+            i: 4
+            i: 5
+            i: 7
+            i: 8
+            i: 9
+            i: 10
+            Loop Ended
+            */
+
+9. Functions
+
+    (i) Functions. They are used to define reusable blocks of code that can be executed when called. Function is a Block of code that is designed to perform a particular task, it can be used for code lines that are repeated.
+
+    (ii) Syntax:
+
+        // Function Prototype
+        void <returnType> <name>(<...type>);
+
+        <returnType> <name>(<...type>);
+
+        // Function Declaration
+        void <name>(<...type arg>){
+
+        };
+
+        <returnType> <name>(<...type arg>){
+            
+        };
+
+    (iii) Static
+
+        (a) static are variables that are defined inside a function and can continue to hold their values even after the function returns
+
+        (b) syntax:
+
+            static <variableDeclaration>;
+        
+        int trackCalls(){
+            static int calls = 0; // Initial, Only declared on first call
+            calls += 1;
+            return calls;
+        }
+
+        int main(){
+            printf("Calls: %d\n", trackCalls()); // Calls: 1
+            printf("Calls: %d\n", trackCalls()); // Calls: 2
+            printf("Calls: %d\n", trackCalls()); // Calls: 3
+            printf("Calls: %d\n", trackCalls()); // Calls: 4
+            return 0;
+        };
+        
+    Built-in:
+
+    (iii) `sizeof(<Varable/DataType>)`: returns the size of The Variable/DataType in Bytes
+
+        printf("%zu")
+
+10. Arrays
+
+    (i) Arrays a Set of Elements of the same type 
+
+    (ii) syntax:
+
+        // declaration
+        <datatype> <name>[] // Dynamic Length
+        <datatype> <name>[<length?>] 
+        <datatype> <name>[] = { /*...*/ }
+
+        // Read
+
+        <name>[<index>] 
+
+        // Write
+
+        <name>[<index>] = <expression>
+
+    (iii) `sizeof(array)`: returns the amount of bytes occupied by all of it's elements
+
+        sizeof(array)/sizeof(array[0]) // Length of The Array, Amount of Elements in the Array useful for Looping Through
+
+    (iv) `index`
+
+        (a) A Number that is used to access/write a Element in an Array, it starts from 0, each number refer to the (n-1)'th element in Array
+
+    (iv) example:-
+
+        int list[10]; // fixed length array
+        int list[]; // Dynamic Array
+        
+        // Looping
+        int list[] = {26, 23, 3, 2, 4, 6};
+
+        for(int i = 0; i<sizeof(list)/sizeof(list[0]); i++){
+            printf("index: %d, element: %d\n", i, list[i]);
+        };
+
+        /*
+        index: 0, element: 26
+        index: 1, element: 23
+        index: 2, element: 3
+        index: 3, element: 2
+        index: 4, element: 4
+        index: 5, element: 6
+        */
+
+    (v) Pointers:
+
+        (a) The Arrays works with Pointers, the Variable Initialized with the array is a Pointer to the First Element in The Array  
+
+            int list[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            printf("Array Address: %p Deference: %d\n", list, *list);
+            for(int i = 0; i<sizeof(list)/sizeof(list[0]); i++){
+                printf("Address: %p Element: %d\n", &list[i], list[i]);
+            };
+
+            /*
+            Array Address: 0000007C22FFF640 Deference: 1
+            Address: 0000007C22FFF640 Element: 1
+            Address: 0000007C22FFF644 Element: 2
+            Address: 0000007C22FFF648 Element: 3
+            Address: 0000007C22FFF64C Element: 4
+            Address: 0000007C22FFF650 Element: 5
+            Address: 0000007C22FFF654 Element: 6
+            Address: 0000007C22FFF658 Element: 7
+            Address: 0000007C22FFF65C Element: 8
+            Address: 0000007C22FFF660 Element: 9
+            Address: 0000007C22FFF664 Element: 1
+            */
+            // each memory address is seperated by 4 addresses, because Integer Type Occupies 4 Bytes of Data
+
+11. Strings
+
+    (i) a special data type that can hold Text as a Char Array, it can still be Treated as a Normal Array
+    (ii) syntax:
+
+        char <name>[]
+        char <name>[<length?>]
+        char <name>[] = "Text"
+
+        (a) Text must be written inside a Set of Double Quotes ("")
+
+    (iii) `%s` format specifier for Strings
+
+    (iv) a String End's with the NULL character (\0, \x00, \u0000, \000, 0) at the very end, AKA "Null Terminating Character"
+
+    (iv) example:-
+
+        char string[] = "Yello, World!";
+        string; // memory address of the String
+        string[0] = 'H';
+        printf("%s", string); // Hello, World!
+
+        // define as traditional array:
+
+        char string[] = {'H', 'e', 'l', 'l', 'o', ',', ' ', 'W', 'o', 'r', 'l', 'd', '!'};
+
+        char str[4] = "abc"; // Always Leave space for the Ending NULL character, otherwise the string will glitch out.
+
+12. File System
+
+    (i) File
+
+        (a) `FILE` Pointer:
+
+            FILE *filePointer;
+
+        (c) `fclose(ptr)`: closes a File
+
+            (I) return `0` on successful close, any other integer on error
+
+        (d) Read:
+
+            FILE * fileptr = fopen("myfile.txt", "r"); // initialize File
+            char content[30]; // Storage for The File Content
+            fgets(content, sizeof(content), fileptr); // Read From The File
+            printf("file contents:\n%s", content); 
+            fclose(fileptr); // close file
+
+        (e) Write, Append
+
+            FILE * fileptr = fopen("myfile.txt", "w"); // initialize File
+            fprintf(fileptr, "Hello!"); // write to file
+
+13. Structures/Types
+
+    (i) Enumeration (enum)
+
+        (a) A Special Type of Structure, that represents a group of Constants
+        
+        (b) Syntax:
+
+            // declaration
+            enum <EnumName> {
+                <Constants, ...>
+            };
+            enum <EnumName> {
+                <Constants = Value, ...>
+            };
+            
+            // usage
+            enum <EnumName> <variable>;
+            enum <EnumName> <variable> = <Constant>;
+            
+            enum EnumName {
+                Constant,
+                // Constants...
+            };
+            enum EnumName {
+                Constants = Value,
+                // ...
+            };
+
+            // usage
+            enum <EnumName> <variable>;
+            enum <EnumName> <variable> = <Constant>;
+
+        (c) examples:
+
+            (I) Integer
+
+                // without any values set
+                enum Level {
+                    Low,
+                    Medium,
+                    High,
+                };
+
+                enum Level low = Low; // 0
+                enum Level medium = Medium; // 1
+                enum Level high = High; // 2
+
+                // one value set:
+                enum Level {
+                    Low = 5,
+                    Medium,
+                    High,
+                };
+
+                enum Level low = Low; // 5
+                enum Level medium = Medium; // 6
+                enum Level high = High; // 7
+                
+                // middle value set:
+                enum Level {
+                    Low,
+                    Medium = 6,
+                    High,
+                };
+            
+                enum Level low = Low; // 0
+                enum Level medium = Medium; // 6
+                enum Level high = High; // 7
+
+            (II) Other Types:
+
+                enum Level {
+                    Low = 'z',
+                    Medium = 'x',
+                    High = 'y',
+                };
+
+                enum Level low = Low; // z
+                enum Level medium = Medium; // x
+                enum Level high = High; // y
+
+                // Treats them as Byte Integer and Increments their value by 1
+                enum Level {
+                    Low = 'a',
+                    Medium,
+                    High,
+                };
+
+                enum Level low = Low; // a
+                enum Level medium = Medium; // b
+                enum Level high = High; // c
+
+    (ii) structures (struct)
+
+        (a) A way to Organize variables and data into a Structure
+        
+        (b) Syntax:
+
+            // Declaration
+            struct <Structure> {
+                <...variables>;
+            };
+            
+
+            // assignment
+            struct <Structure> <structObj>;
+            struct <Structure> <structObj> = {<params...>};
+
+        (c) Access
+
+            (I) Variable inside The Structure AKA Properties of Structure can be accessed to Read and Write to.
+
+                <structObj>.<property>; // get value
+                <structObj>.<property> = <value>; // write
+                
+                structObj.property; // get value
+                structObj.property = value; // write
+
+            (II) struct Pointer access
+
+                struct <StructObj> *<structPtr> = &<structObj>; // Pointer to the structure
+
+                <structPtr>-><property>; // read
+                <structPtr>-><property>; // write
+                // equivalent to (*<structPtr>).<property>
+                
+                struct StructObj *structPtr = &structObj; // Pointer to the structure
+
+                structPtr->property; // read
+                structPtr->property; // write
+                // equivalent to (*structPtr).property
+        
+        (d) Bit Fields
+
+            (a) variables inside structures that don't follow the standard sizes
+            (b) syntax:
+
+                type var: size;
+
+            (c) the size of defined in Bit's (not bytes)
+
+                struct Structure{
+                    unsigned int integer: 8;
+                };
+                int main(){
+                    struct Structure a = {255};
+                    // printf("size of a.integer : %u", sizeof(a.integer)); // <-- size of a bit field can't be obtained
+                    printf("a.integer: %u", a.integer); // 255
+                    return 0;
+                }
+
+        (e) Example
+
+                struct Structure {
+                    char name[20];
+                    unsigned short int age;
+                };
+
+                struct Structure obj = {"Name", 32};
+
+                // access
+                printf("%s\n", obj.name); // Name
+                printf("%d\n", obj.age); // 32
+
+                obj.age = 41; // overwrite
+        
+    (iii) `typedef`: defines/redefines data types under new names/aliases
+
+        (a) Syntax:
+
+            typedef <Type/Structure> <Name>;
+            
+            typedef Type Name;
+
+            typedef struct Structure { /* ... */} Name;
+
+        Examples:-
+
+        (b) redefine
+
+            typedef double longfloat;
+            int main(){
+                longfloat a = 0.0L;
+                for(int i = 1; i<100; i++){
+                    a += 1.0/i;
+                }
+                printf("a: %.32lf\n", a); // a: 5.1773775760084390640258789062500
+                return 0;
+            };
+
+        (c) List/Array
+
+            #include<stdio.h>
+            #include<stdlib.h>
+            #include<math.h>
+            #include<stdbool.h>
+
+            typedef struct List {
+                int *data;
+                int length;
+                int capacity;
+            } Array;
+
+    
+            bool ListPush(struct List *list, int data);
+            void ListPrint(struct List *list);
+
+            int main(){
+
+                Array list;
+                // struct List list;
+
+                list.length = 0;
+                list.capacity = 10;
+                list.data = malloc(list.capacity*sizeof(int));
+
+                if(list.data == NULL){
+                    printf("Unable to allocate Memory\n");
+                    return 1;
+                }
+
+                ListPush(&list, 123);
+                ListPush(&list, 321);
+                ListPush(&list, pow(2, 9));
+
+                printf("Length: %d\n", list.length); // Length: 3
+                printf("Capacity: %d\n", list.capacity); // Capacity: 10
+                ListPrint(&list); // [123, 321, 512]
+
+                return 0;
+            };
+
+            void ListPrint(struct List *list){
+                for(int i = 0; i<list->length; i++){
+                    printf("%d", list->data[i]);
+                    if(list->length-1 != i){ printf(", ");};
+                }
+            }
+
+
+            bool ListPush(struct List *list, int data){
+                // Pushes data to a List
+                if(list->length >= list->capacity){
+                    // resize list if not enough capacity
+                    list->capacity += 10;
+                    list->data = realloc(list->data, list->capacity*sizeof(int));
+                    if(list->data == NULL){ return false; };
+                }
+
+                // add data
+                list->data[list->length] = data;  
+                list->length += 1;
+
+                return true;
+            }
+
+14. Memory
+
+    (i) Static Memory
+
+        (a) Memory reserved for variable before the Program starts executing
+
+    (ii) Dynamic Memory
+
+        (a) Memory that is allocated after the Program starts executing
+
+        (b) Characteristics
+            
+            (I) Runtime Memory Allocation: Allocation of Dynamic memory
+
+            (II) Complete Control Over Memory
+
+            (III) Doesn't belong to any Variable and can only be accessed via Pointers
+
+        (See Section "/14./(ii)/Memory Management:" for Dynamic Memory Manipulation Functions)
+
+        (c) Stack Memory:
+
+            (I) A Type of Dynamic Memory, which is reserved for variables inside functions
+
+            (II) when the function is returned, the stack memory for that function is freed
+
+        (d) Memory Leak
+
+            (I) a Memory leak is when a Dynamic Memory is allocated but is never freed.
+            (II) Examples:
+
+15. Library
+
+    Import:
+
+    (i) `#include<<name>>`: imports the specified library
+
+        #include<stdio.h>
+
+16. Built-in Libraries:
+
+    (i) `stdio.h` Standard Input Out:
+
+        (a) `fopen(const char * filename, const char * mode)`: Opens a file, creates a Pointer to the File and returns the Pointer
+
+            (I) Modes:
+
+                (A) "r": Allows Read from the File, return NULL if file doesn't exists
+                (B) "w": Allows Write from the File, creates file if not exists
+                (C) "a": Allows Appending to the end of the File, creates file if not exists
+                (D) "r+": Allows Read and Write to The File, returns NULL if file doesn't exists
+                (E) "w+": Allows Read and Write to The File, creates file if not exists
+                (F) "a+": Allows Read and Write to The File, creates file if not exists
+
+            (III) Extra Appended:
+
+                (A) "b": read/write as Binary
+
+        (b) `fclose(FILE *fptr)`: closes a File
+
+            (I) return `0` on successful close, any other integer on error
+
+        (c) `ferror(File * fpr)`: Returns a true value if a recent file operation had an error
+
+        (d) `rename(const char * oldname, const char * newname)`: Changes the name of a file
+
+            (I) returns an int, 0 if successfully renamed. any other int if error occured;
+        
+        (e) `remove(const char * filename)`: Deletes a file
+
+            (I) returns an int, 0 if successfully deleted. any other int if error occured;
+
+        (f) `perror(const char * ErrMsg)`: prints the error message for the last operation with a label
+
+            int msg;
+            int success = fscanf(stdin, "%d", &msg);
+
+            if(success != 1){
+                perror("Invalid Input");
+                exit(1);
+            }
+
+            printf("Success!");
+
+        Indicator:
+
+        (g) `fseek(FILE * fptr, long int offset, int origin)`: Moves the position indicator of a file pointer
+            
+            () `fptr`: Required. A file pointer, usually created by the fopen() function.
+            () `offset`: Required. Specifies a position in the file relative to the origin.
+            () `origin`: Required. Specifies the position in the file from which the offset is applied. It can be one of the following constants:
+
+                () `SEEK_SET`: Offset is relative to the beginning of the file
+                () `SEEK_CUR`: Offset is relative to the current position in the file
+                () `SEEK_END`: Offset is relative to the end of the file
+                
+                The SEEK_END value may not be fully supported by some implementations of the library. 
+
+            // ./test.txt:  Hello, World!
+            FILE * fptr = fopen("./test.txt", "r");
+
+            if(fseek(fptr, 7, SEEK_SET) != 0){
+                fprintf(stderr, "File Error");
+                return 1;
+            }
+
+            char a = fgetc(fptr);
+
+            if(a == EOF){
+                fprintf(stderr, "char a = EOF, File Error");
+                return 1;
+            }
+
+            printf("Character: %c", a); // Character: W
+
+            (I) returns An int value which is zero if successful and non-zero if an error occurred.
+
+        (h) `ftell(FILE * fptr)`: Returns the value of the position indicator of a file pointer as an Int
+
+            FILE *fptr = fopen("./read.txt", "r");
+
+            char block[11];
+            fread(block, 1, 10, fptr);
+            block[11] = '\0';
+            long indicator = ftell(fptr);
+
+            printf("%lu", indicator); // 10
+        
+        (i) `rewind(FILE * fptr)`: Moves the position indicator to the beginning of the file
+
+            FILE *fptr = fopen("./read.txt", "r");
+
+            char block[11];
+            fread(block, 1, 10, fptr);
+            block[11] = '\0';
+
+            rewind(fptr);
+            long indicator = ftell(fptr);
+
+            printf("%lu", indicator); // 0
+        
+        (j) `feof(FILE * fptr)`: Returns a true value when the position indicator has reached the end of the file
+
+        WRITE/UPDATE:
+
+        (k) `fwrite(const void * source, size_t size, size_t amount, FILE * fptr)`: Writes data from a block of memory into a file
+
+            (I) `destination`: pointer to a Block of memory to read data from.
+            (II) `size`: size of an element.
+            (III) `amount`: amount of elements to read from memory and write to memory.
+            (IV) `fptr`: File Pointer.
+
+            (V) returns `size_t` value representing the number of elements that were written into the file.
+
+        (l) `fprintf(FILE * fptr, const char * format, arg1, arg2...)`: writes a Formatted string to The File.
+
+            (I) returns an int value representing the number of characters written to the file. If an error occurred then it returns a negative number.
+
+        (m) `fputs(const char * str, FILE * fptr)`: Writes a string into a file and advances the position indicator.
+
+            (I) return an int value that is not negative if the function was successful. It returns the constant EOF if an error occurred.
+
+        (n) `fputc(int c, FILE * fptr)`: Writes a character into a file and advances the position indicator.
+
+            (I) returns an int value representing the ASCII value of the character, or the constant EOF if the character could not be written into the file.
+
+        (o) `printf(const char * format, arg1, arg2...)`: Writes a Formatted string to The stdout (Standard Output).
+
+            (I) returns an int value representing the number of characters written to the stdout. If an error occurred then it returns a negative number.
+
+        (p) `puts(const char * str)`: writes a string to the the stdout
+
+            (I) returns int value that is not negative if the function was successful. It returns the constant EOF if an error occurred.
+
+        (q) `putc(int c, FILE * fptr)`: The same as `fputc()`
+
+            (I) return int value representing the ASCII value of the character that was written.
+        
+        (r) `putchar(int c)`: Outputs a single character to the stdout
+
+            (I) return an int value representing the ASCII value of the character that was written.
+
+        (s) `snprintf(char * destination, size_t * size, const char * format, arg1, arg2...)`: Writes a formatted string into a char array (memory-safe)
+
+            (I) destination: String to write to 
+            (II) size: amount of bytes write to the string, (including the null terminating character).
+            (III) format: A Formatted String to write to the Destionation String
+            (IV) arg1, arg2...
+
+
+            (V) returns an int value representing the number of characters that were intended to be written to the array (excluding the null terminating character). If this is greater than or equal to the size argument then there are some characters that could not be written to the array. If an error occurred then it returns a negative number.
+
+            char destination[20];
+
+
+            int a = 3;
+            int size = snprintf(destination, 19, "Hello, World! %d", a);
+
+            if(size<0){
+                fprintf(stderr, "Error Unable to write to string");
+                return 1;
+            }
+            destination[size] = '\0';
+
+            printf("string: %s", destination); // string: Hello, World! 3
+
+        (t) `sprintf(char * destination, const char * format, arg1, arg2...)`: Writes a formatted string into a char array
+
+            (I) destination:	Required. A char array to which the formatted string is written.
+            (II) format: Required. A string representing the format of the data to be written to the array.
+            (III) arg1, arg2...: Optional. Any number of additional arguments, their values can be formatted and written to the destination array using the specifiers in the format argument.
+
+            (IV) returns an int value representing the number of characters that were written to the array (excluding the null terminating character). If an error occurred then it returns a negative number.
+
+        READ:
+        
+        (u) `fread(void * destination, size_t size, size_t amount, FILE * fptr)`: Reads data from a file and writes it into a block of memory
+
+            (I) `destination`: pointer to a Block of memory to write data at.
+            (II) `size`: size of an element.
+            (III) `amount`: amount of elements to read and write to memory.
+            (IV) `fptr`: File Pointer.
+
+            (V) returns a size_t value representing the number of elements that were read. If this number is different than the amount parameter then the end of the file has been reached or an error occurred.
+
+            FILE * fptr = fopen("./test.txt", "r");
+
+            char data[21];
+            int n = fread(data, 1, 20, fptr);
+            data[n] = '\0';
+
+            printf("%s", data);
+
+            fclose(fptr);
+        
+        (v) `fscanf(FILE * fptr, const char * format, arg1, arg2...)`: Reads formatted data from a file and writes it into a number of memory locations, increases Position Indicator.
+
+            (I) Format Specifier
+                
+                (A) [characterset]: reads 1 character if matches
+                (B) [^characterset]: reads 1 character if doesn't matches
+
+            (II) return 1 if Input is Valid, return 0 if Input is Invalid
+
+            // ./test.txt:  Hello, World!
+            FILE *fptr = fopen("./test.txt", "r");
+
+            char a[20];
+            char b[20];
+            fscanf(fptr, "%s%s", a, b);
+
+            printf("%s%s", a, b);
+
+            fclose(fptr);
+
+        (w) `fgets(char *destination, int size, FILE *fptr)`: Reads the Line from FILE, increases Position Indicator.
+
+            char string[20];
+
+            printf("input: ");
+            fgets(string, sizeof(string), stdin);
+            printf("\ninterpreted: %s", string);
+
+            /*
+            inout: The Quick Brown Fox Jumps over The Lazy Dog.
+
+            interpreted: The Quick Brown Fox
+            */
+
+            (II) returns the destination pointer
+
+        (x) `fgetc(FILE *fptr)`: Reads a Single Characters from the file and returns it's value, increases Position Indicator.
+
+            (I) return an `int` corresponding to the ASCII value of the Character, or the constant EOF if the end of the file has been reached or an error occurred.
+        
+        (y) `scanf(const char * format, arg1, arg2...)`: Reads formatted data from the stdin and writes it into a number of memory locations, increases Position Indicator
+
+            int num;
+            printf("Input:");
+            scanf("%d", &num);
+            printf("Value of Num = %d", num);
+
+            if(scanf("%d", &num) == 0){ // verify correct input
+                fprintf(stderr, "Invalid Input");
+            };
+
+            // Multiple Input
+            char num, character;
+            scanf("%d %c", &num, &character);
+
+            // strings:
+
+            char a[20];
+            if (scanf("%19s", a) != 1){
+                printf("Invalid Input");
+                return 1;
+            }
+            a[20] = '\0';
+
+            printf("%s", a);
+
+            (I) it considers space (whitespace, tabs, etc) as a terminating character
+            (II) with Strings, must specify their size in format specifier
+            (III) return 1 if Input is Valid, return 0 if Input is Invalid
+        
+        (z) `gets()`: -
+
+        (za) `getc()`: The same as `fgetc()`
+
+        (zb) `getchar()`: Reads one character of from the stdin and returns its ASCII value
+
+            (I) return an int value representing the ASCII value of the character that was read.
+        
+        (zc) `sscanf(char * source, const char * format, arg1, arg2...)`: Reads a formatted string from a char array and writes it into a number of memory locations
+
+            (I) return an int value representing the number of arguments that were written to. It returns the constant EOF if an error occurred.
+
+            int a;
+            int b;
+            int c;
+            char source[20] = "4^2 + 3^2 = 5^2";
+
+            int isvalid = sscanf(source, "%d^2 + %d^2 = %d^2", &a, &b, &c);
+
+            if(isvalid != 3){
+                fprintf(stderr, "Unable to find all 3");
+                return 1;
+            };
+            printf("a: %d\n", a); // 4
+            printf("b: %d\n", b); // 3
+            printf("c: %d\n", c); // 5
+
+    (ii) `stdlib.h`
+
+        () abs(int number): Return the absolute (positive) value of a whole number
+
+            int value = abs(-5);
+            printf("%d", value); // 5
+
+            
+            Interfaces:
+
+            abs(int number);
+            labs(long int number);
+            llabs(long long int number);
+
+        () atof(const char * str): Returns a double value from a string representation of a number
+
+            char string[20] = " 22.3$ is the price";
+        
+            double num = atof(string);
+            printf("num: %lf\n", num); // 22.300000
+            
+            char string2[20] = "the price is 45.2$";
+        
+            double num2 = atof(&string2[13]);
+            printf("num2: %lf\n", num2); // 45.200000
+
+        () atoi(const char * str): Return an int value from a string representation of a whole number
+        () atol(const char * str): Return a long int value from a string representation of a whole number
+        () atoll(const char * str): Return a long long int value from a string representation of a whole number
+
+        () `calloc(size_t amount, size_t size)`: Allocate dynamic memory and fill it with zeroes
+
+            (I) `amount`: The amount of total capacity
+            (II) `size`: amount of total bytes allocated each element
+
+            int *ptr = calloc(2, 4); // Manually Allocate Size for each item
+            // int *ptr = calloc(2, sizeof(*ptr)); // Dynamically Allocate Size for each item based on type
+        
+
+            // Access
+            *(ptr+1) = 12; // using Deference
+            ptr[2] = 50; // using index
+
+            printf("%d\n", ptr[1] ); // 12
+            printf("%d\n", *(ptr+2)); // 50
+            
+
+            (I) `sizeof(ptr)`: doesn't returns the Size of The Array and instead returns the length of the Memory Address
+
+                // Find Amount of Bytes Allocated
+                int length = 10;
+                int *ptr = calloc(length, sizeof(*ptr));
+                int size = sizeof(*ptr)*length; // Amount of Bytes Allocated
+                printf("%d", size); // 40
+
+        () `div(int dividend, int divisor)`: Return the quotient and remainder of an integer division
+
+            (I) returns a structure `div_t`, which has 2 members `quot` and `rem` 
+
+            Interfaces:
+
+            div_t div(int dividend, int divisor);
+            ldiv_t ldiv(long int dividend, long int divisor);
+            lldiv_t lldiv(long long int dividend, long long int divisor);
+
+        () `exit(int status)`: End the program with the status code
+
+        () `free(void *ptr)`: deallocates dynamic memory
+
+            int *ptr = malloc(sizeof(*ptr));
+            *ptr = 1024;
+            printf("Pointer: %p, Value: %d\n", ptr, *ptr); // Pointer: 0000021189C753C0, Value: 1024
+
+            free(ptr);
+            ptr = NULL; // set Pointer to NULL after freeing
+            
+            /*
+            after freeing memory and Not setting the Pointer to NULL:
+
+            printf("Pointer: %p, Value: %d\n", ptr, *ptr); // Pointer: 0000021189C753C0, Value: -1983415456
+            */
+
+        () `malloc(size_t size)`: Allocates Dynamic Memory as an Array, and returns it's memory address
+
+            (I) Return: `void *` or NULL if unable to allocate
+
+            // Allocate Size based on datatype
+            int *ptr = malloc(sizeof(*ptr));
+
+
+            // Manually Allocating Size
+            int *ptr = malloc(8);
+
+            // access
+            *ptr = 1024;
+            printf("%d", *ptr); // 1024
+
+            // Type Casted
+
+            int *ptr1 = malloc(4); // pointer "ptr1" and Allocate 4 Bytes
+
+            char *ptr2 = (char*) ptr1; // pointer "ptr2", assign "ptr1" deferenced, and casted to "char"
+        
+            ptr1[0] = 1684234849; // Storing an Integer to "ptr1"
+        
+            ptr2[0]; // first Byte of the Integer 
+            ptr2[1]; // second Byte of the Integer 
+            // ...
+        
+            printf("%d is %c %c %c %c", *ptr1, ptr2[0], ptr2[1], ptr2[2], ptr2[3]); 
+        
+        () `realloc(void * ptr, size_t size)`: Reallocate dynamic memory
+            
+            (I) `ptr`: pointer to memory where dynamic memory is allocated
+            
+            (II) `size`: the new size of memory to be assigned
+
+            (III) returns either the at same memory address or an address at a new destination, returns NULL if unable to reallocate
+
+            char *ptr1 = calloc(8, sizeof(*ptr1)); // create a Pointer named "ptr1"
+            char string[7] = "Hello"; // create a String
+            strcpy(ptr1, string); // Copy String into Pointer "ptr1"
+
+            char *ptr2 = realloc(ptr1, 15); // Change Size of String
+
+            // Handle Null Pointer
+            if(ptr2 == NULL){
+                fprintf(stderr, "Unable to ReAllocate Memory");
+            };
+
+            // Modify Data/Read in new Memory
+            ptr2[5] = '!';
+            ptr2[6] = '!';
+            ptr2[7] = '!';
+
+            printf("ptr1: %s\n", ptr1); // "Hello" or "Hello!!!"
+            printf("ptr2: %s\n", ptr2); // ptr2: Hello!!!
+
+        () `qsort(void * arr, size_t amount, size_t size, int compare(const void *, const void *))`: Sort the contents of an array
+
+        () `srand(unsigned int seed)`: Initialize the random number generator
+
+            srand(time(0))
+
+        () `rand()`: Generate a random integer
+
+            srand(time(0));
+            int random = rand();
+            // int random = (rand()%100)+1; //  Generate a Random Number in-between 1-100
+            printf("%d", random);
+
+    (iii) `stdbool.h` Boolean Data Type
+
+        (a) `bool` A Boolean true or false,  0 or 1
+            
+            bool a = true;
+            bool b = false;
+
+            (I) Size: 1bit
+            (II) Range: true | false
+            (III) Format Specifier: --
+
+    (iv) `time.h`
+
+        (a) `sleep(<n>)`: pauses execution for `n` count of seconds, and returns the current UTC time in Miliseconds since January 1st, 1970 
+
+    (v) `unistd.h`
+
+    (vi) `math.h`
+
+        (a) `sqrt(n)`: square Roots The Number, returns float
+
+        (b) `ceil(n)`: rounds up a Floating Point Number to the Closest Next Integer.
+
+        (c) `floor(n)`: rounds up a Floating Point Number to the Closest Previous Integer.
+
+        (d) `pow(a, b)`: Exponents `a` to the power of `b`
+
+    (vii) `string.h`: Utility Functions for Strings
+
+        (a) `strlen(string)`: works same as `sizeof()` but excludes the string ending NULL  character from the end(`\x00`), and It also does not Include extra Reserved Space for the String
+
+            char string[4] = "abc";
+            printf("string: %s\nbyte length: %d\nstring length: %d", string, sizeof(string), strlen(string));
+
+            /*
+            string: abc
+            byte length: 4
+            string length: 3
+            */
+
+        (b) `strcat(string1, string2)`: Concatinates both strings and stores them in `string1` (make sure `string1` has a fixed length have enough memory allocated)
+
+
+            // Dynamic or without Enough Space
+            char str[] = "test";
+            char str1[] = "Hello ";
+            char str2[] = "World!";
+            strcat(str1, str2);
+            printf("%s %s %s",str, str1, str2); // orld! Hello World! World!
+            // string `str` completely unrelated to strcopy gets modified because of not Allocating enough space to `str1`
+
+            // Correct Way
+            char str[] = "test";
+            char str1[20] = "Hello ";
+            char str2[] = "World!";
+            strcat(str1, str2);
+            printf("%s %s %s",str, str1, str2); // orld! Hello World! World!
+
+        (c) `strcpy(string2, string1)`: `string1` a String into another String `string2` (make sure `string1` also have enough space otherwise it would cause the same behavior as strcat )
+
+            char str1[] = "Hello, World";
+            char str2[14];
+            strcpy(str2, str1);
+            printf("%s\n", str2);
+            
+        (d) `strcmp(string1, string2)`: returns 0 If the Both strings are Equal, otherwise an Integer is returned
+
+            char string1[20] = "Hello";
+            char string2[10] = "Hello";
+            int isEqual = strcasecmp(string1, string2);
+            printf("Match: %d", isEqual); // 0
+
+
+. ASCII Table
+
+    (i) Control Characters
+    ---------------------------------------------------------------------------------------------------------
+    | DEC   OCT     HEX BIN         SYM     HTML-UM HTML-NAME   DESCRIPTION                                 |
+    ---------------------------------------------------------------------------------------------------------
+    | 0     000     00  00000000	NUL     &#00;	 	        Null character                              |
+    | 1     001     01  00000001	SOH     &#01;	 	        Start of Heading                            |
+    | 2     002     02  00000010	STX     &#02;	 	        Start of Text                               |
+    | 3     003     03  00000011	ETX     &#03;	 	        End of Text                                 |
+    | 4     004     04  00000100	EOT     &#04;	 	        End of Transmission                         |
+    | 5     005     05  00000101	ENQ     &#05;	 	        Enquiry                                     |
+    | 6     006     06  00000110	ACK     &#06;	 	        Acknowledge                                 |
+    | 7     007     07  00000111	BEL     &#07;	 	        Bell, Alert                                 |
+    | 8     010     08  00001000	BS      &#08;	 	        Backspace                                   |
+    | 9     011     09  00001001	HT      &#09;	 	        Horizontal Tab                              |
+    | 10    012     0A  00001010	LF      &#10;	 	        Line Feed                                   |
+    | 11    013     0B  00001011	VT      &#11;	 	        Vertical Tabulation                         |
+    | 12    014     0C  00001100	FF      &#12;	 	        Form Feed                                   |
+    | 13    015     0D  00001101	CR      &#13;	 	        Carriage Return                             |
+    | 14    016     0E  00001110	SO      &#14;	 	        Shift Out                                   |
+    | 15    017     0F  00001111	SI      &#15;	 	        Shift In                                    |
+    | 16    020     10  00010000	DLE     &#16;	 	        Data Link Escape                            |
+    | 17    021     11  00010001	DC1     &#17;	 	        Device Control One (XON)                    |
+    | 18    022     12  00010010	DC2     &#18;	 	        Device Control Two                          |
+    | 19    023     13  00010011	DC3     &#19;	 	        Device Control Three (XOFF)                 |
+    | 20    024     14  00010100	DC4     &#20;	 	        Device Control Four                         |
+    | 21    025     15  00010101	NAK     &#21;	 	        Negative Acknowledge                        |
+    | 22    026     16  00010110	SYN     &#22;	 	        Synchronous Idle                            |
+    | 23    027     17  00010111	ETB     &#23;	 	        End of Transmission Block                   |
+    | 24    030     18  00011000	CAN     &#24;	 	        Cancel                                      |
+    | 25    031     19  00011001	EM      &#25;	 	        End of medium                               |
+    | 26    032     1A  00011010	SUB     &#26;	 	        Substitute                                  |
+    | 27    033     1B  00011011	ESC     &#27;	 	        Escape                                      |
+    | 28    034     1C  00011100	FS      &#28;	 	        File Separator                              |
+    | 29    035     1D  00011101	GS      &#29;	 	        Group Separator                             |
+    | 30    036     1E  00011110	RS      &#30;	 	        Record Separator                            |
+    | 31    037     1F  00011111	US      &#31;	 	        Unit Separator                              |
+    ---------------------------------------------------------------------------------------------------------
+
+    (ii) Printable:
+    ---------------------------------------------------------------------------------------------------------
+    | DEC   OCT     HEX BIN         SYM     HTML-UM HTML-NAME   DESCRIPTION                                 |
+    ---------------------------------------------------------------------------------------------------------
+    | 32    040 	20	00100000	SP  	&#32;	 	        Space                                       |
+    | 33    041 	21	00100001	!   	&#33;	&excl;	    Exclamation mark                            |
+    | 34    042 	22	00100010	"   	&#34;	&quot;	    Double quotes (or speech marks)             |
+    | 35    043 	23	00100011	#   	&#35;	&num;	    Number sign                                 |
+    | 36    044 	24	00100100	$   	&#36;	&dollar;	Dollar                                      |
+    | 37    045 	25	00100101	%   	&#37;	&percnt;	Per cent sign                               |
+    | 38    046 	26	00100110	&   	&#38;	&amp;	    Ampersand                                   |
+    | 39    047 	27	00100111	'   	&#39;	&apos;	    Single quote                                |
+    | 40    050 	28	00101000	(   	&#40;	&lparen;	Open parenthesis (or open bracket)          |
+    | 41    051 	29	00101001	)   	&#41;	&rparen;	Close parenthesis (or close bracket)        |
+    | 42    052 	2A	00101010	*   	&#42;	&ast;	    Asterisk                                    |
+    | 43    053 	2B	00101011	+   	&#43;	&plus;	    Plus                                        |
+    | 44    054 	2C	00101100	,   	&#44;	&comma;	    Comma                                       |
+    | 45    055 	2D	00101101	-   	&#45;	 	        Hyphen-minus                                |
+    | 46    056 	2E	00101110	.   	&#46;	&period;	Period, dot or full stop                    |
+    | 47    057 	2F	00101111	/   	&#47;	&sol;	    Slash or divide                             |
+    | 48    060 	30	00110000	0   	&#48;	 	        Zero                                        |
+    | 49    061 	31	00110001	1   	&#49;	 	        One                                         |
+    | 50    062 	32	00110010	2   	&#50;	 	        Two                                         |
+    | 51    063 	33	00110011	3   	&#51;	 	        Three                                       |
+    | 52    064 	34	00110100	4   	&#52;	 	        Four                                        |
+    | 53    065 	35	00110101	5   	&#53;	 	        Five                                        |
+    | 54    066 	36	00110110	6   	&#54;	 	        Six                                         |
+    | 55    067 	37	00110111	7   	&#55;	 	        Seven                                       |
+    | 56    070 	38	00111000	8   	&#56;	 	        Eight                                       |
+    | 57    071 	39	00111001	9   	&#57;	 	        Nine                                        |
+    | 58    072 	3A	00111010	:   	&#58;	&colon;	    Colon                                       |
+    | 59    073 	3B	00111011	;   	&#59;	&semi;	    Semicolon                                   |
+    | 60    074 	3C	00111100	<   	&#60;	&lt;	    Less than (or open angled bracket)          |
+    | 61    075 	3D	00111101	=   	&#61;	&equals;	Equals                                      |
+    | 62    076 	3E	00111110	>   	&#62;	&gt;	    Greater than (or close angled bracket)      |
+    | 63    077 	3F	00111111	?   	&#63;	&quest;	    Question mark                               |
+    | 64    100 	40	01000000	@   	&#64;	&commat;	At sign                                     |
+    | 65    101 	41	01000001	A   	&#65;	 	        Uppercase A                                 |
+    | 66    102 	42	01000010	B   	&#66;	 	        Uppercase B                                 |
+    | 67    103 	43	01000011	C   	&#67;	 	        Uppercase C                                 |
+    | 68    104 	44	01000100	D   	&#68;	 	        Uppercase D                                 |
+    | 69    105 	45	01000101	E   	&#69;	 	        Uppercase E                                 |
+    | 70    106 	46	01000110	F   	&#70;	 	        Uppercase F                                 |
+    | 71    107 	47	01000111	G   	&#71;	 	        Uppercase G                                 |
+    | 72    110 	48	01001000	H   	&#72;	 	        Uppercase H                                 |
+    | 73    111 	49	01001001	I   	&#73;	 	        Uppercase I                                 |
+    | 74    112 	4A	01001010	J   	&#74;	 	        Uppercase J                                 |
+    | 75    113 	4B	01001011	K   	&#75;	 	        Uppercase K                                 |
+    | 76    114 	4C	01001100	L   	&#76;	 	        Uppercase L                                 |
+    | 77    115 	4D	01001101	M   	&#77;	 	        Uppercase M                                 |
+    | 78    116 	4E	01001110	N   	&#78;	 	        Uppercase N                                 |
+    | 79    117 	4F	01001111	O   	&#79;	 	        Uppercase O                                 |
+    | 80    120 	50	01010000	P   	&#80;	 	        Uppercase P                                 |
+    | 81    121 	51	01010001	Q   	&#81;	 	        Uppercase Q                                 |
+    | 82    122 	52	01010010	R   	&#82;	 	        Uppercase R                                 |
+    | 83    123 	53	01010011	S   	&#83;	 	        Uppercase S                                 |
+    | 84    124 	54	01010100	T   	&#84;	 	        Uppercase T                                 |
+    | 85    125 	55	01010101	U   	&#85;	 	        Uppercase U                                 |
+    | 86    126 	56	01010110	V   	&#86;	 	        Uppercase V                                 |
+    | 87    127 	57	01010111	W   	&#87;	 	        Uppercase W                                 |
+    | 88    130 	58	01011000	X   	&#88;	 	        Uppercase X                                 |
+    | 89    131 	59	01011001	Y   	&#89;	 	        Uppercase Y                                 |
+    | 90    132 	5A	01011010	Z   	&#90;	 	        Uppercase Z                                 |
+    | 91    133 	5B	01011011	[   	&#91;	&lsqb;	    Opening bracket                             |
+    | 92    134 	5C	01011100	\   	&#92;	&bsol;	    Backslash                                   |
+    | 93    135 	5D	01011101	]   	&#93;	&rsqb;	    Closing bracket                             |
+    | 94    136 	5E	01011110	^   	&#94;	&Hat;	    Caret - circumflex                          |
+    | 95    137 	5F	01011111	_   	&#95;	&lowbar;	Underscore                                  |
+    | 96    140 	60	01100000	`   	&#96;	&grave;	    Grave accent                                |
+    | 97    141 	61	01100001	a   	&#97;	 	        Lowercase a                                 |
+    | 98    142 	62	01100010	b   	&#98;	 	        Lowercase b                                 |
+    | 99    143 	63	01100011	c   	&#99;	 	        Lowercase c                                 |
+    | 100   144  	64	01100100	d   	&#100;	 	        Lowercase d                                 |
+    | 101   145  	65	01100101	e   	&#101;	 	        Lowercase e                                 |
+    | 102   146  	66	01100110	f   	&#102;	 	        Lowercase f                                 |
+    | 103   147  	67	01100111	g   	&#103;	 	        Lowercase g                                 |
+    | 104   150  	68	01101000	h   	&#104;	 	        Lowercase h                                 |
+    | 105   151  	69	01101001	i   	&#105;	 	        Lowercase i                                 |
+    | 106   152  	6A	01101010	j   	&#106;	 	        Lowercase j                                 |
+    | 107   153  	6B	01101011	k   	&#107;	 	        Lowercase k                                 |
+    | 108   154  	6C	01101100	l   	&#108;	 	        Lowercase l                                 |
+    | 109   155  	6D	01101101	m   	&#109;	 	        Lowercase m                                 |
+    | 110   156  	6E	01101110	n   	&#110;	 	        Lowercase n                                 |
+    | 111   157  	6F	01101111	o   	&#111;	 	        Lowercase o                                 |
+    | 112   160  	70	01110000	p   	&#112;	 	        Lowercase p                                 |
+    | 113   161  	71	01110001	q   	&#113;	 	        Lowercase q                                 |
+    | 114   162  	72	01110010	r   	&#114;	 	        Lowercase r                                 |
+    | 115   163  	73	01110011	s   	&#115;	 	        Lowercase s                                 |
+    | 116   164  	74	01110100	t   	&#116;	 	        Lowercase t                                 |
+    | 117   165  	75	01110101	u   	&#117;	 	        Lowercase u                                 |
+    | 118   166  	76	01110110	v   	&#118;	 	        Lowercase v                                 |
+    | 119   167  	77	01110111	w   	&#119;	 	        Lowercase w                                 |
+    | 120   170  	78	01111000	x   	&#120;	 	        Lowercase x                                 |
+    | 121   171  	79	01111001	y   	&#121;	 	        Lowercase y                                 |
+    | 122   172  	7A	01111010	z   	&#122;	 	        Lowercase z                                 |
+    | 123   173  	7B	01111011	{   	&#123;	&lcub;	    Opening brace                               |
+    | 124   174  	7C	01111100	|   	&#124;	&verbar;	Vertical bar                                |
+    | 125   175  	7D	01111101	}   	&#125;	&rcub;	    Closing brace                               |
+    | 126   176  	7E	01111110	~   	&#126;	&tilde;	    Equivalency sign - tilde                    |
+    | 127   177  	7F	01111111	DEL 	&#127;	 	        Delete                                      |
+    ---------------------------------------------------------------------------------------------------------
+
+    (iii) ASCII Extended:
+    ---------------------------------------------------------------------------------------------------------
+    | DEC   OCT     HEX BIN         SYM     HTML-UM HTML-NAME   DESCRIPTION                                 |
+    ---------------------------------------------------------------------------------------------------------
+    | 128   200 	80	10000000	€	    &#8364;	&euro;	    Euro sign                                   |
+    | 129   201 	81	10000001		    	 	            Unused                                      |
+    | 130   202 	82	10000010	‚	    &#130;	&sbquo;	    Single low-9 quotation mark                 |
+    | 131   203 	83	10000011	ƒ	    &#131;	&fnof;	    Latin small letter f with hook              |
+    | 132   204 	84	10000100	„	    &#132;	&bdquo;	    Double low-9 quotation mark                 |
+    | 133   205 	85	10000101	…	    &#133;	&hellip;	Horizontal ellipsis                         |
+    | 134   206 	86	10000110	†	    &#134;	&dagger;	Dagger                                      |
+    | 135   207 	87	10000111	‡	    &#135;	&Dagger;	Double dagger                               |
+    | 136   210 	88	10001000	ˆ	    &#136;	&circ;	    Modifier letter circumflex accent           |
+    | 137   211 	89	10001001	‰	    &#137;	&permil;	Per mille sign                              |
+    | 138   212 	8A	10001010	Š	    &#138;	&Scaron;	Latin capital letter S with caron           |
+    | 139   213 	8B	10001011	‹	    &#139;	&lsaquo;	Single left-pointing angle quotation        |
+    | 140   214 	8C	10001100	Œ	    &#140;	&OElig;	    Latin capital ligature OE                   |
+    | 141   215 	8D	10001101		    	 	            Unused                                      |        
+    | 142   216 	8E	10001110	Ž	    &#142;	&Zcaron;	Latin capital letter Z with caron           |
+    | 143   217 	8F	10001111		    	 	            Unused                                      |
+    | 144   220 	90	10010000		    	 	            Unused                                      |
+    | 145   221 	91	10010001	‘	    &#145;	&lsquo;	    Left single quotation mark                  |
+    | 146   222 	92	10010010	’	    &#146;	&rsquo;	    Right single quotation mark                 |
+    | 147   223 	93	10010011	“	    &#147;	&ldquo;	    Left double quotation mark                  |
+    | 148   224 	94	10010100	”	    &#148;	&rdquo;	    Right double quotation mark                 |
+    | 149   225 	95	10010101	•	    &#149;	&bull;	    Bullet                                      |
+    | 150   226 	96	10010110	–	    &#150;	&ndash;	    En dash                                     |
+    | 151   227 	97	10010111	—	    &#151;	&mdash;	    Em dash                                     |
+    | 152   230 	98	10011000	˜	    &#152;	&tilde;	    Small tilde                                 |
+    | 153   231 	99	10011001	™	    &#153;	&trade;	    Trade mark sign                             |
+    | 154   232 	9A	10011010	š	    &#154;	&scaron;	Latin small letter S with caron             |
+    | 155   233 	9B	10011011	›	    &#155;	&rsaquo;	Single right-pointing angle quotation mark  |
+    | 156   234 	9C	10011100	œ	    &#156;	&oelig;	    Latin small ligature oe                     |
+    | 157   235 	9D	10011101		    	 	            Unused                                      |
+    | 158   236 	9E	10011110	ž	    &#158;	&zcaron;	Latin small letter z with caron             |
+    | 159   237 	9F	10011111	Ÿ	    &#159;	&Yuml;	    Latin capital letter Y with diaeresis       |
+    | 160   240 	A0	10100000	NBSP    &#160;	&nbsp;	    Non-breaking space                          |
+    | 161   241 	A1	10100001	¡	    &#161;	&iexcl;	    Inverted exclamation mark                   |
+    | 162   242 	A2	10100010	¢	    &#162;	&cent;	    Cent sign                                   |
+    | 163   243 	A3	10100011	£	    &#163;	&pound;	    Pound sign                                  |
+    | 164   244 	A4	10100100	¤	    &#164;	&curren;	Currency sign                               |
+    | 165   245 	A5	10100101	¥	    &#165;	&yen;	    Yen sign                                    |
+    | 166   246 	A6	10100110	¦	    &#166;	&brvbar;	Pipe, broken vertical bar                   |
+    | 167   247 	A7	10100111	§	    &#167;	&sect;	    Section sign                                |
+    | 168   250 	A8	10101000	¨	    &#168;	&uml;	    Spacing diaeresis - umlaut                  |
+    | 169   251 	A9	10101001	©	    &#169;	&copy;	    Copyright sign                              |
+    | 170   252 	AA	10101010	ª	    &#170;	&ordf;	    Feminine ordinal indicator                  |
+    | 171   253 	AB	10101011	«	    &#171;	&laquo;	    Left double angle quotes                    |
+    | 172   254 	AC	10101100	¬	    &#172;	&not;	    Negation                                    |
+    | 173   255 	AD	10101101	­SHY     &#173;	 &shy;	     Soft hyphen                                 |
+    | 174   256 	AE	10101110	®	    &#174;	&reg;	    Registered trade mark sign                  |
+    | 175   257 	AF	10101111	¯	    &#175;	&macr;	    Spacing macron - overline                   |
+    | 176   260 	B0	10110000	°	    &#176;	&deg;	    Degree sign                                 |
+    | 177   261 	B1	10110001	±	    &#177;	&plusmn;	Plus-or-minus sign                          |
+    | 178   262 	B2	10110010	²	    &#178;	&sup2;	    Superscript two - squared                   |
+    | 179   263 	B3	10110011	³	    &#179;	&sup3;	    Superscript three - cubed                   |
+    | 180   264 	B4	10110100	´	    &#180;	&acute;	    Acute accent - spacing acute                |
+    | 181   265 	B5	10110101	µ	    &#181;	&micro;	    Micro sign                                  |
+    | 182   266 	B6	10110110	¶	    &#182;	&para;	    Pilcrow sign - paragraph sign               |
+    | 183   267 	B7	10110111	·	    &#183;	&middot;	Middle dot - Georgian comma                 |
+    | 184   270 	B8	10111000	¸	    &#184;	&cedil;	    Spacing cedilla                             |
+    | 185   271 	B9	10111001	¹	    &#185;	&sup1;	    Superscript one                             |
+    | 186   272 	BA	10111010	º	    &#186;	&ordm;	    Masculine ordinal indicator                 |
+    | 187   273 	BB	10111011	»	    &#187;	&raquo;	    Right double angle quotes                   |
+    | 188   274 	BC	10111100	¼	    &#188;	&frac14;	Fraction one quarter                        |
+    | 189   275 	BD	10111101	½	    &#189;	&frac12;	Fraction one half                           |
+    | 190   276 	BE	10111110	¾	    &#190;	&frac34;	Fraction three quarters                     |
+    | 191   277 	BF	10111111	¿	    &#191;	&iquest;	Inverted question mark                      |
+    | 192   300 	C0	11000000	À	    &#192;	&Agrave;	Latin capital letter A with grave           |
+    | 193   301 	C1	11000001	Á	    &#193;	&Aacute;	Latin capital letter A with acute           |
+    | 194   302 	C2	11000010	Â	    &#194;	&Acirc;	    Latin capital letter A with circumflex      |
+    | 195   303 	C3	11000011	Ã	    &#195;	&Atilde;	Latin capital letter A with tilde           |
+    | 196   304 	C4	11000100	Ä	    &#196;	&Auml;	    Latin capital letter A with diaeresis       |
+    | 197   305 	C5	11000101	Å	    &#197;	&Aring;	    Latin capital letter A with ring above      |
+    | 198   306 	C6	11000110	Æ	    &#198;	&AElig;	    Latin capital letter AE                     |
+    | 199   307 	C7	11000111	Ç	    &#199;	&Ccedil;	Latin capital letter C with cedilla         |
+    | 200   310 	C8	11001000	È	    &#200;	&Egrave;	Latin capital letter E with grave           |
+    | 201   311 	C9	11001001	É	    &#201;	&Eacute;	Latin capital letter E with acute           |
+    | 202   312 	CA	11001010	Ê	    &#202;	&Ecirc;	    Latin capital letter E with circumflex      |
+    | 203   313 	CB	11001011	Ë	    &#203;	&Euml;	    Latin capital letter E with diaeresis       |
+    | 204   314 	CC	11001100	Ì	    &#204;	&Igrave;	Latin capital letter I with grave           |
+    | 205   315 	CD	11001101	Í	    &#205;	&Iacute;	Latin capital letter I with acute           |
+    | 206   316 	CE	11001110	Î	    &#206;	&Icirc;	    Latin capital letter I with circumflex      |
+    | 207   317 	CF	11001111	Ï	    &#207;	&Iuml;	    Latin capital letter I with diaeresis       |
+    | 208   320 	D0	11010000	Ð	    &#208;	&ETH;	    Latin capital letter ETH                    |
+    | 209   321 	D1	11010001	Ñ	    &#209;	&Ntilde;	Latin capital letter N with tilde           |
+    | 210   322 	D2	11010010	Ò	    &#210;	&Ograve;	Latin capital letter O with grave           |
+    | 211   323 	D3	11010011	Ó	    &#211;	&Oacute;	Latin capital letter O with acute           |
+    | 212   324 	D4	11010100	Ô	    &#212;	&Ocirc;	    Latin capital letter O with circumflex      |
+    | 213   325 	D5	11010101	Õ	    &#213;	&Otilde;	Latin capital letter O with tilde           |
+    | 214   326 	D6	11010110	Ö	    &#214;	&Ouml;	    Latin capital letter O with diaeresis       |
+    | 215   327 	D7	11010111	×	    &#215;	&times;	    Multiplication sign                         |
+    | 216   330 	D8	11011000	Ø	    &#216;	&Oslash;	Latin capital letter O with slash           |
+    | 217   331 	D9	11011001	Ù	    &#217;	&Ugrave;	Latin capital letter U with grave           |
+    | 218   332 	DA	11011010	Ú	    &#218;	&Uacute;	Latin capital letter U with acute           |
+    | 219   333 	DB	11011011	Û	    &#219;	&Ucirc;	    Latin capital letter U with circumflex      |
+    | 220   334 	DC	11011100	Ü	    &#220;	&Uuml;	    Latin capital letter U with diaeresis       |
+    | 221   335 	DD	11011101	Ý	    &#221;	&Yacute;	Latin capital letter Y with acute           |
+    | 222   336 	DE	11011110	Þ	    &#222;	&THORN;	    Latin capital letter THORN                  |
+    | 223   337 	DF	11011111	ß	    &#223;	&szlig;	    Latin small letter sharp s - ess-zed        |
+    | 224   340 	E0	11100000	à	    &#224;	&agrave;	Latin small letter a with grave             |
+    | 225   341 	E1	11100001	á	    &#225;	&aacute;	Latin small letter a with acute             |
+    | 226   342 	E2	11100010	â	    &#226;	&acirc;	    Latin small letter a with circumflex        |
+    | 227   343 	E3	11100011	ã	    &#227;	&atilde;	Latin small letter a with tilde             |
+    | 228   344 	E4	11100100	ä	    &#228;	&auml;	    Latin small letter a with diaeresis         |
+    | 229   345 	E5	11100101	å	    &#229;	&aring;	    Latin small letter a with ring above        |
+    | 230   346 	E6	11100110	æ	    &#230;	&aelig;	    Latin small letter ae                       |
+    | 231   347 	E7	11100111	ç	    &#231;	&ccedil;	Latin small letter c with cedilla           |
+    | 232   350 	E8	11101000	è	    &#232;	&egrave;	Latin small letter e with grave             |
+    | 233   351 	E9	11101001	é	    &#233;	&eacute;	Latin small letter e with acute             |
+    | 234   352 	EA	11101010	ê	    &#234;	&ecirc;	    Latin small letter e with circumflex        |
+    | 235   353 	EB	11101011	ë	    &#235;	&euml;	    Latin small letter e with diaeresis         |
+    | 236   354 	EC	11101100	ì	    &#236;	&igrave;	Latin small letter i with grave             |
+    | 237   355 	ED	11101101	í	    &#237;	&iacute;	Latin small letter i with acute             |
+    | 238   356 	EE	11101110	î	    &#238;	&icirc;	    Latin small letter i with circumflex        |
+    | 239   357 	EF	11101111	ï	    &#239;	&iuml;	    Latin small letter i with diaeresis         |
+    | 240   360 	F0	11110000	ð	    &#240;	&eth;	    Latin small letter eth                      |
+    | 241   361 	F1	11110001	ñ	    &#241;	&ntilde;	Latin small letter n with tilde             |
+    | 242   362 	F2	11110010	ò	    &#242;	&ograve;	Latin small letter o with grave             |
+    | 243   363 	F3	11110011	ó	    &#243;	&oacute;	Latin small letter o with acute             |
+    | 244   364 	F4	11110100	ô	    &#244;	&ocirc;	    Latin small letter o with circumflex        |
+    | 245   365 	F5	11110101	õ	    &#245;	&otilde;	Latin small letter o with tilde             |
+    | 246   366 	F6	11110110	ö	    &#246;	&ouml;	    Latin small letter o with diaeresis         |
+    | 247   367 	F7	11110111	÷	    &#247;	&divide;	Division sign                               |
+    | 248   370 	F8	11111000	ø	    &#248;	&oslash;	Latin small letter o with slash             |
+    | 249   371 	F9	11111001	ù	    &#249;	&ugrave;	Latin small letter u with grave             |
+    | 250   372 	FA	11111010	ú	    &#250;	&uacute;	Latin small letter u with acute             |
+    | 251   373 	FB	11111011	û	    &#251;	&ucirc;	    Latin small letter u with circumflex        |
+    | 252   374 	FC	11111100	ü	    &#252;	&uuml;	    Latin small letter u with diaeresis         |
+    | 253   375 	FD	11111101	ý	    &#253;	&yacute;	Latin small letter y with acute             |
+    | 254   376 	FE	11111110	þ	    &#254;	&thorn;	    Latin small letter thorn                    |
+    | 255   377 	FF	11111111	ÿ	    &#255;	&yuml;	    Latin small letter y with diaeresis         |
+    ---------------------------------------------------------------------------------------------------------
+
+    (iv) ESC Character
+
+        (a) A Special Character That can be used to Customize things in an infinite amount of Ways:
+
+        (b) Encodings:
+
+            -----------------------------------------------------------------------
+            | DEC   OCT   HEX   BIN        SYM   HTML-UM  HTML-NAME   DESCRIPTION |
+            -----------------------------------------------------------------------
+            | 27    033   1B    00011011   ESC   &#27;	  	          Escape      |
+            -----------------------------------------------------------------------
+
+        (c) Cursor Control
+
+            -----------------------------------------------------------------------------------
+            | ESC Code Sequence    |   Description                                            |
+            -----------------------------------------------------------------------------------
+            | ESC[H 	           |   moves cursor to home position (0, 0)                   |
+            | ESC[{line};{column}H |   moves cursor to line #, column #                       |
+            | ESC[{line};{column}f |	  moves cursor to line #, column #                    |
+            | ESC[#A 	           |   moves cursor up # lines                                |
+            | ESC[#B 	           |   moves cursor down # lines                              |
+            | ESC[#C 	           |   moves cursor right # columns                           |
+            | ESC[#D 	           |   moves cursor left # columns                            |
+            | ESC[#E 	           |   moves cursor to beginning of next line, # lines down   |
+            | ESC[#F 	           |   moves cursor to beginning of previous line, # lines up |
+            | ESC[#G 	           |   moves cursor to column #                               |
+            | ESC[6n 	           |   request cursor position (reports as ESC[#;#R)          |
+            | ESCM  	           |   moves cursor one line up, scrolling if needed          |
+            | ESC7  	           |   save cursor position (DEC)                             |
+            | ESC8  	           |   restores the cursor to the last saved position (DEC)   |
+            | ESC[s 	           |   save cursor position (SCO)                             |
+            | ESC[u 	           |   restores the cursor to the last saved position (SCO)   |
+            -----------------------------------------------------------------------------------
+            
+        (d) Erase Functions
+                
+            ----------------------------------------------------------------
+            | ESC Code Sequence | Description                              |
+            ----------------------------------------------------------------
+            | ESC[J 	        | erase in display (same as ESC[0J)        |
+            | ESC[0J 	        | erase from cursor until end of screen    |
+            | ESC[1J 	        | erase from cursor to beginning of screen |
+            | ESC[2J 	        | erase entire screen                      |
+            | ESC[3J 	        | erase saved lines                        |
+            | ESC[K 	        | erase in line (same as ESC[0K)           |
+            | ESC[0K 	        | erase from cursor to end of line         |
+            | ESC[1K 	        | erase start of line to the cursor        |
+            | ESC[2K 	        | erase the entire line                    |
+            ----------------------------------------------------------------
+
+        (e) Colors / Graphics Mode
+
+            -------------------------------------------------------------------------------------------------
+            | ESC Code Sequence | Reset Sequence | Description                                              |
+            -------------------------------------------------------------------------------------------------
+            | ESC[1;34;{...}m 	|                | Set graphics modes for cell, separated by semicolon (;). |
+            | ESC[0m 		    |                | reset all modes (styles and colors)                      |
+            | ESC[1m 	        | ESC[22m 	     | set bold mode.                                           |
+            | ESC[2m 	        | ESC[22m 	     | set dim/faint mode.                                      |
+            | ESC[3m 	        | ESC[23m 	     | set italic mode.                                         |
+            | ESC[4m 	        | ESC[24m 	     | set underline mode.                                      |
+            | ESC[5m 	        | ESC[25m 	     | set blinking mode                                        |
+            | ESC[7m 	        | ESC[27m 	     | set inverse/reverse mode                                 |
+            | ESC[8m 	        | ESC[28m 	     | set hidden/invisible mode                                |
+            | ESC[9m 	        | ESC[29m 	     | set strikethrough mode.                                  |
+            -------------------------------------------------------------------------------------------------
+
+        (f) Color
+
+            (I) 8 - 16 Color Mode
+
+                (A) `ESC[CODEm`
+
+                -------------------------------------
+                | Name    | Foreground | Background |
+                -------------------------------------
+                | Black   | 30 	       | 40         |
+                | Red 	  | 31 	       | 41         |
+                | Green   |	32 	       | 42         |
+                | Yellow  | 33 	       | 43         |
+                | Blue 	  | 34 	       | 44         |
+                | Magenta |	35 	       | 45         |
+                | Cyan 	  | 36 	       | 46         |
+                | White   |	37 	       | 47         |
+                | Default |	39 	       | 49         |
+                | Reset   |	0 	       | 0          |
+                -------------------------------------
+
+                --------------------------------------------
+                | Color Name     | Foreground | Background |
+                --------------------------------------------
+                | Bright Black   | 90 	      | 100        |
+                | Bright Red     | 91 	      | 101        |
+                | Bright Green   | 92 	      | 102        |
+                | Bright Yellow  | 93 	      | 103        |
+                | Bright Blue    | 94 	      | 104        |
+                | Bright Magenta | 95 	      | 105        |
+                | Bright Cyan    | 96 	      | 106        |
+                | Bright White   | 97 	      | 107        |
+                --------------------------------------------
+
+            (II) 256 Colors
+
+                ---------------------------------------------
+                | ESC Code Sequence | Description           |
+                ---------------------------------------------
+                | ESC[38;5;{ID}m 	| Set foreground color. |
+                | ESC[48;5;{ID}m 	| Set background color. |
+                ---------------------------------------------
+
+                (A) ID can be any number from 0 to 255
+
+                CODES: https://user-images.githubusercontent.com/995050/47952855-ecb12480-df75-11e8-89d4-ac26c50e80b9.png
+
+            (III) RGB Color Mode
+                    
+                --------------------------------------------------------
+                | ESC Code Sequence 	| Description                  |
+                --------------------------------------------------------
+                | ESC[38;2;{r};{g};{b}m | Set foreground color as RGB. |
+                | ESC[48;2;{r};{g};{b}m | Set background color as RGB. |
+                --------------------------------------------------------
+
+        (e) Common Private Modes
+
+            ------------------------------------------------
+            | ESC Code   | Description                     |
+            ------------------------------------------------
+            | ESC[?25l 	 | make cursor invisible           |
+            | ESC[?25h 	 | make cursor visible             |
+            | ESC[?47l   | restore screen                  |
+            | ESC[?47h   | save screen                     |
+            | ESC[?1049h | enables the alternative buffer  |
+            | ESC[?1049l | disables the alternative buffer |
+            ------------------------------------------------
+
+]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]

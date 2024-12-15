@@ -1,3 +1,7 @@
+
+- [Back to Maths](./maths.md)
+- [Back to Home](../README.md)
+
 # Geometry
 **Geometry**: a field of Mathematics consisting Entirely of Geometric Shapes and their Properties
 

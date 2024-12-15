@@ -1,6 +1,17 @@
+
+- [Back to Maths](./maths.md)
+- [Back to Home](../README.md)
+
 # Arithmetic
 
 **Arithmetic**: a field of Mathematics containing the very Foundational Basics about it
+
+- [Successor](#successor)
+- [Predecessor](#predecessor)
+- [Addition](#addition)
+- [Subtraction](#subtraction)
+- [Multiplication](#multiplication)
+- [Divison](#divison)
 
 # Successor
 

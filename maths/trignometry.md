@@ -1,3 +1,7 @@
+
+- [Back to Maths](./maths.md)
+- [Back to Home](../README.md)
+
 # Trignometry
 **Trignometry**: a sub-field of Geometry only consisting of Triangles and Their Angles related Geometry
 

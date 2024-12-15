@@ -1,3 +1,7 @@
+
+- [Back to Maths](./maths.md)
+- [Back to Home](../README.md)
+
 # Number Theory
 
 # General Number Theory
@@ -465,6 +469,29 @@ $$\sqrt{3}
 = 2\sqrt{1-\frac{1}{4}} 
 = 2(1-\frac{1}{4})^{1/2} 
 = \sum_{k=0}^{-1/4} 2\cdot \frac{(-1/4)!}{k!(-1/4 - k)!}\cdot 1^{-1/4 - k}(-\frac{1}{4})^k $$
+
+### Logarithm
+
+---
+
+## Factorial
+
+**Factorial**: product of `n` count of successive numbers
+
+$a \in \Z^{+}$
+
+$$
+a!
+$$
+
+$$
+a! = \prod_{k = 1}^{a}k
+$$
+
+$$
+(a - b)! = a! \cdot \prod_{k = 0}^{b} \frac{1}{a-k} = \frac{a!}{a(a-1)(a-2 )...}
+$$
+
 
 # Number System
 Different Type of Number System that are used in Mathematics:
