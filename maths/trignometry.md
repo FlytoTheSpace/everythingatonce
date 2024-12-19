@@ -5,7 +5,7 @@
 # Trignometry
 **Trignometry**: a sub-field of Geometry only consisting of Triangles and Their Angles related Geometry
 
-![](./img/shapes/right_triangle.png)
+![](../img/maths/shapes/right_triangle.png)
 
 - $\theta$ is an angle that exists inside the Right angled Triangle
 - **Hypotenuse**: is the Longer side, opposite to the right angle
@@ -18,7 +18,7 @@ $$
 a^2 + b^2 = c^2
 $$
 
-<!-- ![](./img/shapes/right_triangle_abc_squared.png) -->
+![](../img/maths/shapes/right_triangle_abc_squared.png)
 
 # Trigometric Functions
 
