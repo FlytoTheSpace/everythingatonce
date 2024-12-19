@@ -1,4 +1,5 @@
 
+
 # Data Structures
 
 
@@ -421,3 +422,71 @@ by: [ConnerWill](https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113f
             ------------------------------------------------
 
 ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+# Computational Complexity
+
+Computational Complexity Describes the how well an algorith performs/task performs as the inputs grow as $n$
+
+## Big-O
+
+![](../img/cs/bigo_notation.png)
+
+### Exponential
+
+$O(n!)$
+
+$O(2^n)$
+
+$O(n^2)$: looping over an entire $n \times n$ Matrix
+
+```py
+matrix = [
+    [y_0_x_0, y_0_x_1, y_0_x_2, y_0_x_3, y_0_x_n],
+    [y_1_x_0, y_1_x_1, y_1_x_2, y_1_x_3, y_1_x_n],
+    [y_2_x_0, y_2_x_1, y_2_x_2, y_2_x_3, y_2_x_n],
+    [y_3_x_0, y_3_x_1, y_3_x_2, y_3_x_3, y_3_x_n],
+    [y_n_x_0, y_n_x_1, y_n_x_2, y_n_x_3, y_n_x_n],
+]
+
+for row in matrix:
+    for element in row:
+        # ...
+```
+
+### Linear Log
+
+### Linear
+
+$O(n)$: Looping over $n$ count of items
+
+```py
+list = [n_0, n_1, n_2, n_3, n_n]
+
+for element in list:
+    # ...
+```
+
+### Logarithmic, Constant
+
+$O(1)$: Best possible space time complexity
+
+```py
+list.push(element)
+```
+
+# Algorithms
+
+## Mathematical
+
+**GCD Euclidean Algorithm**
+
+Space-Time Complexity: $O(n)$
+
+```python
+def gcd(a, b):
+    while b != 0:
+        r = a % b;
+        a = b;
+        b = r;
+    return a;
+```
