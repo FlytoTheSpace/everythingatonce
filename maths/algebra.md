@@ -12,6 +12,7 @@
 	- [Equations](#equations)
 		- [Linear Equations](#linear-equations)
 		- [Quadratics](#quadratics)
+		- [Cubic](#cubics)
 - [Abstract Algebra](#abstract-algebra)
 - [Boolean Algebra](#boolean-algebra)
 	- [Units](#units)
@@ -161,11 +162,11 @@ a = \frac{c + d}{b}
 $$
 
 
-### Linear Equations
+## Linear
 
----
+**Linear**: a variable with either 0 or 1 as their power 
 
-where the all the terms in the expression either have 0 or only 1 algebraic factor.
+$x^1$, $x^0$
 
 **One Variable**:
 
@@ -181,9 +182,47 @@ $x = 2 + 3$
 
 $x = 5$
 
-### Quadratics
+## Quadratic
 
----
+**Quadratic**: a where the variable is squared $x^2$
+
+**Quadratic Equation**:
+
+$$
+ax^2 + bx + c = 0 \newline
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+
+- **Derivationation**:
+
+$$ax^2 + bx + c = 0 $$
+$$\frac{\color{DodgerBlue} a \color{white} x^2 + bx + c}{\color{orangered}a} = \frac{0}{\color{orangered}a}$$
+$$x^2 + \frac{b}{a}x + \frac{c}{a} = 0$$
+$$x^2 + \frac{b}{a}x \color{DodgerBlue} + \frac{c}{a} \color{orangered} - \frac{c}{a} \color{white} = 0 \color{orangered} - \frac{c}{a} \color{white}$$
+$$x^2 + \frac{b}{a}x = - \frac{c}{a}$$
+$$x^2 + \frac{b}{a}x \color{MediumSeaGreen} + (\frac{b}{2a})^2 \color{white} = - \frac{c}{a} \color{MediumSeaGreen} + (\frac{b}{2a})^2 \color{white}$$
+$$\color{DodgerBlue} (x + \frac{b}{2a})^2 \color{white} = - \frac{c}{a} + (\frac{b}{2a})^2$$
+$$(x + \frac{b}{2a})^2 = - \frac{c}{a} + \color{DodgerBlue} \frac{b^2}{4a^2} \color{white}$$
+$$(x + \frac{b}{2a})^2 = - \frac{\color{MediumSeaGreen} 4a \cdot \color{white} c}{\color{MediumSeaGreen} 4a \cdot \color{white} a} + \frac{b^2}{4a^2}$$
+$$(x + \frac{b}{2a})^2 = \frac{b^2}{4a^2} - \frac{4ac}{4a^2}$$
+$$(x + \frac{b}{2a})^2 = \frac{\color{DodgerBlue} b^2 - 4ac}{4a^2}$$
+$$\color{orangered}\sqrt{\color{white}(x + \frac{b}{2a})^{\color{DodgerBlue}2}} \color{white} = \color{orangered}\sqrt{\color{white}\frac{b^2 - 4ac}{4a^2}} \color{white}$$
+$$(x + \frac{b}{2a}) = \frac{\color{DodgerBlue} \pm \sqrt{\color{white}b^2 - 4ac}}{\color{DodgerBlue}\sqrt{\color{white}4a^2}}$$
+$$x + \frac{b}{2a} = \frac{\pm \sqrt{b^2 - 4ac}}{\color{DodgerBlue} 2a}$$
+$$x \color{DodgerBlue} + \frac{b}{2a} \color{orangered} - \frac{b}{2a} \color{white} = \frac{\pm \sqrt{b^2 - 4ac}}{2a} \color{orangered} - \frac{b}{2a} \color{white}$$
+$$x = \frac{\color{DodgerBlue}-b \color{white} \pm \sqrt{b^2 - 4ac}}{2a}$$
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+
+## Cubic
+
+
+**Cubic**: a where the variables can be cubed $x^2$
+
+$$ax^3 + bx^2 + cx + d = 0$$
+
+
+**Derivationation**:
 
 ## Binomial Theorem
 > $n \in \mathbb{Z}^+$
