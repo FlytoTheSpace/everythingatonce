@@ -1,8 +1,10 @@
 # BASH (Bourn Again Shell), Linux
 
-## Commands:
+## Commands
     
 ### General
+
+---
 
 - `echo "<Message>"`: Logs The Message in The Terminal, Prints The Message to The stdout
     ```bash
@@ -70,6 +72,8 @@
 
 ### Users
 
+---
+
 - `whoami` The User who you are Logged in as
 
 - `useradd <username>`: simply adds a new user by the name of <username> (Requires ROOT)
@@ -100,6 +104,8 @@
 
 ### Utilities
 
+---
+
 - `sudo command` runs the command with Root Privelages
 - `cmd1 | cmd2`: Pipes stdout of first command as the input for the second command
 - `| sort text` sorts in Alphabetical Order
@@ -117,6 +123,8 @@
 - `command &` makes the command run in the background
 
 ### Operating System
+
+---
 
 - `uname` Information About your OS
 - `free` Information About RAM and Swap

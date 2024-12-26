@@ -1,7 +1,36 @@
 
+# Programming
+
+**Markdown** (new Format):
+
+- [`C`](./c.md)
+- [`Shell (CMD, Bash)`](./shell.md)
+
+**Text** (original, deprecated):
+
+- [`C`](./c.txt)
+- [`CSS`](./CSS.txt)
+- [`DataBases`](./DataBases.txt)
+- [`Docker`](./docker.txt)
+- [`Git`](./git.txt)
+- [`Hacking`](./hacking.txt)
+- [`HTML`](./HTML.txt)
+- [`JavaScript`](./JavaScript.txt)
+- [`Python`](./python.txt)
+- [`Shell (CMD, Bash)`](./shell.txt)
+- [`TypeScript`](./TypeScript.txt)
+
+# Network
+
+- [`Network`](./network.md) (markdown)
+- [`Network`](./network.txt) (text)
+
+# Hacking
+
+- [`Hacking`](./hacking.md) (markdown)
+- [`Hacking`](./hacking.txt) (text)
 
 # Data Structures
-
 
 ## Array-Like
 

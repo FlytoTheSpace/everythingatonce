@@ -80,7 +80,7 @@ Private IPv4 addresses are reserved ip's that only exists within the LAN and
 | IPv4 Addresses Range            | Network Bits | Host Bits | Subnet Mask     |
 | ------------------------------- | ------------ | --------- | --------------- |
 | $10.0.0.0 - 10.255.255.255$     | $8$          | $24$      | $255.0.0.0$     |
-| $172.16.0.0 - 172.31.255.255$   | $16$         | $16$       | $255.255.0.0$   |
+| $172.16.0.0 - 172.31.255.255$   | $16$         | $16$      | $255.255.0.0$   |
 | $192.168.0.0 - 192.168.255.255$ | $24$         | $8$       | $255.255.255.0$ |
         
 - **NAT**: Network Address Translation
@@ -97,9 +97,10 @@ Subnet: $255.0.0.0$
 
 **Broadcast Address**: The very Last IP in the network, reserved, broadcasts messages to every device in the lan
 
----
 
 ### Subnet Mask
+
+---
 
 Controls the IPv4 ranage
 - consists of 4 unsigned integers of 8 bits, seperated by dots `.`

@@ -708,19 +708,19 @@ Unary operators are the operators that perform operations on a single operand to
     *ptr
     ```
 
-- `? :` Ternary Expression, minimized version of IF-ELSE but as Expression.
+- `?`: Ternary Expression, minimized version of IF-ELSE but as Expression.
     
     ```c
     a? b : c
     ```
 
-- `.` **Member Access**, access a member of a structure
+- `.`: **Member Access**, access a member of a structure
 
     ```c
     structure.property
     ```
 
-- `−>` **Pointer Member Access**, Access a member of a Structure with it's pointer
+- `−>`: **Pointer Member Access**, Access a member of a Structure with it's pointer
 
     ```c
     structurePtr->property
@@ -732,66 +732,53 @@ Unary operators are the operators that perform operations on a single operand to
 
 ## Assignment
 
-        () = 	(a = b): Assignment
-            
-            int a = 5
-
-            (b) Same as: `a = 5`
-        () += 	(a += b): Addition Assignment
-            
-            int a += 3
-
-            (b) Same as: `a = a + 3`
-        () -= 	(a -= b): Subtraction Assignment
-            
-            int a -= 3
-
-            (b) Same as: `a = a - 3`
-        () *= 	(a *= b): MultiplicationAssignment
-            
-            int a *= 3
-
-            (b) Same as: `a = a * 3`
-        () /= 	(a /= b): Division Assignment
-            
-            int a /= 3
-
-            (b) Same as: `a = a / 3`
-        () %= 	(a %= b): Modulus Assignment
-            
-            int a %= 3
-
-            (b) Same as: `a = a % 3`
-
-        () &= 	(a &= b): Bitwise AND Assignment
-            
-            int a &= 3
-
-            (b) Same as: `a = a & 3`
-        () |= 	(a |= b): Bitwise OR Assignment
-            
-            int a |= 3
-
-            (b) Same as: `a = a | 3`
-        () ^= 	(a ^= b): Bitwise XOR Assignment
-            
-            int a ^= 3
-
-            (b) Same as: `a = a ^ 3`
-        () >>= 	(a >>= b): Left Shift Assignment
-            
-            int a >>= 3
-
-            (b) Same as: `a = a >> 3`
-        () <<= 	(a <<= b): Right Shift Assignment
-            
-            int a <<= 3
-
-            (b) Same as: `a = a <<`
+- `=`: **Assignment**
+    ```c
+    int a = 5
+    ```
+- `+=`: **Addition Assignment**
+    ```c
+    int a += 3
+    ```
+- `-=`: **Subtraction Assignment**
+    ```c
+    int a -= 3
+    ```
+- `*=`: **Multiplication Assignment**
+    ```c
+    int a *= 3
+    ```
+- `/=`: **Division Assignment**
+    ```c
+    int a /= 3
+    ```
+- `%=`: **Modulus Assignment**
+    ```c
+    int a %= 3
+    ```
+- `&=`: **Bitwise AND Assignment**
+    ```c
+    int a &= 3
+    ```
+- `|=`: **Bitwise OR Assignment**
+    ```c
+    int a |= 3
+    ```
+- `^=`: **Bitwise XOR Assignment**
+    ```c
+    int a ^= 3
+    ```
+- `>>=`: **Left Shift Assignment**
+    ```c
+    int a >>= 3
+    ```
+- `<<=`: **Right Shift Assignment**
+    ```c
+    int a <<= 3
+    ```
 
 ## Operator Precendence
 
-        (a) Evaluation Order:
 | Order | Operator             | Operator Name                                                                      |
 | ----- | -------------------- | ---------------------------------------------------------------------------------- |
 | $1$   | `!`                  | **Not**                                                                            |
@@ -1460,17 +1447,6 @@ char string3[4] = "abc"; // Always Leave space for the Ending NULL character
 syntax:        
 ```c
 // declaration
-enum Name {
-    constant,
-};
-enum Name {
-    constant = value,
-}
-
-// usage
-enum Name constant;
-enum Name constant = <Constant>;
-
 enum Name{
     Constant,
     // Constants...
@@ -1481,12 +1457,11 @@ enum Name{
 };
 
 // usage
-enum Name <variable>;
-enum Name <variable> = <Constant>;
+enum Name variable;
+enum Name variable = Constant;
 ```
-examples:
+### Integer Constant:
 
-- Integer Constant:
 ```c
 
 // without any values set
@@ -1522,30 +1497,30 @@ enum Level low = Low; // 0
 enum Level medium = Medium; // 6
 enum Level high = High; // 7
 ```
-            (II) Other Types:
+### Other Constants
+```c
+enum Level {
+    Low = 'z',
+    Medium = 'x',
+    High = 'y',
+};
+
+enum Level low = Low; // z
+enum Level medium = Medium; // x
+enum Level high = High; // y
+
+// Treats them as Byte Integer and Increments their value by 1
+enum Level {
+    Low = 'a',
+    Medium,
+    High,
+};
+
+enum Level low = Low; // a
+enum Level medium = Medium; // b
+enum Level high = High; // c
 ```
-                enum Level {
-                    Low = 'z',
-                    Medium = 'x',
-                    High = 'y',
-                };
-
-                enum Level low = Low; // z
-                enum Level medium = Medium; // x
-                enum Level high = High; // y
-
-                // Treats them as Byte Integer and Increments their value by 1
-                enum Level {
-                    Low = 'a',
-                    Medium,
-                    High,
-                };
-
-                enum Level low = Low; // a
-                enum Level medium = Medium; // b
-                enum Level high = High; // c
-```
-    () Unions
+## Unions
 
         union UnionName {
             dataType1 member1;
@@ -1553,212 +1528,223 @@ enum Level high = High; // 7
             // Other members...
         };
 
-    (ii) structures (struct)
+## structures (struct)
 
-        (a) A way to Organize variables and data into a Structure
+A way to Organize variables and data into a Structure
         
-        (b) Syntax:
+Syntax:
 
-            // Declaration
-            struct <Structure> {
-                <...variables>;
-            };
-            
-
-            // assignment
-            struct <Structure> <structObj>;
-            struct <Structure> <structObj> = {<params...>};
-
-        Compound Literal:
-
-            struct Point p = (struct Point){.x = 10, .y = 20};
-
-        (c) Access
-
-            (I) Variable inside The Structure AKA Properties of Structure can be accessed to Read and Write to.
-
-                <structObj>.<property>; // get value
-                <structObj>.<property> = <value>; // write
-                
-                structObj.property; // get value
-                structObj.property = value; // write
-
-            (II) struct Pointer access
-
-                struct <StructObj> *<structPtr> = &<structObj>; // Pointer to the structure
-
-                <structPtr>-><property>; // read
-                <structPtr>-><property>; // write
-                // equivalent to (*<structPtr>).<property>
-                
-                struct StructObj *structPtr = &structObj; // Pointer to the structure
-
-                structPtr->property; // read
-                structPtr->property; // write
-                // equivalent to (*structPtr).property
-        
-        (d) Bit Fields
-
-            (a) variables inside structures that don't follow the standard sizes
-            (b) syntax:
-
-                type var: size;
-
-            (c) the size of defined in Bit's (not bytes)
-
-                struct Structure{
-                    unsigned int integer: 8;
-                };
-                int main(){
-                    struct Structure a = {255};
-                    // printf("size of a.integer : %u", sizeof(a.integer)); // <-- size of a bit field can't be obtained
-                    printf("a.integer: %u", a.integer); // 255
-                    return 0;
-                }
-
-        (e) Example
-
-                struct Structure {
-                    char name[20];
-                    unsigned short int age;
-                };
-
-                struct Structure obj = {"Name", 32};
-
-                // access
-                printf("%s\n", obj.name); // Name
-                printf("%d\n", obj.age); // 32
-
-                obj.age = 41; // overwrite
-        
-    (iii) `typedef`: defines/redefines data types under new names/aliases
-
-        (a) Syntax:
-
-            typedef <Type/Structure> <Name>;
-            
-            typedef Type Name;
-
-            typedef struct Structure { /* ... */} Name;
-
-        Examples:-
-
-        (b) redefine
-
-            typedef double longfloat;
-            int main(){
-                longfloat a = 0.0L;
-                for(int i = 1; i<100; i++){
-                    a += 1.0/i;
-                }
-                printf("a: %.32lf\n", a); // a: 5.1773775760084390640258789062500
-                return 0;
-            };
-
-        (c) List/Array
-
-            #include<stdio.h>
-            #include<stdlib.h>
-            #include<math.h>
-            #include<stdbool.h>
-
-            typedef struct List {
-                int *data;
-                int length;
-                int capacity;
-            } Array;
-
-    
-            bool ListPush(struct List *list, int data);
-            void ListPrint(struct List *list);
-
-            int main(){
-
-                Array list;
-                // struct List list;
-
-                list.length = 0;
-                list.capacity = 10;
-                list.data = malloc(list.capacity*sizeof(int));
-
-                if(list.data == NULL){
-                    printf("Unable to allocate Memory\n");
-                    return 1;
-                }
-
-                ListPush(&list, 123);
-                ListPush(&list, 321);
-                ListPush(&list, pow(2, 9));
-
-                printf("Length: %d\n", list.length); // Length: 3
-                printf("Capacity: %d\n", list.capacity); // Capacity: 10
-                ListPrint(&list); // [123, 321, 512]
-
-                return 0;
-            };
-
-            void ListPrint(struct List *list){
-                for(int i = 0; i<list->length; i++){
-                    printf("%d", list->data[i]);
-                    if(list->length-1 != i){ printf(", ");};
-                }
-            }
+```c
+// Declaration
+struct Structure {
+    type property;
+};
 
 
-            bool ListPush(struct List *list, int data){
-                // Pushes data to a List
-                if(list->length >= list->capacity){
-                    // resize list if not enough capacity
-                    list->capacity += 10;
-                    list->data = realloc(list->data, list->capacity*sizeof(int));
-                    if(list->data == NULL){ return false; };
-                }
+// assignment
+struct Structure property;
+struct Structure property = {params...}; // Ordered Parameterms
+```
 
-                // add data
-                list->data[list->length] = data;  
-                list->length += 1;
+**Compound Literal**:
 
-                return true;
-            }
+```c
+struct Point p = (struct Point){.x = 10, .y = 20};
+```
 
+**Access**
+
+Variable inside The Structure AKA Properties of Structure can be accessed to Read and Write to.
+
+```c
+structObj.property; // Read
+structObj.property = value; // Write
+```
+
+**Pointer Access**
+
+example:
+```c
+struct StructObj *structPtr = &structObj; // Pointer to the structure
+
+structPtr->property; // read
+structPtr->property; // write
+```    
+equivalent to:
+```c
+(*structPtr).property
+```
+### Bit Fields
+
+variables inside structures that don't follow the standard sizes
+
+syntax:
+
+```c
+type var: size;
+```
+
+the size of defined in Bit's (not bytes)
+```c
+struct Structure{
+    unsigned int integer: 8;
+};
+int main(){
+    struct Structure a = {255};
+    // printf("size of a.integer : %u", sizeof(a.integer)); // <-- size of a bit field can't be obtained
+    printf("a.integer: %u", a.integer); // 255
+    return 0;
+}
+```
+Example
+
+```c
+struct Structure {
+    char name[20];
+    unsigned short int age;
+};
+
+struct Structure obj = {"Name", 32};
+
+// access
+printf("%s\n", obj.name); // Name
+printf("%d\n", obj.age); // 32
+
+obj.age = 41; // overwrite
+```
+
+## typedef
+
+defines/redefines data types under new names/aliases
+
+Syntax:
+
+```c
+typedef Type Name;
+typedef struct Structure { /* ... */} Name;
+```
+
+```c
+typedef double longfloat;
+int main(){
+    longfloat a = 0.0L;
+    for(int i = 1; i<100; i++){
+        a += 1.0/i;
+    }
+    printf("a: %.32lf\n", a); // a: 5.1773775760084390640258789062500
+    return 0;
+};
+```
+
+```c
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<stdbool.h>
+
+typedef struct List {
+    int *data;
+    int length;
+    int capacity;
+} Array;
+
+
+bool ListPush(struct List *list, int data);
+void ListPrint(struct List *list);
+
+int main(){
+
+    Array list;
+    // struct List list;
+
+    list.length = 0;
+    list.capacity = 10;
+    list.data = malloc(list.capacity*sizeof(int));
+
+    if(list.data == NULL){
+        printf("Unable to allocate Memory\n");
+        return 1;
+    }
+
+    ListPush(&list, 123);
+    ListPush(&list, 321);
+    ListPush(&list, pow(2, 9));
+
+    printf("Length: %d\n", list.length); // Length: 3
+    printf("Capacity: %d\n", list.capacity); // Capacity: 10
+    ListPrint(&list); // [123, 321, 512]
+
+    return 0;
+};
+
+void ListPrint(struct List *list){
+    for(int i = 0; i<list->length; i++){
+        printf("%d", list->data[i]);
+        if(list->length-1 != i){ printf(", ");};
+    }
+}
+
+
+bool ListPush(struct List *list, int data){
+    // Pushes data to a List
+    if(list->length >= list->capacity){
+        // resize list if not enough capacity
+        list->capacity += 10;
+        list->data = realloc(list->data, list->capacity*sizeof(int));
+        if(list->data == NULL){ return false; };
+    }
+
+    // add data
+    list->data[list->length] = data;  
+    list->length += 1;
+
+    return true;
+}
+```
 # Memory
 
-    (i) Static Memory
+## Static Memory
 
-        (a) Memory reserved for variable before the Program starts executing
+Memory reserved for variable before the Program starts executing
 
-    (ii) Dynamic Memory
+## Dynamic Memory
 
-        (a) Memory that is allocated after the Program starts executing
+Memory that is allocated after the Program starts executing
 
-        (b) Characteristics
-            
-            (I) Runtime Memory Allocation: Allocation of Dynamic memory
 
-            (II) Complete Control Over Memory
+- Runtime Memory Allocation: Allocation of Dynamic memory
+- Complete Control Over Memory
+- Doesn't belong to any Variable and can only be accessed via Pointers
 
-            (III) Doesn't belong to any Variable and can only be accessed via Pointers
+### Memory Leak
+a Memory leak is when a Dynamic Memory is allocated but is never freed, the leaked memory can build up and slow down and eventually crash the program
 
-        (See Section "/14./(ii)/Memory Management:" for Dynamic Memory Manipulation Functions)
+## Stack Memory:
 
-        (c) Stack Memory:
+A Type of Dynamic Memory, which is reserved for variables inside functions
+when the function is returned, the stack memory for that function is freed
 
-            (I) A Type of Dynamic Memory, which is reserved for variables inside functions
-
-            (II) when the function is returned, the stack memory for that function is freed
-
-        (d) Memory Leak
-
-            (I) a Memory leak is when a Dynamic Memory is allocated but is never freed.
-            (II) Examples:
 
 # Library
 
-    Import:
+## Include
+Include imports a specific library using the interface provided by the `.h` files
 
-    (i) `#include<<name>>`: imports the specified library
+```c
+#include<library>
+```
+```c
+#include library
+```
 
-        #include<stdio.h>
+```c
+#include<stdio.h>
+```
 
-# Built-in Libraries:
+## Built-in Libraries:
 
+- [`stdio.h`](./c/libraries.md#stdioh)
+- [`stdlib.h`](./c/libraries.md#stdlibh)
+- [`string.h`](./c/libraries.md#stringh)
+- [`stdbool.h`](./c/libraries.md#stdboolh)
+- [`math.h`](./c/libraries.md#mathh)

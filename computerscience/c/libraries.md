@@ -833,46 +833,118 @@ Exponents `a` to the power of `b`
 
 Utility Functions for Strings
 
-        (a) `strlen(string)`: works same as `sizeof()` but excludes the string ending NULL  character from the end(`\x00`), and It also does not Include extra Reserved Space for the String
+- [`strlen()`](#strlen)
+- [`strcat()`](#strcat)
+- [`strcpy()`](#strcpy)
+- [`strcmp()`](#strcmp)
 
-            char string[4] = "abc";
-            printf("string: %s\nbyte length: %d\nstring length: %d", string, sizeof(string), strlen(string));
+#### `memchr()`
 
-            /*
-            string: abc
-            byte length: 4
-            string length: 3
-            */
+returns the first pointer to the byte in memory which contains the specific `value`
 
-        (b) `strcat(string1, string2)`: Concatinates both strings and stores them in `string1` (make sure `string1` has a fixed length have enough memory allocated)
+returns `NULL` if the unable to find a match.
 
+```c
+void * memchr(void * pointer, int value, size_t size);
+```
+- `pointer`: the pointer the memory block to search in
+- `value`: the value to search for
+- `size`: the count of the memory block to check in
 
-            // Dynamic or without Enough Space
-            char str[] = "test";
-            char str1[] = "Hello ";
-            char str2[] = "World!";
-            strcat(str1, str2);
-            printf("%s %s %s",str, str1, str2); // orld! Hello World! World!
-            // string `str` completely unrelated to strcopy gets modified because of not Allocating enough space to `str1`
+```c
+int arr[7] = {3, 2, 4, 5, 6, 2, 0};
 
-            // Correct Way
-            char str[] = "test";
-            char str1[20] = "Hello ";
-            char str2[] = "World!";
-            strcat(str1, str2);
-            printf("%s %s %s",str, str1, str2); // orld! Hello World! World!
+int *addr = memchr(arr, 6, sizeof(arr));
 
-        (c) `strcpy(string2, string1)`: `string1` a String into another String `string2` (make sure `string1` also have enough space otherwise it would cause the same behavior as strcat )
+if(addr == NULL){
+    fprintf(stderr,"Unable to find a match");
+    return 1;
+}
 
-            char str1[] = "Hello, World";
-            char str2[14];
-            strcpy(str2, str1);
-            printf("%s\n", str2);
+printf("Address: %p\nValue: %d", addr, *addr);
+/*
+Address: 00000042689FFD50
+Value: 6
+*/
+```
+
+#### `strlen()`
+
+returns the size of the string, excludes the ending NULL character, also excludes unused space left for the string
+
+```c
+int strlen(char * str);
+```
+
+```c
+char string[4] = "abc";
+printf("string: %s\nbyte length: %d\nstring length: %d", string, sizeof(string), strlen(string));
+
+/*
+string: abc
+byte length: 4
+string length: 3
+*/
+```
+
+#### `strcat()`
+
+Concatinates both strings and stores them in the `destination` string
+
+```c
+char * strcat(void * destination, void * source);
+```
+
+make sure the `destination` string has enough space to contain the string, otherwise the function may write to completely unrelated string
+
+```c
+// without Enough Space
+char str[] = "test";
+char str1[] = "Hello ";
+char str2[] = "World!";
+strcat(str1, str2);
+printf("%s %s %s",str, str1, str2); // orld! Hello World! World!
+// string `str` completely unrelated to strcopy gets modified because of not Allocating enough space to `str1`
+
+// Correct Way
+char str[] = "test";
+char str1[20] = "Hello ";
+char str2[] = "World!";
+strcat(str1, str2);
+printf("%s %s %s",str, str1, str2); // orld! Hello World! World!
+```
+
+#### `strcpy()`
+
+Copies Data from one string to another
+
+make sure the `destination` string has enough space to contain the string, otherwise the function may write to completely unrelated string
+
+```c
+char * strcpy(char * destination, char * source);
+```
+
+```c
+char str1[] = "Hello, World";
+char str2[14];
+strcpy(str2, str1);
+printf("%s\n", str2);
+```
             
-        (d) `strcmp(string1, string2)`: returns 0 If the Both strings are Equal, otherwise an Integer is returned
+#### `strcmp()`
 
-            char string1[20] = "Hello";
-            char string2[10] = "Hello";
-            int isEqual = strcasecmp(string1, string2);
-            printf("Match: %d", isEqual); // 0
+Compares 2 strings and returns an `int` based on the comparsion
+- `0` if Both string are exactly equal
+- *Positive Integer* if at the first mismatch, the ASCII value of the character in the ***first*** string is greater than the other's ASCII value at that index
+- *Negative Integer* if at the first mismatch, the ASCII value of the character in the ***second*** string is greater than the other's ASCII value at that index
 
+```c
+int strcmp(const char * str1, const char * str2);
+```
+
+```c
+char string1[20] = "Hello";
+char string2[10] = "Hello";
+int isEqual = strcmp(string1, string2);
+printf("Match: %d", isEqual); // 0
+```
