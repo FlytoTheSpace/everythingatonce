@@ -33,10 +33,6 @@ $\color{MediumSeaGreen}4x^2 - 3xy = \color{MediumSeaGreen}6x^2 - 2x^2 - 3xy$
 
 	$\color{MediumSeaGreen}4x^2 - 3xy$
 
-	- **Monomial**: expression with $1$ terms.
-	- **Bionomial**: expression with $2$ terms.
-	- **Trinomial**: expression with $3$ terms.
-	- **Polynomial**: expression with any count of terms $n$.
 - **Terms**: Parts that needs to be solved independently
 	
 	$\color{MediumSeaGreen}{4x^2} \color{white}{ - } \color{MediumSeaGreen}{3xy}$ 
