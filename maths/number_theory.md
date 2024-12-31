@@ -12,6 +12,16 @@
 
 ---
 
+Where the Numbers uses 10 Symbols to represent themselves
+
+The most common set of symbols is the Western One's:
+
+$$
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+$$
+
+
+
 **Internation System of Numerals**: every *comma* `(,)` is placed after every 3rd digit
 
 $
@@ -167,6 +177,83 @@ Divisibility Rule
 
 - **Greatest Common Divisior** `GCD`: The Biggest Factor any 2 or more Numbers that are all divisible by it.
 
+
+## Fractions
+
+**Fractions**: Numbers that are obtained after divison between 2 numbers
+$$
+\frac{a}{b} = a \div b
+$$
+
+Properties:
+- $b \neq 0$, `b` must not be equal to $0$
+- **Nominator**/**Numerator**: value That Sits on Top of The Fraction
+- **Dominator**/**Denomitor**: value That Sits on Bottom of The Fraction
+
+$$
+\frac{\text{Nominator}}{\text{Dominator}}
+$$
+
+- **Negative Sign Switch**
+$$
+-\frac{a}{b} = \frac{-a}{b} = \frac{a}{-b}
+$$
+- **Equivalent Fractions**: when 2 factions represent the same value
+
+- Multiplication/Divison of the Nominator and the Dominator by the same number, doesn't changes the original value
+$$
+\frac{a}{b} = \frac{a\times c}{b\times c} = \frac{a\div c}{b\div c}
+$$
+
+**Proper Fractions**: fractions where Nominator is <u>smaller</u> than The Denominator
+
+**Improper Fractions**: fractions where Nominator is <u>bigger</u> than The Denominator
+
+**Mixed Fractions**: A mix of an Integer and A Fraction
+
+$$
+c \frac{a}{b} = c + \frac{a}{b}
+$$
+- To Mixed:
+$$
+n \mod b = a
+$$
+$$
+\lfloor n \div b \rfloor = c
+$$
+$$
+\frac{n}{b} = (\lfloor n \div b \rfloor) + \frac{(n \mod b)}{b} = c \frac{a}{b}
+$$
+- From Mixed:
+$$
+c \frac{a}{b} = \frac{cb + a}{b} = \frac{n}{b}
+$$
+
+**Arithmetic Operations**:
+
+Addition:
+
+$$
+\frac{a}{b} + \frac{c}{d} = \frac{ad}{bd} + \frac{bc}{bd} = \frac{ad + bc}{bd}
+$$
+
+Subtraction
+
+$$
+\frac{a}{b} - \frac{c}{d} = \frac{ad}{bd} - \frac{bc}{bd} = \frac{ad - bc}{bd}
+$$
+
+Multiplication
+
+$$
+\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd} = \frac{a \div d}{b \div c}
+$$
+
+Division
+
+$$
+\frac{a}{b} \div \frac{c}{d} = \frac{a \div c}{b \div d} = \frac{ad}{bc}
+$$
 ## Exponentiation
 
 **Exponentiation/Power**: A Level Above Multiplication where a Number is Multiplied by itself `n` count of times.
@@ -214,19 +301,23 @@ $$a \times 10^n$$
 
 ### Laws of Exponent
 
----
+
+> Conditions: <br> $a \in \R, a > 0$ <br>
+$b \in \R, b > 0$ <br>
+$n \in \mathbb{Q}, n \neq 0$ <br>
+$m \in \mathbb{Q}, m \neq 0$
 
 $$
-a^m \times a^n = a^{m+n}
+a^m \cdot a^n = a^{m+n}
 $$
 $$
 a^m \div a^n = a^{m-n}
 $$
 $$
-a^m \times b^m = (ab)^m
+a^mb^m = (ab)^m
 $$
 $$
-a^m \div b^m = (a \div b)^m
+a^m \cdot b^m = (a \cdot b)^m
 $$
 $$
 (a^m)^n = a^{mn}
@@ -258,43 +349,14 @@ $$(2a)^n = 2(\frac{(2a)^n}{2})$$
 
 ---
 
-**Integer Exponents**: where `n` is Integer
-
 $$
-a^n = a \times a...
+a^{-n} = \frac{1}{a^n}
 $$
-$$
-a^3 = a \times a \times a
-$$
-$$
-a^2 = a \times a
-$$
-$$
-a^1 = a \times \frac{a}{a} = a
-$$
-$$
-a^0 = \frac{a}{a} = 1
-$$
-$$
-a^{-1} = \frac{1}{a}
-$$
-$$
-a^{-2} = \frac{1}{a} \times \frac{1}{a} = \frac{1}{a^2}
-$$
-$$
-a^{-3} = \frac{1}{a} \times \frac{1}{a} \times \frac{1}{a} = \frac{1}{a^3}
-$$
-$$
-a^{-n} = \frac{1}{a} \times \frac{1}{a} ... = \frac{1}{a^n}
-$$
-
-**Rational Exponents**: where `n` is a Rational
-
 $$
 a^{1/n} = \sqrt[n]{a}
 $$
 $$
-a^{m/n} = (\sqrt[n]{a})^m
+a^{m/n} = (\sqrt[n]{a})^m = \sqrt[n]{a^m}
 $$
 
 ### Square
@@ -459,16 +521,41 @@ $$
 | $4, 6$ | $6$             |
 | $5$    | $5$             |
 
-### Root
+## Root
 
----
+**Root**: the inverse operation of Exponentiation, it returns the Base of an exponentiation
 
-$$\sqrt{3} 
-= \sqrt{4-1} 
-= \sqrt{4(1 - \frac{1}{4})} 
-= 2\sqrt{1-\frac{1}{4}} 
-= 2(1-\frac{1}{4})^{1/2} 
-= \sum_{k=0}^{-1/4} 2\cdot \frac{(-1/4)!}{k!(-1/4 - k)!}\cdot 1^{-1/4 - k}(-\frac{1}{4})^k $$
+**Radical Sign** is used to denote Root of a quantity
+"$\sqrt{}$".
+
+$$x^n = y$$
+$$\sqrt[n]{y} = x$$
+
+
+**Prime Factorization**: where the Number $y$ is factorised, the same numbers are grouped in set of $n$ the exponent, and if all the numbers can't be grouped with the same number in pairs of $n$ elements then root of the base isn't a Natural Number
+
+$\sqrt{576} = \sqrt{2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 3 \cdot 3} \newline = \sqrt{2^2 \cdot 2^2 \cdot 2^2 \cdot 3^2} \newline = \sqrt{(2 \cdot 2 \cdot 2 \cdot 3)^2} \newline = 2 \cdot 2 \cdot 2 \cdot 3 = 24 \newline
+\sqrt{576} = 24$
+
+### Laws of Root
+> Conditions: <br> $a \in \R, a > 0$ <br> $b \in \R, b > 0$ <br> $n \in \Z, n \neq 0 $ <br> $m \in \Z, m \neq 0$
+
+$$
+\sqrt[n]{ab} = \sqrt[n]{a} \cdot \sqrt[n]{b}
+$$
+$$
+\sqrt[n]{\frac{a}{b}} = \frac{\sqrt[n]{a}}{\sqrt[n]{b}}
+$$
+$$
+\sqrt[-n]{a} = \frac{1}{\sqrt[n]{a}}
+$$
+$$
+(\sqrt[n]{a})^m = \sqrt[n]{a^m}
+$$
+
+$$
+\sqrt[0]{a} = a^{1/\color{orangered}0} = \text{undefined}
+$$
 
 ### Logarithm
 
@@ -498,34 +585,30 @@ Different Type of Number System that are used in Mathematics:
 
 ## Natural Numbers/Positive Numbers
 
-**Natural Numbers**/**Positive Numbers**: $\mathbb{N}$ a Set of every number that be found in Nature and it does Exists.
+**Natural Numbers**/**Positive Numbers**: $\mathbb{N}$ the Set of every number that be found in Nature.
 $$
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
 ## Negative Numbers
 
-**Negative Numbers**: $\mathbb{Z}^-$ a Set of Negative Version of every *Positive Numbers*.
+**Negative Numbers**: $\mathbb{Z}^-$ the Set of Negative Version of every *Positive Numbers*.
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1
 $$
 ## Whole Numbers
 
-**Whole Numbers**: $\mathbb{W}$ A Set of every *Positive Numbers* and The Number `0`.
+**Whole Numbers**: $\mathbb{W}$ the Set of every *Positive Numbers* and The Number `0`.
 $$
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
 ## Integers
 
-**Integers**: $\mathbb{Z}$ A Set containing All *Positive* and *Negative* Numbers also also `0`
+**Integers**: $\mathbb{Z}$ the Set containing All *Positive* and *Negative* Numbers also also `0`
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
 
 - **Additive Inverse**: switch of The Positive/Negative sign to it's Opposite:
-
-$$a ⟹ -a$$
-
-$$-a ⟹ a$$
 
 - **Multiplication**:
 $$
@@ -535,89 +618,9 @@ $$
 \pm a \times \mp b = -a \times b = a \times -b = -c
 $$
 
-## Fractions
-
-**Fractions**: Numbers that can be represented as a Fraction of a Number, can be both Positive/Negative, can also Represent *some* Decimal Numbers
-$$
-\frac{a}{b}
-$$
-
-Properties:
-- $b \neq 0$, `b` must not be equal to $0$
-- **Nominator**/**Numerator**: value That Sits on Top of The Fraction
-- **Dominator**/**Denomitor** */: value That Sits on Bottom of The Fraction
-
-$$
-\frac{\text{Nominator}}{\text{Dominator}}
-$$
-
-- Negative Sign Switch
-$$
--\frac{a}{b} = \frac{-a}{b} = \frac{a}{-b}
-$$
-- **Equivalent Fractions**: when both the Nemoniator and Denominator are Multiply/Divided by the same value, and it doesn't change it's value
-$$
-\frac{a}{b} = \frac{a\times c}{b\times c} = \frac{a\div c}{b\div c}
-$$
-
-**Proper Fractions**: fractions where Nominator is <u>smaller</u> than The Denominator
-
-**Improper Fractions**: fractions where Nominator is <u>bigger</u> than The Denominator
-
-**Mixed Fractions**: A mix of an Integer and A Fraction
-
-$$
-c \frac{a}{b} = c + \frac{a}{b}
-$$
-- To Mixed:
-$$
-n \mod b = a
-$$
-$$
-\lfloor n \div b \rfloor = c
-$$
-$$
-\frac{n}{b} = (\lfloor n \div b \rfloor) + \frac{(n \mod b)}{b} = c \frac{a}{b}
-$$
-- From Mixed:
-$$
-c \frac{a}{b} = \frac{cb + a}{b} = \frac{n}{b}
-$$
-**Arithmetic Operations**:
-
-Addition:
-$$
-\frac{a}{b} + c = \frac{a}{b} + \frac{c}{1} = \frac{a}{b} + \frac{bc}{b} = \frac{a + bc}{b}
-$$
-$$
-\frac{a}{b} + \frac{c}{d} = \frac{ad}{bd} + \frac{bc}{bd} = \frac{ad + bc}{bd}
-$$
-
-Subtraction
-$$
-\frac{a}{b} - c = \frac{a}{b} - \frac{c}{1} = \frac{a}{b} - \frac{bc}{b} = \frac{a - bc}{b}
-$$
-$$
-\frac{a}{b} - \frac{c}{d} = \frac{ad}{bd} - \frac{bc}{bd} = \frac{ad - bc}{bd}
-$$
-Multiplication
-$$
-\frac{a}{b} \times c = \frac{a}{b} \times \frac{c}{1} = \frac{a \times c}{b} = \frac{a}{b \div c}
-$$
-$$
-\frac{a}{b} \times \frac{c}{d} = \frac{a \times c}{b \times d} = \frac{a \div d}{b \div c}
-$$
-Division
-$$
-\frac{a}{b} \div c = \frac{a}{b} \div \frac{c}{1} = \frac{a \div c}{b} = \frac{a}{b \times c}
-$$
-$$
-\frac{a}{b} \div \frac{c}{d} = \frac{a \div c}{b \div d} = \frac{a \times d}{b \times c}
-$$
-
 ## Rational Numbers
 
-**Rational Numbers**: $\mathbb{Q}$ Includes All of The Integers and Fractions
+**Rational Numbers**: $\mathbb{Q}$ every number that can be represented as a Fraction
 $$
 ...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...
 $$
@@ -626,7 +629,7 @@ $$
 $$
 
 Properties:
-- In-between 2 Rationals there's Always an Infinite Count of Rationals.
+- In-between any 2 Rationals there's Always an Infinite Count of Rationals.
 
 - **Multiplicative Inverse**, or **Reciprocals of Each-other**:
 $$
@@ -638,7 +641,7 @@ $$
 - `0` Additive Identity for Rationals
 - `1` Multiplicative Identity for Rationals
 
-**Closure**: Describes whether if certain Arithmetic Operations and Comination can make The Result Escape The it's Number System.
+**Closure**: Describes whether if certain Arithmetic Operations can result a value outside the established number systems
 
 | Number System    | Addition | Subtraction | Multiplication | Division |
 | ---------------- | -------- | ----------- | -------------- | -------- |
@@ -709,28 +712,6 @@ $$
 
 - These Number must always have  any of $1, 3, 5, 6, 9$ in the *one's unit digit place*
 
-**Prime Numbers**: Numbers that can only be divided by $1$ and *itself*, having exactly 2 factors
-
-$$
-2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97...
-$$
-
-- Every Prime Number is an Odd-Number except `2`
-- **Twin Primes**: difference between 2 Prime Number is `2`
-	
-	$(a+2 = b) ⟹ a, b$
-
-	`(Note: Both Numbers Need to Prime Numbers for this to be true)`
-
-- **Co-Prime Numbers**: 2 numbers with only 1 as a common factor.
-
-	```python
-	def isPrime(n):
-	    if n < 2: return False;
-	    for i in range(2, int(n**0.5) + 1):
-	        if n % i == 0: return False;
-	    return True
-	```
 **Composite Numbers**: Numbers that doesn't have exactly 2 factors
 
 $$
@@ -753,3 +734,29 @@ To Fraction:
 $$
 a = \frac{a \times 10^n}{10^n} = \frac{10^na}{10^n}
 $$
+
+
+## Prime Numbers
+
+Numbers that can only be divided by $1$ and *itself*, having exactly 2 factors
+
+$$
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97...
+$$
+
+- Every Prime Number is an Odd-Number except `2`
+- **Twin Primes**: difference between 2 Prime Number is `2`
+	
+	$(a+2 = b) ⟹ a, b$
+
+	`(Note: Both Numbers Need to Prime Numbers for this to be true)`
+
+- **Co-Prime Numbers**: 2 numbers with only 1 as a common factor.
+
+```python
+def isPrime(n):
+	if n < 2: return False;
+	for i in range(2, int(n**0.5) + 1):
+		if n % i == 0: return False;
+	return True
+```
