@@ -383,72 +383,70 @@ by: [ConnerWill](https://gist.github.com/ConnerWill/d4b6c776b509add763e17f9f113f
 
 - Color
 
-            (I) 8 - 16 Color Mode
+    (I) 8 - 16 Color Mode
 
-                (A) `ESC[CODEm`
+        (A) `ESC[CODEm`
 
-                -------------------------------------
-                | Name    | Foreground | Background |
-                -------------------------------------
-                | Black   | 30 	       | 40         |
-                | Red 	  | 31 	       | 41         |
-                | Green   |	32 	       | 42         |
-                | Yellow  | 33 	       | 43         |
-                | Blue 	  | 34 	       | 44         |
-                | Magenta |	35 	       | 45         |
-                | Cyan 	  | 36 	       | 46         |
-                | White   |	37 	       | 47         |
-                | Default |	39 	       | 49         |
-                | Reset   |	0 	       | 0          |
-                -------------------------------------
+        -------------------------------------
+        | Name    | Foreground | Background |
+        -------------------------------------
+        | Black   | 30 	       | 40         |
+        | Red 	  | 31 	       | 41         |
+        | Green   |	32 	       | 42         |
+        | Yellow  | 33 	       | 43         |
+        | Blue 	  | 34 	       | 44         |
+        | Magenta |	35 	       | 45         |
+        | Cyan 	  | 36 	       | 46         |
+        | White   |	37 	       | 47         |
+        | Default |	39 	       | 49         |
+        | Reset   |	0 	       | 0          |
+        -------------------------------------
 
-                --------------------------------------------
-                | Color Name     | Foreground | Background |
-                --------------------------------------------
-                | Bright Black   | 90 	      | 100        |
-                | Bright Red     | 91 	      | 101        |
-                | Bright Green   | 92 	      | 102        |
-                | Bright Yellow  | 93 	      | 103        |
-                | Bright Blue    | 94 	      | 104        |
-                | Bright Magenta | 95 	      | 105        |
-                | Bright Cyan    | 96 	      | 106        |
-                | Bright White   | 97 	      | 107        |
-                --------------------------------------------
+        --------------------------------------------
+        | Color Name     | Foreground | Background |
+        --------------------------------------------
+        | Bright Black   | 90 	      | 100        |
+        | Bright Red     | 91 	      | 101        |
+        | Bright Green   | 92 	      | 102        |
+        | Bright Yellow  | 93 	      | 103        |
+        | Bright Blue    | 94 	      | 104        |
+        | Bright Magenta | 95 	      | 105        |
+        | Bright Cyan    | 96 	      | 106        |
+        | Bright White   | 97 	      | 107        |
+        --------------------------------------------
 
-            (II) 256 Colors
+    (II) 256 Colors
 
-                ---------------------------------------------
-                | ESC Code Sequence | Description           |
-                ---------------------------------------------
-                | ESC[38;5;{ID}m 	| Set foreground color. |
-                | ESC[48;5;{ID}m 	| Set background color. |
-                ---------------------------------------------
+        ---------------------------------------------
+        | ESC Code Sequence | Description           |
+        ---------------------------------------------
+        | ESC[38;5;{ID}m 	| Set foreground color. |
+        | ESC[48;5;{ID}m 	| Set background color. |
+        ---------------------------------------------
 
-                (A) ID can be any number from 0 to 255
+        (A) ID can be any number from 0 to 255
 
-                CODES: https://user-images.githubusercontent.com/995050/47952855-ecb12480-df75-11e8-89d4-ac26c50e80b9.png
+        CODES: https://user-images.githubusercontent.com/995050/47952855-ecb12480-df75-11e8-89d4-ac26c50e80b9.png
 
-            (III) RGB Color Mode
-                    
-                --------------------------------------------------------
-                | ESC Code Sequence 	| Description                  |
-                --------------------------------------------------------
-                | ESC[38;2;{r};{g};{b}m | Set foreground color as RGB. |
-                | ESC[48;2;{r};{g};{b}m | Set background color as RGB. |
-                --------------------------------------------------------
+    (III) RGB Color Mode
+            
+        --------------------------------------------------------
+        | ESC Code Sequence 	| Description                  |
+        --------------------------------------------------------
+        | ESC[38;2;{r};{g};{b}m | Set foreground color as RGB. |
+        | ESC[48;2;{r};{g};{b}m | Set background color as RGB. |
+        --------------------------------------------------------
 
-        (e) Common Private Modes
+(e) Common Private Modes
 
-            ------------------------------------------------
-            | ESC Code   | Description                     |
-            ------------------------------------------------
-            | ESC[?25l 	 | make cursor invisible           |
-            | ESC[?25h 	 | make cursor visible             |
-            | ESC[?47l   | restore screen                  |
-            | ESC[?47h   | save screen                     |
-            | ESC[?1049h | enables the alternative buffer  |
-            | ESC[?1049l | disables the alternative buffer |
-            ------------------------------------------------
+| ESC Code   | Description                     |
+| ---------- | ------------------------------- |
+| ESC[?25l 	 | make cursor invisible           |
+| ESC[?25h 	 | make cursor visible             |
+| ESC[?47l   | restore screen                  |
+| ESC[?47h   | save screen                     |
+| ESC[?1049h | enables the alternative buffer  |
+| ESC[?1049l | disables the alternative buffer |
 
 ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
@@ -518,4 +516,81 @@ def gcd(a, b):
         a = b;
         b = r;
     return a;
+```
+
+## Sorting
+
+### Bubble Sort
+
+**Bubble Sort**: Sorts elements by repeatedly swapping adjacent elements if they're in the wrong order.
+
+Implementation:
+
+[`bubblesort.py`](./algorithms/bubblesort.py)
+
+```py
+sampleList = [5, 4, 2, 6, 7, 2, 3, 1, 9]
+
+def bubbleSort(List):
+    loopList = List
+    loopListlen = len(loopList)
+    while True:
+        continues = 0 # Check if all the elements are in order
+        for i in range(1, loopListlen):
+
+            j = i - 1
+            if j < 0 : continue
+
+            # Switch Elements if left one is bigger
+            if loopList[j] > loopList[i]:
+                tempElement = loopList[i]
+                loopList[i] = loopList[j]
+                loopList[j] = tempElement
+            else:
+                # Increment order if in order
+                continues = continues + 1
+
+        if(continues >= (loopListlen - 1)): break # Stop Looping if Sorted
+        
+    return loopList
+
+print(bubbleSort(sampleList)) # [1, 2, 2, 3, 4, 5, 6, 7, 9]
+```
+
+### Insertion Sort
+
+**Insertion Sort**: Builds a sorted array by inserting elements one at a time.
+
+[`insertionsort.py`](./algorithms/insertionsort.py)
+
+```py
+sampleList = [5, 4, 2, 6, 7, 2, 3, 1, 9]
+
+def insertionsort(List):
+    loopList = List
+    loopListlen = len(loopList)
+
+    for i in range(1, loopListlen):
+        element = loopList[i] # Selected Element
+
+        for j in range(i):
+            # Adjacent Elements
+            Pelement = loopList[j]
+            Nelement = loopList[j + 1]
+            
+            # Insert if previous is greater than current
+            if Pelement >= element:
+                loopList.pop(i)
+                loopList.insert(j, element)
+                break
+
+            # Insert Element if it fits in between the 2 elements
+            if (Pelement <= element) and (element <= Nelement):
+                loopList.pop(i)
+                loopList.insert(j + 1, element)
+                break
+
+    return loopList
+
+print(insertionsort(sampleList)) # [1, 2, 2, 3, 4, 5, 6, 7, 9]
 ```
