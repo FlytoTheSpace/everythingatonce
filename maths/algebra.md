@@ -229,63 +229,19 @@ $$(a + b)^n = \sum_{k = 0}^\infty \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k =
 # Abstract Algebra
 
 # Boolean Algebra
-**Boolean Algebra**: A Branch of Algebra where the Variables can only have 2 possible states
+**Boolean Algebra**: A Branch of Algebra where that works with Base 2 system
 
 - `1` standing for **TRUE**, **ON**.
 - `0` standing for **FALSE**, **OFF**.
 
-## Units
+## Logic
 
-These Boolean Algebra Variables are used in Sets when representing Data
-- **Bit**: A Single Variable, with only possible states of `0` and `1`.
-- **Nibble**: a set of 4 Bits, with $2^4$ combinations with `0`'s and `1`'s.
-- **Byte**: a set of 8 Bits, can represent a Single ASCII Character.
-- **Octet**: a set of 4 Bytes or 32 bits, with a Total of $2^{32}$ combinations.
+Main Logic:
 
-| Unit       | Comparison | Cominations       |
-| ---------- | ---------- | ----------------- |
-| **Bit**    | *Lowest*   | $2^{1}$, `0`, `1` |
-| **Nibble** | `4 Bits`   | $2^{4}$           |
-| **Byte**   | `8 Bits`   | $2^{8}$           |
-| **Octet**  | `4 Bytes`  | $2^{32}$          |
-
-**Exponential Units**:
-
-
-**Bytes**,  `(base 10)`:
-| Unit               | Comparison       | Bytes     |
-| ------------------ | ---------------- | --------- |
-| **KiloByte** `KB`  | `1000 Bytes`     | $10^{3}$  |
-| **MegaByte** `MB`  | `1000 KiloBytes` | $10^{6}$  |
-| **GigaByte** `GB`  | `1000 MegaBytes` | $10^{9}$  |
-| **TeraByte** `TB`  | `1000 GigaBytes` | $10^{12}$ |
-| **PetaByte** `PB`  | `1000 TeraBytes` | $10^{15}$ |
-| **ExaByte** `EB`   | `1000 PetaBytes` | $10^{18}$ |
-| **ZetaByte** `ZB`  | `1000 ExaBytes`  | $10^{21}$ |
-| **YottaByte** `YB` | `1000 ZetaBytes` | $10^{24}$ |
-
-**Bytes**,  `(base 2)`:
-| Unit               | Comparison       | Bytes    |
-| ------------------ | ---------------- | -------- |
-| **KibiByte** `KiB` | `1024 Bytes`     | $2^{10}$ |
-| **MibiByte** `MiB` | `1024 KibiBytes` | $2^{20}$ |
-| **GibiByte** `GiB` | `1024 MibiBytes` | $2^{30}$ |
-| **TibiByte** `TiB` | `1024 GibiBytes` | $2^{40}$ |
-| **PibiByte** `PiB` | `1024 TibiBytes` | $2^{50}$ |
-| **ExbiByte** `EiB` | `1024 PibiBytes` | $2^{60}$ |
-| **ZibiByte** `ZiB` | `1024 ExbiBytes` | $2^{70}$ |
-| **YobiByte** `YiB` | `1024 ZibiBytes` | $2^{80}$ |
-
-## Logic Gates:
-
-Logic Gates are Gates that Determine the Output of Certain Inputs based on Logic which they Represent
-
-Main Logic Gates:
-
-- **Conjunction**, **AND** `(2 inputs)`: returns `1` if both inputs are `1`.
-- **Disjunction**,  **OR** `(2 inputs)`: returns `1` if any of the inputs are `1`.
+- **Conjunction**, **AND** `(2 inputs)`: True if both inputs are True.
+- **Disjunction**,  **OR** `(2 inputs)`: True if any of the inputs are True.
 - **Negation**, **NOT** `(1 input)`: Inverts the given Input.
-- **Exclusive OR**, **XOR** `(2 inputs)`: returns `1` if both inputs are not the same.
+- **Exclusive OR**, **XOR** `(2 inputs)`: True if both inputs are not the same.
 
 | $a$ | `NOT` $\lnot a$ |
 | --- | --------------- |
@@ -299,7 +255,7 @@ Main Logic Gates:
 | $1$ | $0$ | $0$              | $1$            | $1$                 |
 | $1$ | $1$ | $1$              | $1$            | $0$                 |
 
-**Inverted Logic Gates**:
+**Inverted Logic**:
 
 - **NOT Conjunction**, **NAND** `(2 inputs)`: returns `1` if both inputs are NOT `1`.
 - **NOT Disjunction**,  **NOR** `(2 inputs)`: returns `1` if any of the inputs are NOT `1`.
@@ -312,7 +268,7 @@ Main Logic Gates:
 | $1$ | $0$ | $1$                       | $0$            | $0$                     |
 | $1$ | $1$ | $0$                       | $0$            | $1$                     |
 
-**Totality of Logic Gates / Truth Tables**:
+**Totality of Logic**:
 
 **Single Input**:
 | $a$ | `BUFFER` | `NOT` |
@@ -392,4 +348,3 @@ Truth Table:
 | $1$ | $0$ | $0$ |
 | $1$ | $1$ | $1$ |
 
-- for `n` count of inputs

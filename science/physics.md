@@ -197,6 +197,47 @@ $$T(\degree R) = T(\degree F) + 459.67$$
 
 ### Frequency
 
+### Data
+
+- **Bit**: A Single Variable, with only possible states of `0` and `1`.
+- **Nibble**: a set of 4 Bits, with $2^4$ combinations with `0`'s and `1`'s.
+- **Byte**: a set of 8 Bits, can represent a Single ASCII Character.
+- **Octet**: a set of 4 Bytes or 32 bits, with a Total of $2^{32}$ combinations.
+
+| Unit       | Comparison | Cominations       |
+| ---------- | ---------- | ----------------- |
+| **Bit**    | *Lowest*   | $2^{1}$, `0`, `1` |
+| **Nibble** | `4 Bits`   | $2^{4}$           |
+| **Byte**   | `8 Bits`   | $2^{8}$           |
+| **Octet**  | `4 Bytes`  | $2^{32}$          |
+
+**Exponential Units**:
+
+
+**Bytes**,  `(base 10)`:
+| Unit               | Comparison       | Bytes     |
+| ------------------ | ---------------- | --------- |
+| **KiloByte** `KB`  | `1000 Bytes`     | $10^{3}$  |
+| **MegaByte** `MB`  | `1000 KiloBytes` | $10^{6}$  |
+| **GigaByte** `GB`  | `1000 MegaBytes` | $10^{9}$  |
+| **TeraByte** `TB`  | `1000 GigaBytes` | $10^{12}$ |
+| **PetaByte** `PB`  | `1000 TeraBytes` | $10^{15}$ |
+| **ExaByte** `EB`   | `1000 PetaBytes` | $10^{18}$ |
+| **ZetaByte** `ZB`  | `1000 ExaBytes`  | $10^{21}$ |
+| **YottaByte** `YB` | `1000 ZetaBytes` | $10^{24}$ |
+
+**Bytes**,  `(base 2)`:
+| Unit               | Comparison       | Bytes    |
+| ------------------ | ---------------- | -------- |
+| **KibiByte** `KiB` | `1024 Bytes`     | $2^{10}$ |
+| **MibiByte** `MiB` | `1024 KibiBytes` | $2^{20}$ |
+| **GibiByte** `GiB` | `1024 MibiBytes` | $2^{30}$ |
+| **TibiByte** `TiB` | `1024 GibiBytes` | $2^{40}$ |
+| **PibiByte** `PiB` | `1024 TibiBytes` | $2^{50}$ |
+| **ExbiByte** `EiB` | `1024 PibiBytes` | $2^{60}$ |
+| **ZibiByte** `ZiB` | `1024 ExbiBytes` | $2^{70}$ |
+| **YobiByte** `YiB` | `1024 ZibiBytes` | $2^{80}$ |
+
 ### Luminous Intensity
 
 ### Illuminance
