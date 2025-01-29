@@ -2,16 +2,16 @@ C a General-Purpose, Low-level, Compiled, Fast Programming Language
 
 - [Basics](#basics)
 - [Variables](#variables)
-- [Variables](#data-types)
-- [Variables](#comments)
-- [Variables](#declaration-expressions-statements)
-- [Variables](#operators)
-- [Variables](#conditionals)
-- [Variables](#loops)
-- [Variables](#functions)
-- [Variables](#arrays)
-- [Variables](#strings)
-- [Variables](#file)
+- [Data Types](#data-types)
+- [Comments](#comments)
+- [Declaration, Expressions, Statements](#declaration-expressions-statements)
+- [Operators](#operators)
+- [Conditionals](#conditionals)
+- [Loops](#loops)
+- [Functions](#functions)
+- [Arrays](#arrays)
+- [Strings](#strings)
+- [File](#file)
 # Basics
 
 "Hello, World!"

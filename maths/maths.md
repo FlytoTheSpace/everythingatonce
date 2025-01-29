@@ -72,6 +72,8 @@ Applied Mathematics
 | $\cap$                                | **Intersection**              | $A \cap B$                        |
 | $\setminus$                           | **Difference**                | $A \setminus B$                   |
 | $\ominus$ <br> $\Delta$               | **Symmetrical Difference**    | $A \ominus B$ <br> $A \Delta B$   |
+| $\aleph$                              | **Aleph**                     | $\| \N \| = \aleph_0$             |
+| $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, <br> $\mathbb{R}$, $\mathbb{C}$, $\mathbb{H}$, <br> $\mathbb{O}$, $\mathbb{U}$ | **Blackboard Board Typeface** | $\| \N \| = \aleph_0$             |
 **Logic**
 | $\land$                               | **AND**                       | $A \land B$                       |
 | $\lor$                                | **OR**                        | $A \lor B$                        |

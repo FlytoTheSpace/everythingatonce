@@ -29,12 +29,40 @@ $$
     
     $\Delta y = y(x + \Delta x) - y(x)$
 
+- [`See Notation`](#notation)
+
+(Please turn on "Allow Scripts Execution" on your Render if )
+
+Example: -
+
+<script src="https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.min.js"></script>
+
+<div id="quadratic"></div>
+
+<script>
+    const quadratic = functionPlot({
+        target: '#quadratic',
+        width: 600,
+        height: 400,
+        grid: true,
+        data: [
+            {
+                fn: 'x^2',
+                color: "Dodgerblue",
+                derivative: {
+                    fn: `2*x`,
+                    updateOnMouseMove: true   
+                }
+            }
+        ]
+    });
+</script>
+
 ## Notation
 
 The Deriavatives are not usually written as their core, but rather in their own Notations
 
-### Langrange's Notation
-
+### Leibniz's Notation
 
 - $dx$ is equivalent to $\Delta x$ as $x$ approaches $0$
 
@@ -44,13 +72,85 @@ $$
 \frac{dy}{dx} = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}
 $$
 
-The Deriavatives
+`n`'th Deriavative:
+
+$$
+\frac{d^ny}{dx^n}
+$$
 
 $$
 df = f(x + dx) - f(x) \newline
 df + f(x) = f(x + dx) \newline
 f(x + dx) = df + f(x)
 $$
+
+### Langrange's Notation
+
+The functions are suffixed with a quote `'`, and the `n` count of quotes suffixed represented `n`'th Deriavative
+
+$$
+f'(x)
+$$
+2nd Deriavative:
+$$
+f''(x)
+$$
+
+### Newton's Notation
+
+
+## Derivative Rules
+
+### General
+
+
+**Power Rule**:
+$$
+f(x) = x^n
+$$
+$$
+\frac{df}{dx} = \frac{f(x + dx) - f(x)}{dx}
+$$
+$$
+= \frac{(x + dx)^n - x^n}{dx}
+$$
+$$
+= \frac{x^n + nx^{n-1} \cdot dx + \frac{n(n-1)}{2!}x^{n-2} \cdot dx^2 + ... + nx \cdot dx^{n-1} + dx^n - x^n}{dx}
+$$
+$$
+= \frac{nx^{n-1} \cdot dx + \frac{n(n-1)}{2!}x^{n-2} \cdot dx^2 + ... + nx \cdot dx^{n-1} + dx^n}{dx}
+$$
+$$
+= \lim_{dx \to 0} (nx^{n-1} + \frac{n(n-1)}{2!}x^{n-2} \cdot dx + ... + nx \cdot dx^{n-2} + dx^{n-1})
+$$
+$$
+= nx^{n-1} + \lim_{dx \to 0} (\frac{n(n-1)}{2!}x^{n-2} \cdot dx + ... + nx \cdot dx^{n-2} + dx^{n-1})
+$$
+$$
+= nx^{n-1} + (0 + ... + 0 + 0) = nx^{n-1} + 0 = nx^{n-1}
+$$
+
+### Sum Rule
+
+$$
+f(x) = g(x) + s(x)\newline
+\frac{df}{dx} = \frac{d}{dx}g + \frac{d}{dx}s
+$$
+
+### Product Rule
+
+$$
+f(x) = g(x) \cdot s(x)\newline
+\frac{df}{dx} = \frac{f(x + dx) - f(x)}{dx} \newline
+= \frac{g(x + dx) \cdot s(x + dx) - g(x) \cdot s(x)}{dx} \newline
+= \frac{(dg + g(x)) \cdot (ds + s(x)) - g(x) \cdot s(x)}{dx} \newline
+= \frac{dg \cdot ds + s(x) \cdot dg + g(x) \cdot ds + g(x) \cdot s(x) - g(x) \cdot s(x)}{dx} \newline
+= \frac{dg \cdot ds + s(x) \cdot dg + g(x) \cdot ds}{dx} \newline
+$$
+
+### Composition Rule
+
+
 
 # Integral
 

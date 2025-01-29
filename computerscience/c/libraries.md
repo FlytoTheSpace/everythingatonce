@@ -702,7 +702,7 @@ printf("%d\n", *(ptr+2)); // 50
 deallocates dynamic memory
 
 ```c
-free(void *ptr);
+void free(void *ptr);
 ```
 
 example:-

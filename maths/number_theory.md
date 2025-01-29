@@ -87,24 +87,38 @@ Properties:
 - Can only be compared with the same units
 - **Equivalent Ratios**: when 2 Ratios are equivalent to one another
 
-$$k = x \cdot y$$
-$$k \propto y$$
+	$a : b = c : d$
+
 
 ### Proportion
 
 ---
 
-**Proportion**: Property of Equivality of 2 ratios
+**Proportion**: Property of Equality of 2 ratios
 
-$a \colon b = c \colon d$
+$$a : b = c : d$$
 
-$a \colon b :: c \colon d$
+$$a : b :: c : d$$
 
-- **Respective Terms**: all 4 Terms involved `[a, b, c, d]`
+$$a : b = ak : bk $$
 
-- **Extreme Terms**: First and the Last Terms `[a, d]`
+Components:
 
-- **Middle Terms**: Second and the Third Terms `[b, c]`
+- **Respective Terms**: all 4 Terms involved $\{a, b, c, d\}$
+
+- **Extreme Terms**: First and the Last Terms $\{a, d\}$
+
+- **Middle Terms**: Second and the Third Terms $\{b, c\}$
+
+Types:
+
+- **Direct Proportion**: when given the value $x$, the second value $y$ will be a obtained as the product of $x$ with a Constant $k$
+
+$$(y = x \cdot k) \implies (y \propto x)$$
+
+-  **Inverse Proportion**: when given the value $x$, $y$ will be obtained as $k$ over $x$
+
+$$(y = \frac{k}{x}) \implies (y \propto \frac{1}{x})$$
 
 ## Factors
 
