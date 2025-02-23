@@ -124,6 +124,32 @@ $$
 \pm ab \mp ac = a(b \mp c) = \mp a ( \mp b \pm c)
 $$
 
+### Quadratic Factorization
+
+$$
+ax^2 + bx + c
+$$
+
+$$
+(px + m)(qx + n) = ax^2 + bx + c
+$$
+$$
+(px + m)(qx + n) = (pq)x^2 + pnx + qmx + mn
+$$
+$$
+(px + m)(qx + n) = (pq)x^2 + (pn + qm)x + mn
+$$
+Individuallly:
+$$
+a = pq
+$$
+$$
+b = pn + qm
+$$
+$$
+c = mn
+$$
+
 
 ## Equations
 
@@ -180,7 +206,13 @@ $x = 5$
 
 ## Quadratic
 
-**Quadratic**: a where the variable is squared $x^2$
+**Quadratic Form**:
+
+$$
+ax^2 + bx + c
+$$
+
+- [`Quadratic Factorization`](#quadratic-factorization)
 
 **Quadratic Equation**:
 
@@ -221,10 +253,35 @@ $$ax^3 + bx^2 + cx + d = 0$$
 **Derivationation**:
 
 ## Binomial Theorem
+
+The Standard Binomial Theorem Implies that:
+
 > $n \in \mathbb{Z}^+$
-$$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^n \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
-> $n \notin \mathbb{Z}^+$
-$$(a + b)^n = \sum_{k = 0}^\infty \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k = \sum_{k = 0}^\infty \frac{n!}{k!(n-k)!} a^{n-k}b^k$$
+$$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k$$
+
+
+### Pascal's Triangle:
+
+`n` is the Row
+`k` is the Column
+|       | `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `10`  | `...` |
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ---- |
+| `0`   | $1$   |       |       |       |       |       |       |       |       |       |       |      |
+| `1`   | $1$   | $1$   |       |       |       |       |       |       |       |       |       |      |
+| `2`   | $1$   | $2$   | $1$   |       |       |       |       |       |       |       |       |      |
+| `3`   | $1$   | $3$   | $3$   | $1$   |       |       |       |       |       |       |       |      |
+| `4`   | $1$   | $4$   | $6$   | $4$   | $1$   |       |       |       |       |       |       |      |
+| `5`   | $1$   | $5$   | $10$  | $10$  | $5$   | $1$   |       |       |       |       |       |      |
+| `6`   | $1$   | $6$   | $15$  | $20$  | $15$  | $6$   | $1$   |       |       |       |       |      |
+| `7`   | $1$   | $7$   | $21$  | $35$  | $35$  | $21$  | $7$   | $1$   |       |       |       |      |
+| `8`   | $1$   | $8$   | $28$  | $56$  | $70$  | $56$  | $28$  | $7$   | $1$   |       |       |      |
+| `9`   | $1$   | $9$   | $36$  | $84$  | $126$ | $126$ | $84$  | $36$  | $9$   | $1$   |       |      |
+| `10`  | $1$   | $10$  | $45$  | $120$ | $210$ | $252$ | $210$ | $120$ | $45$  | $10$  | $1$   |      |
+| $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ |
+
+
+| k | 
+| 0 |
 
 # Abstract Algebra
 

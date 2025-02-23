@@ -49,15 +49,27 @@ $$\tan(\theta) = \frac{\text{Opposite}}{\text{Adjacent}}$$
 
 - **TOA**: standing for $\color{MediumSeaGreen}\tan\color{white}(\theta) = \text{\color{MediumSeaGreen}O\color{white}pposite} / \text{\color{MediumSeaGreen}A\color{white}djacent}$
 
+All Main Waves:
+<div id="mainwaves"></div>
 
 **csc**: The Ratio between the Hypotenuse and the Opposite side.
 $$\csc(\theta) = \frac{\text{Hypotenuse}}{\text{Opposite}}$$
 
+<div id="cscwave"></div>
+
 **sec**: The Ratio between the Hypotenuse and the Adjacent side.
 $$\sec(\theta) = \frac{\text{Hypotenuse}}{\text{Adjacent}}$$
 
+<div id="secwave"></div>
+
 **cot**: The Ratio between the Adjacent and the Opposite side.
 $$\cot(\theta) = \frac{\text{Adjacent}}{\text{Opposite}}$$
+
+<div id="cotwave"></div>
+
+All Reciprocal Waves:
+
+<div id="repicrocalwaves"></div>
 
 <script>
     const sinwave = functionPlot({
@@ -96,8 +108,88 @@ $$\cot(\theta) = \frac{\text{Adjacent}}{\text{Opposite}}$$
             }
         ]
     });
+    const cscwave = functionPlot({
+        target: '#cscwave',
+        width: 600,
+        height: 400,
+        grid: true,
+        data: [
+            {
+                fn: '1/sin(x)',
+                color: "Dodgerblue"
+            }
+        ]
+    });
+    const secwave = functionPlot({
+        target: '#secwave',
+        width: 600,
+        height: 400,
+        grid: true,
+        data: [
+            {
+                fn: '1/cos(x)',
+                color: "MediumSeaGreen"
+            }
+        ]
+    });
+    const cotwave = functionPlot({
+        target: '#cotwave',
+        width: 600,
+        height: 400,
+        grid: true,
+        data: [
+            {
+                fn: '1/tan(x)',
+                color: "red"
+            }
+        ]
+    });
+    const mainwaves = functionPlot({
+        target: '#mainwaves',
+        width: 600,
+        height: 400,
+        grid: true,
+        data: [
+            {
+                fn: 'sin(x)',
+                color: "Dodgerblue"
+            },
+            {
+                fn: 'cos(x)',
+                color: "MediumSeaGreen"
+            },
+            {
+                fn: 'tan(x)',
+                color: "red"
+            }
+        ]
+    });
+    const repicrocalwaves = functionPlot({
+        target: '#repicrocalwaves',
+        width: 600,
+        height: 400,
+        grid: true,
+        data: [
+            {
+                fn: '1/sin(x)',
+                color: "Dodgerblue"
+            },
+            {
+                fn: '1/cos(x)',
+                color: "MediumSeaGreen"
+            },
+            {
+                fn: '1/tan(x)',
+                color: "red"
+            }
+        ]
+    });
 
     sinwave.addLink(coswave, tanwave);
     coswave.addLink(sinwave, tanwave);
     tanwave.addLink(sinwave, coswave);
+
+    cscwave.addLink(secwave, cotwave);
+    secwave.addLink(cscwave, cotwave);
+    cotwave.addLink(cscwave, secwave);
 </script>

@@ -648,7 +648,7 @@ a/b*c == (a/b)*c
     a >> b
     ```
 
-- `~`: **bitwise NOT**: takes 1 number and all of it's bits.
+- `~`: **bitwise NOT**: takes 1 number and inverts all of it's bits.
 
     ```c
     ~a
