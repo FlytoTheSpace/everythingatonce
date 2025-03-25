@@ -82,7 +82,7 @@ Example:-
 
 ## Periodic Table
 
-![](../img/science/periodic_table.png)
+![](../../img/science/periodic_table.png)
 
 ### Elements:
 

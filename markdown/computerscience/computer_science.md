@@ -456,7 +456,7 @@ Computational Complexity Describes the how well an algorith performs/task perfor
 
 ## Big-O
 
-![](../img/cs/bigo_notation.png)
+![](../../img/cs/bigo_notation.png)
 
 ### Exponential
 

@@ -1,6 +1,6 @@
 
 - [Back to Maths](./maths.md)
-- [Back to Home](../README.md)
+- [Back to Home](../../README.md)
 
 # Arithmetic
 

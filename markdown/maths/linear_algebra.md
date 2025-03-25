@@ -1,6 +1,6 @@
 
 - [Back to Maths](./maths.md)
-- [Back to Home](../README.md)
+- [Back to Home](../../README.md)
 
 # Linear Alegbra
 **Linear Algebra**: a field of algebra about Cordinate Systems, Matrix's, and Vectors

@@ -1,6 +1,6 @@
 
 - [Back to Maths](./maths.md)
-- [Back to Home](../README.md)
+- [Back to Home](../../README.md)
 
 # Calculus
 
@@ -31,10 +31,13 @@ $$
 
 - [`See Notation`](#notation)
 
-(Please turn on "Allow Scripts Execution" on your Render if )
+(Please turn on "Allow Scripts Execution" on your Render if the graph isn't loading)
 
 Example: -
 
+<script>
+    document.write("Hello, World");
+</script>
 <script src="https://cdn.jsdelivr.net/npm/function-plot@1/dist/function-plot.min.js"></script>
 
 <div id="quadratic"></div>
@@ -150,9 +153,36 @@ $$
 
 ### Composition Rule
 
+$$
+\frac{d(f(g(x)))}{dx} = \frac{f(g(x + dx)) - f(g(x))}{dx} \newline
+= \frac{f(dg + g(x)) - f(g(x))}{dx} \newline
+= \frac{f(g(x) + dg) - f(g(x))}{dg} \cdot \frac{dg}{dx} \newline
+= \frac{df}{dg} \cdot \frac{dg}{dx} \newline
+$$
+
 
 
 # Integral
 
 # Multivariable
 
+# Limits
+
+L'Hopital's Rule:
+
+$$
+L_1 := \left\{\frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty, \infty - \infty, 0^{0}, \infty^{0}, 1^{\infty} \right\}
+$$
+$$
+L_2 := \{0, \infty\}
+$$
+$$
+R := \lim_{x \to a} f(x) = \lim_{x \to a} g(x)
+$$
+
+$$
+(R \in L_2) \land \newline 
+(\exists S_1 \in \mathbb{R} (f'(a) = S_1) \land \exists S_2 \in \mathbb{R} (g'(a) = S_2)) \land \newline
+(\lim_{x \to a} \frac{f(x)}{g(x)} \in L_1)) \implies \newline
+\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)}
+$$

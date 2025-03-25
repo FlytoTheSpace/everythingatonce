@@ -1,6 +1,6 @@
 
 - [Back to Maths](./maths.md)
-- [Back to Home](../README.md)
+- [Back to Home](../../README.md)
 
 # Algebra
 **Algebra**: a field of Mathematics consisting of English Aplhabet Represeting Number, with many use cases such as Representing Unknown/Dynamic Values.

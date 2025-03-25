@@ -1,5 +1,5 @@
 
-- [Back to Home](../README.md)
+- [Back to Home](../../README.md)
 
 Sections:
 
@@ -172,3 +172,58 @@ $f(n) = f(n-1) + f(n-2)$
 | $i$    | **Imaginary Unit**                | $i$                         | $\sqrt{-1}$                                              |
 | $\phi$ | **Golden Ratio**                  | $1.61803398874989484820...$ | $$\lim_{n \to \infty}\frac{f(n)}{f(n-1)}$$               |
 | $\psi$ | **Reciprocal Fibbonaci Constant** | $3.35988566624317755317...$ | $$\sum_{n=1}^{\infty}\frac{1}{f(n)}$$                    |
+
+
+## Notation
+
+Notational Rules: The Rules are set specifically for this Archive, since sometimes the mathematical notation can be confusing when it depending on the context.
+
+### Degrees
+
+The normal $5\degree$ notation must not be used outside the Geometry section, since it can cause confusion with a 0th exponent, if needed use the following notation:
+
+$$
+5 \deg
+$$
+
+### Intervals
+
+All invervals must be expressed in the following way to avoid confusion with points:
+
+| Type                    | Notation |
+| ----------------------- | -------- |
+| **Open Ended**          | $(a;b)$  |
+| **Half Open Ended (1)** | $[a;b)$  |
+| **Half Open Ended (2)** | $(a;b]$  |
+| **Closed Ended**        | $[a;b]$  |
+
+It replaces the formal `,` seperation of `a` and `b` with `;` since it makes it more clear that it doesn't refer to a point
+
+### Functions
+
+**Inverse Function**: a function raised to the -1 power must be interpreted as  the inverse of that function
+$$
+f^{-1}(x)
+$$
+$$
+f^{-1}(f(x)) = x$$
+in general the number `-1` can be by any integer, in the context it means to successively apply it:
+
+$$
+f^3(x) = \underbrace{f(f(f(x)))}_{3\text { times}}
+$$
+$$
+f^{-4}(x) = \underbrace{f^{-1}(f^{-1}(f^{-1}(f^{-1}(x))))}_{4 \text { times}}
+$$
+
+**Function Exponent**, to raise the function a power `n` append the number after the arguments in the superscript
+
+$$
+f(x)^{-1} = \frac{1}{f(x)}
+$$
+$$
+f(x) = 4x
+$$
+$$
+f(x)^3 = (4x)^3
+$$

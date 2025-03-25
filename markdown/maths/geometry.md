@@ -1,6 +1,6 @@
 
 - [Back to Maths](./maths.md)
-- [Back to Home](../README.md)
+- [Back to Home](../../README.md)
 
 # Geometry
 **Geometry**: a field of Mathematics consisting Entirely of Geometric Shapes and their Properties
@@ -103,7 +103,7 @@ Sum Types:
 
 Line Segments and Curves:
 
-![](../img/maths/shapes/circle_segments.png)
+![](../../img/maths/shapes/circle_segments.png)
 
 - **Radius**, $r$: length from the Center of the circle to it's boundary in a straight line.
 	- *Raddi*: plural for 2Radius
@@ -198,7 +198,7 @@ Properties:
 
 **Trapezium**: A Quadrilateral with a Set of parallel lines
 
-![](../img/maths/shapes/trapezium.png)
+![](../../img/maths/shapes/trapezium.png)
 - **Area**:
 	$\frac{1}{2}hb$
 
@@ -206,7 +206,7 @@ Properties:
 
 **Parallelogram**: a Quadrilateral with 2 Pairs of Parallel Lines
 
-![](../img/maths/shapes/parallelogram.png)
+![](../../img/maths/shapes/parallelogram.png)
 
 - **Area**: 
 	$hb$

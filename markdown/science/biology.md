@@ -49,7 +49,7 @@ Some Microscopic organisms:
 
 - **Rhizobium**: lives in the roots of Leguminous plants (pulses).
 
-![](../img/science/biology/nitrogen_cycle.png)
+![](../../img/science/biology/nitrogen_cycle.png)
 
 ### Diseases
 
