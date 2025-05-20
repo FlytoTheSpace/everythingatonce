@@ -73,7 +73,7 @@ Applied Mathematics
 | $\setminus$                           | **Difference**                | $A \setminus B$                   |
 | $\ominus$ <br> $\Delta$               | **Symmetrical Difference**    | $A \ominus B$ <br> $A \Delta B$   |
 | $\aleph$                              | **Aleph**                     | $\| \N \| = \aleph_0$             |
-| $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, <br> $\mathbb{R}$, $\mathbb{C}$, $\mathbb{H}$, <br> $\mathbb{O}$, $\mathbb{U}$ | **Blackboard Board Typeface** | $\| \N \| = \aleph_0$             |
+| $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, <br> $\mathbb{R}$, $\mathbb{C}$, $\mathbb{H}$, <br> $\mathbb{O}$, $\mathbb{U}$ | **Blackboard Board Typeface** | $n \in \mathbb{Z}$             |
 **Logic**
 | $\land$                               | **AND**                       | $A \land B$                       |
 | $\lor$                                | **OR**                        | $A \lor B$                        |
@@ -102,14 +102,14 @@ Applied Mathematics
 | $$\int$$                              | **Integral**                  | $$\int_a^b$$                      |
 | $\mapsto$                             | **Namesless Function**        | $x \mapsto y$                     |
 | $\log$                                | **Logarithm**                 | $\log_ab = n$<br>$a^n = b$        |
-| $\ln$                                 | **Natural Logarithm**         | $\log_ea$                         |
-| $$\lim$$                              | **Limit**                     | $$\lim_{a \to b}x = y$$           |
-| $$\sum$$                              | **Capital Sigma**             | $$\sum_{k = 0}^xy$$               |
-| $$\prod$$                             | **Capital Pi**                | $$\prod_{k = 0}^xy$$              |
+| $\ln$                                 | **Natural Logarithm**         | $\ln(a) =\log_ea$                 |
+| $$\lim$$                              | **Limit**                     | $$\lim_{x \to a} f(x) = C$$       |
+| $$\sum$$                              | **Capital Sigma**             | $$\sum_{k = a}^bf(k)$$            |
+| $$\prod$$                             | **Capital Pi**                | $$\prod_{k = a}^bf(k)$$           |
 **Number Theory**
-| $\Re$                                 | **Real**                      | $\Re(x)$                          |
-| $\Im$                                 | **Imaginary**                 | $\Im(x)$                          |
-| $\bar{}$                              | **Complex Conjugate**         | $\bar{x}$                         |
+| $\Re$                                 | **Real**                      | $\Re(z)$                          |
+| $\Im$                                 | **Imaginary**                 | $\Im(z)$                          |
+| $\bar{}$                              | **Complex Conjugate**         | $\bar{z}$                         |
 | $!$                                   | **Factorial**                 | $a!$                              |
 | $\begin{pmatrix}n \cr k\end{pmatrix}$ | **Binomial Coefficient**      | $\begin{pmatrix}n \cr k\end{pmatrix}$ |
 | $\|x\|$                               | **Absolute**                  | $\|x\|$                           |
@@ -123,7 +123,7 @@ Applied Mathematics
 | $\nparallel$                          | **Not Parallel**              | $AB \nparallel CD$                |
 | $\perp$                               | **Perpendicularity, Coprime** | $AB \perp CD$<br> $a \perp b$     |
 | $\overline{AB}$                       | **Line**                      | $\overline{AB}$                   |
-| $\overrightarrow{AB}$                 | **Arrow**                     | $\overrightarrow{AB}$             |
+| $\overrightarrow{AB}$                 | **Arrow**, **Ray**            | $\overrightarrow{AB}$             |
 | $\overleftrightarrow{AB}$             | **Bidirectional Arrow**       | $\overleftrightarrow{AB}$         |
 
 **Greek Alphabet**:
@@ -226,4 +226,7 @@ f(x) = 4x
 $$
 $$
 f(x)^3 = (4x)^3
+$$
+$$
+f^3 = (4x)^3
 $$

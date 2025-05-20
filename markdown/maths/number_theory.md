@@ -545,6 +545,32 @@ $$
 $$x^n = y$$
 $$\sqrt[n]{y} = x$$
 
+**Principal Square** Root implies that:
+> $ n \mid 2 $ `(n divisble by 2)`
+$$
+\sqrt[n]{x^n} = | x |
+$$
+
+It is what nearly all the calculators will result in whenever this kind of statement is introduced, it discard the negative solution to the equation and satisfies the condition of functions that they "can only map to a single value given the same input"
+
+**Solution to Root Equation** implies that:
+
+$$
+\sqrt[n]{x^n} = \pm x
+$$
+
+you can be more expressive of this by adding the $\pm$ symbol to both sides
+
+$$
+\pm \sqrt[n]{x^n} = \pm x
+$$
+
+it is used when solving an equation where u have to take a square root and it's common to include all solutions
+
+$x^2 = 9 \newline \sqrt{x^2} = \pm \sqrt{9} \newline x = \pm 3$
+
+These 2 types of roots are used different contexts in one it's essentially like a function and functions can only map to a single output, unless it's used in say in an equation it's assumed to be the Principal Root, on the other hand when it's used in an equation we likely want all the solutions to the equation in that case we use the $\pm$ sign to indicate that both Positive and Negative of that number is a solution to the equation. some of the roots may have complex solutions, depending on the problem.
+
 
 **Prime Factorization**: where the Number $y$ is factorised, the same numbers are grouped in set of $n$ the exponent, and if all the numbers can't be grouped with the same number in pairs of $n$ elements then root of the base isn't a Natural Number
 
