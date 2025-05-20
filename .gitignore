@@ -1,1 +1,2 @@
-maths/scripts/*pycache
+markdown/maths/scripts/*pycache
+markdown/maths/scripts/__pycache__
