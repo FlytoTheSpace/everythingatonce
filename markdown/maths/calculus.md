@@ -226,6 +226,6 @@ $$
 $$
 (R \in L_2 \land \newline 
 (\exists S_1 \in \mathbb{R} (f'(a) = S_1) \land \exists S_2 \in \mathbb{R} (g'(a) = S_2)) \land \newline
-(\lim_{x \to a} \frac{f(x)}{g(x)} \in L_1)) \implies \newline
+(\lim_{x \to a} \frac{f(x)}{g(x)} \in L_1) \implies \newline
 \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)}
 $$

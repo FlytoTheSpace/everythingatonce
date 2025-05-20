@@ -1,6 +1,6 @@
 import math
 
-def removeCommon(list1: list, list2: list)->list:
+def removeCommon(list1: list[int], list2: list[int])->list[int]:
     removedItems: list = []
     i: int = 0
     while i < len(list1):
