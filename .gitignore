@@ -1,2 +1,6 @@
-markdown/maths/scripts/*pycache
-markdown/maths/scripts/__pycache__
+
+maths/scripts/__pycache__
+maths/scripts/*pycache
+modules/py/*pycache
+modules/py/__pycache__
+.vscode

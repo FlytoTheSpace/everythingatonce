@@ -7,7 +7,6 @@
 **Calculus**: a Branch of mathematics that involves Continuous change, Area under a curve and approximations
 
 - [Deriavative](#deriavative)
-- [Deriavative](#deriavative)
 
 # Deriavative
 
@@ -16,6 +15,11 @@
 The Deriavatives at their **core** are:
 $$
 \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}
+$$
+
+formal definition:
+$$
+\lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
 $$
 
 - $y$ is a function with the argument $x$
@@ -101,6 +105,13 @@ $$
 
 ### Newton's Notation
 
+Function Symbols with `n` count of dots above to infinite n'th deriavative
+$$
+\dot{f}
+$$
+$$
+\ddot{f}
+$$
 
 ## Derivative Rules
 
@@ -136,19 +147,24 @@ $$
 ### Sum Rule
 
 $$
-f(x) = g(x) + s(x)\newline
-\frac{df}{dx} = \frac{d}{dx}g + \frac{d}{dx}s
+S(x) = f(x) + g(x)\newline
+\frac{dS}{dx} = \frac{df}{dx} + \frac{dg}{dx}
 $$
 
 ### Product Rule
 
 $$
-f(x) = g(x) \cdot s(x)\newline
-\frac{df}{dx} = \frac{f(x + dx) - f(x)}{dx} \newline
-= \frac{g(x + dx) \cdot s(x + dx) - g(x) \cdot s(x)}{dx} \newline
-= \frac{(dg + g(x)) \cdot (ds + s(x)) - g(x) \cdot s(x)}{dx} \newline
-= \frac{dg \cdot ds + s(x) \cdot dg + g(x) \cdot ds + g(x) \cdot s(x) - g(x) \cdot s(x)}{dx} \newline
-= \frac{dg \cdot ds + s(x) \cdot dg + g(x) \cdot ds}{dx} \newline
+\frac{d(f(x) \cdot g(x))}{dx} = \frac{f(x + dx) \cdot g(x + dx) - f(x) \cdot g(x)}{dx} \newline
+= \frac{f(x + dx) \cdot g(x + dx) - f(x) \cdot g(x)}{dx} \newline
+= \frac{(f(x) + df) \cdot (g(x) + dg) - f(x) \cdot g(x)}{dx} \newline
+= \frac{f(x) \cdot g(x) + f(x) \cdot dg + g(x) \cdot df + df \cdot dg - f(x) \cdot g(x)}{dx} \newline
+= \frac{f(x) \cdot dg + g(x) \cdot df + df \cdot dg}{dx} \newline
+= f(x) \cdot \frac{dg}{dx} + g(x) \cdot \frac{df}{dx} + \frac{df \cdot dg}{dx} \newline
+= f(x) \cdot g'(x) + f'(x) \cdot g(x) + \frac{f'(x) \cdot dx \cdot g(x) \cdot dx}{dx} \newline
+= f(x) \cdot g'(x) + f'(x) \cdot g(x) + f'(x) \cdot g(x) \cdot dx \newline
+= f(x) \cdot g'(x) + f'(x) \cdot g(x) + (\lim_{dx \to 0}{f'(x) \cdot g(x) \cdot dx}) \newline
+= f(x) \cdot g'(x) + f'(x) \cdot g(x) + (0) \newline
+= f(x) \cdot g'(x) + f'(x) \cdot g(x)
 $$
 
 ### Composition Rule
@@ -160,9 +176,36 @@ $$
 = \frac{df}{dg} \cdot \frac{dg}{dx} \newline
 $$
 
-
-
 # Integral
+
+An Integral is any function that gives the area under a graph of `f(x)` under some interval
+
+$$
+\int_{a}^{b} f(x) \ {dx}
+$$
+
+## Fundamental Theorem of Calculus
+
+The **Fundamental Theorem of Calculus** implies that
+
+$$
+\int{\frac{df}{dx} \ dx} = f(x)
+$$
+
+it states that the integral and the deriavatives are opposites of each-other
+and in the 2nd part it implies that:
+
+$$
+\int_{a}^{b}{f(x)\ dx} = F(b) - F(a)
+$$
+
+where 
+
+$$
+\frac{dF}{dx} = f(x)
+$$
+
+
 
 # Multivariable
 
@@ -181,7 +224,7 @@ R := \lim_{x \to a} f(x) = \lim_{x \to a} g(x)
 $$
 
 $$
-(R \in L_2) \land \newline 
+(R \in L_2 \land \newline 
 (\exists S_1 \in \mathbb{R} (f'(a) = S_1) \land \exists S_2 \in \mathbb{R} (g'(a) = S_2)) \land \newline
 (\lim_{x \to a} \frac{f(x)}{g(x)} \in L_1) \implies \newline
 \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)}
