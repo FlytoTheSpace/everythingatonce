@@ -1,8 +1,8 @@
-import numpy as np
-import math
 import sys
 
 sys.path.append("../../../modules/py")
+import numpy as np
+import math
 
 # Physical Constants
 mu = 0.1

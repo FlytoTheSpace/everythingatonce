@@ -1,13 +1,12 @@
 
 import binomialTheorem
-import numberTheory
-# p = 2
-# q = 4
+import experiment
+from fraction import Fraction
 
-# for k in range(0, 10):
+a = 16
+b = -28
+c = 32
+d = -4
 
-#     fraction: tuple[int, int] = binomialTheorem.fractionCoefficient(p, q, k)
-
-#     print(fraction)
-factors = numberTheory.primeFactor(-10)
-print(factors)
+print(f"{a}x^3 + {b}x^2 + {c}x + {d} = 0")
+print(experiment.PolynomialRoot.Cubic(a, b, c, d))

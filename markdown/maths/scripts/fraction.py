@@ -1,4 +1,13 @@
+from __future__ import annotations
 
+import sys
+import sys
+import numberTheory
+from typing import Type
+
+
+sys.path.append("../../../modules/py")
+import general
 
 class Fraction:
     p: int
@@ -20,15 +29,56 @@ class Fraction:
     def reciprocal(self)->None:
         
         """
-        Makes the Fraction a reciprocal version of itself
+        Switches Dividend and the Divisor
         """
 
         a = self.p
         self.p = self.q
         self.q = a
 
+    def scale(self, c: int):
+        self.p *= c
+        self.q *= c
+
     def __mul__(self, y: int):
         self.p *= y
+        return self
+    
+    def __mul__(self, y: Fraction):
+        self.p *= y.p
+        self.q *= y.q
+        return self
+
+    def __add__(self, y: Fraction):
+        
+        c = self.q
+        d = y.q
+
+        cdGCD = numberTheory.GCD(c, d)
+        s1 = c // cdGCD
+        s2 = d // cdGCD
+
+        self.scale(s2)
+        y.scale(s1)
+
+        a = self.p
+        b = y.p
+        c = self.q
+        d = y.q
+        if (c != d): raise ValueError(f"Fraction Multiplication Error ({c}, {d})")
+
+        f = Fraction(a+b, c)
+
+        return f
 
     def coprimeRatio(self):
+        pList, qList = general.removeCommon2([numberTheory.primeFactor(self.p), numberTheory.primeFactor(self.q)])
+        p = 1
+        q = 1
+        for i in pList:
+            p *= i
+        for i in qList:
+            q *= i
+        self.p = p
+        self.q = q
         pass

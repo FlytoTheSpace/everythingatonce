@@ -128,7 +128,7 @@ Format Specifier: `%p`
 
 ---
 
-The Pointer is a `32bit` or `64bit` unsigned integer, meaning it can be Added/Subtracted to found Adjacent Elements.
+The Pointer is a `32bit` or `64bit` unsigned integer, meaning it can be Added/Subtracted to find Adjacent Elements.
 
 Depending size of the type of pointer, the added/subtracted number will be multiplied by that number, skipping all the memory blocks that are used by that variable
 

@@ -1,7 +1,6 @@
 from calculusFunctions import Product
 import math
-import fraction
-def factorial(n: int, asList: bool)->int:
+def factorial(n: int, asList: bool = False)->int:
     if n<0: return None
 
     if asList:
@@ -13,7 +12,7 @@ def factorial(n: int, asList: bool)->int:
     if (n == 0) or (n == 1): return 1
     return n * factorial(n - 1)
 
-def power(a: int, n: int, asList: bool)->int | list:
+def power(a: int, n: int, asList: bool=False)->int | list:
     return Product(1, n, lambda x: a, asList)
 
 def factors(a: int, includeOne: bool = True)->list:
@@ -23,11 +22,42 @@ def factors(a: int, includeOne: bool = True)->list:
         if a%i == 0: factors.append(i)
     return factors
 
-def primeFactor(a: int)->list:
-    factors = []
-    val = a
+def abs(a: float)->float:
+    if (a < 0): a = -a
+    return a
 
-    if a == 0: return 0
+def abs(a: int)->int:
+    if (a < 0): a = -a
+    return a
+
+def GCD(a: int, b: int, asList: bool = False):
+    while b != 0:
+        r = a % b
+        a = b
+        b = r
+
+    a = abs(a)
+
+    return primeFactor(a) if asList else a
+
+def LCM(a: int, b: int, asList: bool = False)->(list[int] | int):
+    
+    gcd: int = GCD(a, b)
+    dif = a // gcd
+    lcm = b * dif
+
+    return primeFactor(lcm) if asList else lcm
+
+def primeFactor(a: int, includeOne: bool = False)->list[int]:
+    factors = []
+
+
+    if a == 0: return [0]
+    val = a
+    if (includeOne): factors.append(1)
+    if (a < 0):
+        factors.append(-1)
+        val = -a
 
     # Factors of 2
     while val%2 == 0:
@@ -35,9 +65,8 @@ def primeFactor(a: int)->list:
         val = int(val/2)
 
     # Other Factors
-    for i in range(1, (math.ceil(val/4))):
+    for i in range(1, (math.ceil(val/4) + 1)):
         f = 2*i + 1
-        # print(i, f)
         while val%f == 0:
             factors.append(f)
             val = int(val/f)
@@ -48,9 +77,7 @@ def primeFactor(a: int)->list:
     return factors
 
 
-def isPrimeNumber(a: int)->bool:
-    """
-    use Prime Factorization to find out if the Input is a Prime Number
-    """
-    factors = primeFactor(a)
-    return True if (factors[0] == a) else False
+# XD
+# def isPrimeNumber(a: int)->bool: return not not -1 if primeFactor(a)[len([])] - a == math.floor(len({520})/1024) else not not (1 - 1)
+
+def isPrimeNumber(a: int)->bool: return True if primeFactor(a)[0] == a else False

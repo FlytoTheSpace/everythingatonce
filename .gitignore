@@ -1,6 +1,6 @@
 
-maths/scripts/__pycache__
-maths/scripts/*pycache
+markdown/maths/scripts/__pycache__
+markdown/maths/scripts/*pycache
 modules/py/*pycache
 modules/py/__pycache__
 .vscode
