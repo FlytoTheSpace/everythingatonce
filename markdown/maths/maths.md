@@ -30,7 +30,7 @@ Applied Mathematics
 - [Game Theory](./game_theory.md)
 
 
-# Other
+# Other 
 
 ## Symbols
 
@@ -38,13 +38,13 @@ Applied Mathematics
 | ------------------------------------- | ----------------------------- | --------------------------------- |
 **Arithmetic**
 | $+$                                   | **Addition**                  | $a + b$ <br> $+ a$                |
-| $-$                                   | **Subtraction**               | $b - a$ <br> $- a$                |
+| $-$                                   | **Subtraction**               | $a - b$ <br> $- a$                |
 | $\times$ <br> $\ast$ <br> $\cdot$     | **Multiplication**            | $a \times b$ <br> $a \ast b$ <br> $a \cdot b$ <br> $ab$ |
 | $\div$ <br> $:$ <br> $\frac{a}{b}$    | **Division**                  | $a \div b$ <br> $a : b$ <br> $\frac{a}{b}$ |
 | $\mod{}$                              | **Remainder, Modulo**         | $a \mod b$                        |
 | $\pm$                                 | **Plus-Minus**                | $a \pm b$                         |
 | $\mp$                                 | **Minus-Plus**                | $a \mp b$                         |
-| $\sqrt{}$                             | **Root**                      | $\sqrt{a}$ <br> $\sqrt[n]{a}$     |
+| $\sqrt{}$                             | **Radical** (Root)            | $\sqrt{a}$ <br> $\sqrt[n]{a}$     |
 **Equality**
 | $=$                                   | **Equal**                     | $a = b$                           |
 | $\neq$                                | **Not Equal**                 | $a \neq b$                        |
@@ -128,32 +128,32 @@ Applied Mathematics
 
 **Greek Alphabet**:
 
-| Name        | Symbol (Lower) | Symbol (Upper) |
-| ----------- | -------------- | -------------- |
-| **Alpha**   | $\alpha$       | $\Alpha$       |
-| **Beta**    | $\beta$        | $\Beta$        |
-| **Gamma**   | $\gamma$       | $\Gamma$       |
-| **Delta**   | $\delta$       | $\Delta$       |
-| **Epsilon** | $\epsilon$     | $\Epsilon$     |
-| **Zeta**    | $\zeta$        | $\Zeta$        |
-| **Eta**     | $\eta$         | $\Eta$         |
-| **Theta**   | $\theta$       | $\Theta$       |
-| **Iota**    | $\iota$        | $\Iota$        |
-| **Kappa**   | $\kappa$       | $\Kappa$       |
-| **Lambda**  | $\lambda$      | $\Lambda$      |
-| **Mu**      | $\mu$          | $\Mu$          |
-| **Nu**      | $\nu$          | $\Nu$          |
-| **Xi**      | $\xi$          | $\Xi$          |
-| **Omicron** | $\omicron$     | $\Omicron$     |
-| **Pi**      | $\pi$          | $\Pi$          |
-| **Rho**     | $\rho$         | $\Rho$         |
-| **Sigma**   | $\sigma$       | $\Sigma$       |
-| **Tau**     | $\tau$         | $\Tau$         |
-| **Upsilon** | $\upsilon$     | $\Upsilon$     |
-| **Phi**     | $\phi$         | $\Phi$         |
-| **Chi**     | $\chi$         | $\Chi$         |
-| **Psi**     | $\psi$         | $\Psi$         |
-| **Omega**   | $\omega$       | $\Omega$       |
+| Name        | Symbol (Lower)  | Symbol (Upper) |
+| ----------- | --------------- | -------------- |
+| **Alpha**   | $\alpha$        | $\Alpha$       |
+| **Beta**    | $\beta$         | $\Beta$        |
+| **Gamma**   | $\gamma$        | $\Gamma$       |
+| **Delta**   | $\delta$        | $\Delta$       |
+| **Epsilon** | $\epsilon$      | $\Epsilon$     |
+| **Zeta**    | $\zeta$         | $\Zeta$        |
+| **Eta**     | $\eta$          | $\Eta$         |
+| **Theta**   | $\theta$        | $\Theta$       |
+| **Iota**    | $\iota$         | $\Iota$        |
+| **Kappa**   | $\kappa$        | $\Kappa$       |
+| **Lambda**  | $\lambda$       | $\Lambda$      |
+| **Mu**      | $\mu$           | $\Mu$          |
+| **Nu**      | $\nu$           | $\Nu$          |
+| **Xi**      | $\xi$           | $\Xi$          |
+| **Omicron** | $\omicron$      | $\Omicron$     |
+| **Pi**      | $\pi$           | $\Pi$          |
+| **Rho**     | $\rho$          | $\Rho$         |
+| **Sigma**   | $\sigma$        | $\Sigma$       |
+| **Tau**     | $\tau$          | $\Tau$         |
+| **Upsilon** | $\upsilon$      | $\Upsilon$     |
+| **Phi**     | $\phi, \varphi$ | $\Phi$         |
+| **Chi**     | $\chi$          | $\Chi$         |
+| **Psi**     | $\psi$          | $\Psi$         |
+| **Omega**   | $\omega$        | $\Omega$       |
 
 ## Constants
 
@@ -180,7 +180,7 @@ Notational Rules: The Rules are set specifically for this Archive, since sometim
 
 ### Degrees
 
-The normal $5\degree$ notation must not be used outside the Geometry section, since it can cause confusion with a 0th exponent, if needed use the following notation:
+The normal $5\degree$ notation should not be used outside the Geometry section, since it can cause confusion with a 0th exponent, if needed use the following notation:
 
 $$
 5 \deg
@@ -188,7 +188,7 @@ $$
 
 ### Intervals
 
-All invervals must be expressed in the following way to avoid confusion with points:
+All invervals should be expressed in the following way to avoid confusion with points:
 
 | Type                    | Notation |
 | ----------------------- | -------- |
@@ -200,21 +200,6 @@ All invervals must be expressed in the following way to avoid confusion with poi
 It replaces the formal `,` seperation of `a` and `b` with `;` since it makes it more clear that it doesn't refer to a point
 
 ### Functions
-
-**Inverse Function**: a function raised to the -1 power must be interpreted as  the inverse of that function
-$$
-f^{-1}(x)
-$$
-$$
-f^{-1}(f(x)) = x$$
-in general the number `-1` can be by any integer, in the context it means to successively apply it:
-
-$$
-f^3(x) = \underbrace{f(f(f(x)))}_{3\text { times}}
-$$
-$$
-f^{-4}(x) = \underbrace{f^{-1}(f^{-1}(f^{-1}(f^{-1}(x))))}_{4 \text { times}}
-$$
 
 **Function Exponent**, to raise the function a power `n` append the number after the arguments in the superscript
 
@@ -229,4 +214,19 @@ f(x)^3 = (4x)^3
 $$
 $$
 f^3 = (4x)^3
+$$
+
+**Inverse Function**: a function raised to the -1 power should be interpreted as  the inverse of that function
+$$
+f^{-1}(x)
+$$
+$$
+f^{-1}(f(x)) = x$$
+in general the number `-1` can be by any integer, in the context it means to successively apply it:
+
+$$
+f^3(x) = \underbrace{f(f(f(x)))}_{3\text { times}}
+$$
+$$
+f^{-4}(x) = \underbrace{f^{-1}(f^{-1}(f^{-1}(f^{-1}(x))))}_{4 \text { times}}
 $$

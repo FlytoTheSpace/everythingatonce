@@ -383,8 +383,8 @@ $$
 a^2 = a \times a
 $$
 
-$$(a + b)^2 = a^2 + 2ab = b^2$$
-$$(a - b)^2 = a^2 - 2ab = b^2$$
+$$(a + b)^2 = a^2 + 2ab + b^2$$
+$$(a - b)^2 = a^2 - 2ab + b^2$$
 $$a^2 - b^2 = (a + b)(a - b)$$
 
 **Square Numbers**/ **Perfect Square Numbers**: numbers that can be expressed as $a^2$, where $a$ is an Integer
@@ -410,7 +410,7 @@ $$
 $$
 a = \sum_{k=1}^n k
 $$
-- Sum 2 Consecutive Square Number Results in a Square number
+- Sum 2 Consecutive Triangular Numbers Results in a Square number
 $$
 (\sum_{k=1}^n k) + (\sum_{k=1}^{n-1} k) = n^2
 $$

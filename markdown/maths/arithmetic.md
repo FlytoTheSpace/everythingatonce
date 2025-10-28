@@ -69,7 +69,7 @@ $a\color{lime}\times\color{white}b$
 **Division** `(Divide)`: Divison of a Number in `b`  count of peices
 
 $a\color{red}\div\color{white}b$
-- Divison of $a$ into `b` count of Parts/Components Evenly
+- Repeated Subtract of `a` with itself until `0`
 
 # BEDMAS
 

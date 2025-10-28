@@ -20,176 +20,77 @@ $$
 
 ![](../../img/maths/shapes/right_triangle_abc_squared.png)
 
-# Trigometric Functions
+# Main Trigometric Functions
 
-<script src="../modules/function-plot.min.js"></script>
+$\sin$ and $\cos$ are the solutions to the following equation:
+$$ x^2 + y^2 = 1 $$
+(equation of a unit circle centered at the origin)
 
-**Sine**, **sin**: The Ratio between the Opposite and the Hypotenuse side.
+$$\sin(\theta)^2 + \cos(\theta)^2 = 1$$
 
+$$\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}$$
 
-$$\sin(\theta) = \frac{\text{Opposite}}{\text{Hypotenuse}}$$
+$$ \csc(\theta) = \frac{1}{\sin(\theta)} $$
+$$ \sec(\theta) = \frac{1}{\cos(\theta)} $$
+$$ \cot(\theta) = \frac{1}{\tan(\theta)} $$
 
-- **SOH**: standing for $\color{MediumSeaGreen}\sin\color{white}(\theta) = \text{\color{MediumSeaGreen}O\color{white}pposite} / \text{\color{MediumSeaGreen}H\color{white}ypotenuse}$
+| Trig Function  | sin                                                | cos                                                | tan                                                     | csc                                                | sec                                               | cot                                                               |
+| -------------- | -------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------------| -------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------- |
+| $\sin(\theta)$ | $\sin(\theta)$                                     | $\sqrt{1 - \cos(\theta)^2}$                        | $\frac{\tan(\theta)}{\sqrt{1 + \tan(\theta)^2} }$       | $\frac{1}{\csc(\theta)}$                           | $\sqrt{1 - \frac{1}{\sec(\theta)^2} }$            | $\frac{1}{\sqrt{1 + \cot(\theta)^2} }$                            |
+| $\cos(\theta)$ | $\sqrt{1 - \sin(\theta)^2}$                        | $\cos(\theta)$                                     | $\sqrt{1 - \frac{\tan(\theta)^2}{1 + \tan(\theta)^2} }$ | $\sqrt{1 - \frac{1}{\csc(\theta)^2} }$             | $\frac{1}{\sec(\theta)}$                          | $\sqrt{1 - \frac{1}{1 + \cot(\theta)^2} }$                        |
+| $\tan(\theta)$ | $\frac{\sin(\theta)}{\sqrt{1 - \sin(\theta)^2} }$  | $\frac{\sqrt{1 - \cos(\theta)^2} }{\cos(\theta)}$  | $\tan(\theta)$                                          | $\frac{1 }{\sqrt{\csc(\theta)^2 - 1} }$            | $\sqrt{\sec(\theta)^2 - 1}$                       | $\frac{1}{\cot(\theta)}$                                          |
+| $\csc(\theta)$ | $\frac{1}{\sin(\theta)}$                           | $\frac{1}{\sqrt{1 - \cos(\theta)^2} }$             | $\frac{\sqrt{1 + \tan(\theta)^2} }{\tan(\theta)}$       | $\csc(\theta)$                                     | $\frac{\sec(\theta)}{\sqrt{\sec(\theta)^2 - 1} }$ | $\sqrt{\cot(\theta)^2 + 1}$                                       |
+| $\sec(\theta)$ | $\frac{1}{\sqrt{1 -\sin(\theta)^2} }$              | $\frac{1}{\cos(\theta)}$                           | $\sqrt{1 + \tan(\theta)^2}$                             | $\frac{\csc(\theta)}{\sqrt{\csc(\theta)^2 - 1 } }$ | $\sec(\theta)$                                    | $\sqrt{1 + \frac{1}{\tan(\theta)^2} }$                            |
+| $\cot(\theta)$ | $\frac{\sqrt{1 - \sin(\theta)^2} }{\sin(\theta)}$  | $\frac{\cos(\theta)}{\sqrt{1 - \cos(\theta)^2} }$  | $\frac{1}{\tan(\theta)}$                                | $\sqrt{\csc(\theta)^2 - 1}$                        | $\frac{1}{\sqrt{\sec(\theta)^2 - 1} }$            | $\cot(\theta)$                                                    |
 
-<div id="sinwave"></div>
+# Identities:
 
-**Cosine**, **cos**: The Ratio between the Adjacent and the Hypotenuse side.
+> Context:
+> $ \theta = \theta_{rad}$ same for $\alpha$ and $\beta$
+> 
+> $$ \theta_{rad} = \frac{2 \pi}{360}(\theta_{deg})$$
+> 
+> (for compactness use purpose)
+> $$ S := \{\sin(\theta), \cos(\theta), \tan(\theta), \csc(\theta), \sec(\theta), \cot(\theta)\} $$
 
-<div id="coswave"></div>
+$$\forall (f \in S) [f(\theta \pm 2\pi) = f(\theta \mod 2\pi) = f(\theta)]$$
 
-$$\cos(\theta) = \frac{\text{Adjacent}}{\text{Hypotenuse}}$$
+$$\sin(- \theta) = - \sin(\theta)$$
+$$\cos(- \theta) = \cos(\theta)$$
 
-- **CAH**: standing for $\color{MediumSeaGreen}\cos\color{white}(\theta) = \text{\color{MediumSeaGreen}A\color{white}djacent} / \text{\color{MediumSeaGreen}H\color{white}ypotenuse}$
+**Pythagorean Identities**:
 
-**Tangent**, **tan**: The Ratio between the Opposite and the Adjacent side.
+$$ \sin(\theta)^2 + \cos(\theta)^2 = 1$$
+$$ 1 + \tan(\theta)^2 = \sec(\theta)^2$$
+$$ 1 + \cot(\theta)^2 = \csc(\theta)^2$$
 
-$$\tan(\theta) = \frac{\text{Opposite}}{\text{Adjacent}}$$
+**Sum/Difference Identities**:
 
-<div id="tanwave"></div>
+$$\sin(\alpha + \beta) = \sin(\alpha) \cdot \cos(\beta) + \cos(\alpha) \cdot \sin(\beta)$$
+$$\sin(\alpha - \beta) = \sin(\alpha) \cdot \cos(\beta) - \cos(\alpha) \cdot \sin(\beta)$$
+$$\cos(\alpha + \beta) = \cos(\alpha) \cdot \cos(\beta) - \sin(\alpha) \cdot \sin(\beta)$$
+$$\cos(\alpha - \beta) = \cos(\alpha) \cdot \cos(\beta) + \sin(\alpha) \cdot \sin(\beta)$$
 
-- **TOA**: standing for $\color{MediumSeaGreen}\tan\color{white}(\theta) = \text{\color{MediumSeaGreen}O\color{white}pposite} / \text{\color{MediumSeaGreen}A\color{white}djacent}$
+**Product Identites** (function):
 
-All Main Waves:
-<div id="mainwaves"></div>
+$$\sin(\alpha) \cdot \sin(\beta) = \frac{\cos(\alpha - \beta) - \cos(\alpha + \beta)}{2}$$
+$$\sin(\alpha) \cdot \cos(\beta) = \frac{\sin(\alpha - \beta) + \sin(\alpha + \beta)}{2}$$
+$$\cos(\alpha) \cdot \cos(\beta) = \frac{\cos(\alpha - \beta) + \cos(\alpha + \beta)}{2}$$
 
-**csc**: The Ratio between the Hypotenuse and the Opposite side.
-$$\csc(\theta) = \frac{\text{Hypotenuse}}{\text{Opposite}}$$
+**Square Identities**:
 
-<div id="cscwave"></div>
+$$ \sin(\theta)^2 = \frac{1 - \cos(2x)}{2} $$
+$$ \cos(\theta)^2 = \frac{1 + \cos(2x)}{2} $$
 
-**sec**: The Ratio between the Hypotenuse and the Adjacent side.
-$$\sec(\theta) = \frac{\text{Hypotenuse}}{\text{Adjacent}}$$
+# Inverses:
 
-<div id="secwave"></div>
+each of the 6 trig functions have a defined Inverse function for symbolic purposes:
 
-**cot**: The Ratio between the Adjacent and the Opposite side.
-$$\cot(\theta) = \frac{\text{Adjacent}}{\text{Opposite}}$$
-
-<div id="cotwave"></div>
-
-All Reciprocal Waves:
-
-<div id="repicrocalwaves"></div>
-
-<script>
-    const sinwave = functionPlot({
-        target: '#sinwave',
-        width: 600,
-        height: 400,
-        grid: true,
-        data: [
-            {
-                fn: 'sin(x)',
-                color: "Dodgerblue"
-            }
-        ]
-    });
-    const coswave = functionPlot({
-        target: '#coswave',
-        width: 600,
-        height: 400,
-        grid: true,
-        data: [
-            {
-                fn: 'cos(x)',
-                color: "MediumSeaGreen"
-            }
-        ]
-    });
-    const tanwave = functionPlot({
-        target: '#tanwave',
-        width: 600,
-        height: 400,
-        grid: true,
-        data: [
-            {
-                fn: 'tan(x)',
-                color: "red"
-            }
-        ]
-    });
-    const cscwave = functionPlot({
-        target: '#cscwave',
-        width: 600,
-        height: 400,
-        grid: true,
-        data: [
-            {
-                fn: '1/sin(x)',
-                color: "Dodgerblue"
-            }
-        ]
-    });
-    const secwave = functionPlot({
-        target: '#secwave',
-        width: 600,
-        height: 400,
-        grid: true,
-        data: [
-            {
-                fn: '1/cos(x)',
-                color: "MediumSeaGreen"
-            }
-        ]
-    });
-    const cotwave = functionPlot({
-        target: '#cotwave',
-        width: 600,
-        height: 400,
-        grid: true,
-        data: [
-            {
-                fn: '1/tan(x)',
-                color: "red"
-            }
-        ]
-    });
-    const mainwaves = functionPlot({
-        target: '#mainwaves',
-        width: 600,
-        height: 400,
-        grid: true,
-        data: [
-            {
-                fn: 'sin(x)',
-                color: "Dodgerblue"
-            },
-            {
-                fn: 'cos(x)',
-                color: "MediumSeaGreen"
-            },
-            {
-                fn: 'tan(x)',
-                color: "red"
-            }
-        ]
-    });
-    const repicrocalwaves = functionPlot({
-        target: '#repicrocalwaves',
-        width: 600,
-        height: 400,
-        grid: true,
-        data: [
-            {
-                fn: '1/sin(x)',
-                color: "Dodgerblue"
-            },
-            {
-                fn: '1/cos(x)',
-                color: "MediumSeaGreen"
-            },
-            {
-                fn: '1/tan(x)',
-                color: "red"
-            }
-        ]
-    });
-
-    sinwave.addLink(coswave, tanwave);
-    coswave.addLink(sinwave, tanwave);
-    tanwave.addLink(sinwave, coswave);
-
-    cscwave.addLink(secwave, cotwave);
-    secwave.addLink(cscwave, cotwave);
-    cotwave.addLink(cscwave, secwave);
-</script>
+| Trig Function  | Inverse                                     |
+| -------------- | ------------------------------------------- |
+| $\sin(\theta)$ | $\sin^{-1}(\theta) = \arcsin(\theta)$       |
+| $\cos(\theta)$ | $\cos^{-1}(\theta) = \arccos(\theta)$       |
+| $\tan(\theta)$ | $\tan^{-1}(\theta) = \arctan(\theta)$       |
+| $\csc(\theta)$ | $\csc^{-1}(\theta) = \text{arccsc}(\theta)$ |
+| $\sec(\theta)$ | $\sec^{-1}(\theta) = \text{arcsec}(\theta)$ |
+| $\cot(\theta)$ | $\cot^{-1}(\theta) = \text{arccot}(\theta)$ |
