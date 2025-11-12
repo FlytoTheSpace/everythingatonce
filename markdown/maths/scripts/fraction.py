@@ -73,6 +73,7 @@ class Fraction:
 
     def coprimeRatio(self):
         pList, qList = general.removeCommon2([numberTheory.primeFactor(self.p), numberTheory.primeFactor(self.q)])
+
         p = 1
         q = 1
         for i in pList:

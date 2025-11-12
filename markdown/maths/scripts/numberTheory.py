@@ -51,6 +51,7 @@ def LCM(a: int, b: int, asList: bool = False)->(list[int] | int):
 def primeFactor(a: int, includeOne: bool = False)->list[int]:
     factors = []
 
+    # print(f"\x1b[32m {a} \x1b[0m")
 
     if a == 0: return [0]
     val = a
@@ -59,20 +60,22 @@ def primeFactor(a: int, includeOne: bool = False)->list[int]:
         factors.append(-1)
         val = -a
 
+        if a == -1: return [-1]
+
     # Factors of 2
     while val%2 == 0:
         factors.append(2)
         val = int(val/2)
 
     # Other Factors
-    for i in range(1, (math.ceil(val/4) + 1)):
+    for i in range(1, (math.ceil(val/2) + 1)):
         f = 2*i + 1
         while val%f == 0:
             factors.append(f)
             val = int(val/f)
-            
+    # print(f"\x1b[33m {factors} \x1b[0m")
     
-    if (a%a == 0 and len(factors) == 0): factors.append(a)
+    if ((len(factors) - ((1 if includeOne else 0) + (1 if a < 0 else 0))) == 0): factors.append(a)
     
     return factors
 

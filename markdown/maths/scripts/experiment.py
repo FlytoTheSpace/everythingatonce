@@ -60,10 +60,8 @@ def NR_Root(a: float, n: int = 2)->(float | complex):
     if a < 0 and n % 2 == 0:
         return complex(0, NR_Root(-a, n))
 
-    print(f"{n}'th root of {a}")
     while i < ROOT_APPROX_ITERATION_LIMIT:
         step: float = p(x)/dp(x)
-        print(f"{x}, step: {step}")
         if step == 0.0:
             return x
         x -= step

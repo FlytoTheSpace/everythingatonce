@@ -25,6 +25,7 @@ def coefficient(p: int, q: int, k: int)->tuple[int, int]:
     return frac
 
 def coefficientLinear(n: Fraction, limit: int = 10)->list[tuple[int, int]]:
+
     n.coprimeRatio()
     p = n.p
     q = n.q
@@ -34,7 +35,6 @@ def coefficientLinear(n: Fraction, limit: int = 10)->list[tuple[int, int]]:
     if (p > 0) and (q == 1): limit = p + 1
 
     for k in range(limit):
-        
         nominator = Product(0, k - 1, lambda s: p - (q*s))
         denominator = numberTheory.factorial(k, False)*numberTheory.power(q, k, False)
 
@@ -61,13 +61,12 @@ def standard(n: int):
 
 def fractional(n: Fraction, limit: int = 10):
     
-    if (n.p == 0) or (n.q == 0): raise ValueError(f"Binomial Theorem: n is raised to {n.p}/{n.q} power")
+    if (n.q == 0): raise ValueError(f"Binomial Theorem: n is raised to {n.p}/{n.q} power")
 
     coefficients: list[tuple[int, int]] = coefficientLinear(Fraction(n.p, n.q), limit)
 
-    def function(a: float, b: float):
-        x = a + b - 1
-        if (abs(x) > 1): print("\x1b[93m[Warning] Series will Diverge\x1b[0m")
+    def function(x: float):
+        if (abs(x) >= 1): print("\x1b[93m[Warning] Series will Diverge\x1b[0m")
         result = 0
         for k in range(len(coefficients)):
             result += coefficients[k][0]*numberTheory.power(x, k)/coefficients[k][1]
