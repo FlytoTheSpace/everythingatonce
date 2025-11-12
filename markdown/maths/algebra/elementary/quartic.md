@@ -25,7 +25,7 @@ $$
 
 
 
-## Root Finding:
+# Root Finding
 
 assuming you already know how to solve Cubic and Quadratic Polynomails (degree `2` and `3`)
 

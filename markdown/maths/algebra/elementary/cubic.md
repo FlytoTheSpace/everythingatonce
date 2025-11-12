@@ -7,8 +7,9 @@ $$ax^3 + bx^2 + cx + d = 0$$
 
 Roots of The Polynomial:
 
-- **Depressed Cubic**
+- **Depressed Cubic**:
 
+$$ax^3 + bx + c = 0$$
 
 # Root Finding
 
@@ -152,4 +153,43 @@ $$
 $$
 x = \sqrt[3]{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right) \pm \sqrt{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right)^2 + \left(\frac{c}{3a} - \frac{b^2}{9a^2}\right)^3}} + \newline
 \sqrt[3]{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right) \mp \sqrt{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right)^2 + \left(\frac{c}{3a} - \frac{b^2}{9a^2}\right)^3}} - \frac{b}{3a}
+$$
+
+## Other Roots from 1 Root:
+
+Other Roots of the degree 3 Polynomial can be found by having `1` of it's solutions
+
+$$P(x) = x^3 + bx^2 + cx + d$$
+
+(without the `a` coefficent which can be easily removed)
+
+and
+
+$$P(- r) = 0$$
+
+then:
+
+$$
+x^3 + bx^2 + cx + d = (x + r)(x + s)(x + t) \newline
+= (x + r)(x^2 + \underbrace{(s + t)}_{p}x + \underbrace{st}_{q}) \newline
+= (x + r)(x^2 + px + q) \newline
+= x^3 + \underbrace{(p + r)}_{b}x^2 + \underbrace{(q + pr)}_{c}x + \underbrace{qr}_{d} \newline
+$$
+
+$$
+p = b - r \newline
+q = \frac{d}{r} \newline
+$$
+
+$$
+x^2 + px + q = 0 \newline
+$$
+
+$$
+s = \frac{p + \sqrt{p^2 - 4q}}{2} \newline
+t = \frac{p - \sqrt{p^2 - 4q}}{2} \newline
+$$
+
+$$
+x^3 + bx^2 + cx + d = (x + r)(x + s)(x + t) \newline
 $$

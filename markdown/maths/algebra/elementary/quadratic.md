@@ -1,4 +1,4 @@
-## Quadratic
+# Quadratic
 
 where the degree of the polynomial is `2`
 
@@ -37,7 +37,8 @@ $$x \color{DodgerBlue} + \frac{b}{2a} \color{orangered} - \frac{b}{2a} \color{wh
 $$x = \frac{\color{DodgerBlue}-b \color{white} \pm \sqrt{b^2 - 4ac}}{2a}$$
 $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
-**Factorization**:
+# Factorization
+
 Quadratic Polynomials can be factored into the following form
 $$
 ax^2 + bx + c = (px + m)(qx + n) \newline

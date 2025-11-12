@@ -79,8 +79,8 @@ $$\cos(\alpha) \cdot \cos(\beta) = \frac{\cos(\alpha - \beta) + \cos(\alpha + \b
 
 **Square Identities**:
 
-$$ \sin(\theta)^2 = \frac{1 - \cos(2x)}{2} $$
-$$ \cos(\theta)^2 = \frac{1 + \cos(2x)}{2} $$
+$$ \sin(\theta)^2 = \frac{1 - \cos(2\theta)}{2} $$
+$$ \cos(\theta)^2 = \frac{1 + \cos(2\theta)}{2} $$
 
 # Inverses:
 

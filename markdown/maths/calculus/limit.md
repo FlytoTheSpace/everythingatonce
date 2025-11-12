@@ -4,12 +4,21 @@ Limit is said to be definite at a given point if as you approach it from all the
 
 
 $$ \lim_{x \to a} x = a $$
+
 $$ \lim_{x \to a} (c \cdot f(x)) = c \cdot \lim_{x \to a} f(x) $$
+
 $$ \lim_{x \to a} (f(x))^n = (\lim_{x \to a} f(x))^n $$
+
 $$ \lim_{x \to a} (f(x) \pm g(x)) = \lim_{x \to a} f(x) \pm \lim_{x \to a} g(x)$$
+
 $$ \lim_{x \to a} (f(x) \cdot g(x)) = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)$$
 
-$$\forall f(x)\left(\left((\delta \text{ ranges}) \land f(a \pm \delta) \in \mathbb{R} \land
+**Change in Variable**:
+
+$$ \lim_{y \to a} f(y) = \lim_{x \to g^{-1}(a)} f(g(x))$$
+
+$$
+\forall f(x)\left(\left((\delta \text{ ranges}) \land f(a \pm \delta) \in \mathbb{R} \land
 \lim_{\delta \to 0} (f(a + \delta) - f(a - \delta)) = 0\right)\implies \exists h \left(h \in \mathbb{R}\land \lim_{x \to a} f(x) = h\right)\right)
 $$
 

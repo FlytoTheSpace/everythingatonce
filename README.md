@@ -4,8 +4,8 @@ An attempt to Mapping out all of major subjects and Knowledge The World has to o
 
 ## Subjects
 
-- [`Mathematics`](./maths/maths.md)
-- [`Science`](./science/science.md)
+- [`Mathematics`](./markdown//maths/maths.md)
+- [`Science`](./markdown//science/science.md) (Old)
 
 ## Libraries
 
@@ -52,6 +52,7 @@ Documents every major event since the creation of this repository
 
 - `7th December 2024`: changed name to "**everythingatonce**"
 
+- somewhere between `7th December 2024`-`3rd August 2025`: Repository is open source.
 
 
 > `(This Repository is currently private but it's meant to be published in the near future)`

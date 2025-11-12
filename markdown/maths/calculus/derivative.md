@@ -79,15 +79,28 @@ Rules:
 ### Special Cases:
 
 **Constant:**
+
 $$ \frac{d}{dx}(a) = 0 $$
+
 **Power Rule:**
+
 $n \neq 0$
+
 $$ \frac{d}{dx}(x^n) = nx^{n-1} $$
+
 **Exponential:**
+
 $$ \frac{d}{dx}(a^x) = \ln(a)\cdot a^x $$
+
 **Trignometric:**
+
 $$ \frac{d}{dx}(\sin(x)) = \cos(x)$$
+
 $$ \frac{d}{dx}(\cos(x)) = - \sin(x)$$
+
+$$ \frac{d}{dx}(\tan(x)) = \sec(x)^2$$
+
+$$ \frac{d}{dx}(\sec(x)) = \tan(x) \cdot \sec(x)$$
 
 ### General:
 
@@ -109,7 +122,7 @@ $$ \frac{d}{dx}(f_1 \circ f_2 \circ f_3 \circ ... f_m) = \left(\displaystyle \pr
 n'th Derivative are the Repeated Application of Deriavative on a given function n times
 
 $$
-\frac{d^n}{dx^n}f(x) = \underbrace{\frac{d}{dx}(\frac{d}{dx}(...\frac{d}{dx}(f(x))))}_{n \text{ times}}
+\frac{d^n}{dx^n}f(x) = \underbrace{\frac{d}{dx}\left(\frac{d}{dx}\left(...\frac{d}{dx}(f(x))\right)\right)}_{n \text{ times}}
 $$
 
 Rules:
@@ -189,7 +202,7 @@ $g(x) = f(x, y)$
 
 $h(y) = f(x, y)$
 
-# Fractional Deriavatives:
+# Fractional Deriavatives
 
 $$D^{\alpha}_xf$$
 (pending...)

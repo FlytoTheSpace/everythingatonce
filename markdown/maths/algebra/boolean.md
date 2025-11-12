@@ -7,54 +7,6 @@
 
 ## Logic
 
-Main Logic:
-
-- **Conjunction**, **AND** `(2 inputs)`: True if both inputs are True.
-- **Disjunction**,  **OR** `(2 inputs)`: True if any of the inputs are True.
-- **Negation**, **NOT** `(1 input)`: Inverts the given Input.
-- **Exclusive OR**, **XOR** `(2 inputs)`: True if both inputs are not the same.
-
-| $a$ | `NOT` $\lnot a$ |
-| --- | --------------- |
-| $0$ | $1$             |
-| $1$ | $0$             |
-
-| $a$ | $b$ | `AND` $a\land b$ | `OR` $a\lor b$ | `XOR` $a \oplus b$ |
-| --- | --- | ---------------- | -------------- | ------------------- |
-| $0$ | $0$ | $0$              | $0$            | $0$                 |
-| $0$ | $1$ | $0$              | $1$            | $1$                 |
-| $1$ | $0$ | $0$              | $1$            | $1$                 |
-| $1$ | $1$ | $1$              | $1$            | $0$                 |
-
-**Inverted Logic**:
-
-- **NOT Conjunction**, **NAND** `(2 inputs)`: returns `1` if both inputs are NOT `1`.
-- **NOT Disjunction**,  **NOR** `(2 inputs)`: returns `1` if any of the inputs are NOT `1`.
-- **NOT Exclusive OR**, **XNOR** `(2 inputs)`: returns `1` if both inputs ARE the same.
-
-| $a$ | $b$ | `NAND` $\lnot (a\land b)$ | `NOR` $\lnot (a\lor b)$ | `XNOR` $\lnot (a \oplus b)$ |
-| --- | --- | ------------------------- | -------------- | ----------------------- |
-| $0$ | $0$ | $1$                       | $1$            | $1$                     |
-| $0$ | $1$ | $1$                       | $0$            | $0$                     |
-| $1$ | $0$ | $1$                       | $0$            | $0$                     |
-| $1$ | $1$ | $0$                       | $0$            | $1$                     |
-
-**Totality of Logic**:
-
-**Single Input**:
-| $a$ | `BUFFER` | `NOT` |
-| --- | -------- | ----- |
-| $0$ | $0$      | $1$   |
-| $1$ | $1$      | $0$   |
-
-**Double Input**:
-| $a$ | $b$ | `AND` | `OR` | `XOR` | `NAND` | `NOR` | `XNOR` |
-| --- | --- | ----- | ---- | ----- | ------ | ----- | ------ |
-| $0$ | $0$ | $0$   | $0$  | $0$   | $1$    | $1$   | $1$    |
-| $0$ | $1$ | $0$   | $1$  | $1$   | $1$    | $0$   | $0$    |
-| $1$ | $0$ | $0$   | $1$  | $1$   | $1$    | $0$   | $0$    |
-| $1$ | $1$ | $1$   | $1$  | $0$   | $0$    | $0$   | $1$    |
-
 ## Latches
 
 **SR Latch**: A Latch that can Hold upto 1 Bit of Data, with 2 Inputs and 2 Outputs
