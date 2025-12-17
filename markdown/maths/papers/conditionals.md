@@ -95,10 +95,11 @@ $$|S| < \mathfrak{c}$$
 
 Now back to our integral, if we assume that points $x_1, x_2, x_3, ...$ satisfy $\varphi(x)$ then
 
-$$ \displaystyle \int_{\varphi(x)} f(x) \ dx = \int_{x_1}^{x_1} f(x)\ dx + \int_{x_2}^{x_2} f(x)\ dx + \int_{x_3}^{x_3} f(x)\ dx + ... \newline
+$$ \displaystyle \int_{\varphi(x)} f(x) \ dx = \int_{x_1}^{x_1} f(x)\ dx + \int_{x_2}^{x_2} f(x)\ dx + \int_{x_3}^{x_3} f(x)\ dx + ... \newline $$
 
-= [F(x_1) - F(x_1)] + [F(x_2) - F(x_2)] + [F(x_3) - F(x_3)] + ... \newline
-= 0 + 0 + 0 + ... $$
+$$ = [F(x_1) - F(x_1)] + [F(x_2) - F(x_2)] + [F(x_3) - F(x_3)] + ... \newline$$
+
+$$ = 0 + 0 + 0 + ... $$
 
 so here's our core result:
 
