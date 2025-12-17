@@ -111,10 +111,10 @@ d = 0 \newline
 ay^3 + \frac{b^2}{3a}y - \frac{2b^2}{3a}y + cy - \frac{b^3}{27a^2} + \frac{b^3}{9a^2} - \frac{bc}{3a} + d = 0 \newline
 ay^3 + (\frac{b^2}{3a} - \frac{2b^2}{3a} + c)y + (- \frac{b^3}{27a^2} + \frac{b^3}{9a^2} - \frac{bc}{3a} + d) = 0 \newline
 ay^3 + (c - \frac{b^2}{3a})y + (\frac{3b^3 - b^3}{27a^2} - \frac{bc}{3a} + d) = 0 \newline
-
-ay^3 + 
-(c - \frac{b^2}{3a})y + 
-(\frac{2b^3}{27a^2} - \frac{bc}{3a} + d) = 0 \newline
+y^3 + (c - \frac{b^2}{3a})y + (\frac{3b^3 - b^3}{27a^2} - \frac{bc}{3a} + d) = 0 \newline
+y^3 + 
+\left(\frac{c}{a} - \frac{b^2}{3a^2}\right)y + 
+\left(\frac{2b^3}{27a^2} - \frac{abc}{3a^2} + \frac{d}{a}\right) = 0 \newline
 $$
 
 $$
@@ -125,23 +125,21 @@ $$
 Using the Depressed Cubic to solve for `y`
 
 > Depressed Cubic general formula: ($a \neq 0$)
-> $$ax^3 + bx + c = 0$$ 
-> $$ x = \sqrt[3]{- \frac{c}{2a} \pm \sqrt{(\frac{c}{2a})^2 + (\frac{b}{3a})^3}} + \sqrt[3]{- \frac{c}{2a} \mp \sqrt{(\frac{c}{2a})^2 + (\frac{b}{3a})^3}}$$
+> $$ax^3 + bx + c = 0$$
+> $$ x = \sqrt[3]{- \frac{p}{2} + \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}} +  \sqrt[3]{- \frac{p}{2} - \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}}
+> $$
 
 $$
-y = \sqrt[3]{- \frac{(\frac{2b^3}{27a^2} - \frac{bc}{3a} + d)}{2a} \pm \sqrt{(\frac{(\frac{2b^3}{27a^2} - \frac{bc}{3a} + d)}{2a})^2 + (\frac{(c - \frac{b^2}{3a})}{3a})^3}} + ... \newline
-$$
-
-$$
-y = \sqrt[3]{(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}) \pm \sqrt{(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a})^2 + (\frac{c}{3a} - \frac{b^2}{9a^2})^3}} + \newline
-\sqrt[3]{(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}) \mp \sqrt{(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a})^2 + (\frac{c}{3a} - \frac{b^2}{9a^2})^3}}
+y = \sqrt[3]{- \frac{p}{2} + \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}} +  \sqrt[3]{- \frac{p}{2} - \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}} \newline
 $$
 
 Final Step:
 $$x = y - \frac{b}{3a}$$
 $$
-y - \frac{b}{3a} = \sqrt[3]{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right) \pm \sqrt{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right)^2 + \left(\frac{c}{3a} - \frac{b^2}{9a^2}\right)^3}} + \newline
-\sqrt[3]{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right) \mp \sqrt{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right)^2 + \left(\frac{c}{3a} - \frac{b^2}{9a^2}\right)^3}} - \frac{b}{3a}
+y - \frac{b}{3a} = \sqrt[3]{- \frac{p}{2} + \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}} +  \sqrt[3]{- \frac{p}{2} - \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}} - \frac{b}{3a}
+$$
+$$
+x = - \frac{b}{3a} + \sqrt[3]{- \frac{p}{2} + \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}} +  \sqrt[3]{- \frac{p}{2} - \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}}
 $$
 
 **Full General Cubic Solution**:
@@ -149,6 +147,19 @@ $$
 $$
 ax^3 + bx^2 + cx + d = 0
 $$
+$$
+x = - \frac{b}{3a} + \sqrt[3]{- \frac{p}{2} + \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}} +  \sqrt[3]{- \frac{p}{2} - \sqrt{\left(\frac{p}{2}\right)^2 + \left(\frac{q}{3}\right)^3}}
+$$
+
+where:
+
+$$
+p = \frac{c}{a} - \frac{b^2}{3a^2} \newline
+q = \frac{2b^3}{27a^2} - \frac{abc}{3a^2} + \frac{d}{a}
+$$
+
+
+Expanded form:
 
 $$
 x = \sqrt[3]{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right) \pm \sqrt{\left(- \frac{b^3}{27a^3} + \frac{bc}{6a^2} - \frac{d}{2a}\right)^2 + \left(\frac{c}{3a} - \frac{b^2}{9a^2}\right)^3}} + \newline

@@ -79,6 +79,8 @@ $$
 
 $$I = \int \sqrt{a^2 - x^2} \ dx$$
 
+proceed:
+
 $$
 x = a \cdot \sin(\theta) \newline
 \theta = \arcsin\left(\frac{x}{a}\right) \newline
@@ -133,12 +135,40 @@ final solution:
 $$
 \int \sqrt{a^2 - x^2} \ dx = \frac{a^2\cdot \arcsin(x/a) + a^2 \cdot \sin(2 \cdot \arcsin(x/a))}{2} + C
 $$
+
+$$I = \int \sqrt{a^2 + x^2} \ dx$$
+
+$$x = a \cdot \tan(\theta)$$
+
+$$\theta = \arctan\left(\frac{x}{a}\right)$$
+
+$$\frac{dx}{d\theta} = \sec(x)^2$$
+
+$$dx = a \cdot \sec(\theta)^2 \ d\theta$$
+
+$$
+I = \int \sqrt{a^2 + (a \cdot \tan(\theta))^2} \ (a \cdot \sec(\theta)^2 \ d\theta) \newline
+I = \int \sqrt{a^2 + a^2 \cdot \tan(\theta)^2} \ a \cdot \sec(\theta)^2 \ d\theta \newline
+I = \int a\sqrt{1 + \tan(\theta)^2} \ a \cdot \sec(\theta)^2 \ d\theta \newline
+$$
+
+> Pythagorean Identity:
+> 
+> $$\sec(\theta) = \sqrt{1 + \tan(\theta)^2}$$
+
+$$
+I = \int a\sec(\theta) a \cdot \sec(\theta)^2 \ d\theta \newline
+I = a^2 \int \sec(\theta)^3 \ d\theta \newline
+$$
+
+(pending...)
+
 # Path Integral
 
 The Integral along some path $C$ is:
 
 $$
-\int_{C} f(x, y, z,...) \ dr = \int_{a}^{b} f(C_x(t), C_y(t), C_z(t), ...) \cdot C_r'(t) dt
+\int_{C} f(x, y, z,...) \ dr = \int_{a}^{b} f(C_x(t), C_y(t), C_z(t), ...) \cdot C_r'(t) \ dt
 $$
 
 $r$ is some paramter of the function $f(x, y, z, ..., r,...)$
@@ -157,6 +187,9 @@ $$C: [a, b] \to \mathbb{R}^{n}$$
 
 in case of $ds$ which represents the step in the direction of $C(t)$
 
+$ds = \sqrt{dx^2 + dy^2 + dz^2 + ...}$
 $$
-\int_{C} f(x, y, z,...) \ ds = \int_{a}^{b} f(C_x(t), C_y(t), C_z(t), ...) \cdot C_r'(t) dt
+\int_{C} f(x, y, z,...) \ ds = \int_{a}^{b} f(C_x(t), C_y(t), C_z(t), ...) \cdot \sqrt{C_x'(t)^2 + C_y'(t)^2 + C_z'(t)^2 + ... } \ dt
 $$
+
+# Complex Integration

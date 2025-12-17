@@ -185,6 +185,7 @@ x^8 - 9x^8y  + 45x^8y^2 - 165x^8y^3 + 495x^8y^4 - 1287x^8y^5 + 3003x^8y^6 - 6435
 x^9 - 10x^9y + 55x^9y^2 - 220x^9y^3 + 715x^9y^4 - 2002x^9y^5 + 5005x^9y^6 - 11440x^9y^7 + 24310x^9y^8 - 48620x^9y^9 + ... \newline
 ... - ...    + ...      - ...       + ...       - ...        + ...        - ...         + ...         - ...         + ... \newline
 $$
+
 > these coefficients were computed via this library's computational tools and are most likely correct but there's always a small chance for a problems to occur
 
 This Results in an Infinite Number of Infinite series

@@ -100,7 +100,7 @@ Applied Mathematics
 | $$\frac{dy}{dx}$$                       | **Lebniz's Notation**         | $$\frac{df}{dx}$$                 |
 | $$\frac{\partial f}{\partial x}$$       | **Lebniz's Notation**         | $$\frac{\partial f}{\partial x}$$ |
 **Calculus**
-| $$\infty$$                              | **Infinity**                  | $$\infty$$                        |
+| $\infty$                                | **Infinity**                  | $\infty$                          |
 | $$\int$$                                | **Integral**                  | $$\int_a^b$$                      |
 | $\mapsto$                               | **Namesless Function**        | $x \mapsto y$                     |
 | $\log$                                  | **Logarithm**                 | $\log_ab = n$<br>$a^n = b$        |
@@ -167,14 +167,14 @@ $f(1) = 1$
 
 $f(n) = f(n-1) + f(n-2)$
 
-| Symbol | Name                              | Decimal Value               | Obtain                                                   |
-| ------ | --------------------------------- | --------------------------- | -------------------------------------------------------- |
-| $\pi$  | **Pi**                            | $3.14159265358979323846...$ |                                                          |
-| $\tau$ | **tau**                           | $6.28318530717958647692...$ | $2\pi$                                                   |
-| $e$    | **Euler's Number**                | $2.71828182845904523536...$ | $$\sum_{n=0}^\infty\frac{1}{n!} = \frac{1 + \sqrt5}{2}$$ |
-| $i$    | **Imaginary Unit**                | $i$                         | $\sqrt{-1}$                                              |
-| $\phi$ | **Golden Ratio**                  | $1.61803398874989484820...$ | $$\lim_{n \to \infty}\frac{f(n)}{f(n-1)}$$               |
-| $\psi$ | **Reciprocal Fibbonaci Constant** | $3.35988566624317755317...$ | $$\sum_{n=1}^{\infty}\frac{1}{f(n)}$$                    |
+| Symbol | Name                              | Decimal Value               | Obtain                                                              |
+| ------ | --------------------------------- | --------------------------- | ------------------------------------------------------------------- |
+| $\pi$  | **Pi**                            | $3.14159265358979323846...$ |                                                                     |
+| $\tau$ | **tau**                           | $6.28318530717958647692...$ | $2\pi$                                                              |
+| $e$    | **Euler's Number**                | $2.71828182845904523536...$ | $$\sum_{n=0}^\infty\frac{1}{n!}$$                                   |
+| $i$    | **Imaginary Unit**                | $i$                         | $\sqrt{-1}$                                                         |
+| $\phi$ | **Golden Ratio**                  | $1.61803398874989484820...$ | $$\lim_{n \to \infty}\frac{f(n)}{f(n-1)} = \frac{1 + \sqrt{5}}{2}$$ |
+| $\psi$ | **Reciprocal Fibbonaci Constant** | $3.35988566624317755317...$ | $$\sum_{n=1}^{\infty}\frac{1}{f(n)}$$                               |
 
 
 ## Notation

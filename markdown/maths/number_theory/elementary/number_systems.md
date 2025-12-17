@@ -6,31 +6,47 @@ Different Type of Number System that are used in Mathematics:
 
 **Natural Numbers**/**Positive Numbers**: $\mathbb{N}$ the Set of every number that be found in Nature.
 $$
-\mathbb{N} = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ... \}
+\mathbb{N} = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ... \}
 $$
-can be built up from the Peano Axioms
-
 numbers within this set are usually denoted as $n$ for $n \in \mathbb{N}$
+
+### Peano Axioms
+
+The Origin of The Natural Numbers:
+
+$\mathbb{N}$ and $s(n)$ must satisfy the following properties:
+
+**A1**:
+$$\exists 0[ 0 \in \mathbb{N}]$$
+> The starting point
+
+**A2**:
+$$\forall n \in \mathbb{N} [s(n) \in \mathbb{N}]$$
+> Closure
+
+**A3**:
+$$\forall a, b \in \mathbb{N} [a = b \iff s(a) = s(b)]$$
+> s is bijective, and equality is preserved under it.
+
+**A4**:
+$$\lnot \exists n \in \mathbb{N} [s(n) = 0]$$
+> ensures that the system doesn't cyclic back to the start.
+
+**A5**:
+
 
 ## Negative Numbers
 
-**Negative Numbers**: $\mathbb{Z}^-$ the Set of Negative Version of every *Positive Numbers*.
+**Negative Numbers**: $\mathbb{Z}^-$ the Set of Negative Version of every Natural Numbers.
 $$
 \mathbb{Z}^{-} = \{ -n | n \in \mathbb{N} \} \newline
 = \{...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1\}
-$$
-## Whole Numbers
-
-**Whole Numbers**: $\mathbb{W}$ the Set of every *Positive Numbers* and The Number `0`.
-$$
-\mathbb{W} = \mathbb{N}\cup\{0\} \newline
- = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...\}
 $$
 ## Integers
 
 **Integers**: $\mathbb{Z}$ the Set containing All *Positive* and *Negative* Numbers also also `0`
 $$
-\mathbb{Z} = \mathbb{N} \cup \mathbb{Z}^{-} \cup \{0\} \newline
+\mathbb{Z} = \mathbb{N} \cup \mathbb{Z}^{-} \newline
 = \{...-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ...\}
 $$
 
@@ -119,13 +135,12 @@ $$
 | ---------------- | --------- | ------------ | --------------- | --------- |
 | Natural/Positive | ✅        | ❌           | ✅              | ❌        |
 | Negative         | ✅        | ❌           | ❌              | ❌        |
-| Whole            | ✅        | ❌           | ✅              | ❌        |
 | Integers         | ✅        | ✅           | ✅              | ❌        |
 | Rationals        | ✅        | ✅           | ✅              | ❌        |
 | Reals            | ✅        | ✅           | ✅              | ❌        |
 | Complex          | ✅        | ✅           | ✅              | ❌        |
 
-**Communicativity**: Describes whether changing the Order of Operands in an expression, results in the same output.
+**Commutativity**: Describes whether changing the Order of Operands in an expression, results in the same output.
 
 $$
 a + b + c = b + a + c = c + a + b ✅
@@ -143,7 +158,7 @@ $$
 (a - b) - c \neq a - (b - c) ❌
 $$
 
-**Associativity and Communicativity For**:
+**Associativity and Commutativity For**:
 | Number System    | Addition | Subtraction | Multiplication | Division |
 | ---------------- | -------- | ----------- | -------------- | -------- |
 | Natural/Positive | ✅        | ❌           | ✅              | ❌        |

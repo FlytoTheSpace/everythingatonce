@@ -4,8 +4,8 @@ An attempt to Mapping out all of major subjects and Knowledge The World has to o
 
 ## Subjects
 
-- [`Mathematics`](./markdown//maths/maths.md)
-- [`Science`](./markdown//science/science.md) (Old)
+- [`Mathematics`](./markdown/maths/maths.md)
+- [`Science`](./markdown/science/science.md) (Old)
 
 ## Libraries
 
@@ -22,27 +22,13 @@ An attempt to Mapping out all of major subjects and Knowledge The World has to o
 
 ## Sources
 
-| Rank        | Collection                             |
-| ----------- | -------------------------------------- |
-| ✅ **Good** | Documents, Professionals, TextBooks... |
-| 🟡 **Fair** | Google, Wikipedia, Chatbots...         |
-| ❌ **Bad**  | Conspiracies, 
+The Main Sources of all the information are from:
 
-**Good Sources**:
+- Textbooks
+- Articles
+- Contributor
 
-- Documents with Data, Logic and Reasoning to backup the information.
-- Professionals with years of experience and expertise, maybe hard to reach out to one.
-- TextBooks with legimitate sources and well documented pages.
-
-**Fair Sources**
-
-- Google a decent enough source of information due to it's large size.
-- Wikipedia with articles on almost every subject
-- Chatbots are fair to use as long as the information has logic, have further sources, and someone needs to act as an intermediary.
-
-**Bad Sources**
-
-- Conspiracies are a example of a bad source, since it abandons all logic and focuses on agreement.
+AI made content is only found in `.txt` files which are discontinued (legacy), All markup content is made by a human.
 
 ## Timeline
 
@@ -53,6 +39,3 @@ Documents every major event since the creation of this repository
 - `7th December 2024`: changed name to "**everythingatonce**"
 
 - somewhere between `7th December 2024`-`3rd August 2025`: Repository is open source.
-
-
-> `(This Repository is currently private but it's meant to be published in the near future)`

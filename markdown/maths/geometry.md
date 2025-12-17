@@ -28,12 +28,6 @@ Properties:
 
 **Symmetry**: Figures with Evenly Balanced Proportions
 
-# 2D
-
-**Perimeter**: Length along the Boundaries of any Shape.
-
-**Area**: Amount of area covered by any Shape.
-
 ## Lines
 
 **Line Segment**: A Line that stop at 2 distinct points.
@@ -98,6 +92,12 @@ Sum Types:
 - **Supplementary Angles**: when sum of 2 angles equals to $180\degree$
 
 	$\angle a + \angle b = 180\degree$
+
+# 2D
+
+**Perimeter**: Length along the Boundaries of any Shape.
+
+**Area**: Amount of space covered by any Shape.
 
 ## Circle
 
@@ -179,12 +179,13 @@ Properties:
 - **Angle Based**:
 	- **Acute Angled Triangle**: A Triangle with All angles less than $90\deg$
 
-	$$90 \deg > a \land  b \land  c$$
+	$$90 \deg > a,  b,  c$$
 	- **Right Angled Triangle**: A Triangle with any one Angle equivalent to $90\deg$
 
 	$$90 \deg = a \lor  b \lor  c$$
 	- **Obtuse Angled Triangle**: A Triangle with any one Angle Greater than $90\deg$
 	$$90 \deg > a \lor  b \lor  c$$
+
 
 ### Quadrilateral
 

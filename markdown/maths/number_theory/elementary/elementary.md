@@ -1,169 +1,59 @@
 
 # Elementary Number Theory
 
-## Base
+All Numbers used within this are Integer. i.e
 
-### Base 10
+$$a, b, c, d, ... \in \mathbb{Z}$$
 
----
+# Divisiblity
 
-Where the Numbers uses 10 Symbols to represent themselves
+$$a \mid b \implies \exists k (b = a \cdot b)$$
 
-The most common set of symbols is the Western One's:
 
+### Divisibility Properites:
+
+$$a \mid 0$$
+
+$$0 \mid a \implies n = 0$$
+
+$$1 \mid a$$
+
+$$a \mid a$$
+
+$$a \mid 1 \implies a = \pm 1$$
+
+$$a \mid b \land b \mid c \implies a \mid c$$
+
+$$a \mid b = ac \mid bc, c\in \mathbb{Q}$$
+
+$$c \mid a \land c \mid b \implies c \mid am + bn, \forall m, n $$
+
+$$a \mid b \implies |a| \leq |b|$$
+
+**Even Numbers**:
+a is even if:
 $$
-0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+2 \mid a
 $$
-
-
-
-**Internation System of Numerals**: every *comma* `(,)` is placed after every 3rd digit
-
-$
-50,801,591
-$
-
-**Indian System of Numerals**: first *comma* `(,)` is placed after the 3rd digit and the rest of them are placed after every 2nd digit
-
-$
-5,08,01,591
-$
-
-**Roman Numerals**: using English Aplhabet to present Mathematical Number with a Known Quantity
-
-- $I: 1$
-- $V: 5$
-- $X: 10$
-- $L: 50$
-- $C: 100$
-- $D: 500$
-- $M: 1000$
-
-Rules:
-
-- Every 2nd (eg $V, L, D... $) Roman Numeral Aplhabet is are Never:
-	- Written behind the Symbol with Greater Value
-	- Repeated
-	- Subtracted
-- Non Second Roman Number (eg $I, X, C, M ...$)
-	- Not Repeated more then `3` times
-	- Can only be used for Subtraction for Alphabets up to `+2` next to it
-
-| Roman    | Western | Interpretation |
-| -------- | ------- | -------------- |
-| $$I   $$ | $$1  $$ | $$1         $$ |
-| $$II  $$ | $$2  $$ | $$1+1       $$ |
-| $$III $$ | $$3  $$ | $$1+1+1     $$ |
-| $$IV $$  | $$4  $$ | $$-1+5      $$ |
-| $$V $$   | $$5  $$ | $$5         $$ |
-| $$...$$  | $$...$$ | $$...       $$ |
-
-**Expanded Form**: large numbers are represeted as Unit Places, example:
-
+**Odd Numbers**
+a is odd if:
 $$
-214 = 2 \times 100  + 1 \times 10 + 4 \times 1
+2 \nmid a
 $$
 
-### Base 2
+**Negative Divisibility**:
 
----
-
-### Ratio
-
----
-
-**Ratio**: Comparison of any 2 or more values, that shows the relative size of one to another.
+if
+then:
 
 $$
-a \colon b
+a \mid b \implies \newline
+- a \mid b \land  \newline
+a \mid - b \land  \newline
+a \mid |b| \newline
 $$
 
-Properties:
-- Can only be compared with the same units
-- **Equivalent Ratios**: when 2 Ratios are equivalent to one another
-
-	$a : b = c : d$
-
-
-### Proportion
-
----
-
-**Proportion**: Property of Equality of 2 ratios
-
-$$a : b = c : d$$
-
-$$a : b :: c : d$$
-
-$$a : b = ak : bk $$
-
-Components:
-
-- **Respective Terms**: all 4 Terms involved $\{a, b, c, d\}$
-
-- **Extreme Terms**: First and the Last Terms $\{a, d\}$
-
-- **Middle Terms**: Second and the Third Terms $\{b, c\}$
-
-Types:
-
-- **Direct Proportion**: when given the value $x$, the second value $y$ will be a obtained as the product of $x$ with a Constant $k$
-
-$$(y = x \cdot k) \implies (y \propto x)$$
-
--  **Inverse Proportion**: when given the value $x$, $y$ will be obtained as $k$ over $x$
-
-$$(y = \frac{k}{x}) \implies (y \propto \frac{1}{x})$$
-
-## Factors
-
-**Factors**: Numbers that can be multiplied to obtain a new Number, those number will become the factors of the new Numbers
-
-$a \times b = c$
-
-Properties:
-
-- A Number is a multiple of each of it's factors
-
-- **1** is The Factor of every Number
-
-	$1\times a = a$ 
-
-- Every Number is a Factor of itself
-
-	$a \div a = 1 $
-
-- Every factor is an Exact divisor of that number and The Remainder should be `0`
-
-	$ a \mod b = 0$ ✅
-
-	$ a \mod b \neq 0$ ❌
-
-- Every factor is Either Equal or Less than the number
-
-	$ a \geq b $
-	
-	- `b` is a factor of `a`
-
-- Count of Factors is of a Number is **Finite**
-- Count of Multiples of a Number is **Infinite**
-
-| Number | Factors        | isPrime |
-| ------ | -------------- | ------- |
-| $1$    | $1$            | ❌       |
-| $2$    | $1,2$          | ✅       |
-| $3$    | $1,3$          | ✅       |
-| $4$    | $1,2,4$        | ❌       |
-| $5$    | $1,5$          | ✅       |
-| $6$    | $1,2,3,6$      | ❌       |
-| $7$    | $1,7$          | ✅       |
-| $8$    | $1,2,4,8$      | ❌       |
-| $9$    | $1,3,9$        | ❌       |
-| $10$   | $1,2,5,10$     | ❌       |
-| $11$   | $1,11$         | ✅       |
-| $12$   | $1,2,3,4,6,12$ | ❌       |
-
-Divisibility Rule
+### Divisibility Rules:
 
 | Number | Rule                                          |
 | ------ | --------------------------------------------- |
@@ -178,11 +68,41 @@ Divisibility Rule
 | $10$   | `0` in one's place                            |
 | $11$   | -                                             |
 
-### Prime Factorisation
 
----
+# Prime Numbers
 
-**Prime Factorisation**: A type of Factorisation in which the only remaining Factors are Prime Numbers and `1`
+The Prime Numbers are Defined as follows:
 
-- **Greatest Common Divisior** `GCD`: The Biggest Factor any 2 or more Numbers that are all divisible by it.
+$\mathbb{P} = \{n | n \in \mathbb{Z}, n > 1, \forall f [ 1 < f < n \land f \nmid n ]\}$
+
+**Composite Numbers**: 
+a number $n$ is composite $\iff \exists a, b [1 < a, b < n \land n \mid a, b]$
+
+
+every positive number greater than 1 has a prime divisor.
+$$
+\forall (n > 1) \exists (p \in \mathbb{P}) [p \mid n]
+$$
+
+Proof:
+
+define $S$
+$$S := \{n | n > 1, \lnot \exists p \in \mathbb{P}[ p \mid n ]\}$$
+if it's non-empty, then by Well-Ordering a smallest must $\exists m[m = \min(S)]$
+
+$$m \notin \mathbb{P}$$
+
+as all primes $p \mid p$, so $m$ must be composite, so there must $\exists a [a \mid m]$
+
+$$1 < a < m$$
+
+so $a < m \land m = \min(S) \therefore a \notin S$, meaning $a$ must have a factor of some $p$
+
+$$p \mid a \land a \mid m$$
+
+$$\therefore p \mid m $$
+
+this contradicts the definition of $S$
+
+
 

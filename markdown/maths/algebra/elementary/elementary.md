@@ -2,28 +2,28 @@
 
 The Fundamentals of Algebra and common formula's
 
-- [`Axioms`](#axioms): The Foundational assumptions in elementary algebra
-- [`Fractions`](#algebraic-fractions): Algebraic variant of fractions from basic arithmetic
-- [`Sum/Product Notation`](#sum-and-product): The Sum and the Product Notation
-- [`Exponents`](#exponents): The Exponents defined (mostly discrete)
-- [`Root`](#root): The Inverse of the Power, for obtaining the Base
-- [`Logarithm`](#logarithm): The Inverse of the Power, for obtaining the Exponent
-- [`Factorial`](#factorial): The Factorial Function (introductory)
-- [`Polynomial`](#polynomials): The Polynomials and their solutions (upto degree `4`)
-- [`Binomial Theorem`](#binomial-theorem): The Binomial Theorem and Pascal's Triangle
-- [`Systems of Linear Equations`](#systems-of-linear-equations): Solution to the Systems of Linear Equations of `n` degrees
+- [`Axioms`](#axioms): The Foundational assumptions in elementary algebra.
+- [`Algebraic Arithmetic`](#algebraic-arithmetic): Contains Fractions, Ratio, Propotionality.
+- [`Sum/Product Notation`](#sum-and-product): The Sum and the Product Notation.
+- [`Exponents`](#exponents): The Exponents defined (mostly discrete).
+- [`Root`](#root): The Inverse of the Power, for obtaining the Base.
+- [`Logarithm`](#logarithm): The Inverse of the Power, for obtaining the Exponent.
+- [`Factorial`](#factorial): The Factorial Function (introductory).
+- [`Polynomial`](#polynomials): The Polynomials and their solutions (upto degree `4`).
+- [`Binomial Theorem`](#binomial-theorem): The Binomial Theorem and Pascal's Triangle.
+- [`Systems of Linear Equations`](#systems-of-linear-equations): Solution to the Systems of Linear Equations of `n` degrees.
 
 # Axioms:
 
-These are some axioms which are built up on and often used throughout this library
+These are some axioms which are built up on and often used throughout this archive
 
 $\forall a, b$
 
-1. **Predictability**: functions `f` always return the same output given the same input:
+1. **Determinism**: functions `f` always return the same output given the same input:
 $$
 f(a) = f(a)
 $$
-some obvious exceptions are `random()`, `time()` etc. but they don't belong here.
+> some obvious exceptions are `random()`, `time()` etc. but they don't belong here.
 
 2. **Subtitutivity**: if `a` satisfies some condition `C` and `b` is equal to `a` then `b` also satisfies that condition
 $$
@@ -58,7 +58,7 @@ $$ (a + b) + c = a + (b + c) $$
 $$ a + 0 = 0 + a = a $$
 - **Inverse**:
 $$ a + (-a) = a - a = 0 $$
-- **Communicativity (Abelian)**:
+- **Commutativity (Abelian)**:
 $$ a + b = b + a $$
 
 ### Multiplication:
@@ -71,7 +71,7 @@ $$ (ab)c = a(bc) $$
 $$ a \cdot 1 = 1 \cdot a = a $$
 - **Inverse**:
 $$ a \cdot \left(\frac{1}{a}\right) = \frac{a}{a} = 1 $$
-- **Communicativity (Abelian)**:
+- **Commutativity (Abelian)**:
 $$ ab = ba $$
 
 - **Distributive Property** (Addition and Multiplication):
@@ -90,15 +90,7 @@ $\color{MediumSeaGreen}4x^2 - 3xy = \color{MediumSeaGreen}6x^2 - 2x^2 - 3xy$
 - **Expression**: contains all the terms and operands
 
 	$\color{MediumSeaGreen}4x^2 - 3xy$
-
-- **Terms**: Parts that needs to be solved independently
-	
-	$\color{MediumSeaGreen}{4x^2} \color{white}{ - } \color{MediumSeaGreen}{3xy}$ 
-
-	- **Like Terms**: when Algebraic Factors of 2 terms are the same
-	- **Unlike Terms**: when Algebraic Factors of 2 terms are not the same
-
-- **Factors**: all of the individual factors of the expression
+a^2he expression
 
 	$(\color{MediumSeaGreen}4 \color{white}\times \color{MediumSeaGreen}x \color{white}\times \color{MediumSeaGreen}x\color{white}) - (\color{MediumSeaGreen}3 \color{white}\times \color{MediumSeaGreen}x \color{white}\times \color{MediumSeaGreen}y\color{white})$ 
 - **Coefficient**: The Other Factors in the Same Term
@@ -111,43 +103,48 @@ $\color{MediumSeaGreen}4x^2 - 3xy = \color{MediumSeaGreen}6x^2 - 2x^2 - 3xy$
 
 		$3\color{MediumSeaGreen}xy\color{white}$ 
 
-# Algebraic Fractions
+# Algebraic Arithmetic
+
+- [`Fractions`](#fractions): Algebraic variant of fractions from basic arithmetic
+- [`Ratio`](#ratio): Algebraic variant of fractions from basic arithmetic
+- [`Proportion`](#proportion): Algebraic variant of fractions from basic arithmetic
+
+## Fractions
 
 **Fractions**: Numbers that are obtained after divison between 2 numbers
 $$
 \frac{a}{b} = a \div b
 $$
 
-Properties:
-- $b \neq 0$, `b` must not be equal to $0$
-- **Nominator**/**Numerator**: value That Sits on Top of The Fraction
-- **Dominator**/**Denomitor**: value That Sits on Bottom of The Fraction
+- long as $b \neq 0$
+- **Nominator**/**Numerator**: value on Top of The Fraction
+- **Dominator**/**Denomitor**: value on Bottom of The Fraction
 
 $$
 \frac{\text{Nominator}}{\text{Dominator}}
 $$
 
-- **Negative Sign Switch**
+Properties:
+
 $$
 -\frac{a}{b} = \frac{-a}{b} = \frac{a}{-b}
 $$
-- **Equivalent Fractions**: when 2 factions represent the same value
-
-- Multiplication/Divison of the Nominator and the Dominator by the same number, doesn't changes the original value
 $$
 \frac{a}{b} = \frac{a\times c}{b\times c} = \frac{a\div c}{b\div c}
 $$
 
-**Proper Fractions**: fractions where Nominator is <u>smaller</u> than The Denominator
+**Proper Fractions**: $a < b$
 
-**Improper Fractions**: fractions where Nominator is <u>bigger</u> than The Denominator
+**Improper Fractions**: $a > b$
 
 **Mixed Fractions**: A mix of an Integer and A Fraction
 
 $$
 c \frac{a}{b} = c + \frac{a}{b}
 $$
+
 - To Mixed:
+
 $$
 n \mod b = a
 $$
@@ -209,6 +206,35 @@ x = \frac{2363 \cdot 2}{450 \cdot 2} \newline
 x = \frac{2363}{450} \newline
 $$
 
+
+## Ratio
+
+**Ratio**: Comparison of any 2 or more values, that shows the relative size of one to another (this is the same as a fraction).
+
+$$
+a \colon b
+$$
+
+Properties:
+- Can only be compared with the same units
+- **Equivalent Ratios**: when 2 Ratios are equivalent to one another
+
+	$a : b = c : d$
+
+## Proportion
+
+**Proportion**: Property of Equality of 2 ratios
+
+$$
+y \propto x \implies \exists k[ y = k \cdot x]
+$$
+
+**Inverse Proportion**:
+
+$$
+y \propto \frac{1}{x} \implies \exists k\left[ y = \frac{k}{x}\right]
+$$
+
 # Sum and Product
 
 ## Sum Notation
@@ -232,6 +258,14 @@ $$
 \displaystyle \sum_{i = 1}^{b} a = a \cdot b
 $$
 
+$$
+\sum_{i = a}^{b} c \cdot f(i) = c \sum_{i = a}^{b} f(i)
+$$
+
+$$
+\sum_{i = a}^{b} f(i) = \sum_{i = a}^{c} f(i) + \sum_{i = c + 1}^{b} f(i)
+$$
+
 **Change in Index Variable**:
 $$
 \displaystyle \sum_{k = a}^b f(k) = \displaystyle \sum_{i = g^{-1}(a)}^{g^{-1}(b)}f(g(i))
@@ -249,13 +283,20 @@ $a, b \in \mathbb{W} \land a \leq b$
 
 **Some Properties**:
 
-
 $$
-b < a \implies \displaystyle \prod_{k = a}^{b} f(k) = 1
+b < a \implies \displaystyle \prod_{i = a}^{b} f(i) = 1
 $$
 
 $$
 \displaystyle \prod_{i = 1}^{b} a = a^b
+$$
+
+$$
+\prod_{i = a}^{b} f(i)^{n} = \left(\prod_{i = a}^{b} f(i)\right)^{n}
+$$
+
+$$
+\prod_{i = a}^{b} f(i) = \left(\prod_{i = a}^{c} f(i) \right)\left( \prod_{i = c + 1}^{b} f(i) \right)
 $$
 
 **Change in Index Variable**:
@@ -641,17 +682,83 @@ $$
 (a - b)! = a! \cdot \prod_{k = 0}^{b} \frac{1}{a-k} = \frac{a!}{a(a-1)(a-2 )...}
 $$
 
+# Algebraic Factorization
+
+$$ab + ac = a(b + c)$$
+
+$$(a + b)(a + c) = a^2 + a(b + c) + bc$$
+
+$$a^n - b^n = (a - b)\sum_{i + j = n - 1} a^j b^j$$
+
+$$x^3 + y^3 + z^3 - 3xyz = (x + y + z)(x^2 + y^2 + z^2 -xy - xz - yz)$$
 
 # Polynomials
 
 Polynomials are of form:
 
 $$
-P(x) = a_0 +\sum_{k=1}^na_kx^k \newline
+P(x) = \sum_{k=0}^na_kx^k \newline
 = a_0 + a_1x + a_2x^2 + a_3x^3 + a_4x^4 + a_5x^5 + a_6x^6 + ...
 $$
 
-The value `n` is called the Degree of the Polynomial, long as $a_n \neq 0$ 
+The value $n$ is called the Degree of the Polynomial, long as $a_n \neq 0$ 
+
+$a_0^{0}$ is taken as $1$ for notational purpose.
+
+### Term Count
+
+The Number of terms in a polynomial with a unique power to each other of $x$ is called are following:
+
+- Monomial
+
+	$$ax^p$$
+
+- Binomial
+
+	$$ax^p + bx^q$$
+
+- Trinomial
+
+	$$ax^p + bx^q + cx^r$$
+
+...
+
+## Polynomial Based Theorems
+
+### Theorem 1
+
+Every $n$'th degree polynomial can be expressed as the following
+
+$$
+\sum_{k=0}^na_kx^k = a_n \prod_{i = 1}^{n}(x + r_i)
+$$
+
+$$
+a_n x^n + a_{n - 1} x^{n - 1} + ...  + a_{2} x^{2} +  + a_{1} x^{1} + a_0 = a_n(x + r_n)(x + r_{n - 1})...(x + r_2)(x + r_1)
+$$
+
+### Remainder Theorem
+
+$$D(x) = x + c$$
+$$P(x) = D(x)\ Q(x) + R(x)$$
+
+$R(x)$ degree < $D(x)$ $\therefore R(x) = r$
+
+$$P(x) = D(x)\ Q(x) + r$$
+
+$$
+P(x) = (x + c)\ Q(x) + r \newline
+P(- c) = ((-c) + c)\ Q(-c) + r \newline
+P(- c) = r \newline
+$$
+
+$$
+P(- c) = r \newline
+$$
+
+### Factor Theorem
+
+$$P(x)\ |\ (x - c) \iff P(- c) = 0$$
 
 ## Roots of Polynomials
 
@@ -713,15 +820,15 @@ longs as $(a \neq 0) \newline$
 
 ### Quadratic
 
-[`quadratic.md`](./elementary/quadratic.md)
+[`quadratic.md`](./quadratic.md)
 
 ### Cubic
 
-[`cubic.md`](./elementary/cubic.md)
+[`cubic.md`](./cubic.md)
 
 ### Quartic
 
-[`quartic.md`](./elementary/quartic.md)
+[`quartic.md`](./quartic.md)
 
 # Binomial Theorem
 
@@ -845,57 +952,56 @@ define: $x_0 = 1$
 
 $$
 \begin{cases}
-\displaystyle \sum_{i = 0}^{n} a_{i,1} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n} a_{i,2} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n} a_{i,3} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n} a_{i,4} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n} a_{1,j} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n} a_{2,j} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n} a_{3,j} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n} a_{4,j} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n} a_{i,j} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n} a_{i,j} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n} a_{i,n} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n} a_{n,j} x_{j} = 0 \cr
 \end{cases}
 $$
-
 
 solve for $x_n$ in each
 
 $$
 x_n 
-= - \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,1}}{a_{n, 1}} x_{i}
-= - \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,2}}{a_{n, 2}} x_{i}
-= - \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,3}}{a_{n, 3}} x_{i}
-= - \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,4}}{a_{n, 4}} x_{i}
+= - \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{1,j}}{a_{1,n}} x_{j}
+= - \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{2,j}}{a_{2,n}} x_{j}
+= - \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{3,j}}{a_{3,n}} x_{j}
+= - \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{4,j}}{a_{4,n}} x_{j}
 = ...
-= - \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,j}}{a_{n, j}} x_{i}
+= - \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{i,j}}{a_{i,n}} x_{j}
 = ...
-= - \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n}}{a_{n, n}} x_{i}
+= - \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n,j}}{a_{n,n}} x_{j}
 $$
 
 variable $x_n$ is now eliminated from the set of equations
 
 $$
-  \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,1}}{a_{n, 1}} x_{i}
-= \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,2}}{a_{n, 2}} x_{i}
-= \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,3}}{a_{n, 3}} x_{i}
-= \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,4}}{a_{n, 4}} x_{i}
+  \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{1,j}}{a_{1,n}} x_{j}
+= \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{2,j}}{a_{2,n}} x_{j}
+= \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{3,j}}{a_{3,n}} x_{j}
+= \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{4,j}}{a_{4,n}} x_{j}
 = ...
-= \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,j}}{a_{n, j}} x_{i}
+= \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{i,j}}{a_{i,n}} x_{j}
 = ...
-= \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n}}{a_{n, n}} x_{i}
+= \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n,j}}{a_{n,n}} x_{j}
 $$
 
 create pairs of equations with 2 expressions from this, It will result in $n - 1$ count of set equations with $n - 1$ count of variables:
 
 $$
 \begin{cases}
-\displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n}}{a_{n, n}} x_{i} = \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,1}}{a_{n, 1}} x_{i} \cr
-\displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n}}{a_{n, n}} x_{i} = \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,2}}{a_{n, 2}} x_{i} \cr
-\displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n}}{a_{n, n}} x_{i} = \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,3}}{a_{n, 3}} x_{i} \cr
-\displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n}}{a_{n, n}} x_{i} = \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,4}}{a_{n, 4}} x_{i} \cr
+\displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n,j}}{a_{n,n}} x_{j} = \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{1, j}}{a_{1,n}} x_{j} \cr
+\displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n,j}}{a_{n,n}} x_{j} = \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{2, j}}{a_{2,n}} x_{j} \cr
+\displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n,j}}{a_{n,n}} x_{j} = \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{3, j}}{a_{3,n}} x_{j} \cr
+\displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n,j}}{a_{n,n}} x_{j} = \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{4, j}}{a_{4,n}} x_{j} \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n}}{a_{n, n}} x_{i} = \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,j}}{a_{n, j}} x_{i} \cr
+\displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n,j}}{a_{n,n}} x_{j} = \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{i, j}}{a_{i,n}} x_{j} \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n}}{a_{n, n}} x_{i} = \displaystyle \sum_{i = 0}^{n - 1} \frac{a_{i,n - 1}}{a_{n, n - 1}} x_{i} \cr
+\displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n,j}}{a_{n,n}} x_{j} = \displaystyle \sum_{j = 0}^{n - 1} \frac{a_{n - 1, j}}{a_{n - 1,n}} x_{j} \cr
 \end{cases}
 $$
 
@@ -903,14 +1009,14 @@ simplify:
 
 $$
 \begin{cases}
-\displaystyle \sum_{i = 0}^{n - 1} \left(\frac{a_{i,n}}{a_{n, n}} - \frac{a_{i,1}}{a_{n, 1}}\right) x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 1} \left(\frac{a_{i,n}}{a_{n, n}} - \frac{a_{i,2}}{a_{n, 2}}\right) x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 1} \left(\frac{a_{i,n}}{a_{n, n}} - \frac{a_{i,3}}{a_{n, 3}}\right) x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 1} \left(\frac{a_{i,n}}{a_{n, n}} - \frac{a_{i,4}}{a_{n, 4}}\right) x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} \left(\frac{a_{n,j}}{a_{n,n}} - \frac{a_{1, j}}{a_{1,n}}\right) x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} \left(\frac{a_{n,j}}{a_{n,n}} - \frac{a_{2, j}}{a_{2,n}}\right) x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} \left(\frac{a_{n,j}}{a_{n,n}} - \frac{a_{3, j}}{a_{3,n}}\right) x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} \left(\frac{a_{n,j}}{a_{n,n}} - \frac{a_{4, j}}{a_{4,n}}\right) x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 1} \left(\frac{a_{i,n}}{a_{n, n}} - \frac{a_{i,j}}{a_{n, j}}\right) x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} \left(\frac{a_{n,j}}{a_{n,n}} - \frac{a_{i, j}}{a_{i,n}}\right) x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 1} \left(\frac{a_{i,n}}{a_{n, n}} - \frac{a_{i,n - 1}}{a_{n, n - 1}}\right) x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} \left(\frac{a_{n,j}}{a_{n,n}} - \frac{a_{n - 1, j}}{a_{n - 1,n}}\right) x_{j} = 0 \cr
 \end{cases}
 $$
 
@@ -921,7 +1027,7 @@ R_{i,j}^{0} = a_{i,j}
 $$
 
 $$
-R_{i,j}^{1} = \frac{a_{i,n}}{a_{n, n}} - \frac{a_{i,j}}{a_{n, j}}
+R_{i,j}^{1} = \frac{a_{n,j}}{a_{n,n}} - \frac{a_{i, j}}{a_{i,n}}
 $$
 
 Now Repeat:
@@ -929,115 +1035,215 @@ Now Repeat:
 1st Iteration:
 $$
 \begin{cases}
-\displaystyle \sum_{i = 0}^{n - 1} R_{i, 1}^{1} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 1} R_{i, 2}^{1} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 1} R_{i, 3}^{1} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 1} R_{i, 4}^{1} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} R_{1, j}^{1} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} R_{2, j}^{1} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} R_{3, j}^{1} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} R_{4, j}^{1} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 1} R_{i, j}^{1} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} R_{i, j}^{1} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 1} R_{i, n - 1}^{1} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 1} R_{n - 1, j}^{1} x_{j} = 0 \cr
 \end{cases}
 $$
 
 2st Iteration:
 
 $$
-R_{i,j}^{2} = \frac{R_{i,n - 1}^{1}}{R_{n - 1, n - 1}^{1}} - \frac{R_{i,j}^{1}}{R_{n - 1, j}^{1}}
+R_{i,j}^{2} = \frac{R_{n - 1,j}^{1}}{R_{n - 1,n - 1}^{1}} - \frac{R_{i,j}^{1}}{R_{i, n - 1}^{1}}
 $$
 
 $$
 \begin{cases}
-\displaystyle \sum_{i = 0}^{n - 2} R_{i, 1}^{2} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 2} R_{i, 2}^{2} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 2} R_{i, 3}^{2} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 2} R_{i, 4}^{2} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 2} R_{1,j}^{2} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 2} R_{2,j}^{2} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 2} R_{3,j}^{2} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 2} R_{4,j}^{2} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 2} R_{i, j}^{2} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 2} R_{i,j}^{2} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 2} R_{i, n - 2}^{2} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 2} R_{n - 2,j}^{2} x_{j} = 0 \cr
 \end{cases}
 $$
 
 3rd Iteration:
 
 $$
-R_{i,j}^{3} = \frac{R_{i,n - 2}^{2}}{R_{n - 2, n - 2}^{2}} - \frac{R_{i,j}^{2}}{R_{n - 2, j}^{2}}
+R_{i,j}^{3} = \frac{R_{n - 2,j}^{2}}{R_{n - 2, n - 2}^{2}} - \frac{R_{i,j}^{2}}{R_{i,n - 2}^{2}}
 $$
 
 $$
 \begin{cases}
-\displaystyle \sum_{i = 0}^{n - 3} R_{i, 1}^{3} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 3} R_{i, 2}^{3} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 3} R_{i, 3}^{3} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - 3} R_{i, 4}^{3} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 3} R_{1,j}^{3} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 3} R_{2,j}^{3} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 3} R_{3,j}^{3} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 3} R_{4,j}^{3} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 3} R_{i, j}^{3} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 3} R_{i,j}^{3} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - 3} R_{i, n - 3}^{3} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - 3} R_{n - 3,j}^{3} x_{j} = 0 \cr
 \end{cases}
 $$
 
 `m`'th Iteration:
 
 $$
-R_{i,j}^{m} = \frac{R_{i,n - (m - 1)}^{m - 1}}{R_{n - (m - 1), n - (m - 1)}^{m - 1}} - \frac{R_{i,j}^{m - 1}}{R_{n - (m - 1), j}^{m - 1}}
+R_{i,j}^{m} = \frac{R_{n - (m - 1), j}^{m - 1}}{R_{n - (m - 1), n - (m - 1)}^{m - 1}} - \frac{R_{i,j}^{m - 1}}{R_{i, n - (m - 1)}^{m - 1}}
 $$
 
 $$
 \begin{cases}
-\displaystyle \sum_{i = 0}^{n - m} R_{i, 1}^{m} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - m} R_{i, 2}^{m} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - m} R_{i, 3}^{m} x_{i} = 0 \cr
-\displaystyle \sum_{i = 0}^{n - m} R_{i, 4}^{m} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - m} R_{1,j}^{m} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - m} R_{2,j}^{m} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - m} R_{3,j}^{m} x_{j} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - m} R_{4,j}^{m} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - m} R_{i, j}^{m} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - m} R_{i,j}^{m} x_{j} = 0 \cr
 ... \cr
-\displaystyle \sum_{i = 0}^{n - m} R_{i, n - m}^{m} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{n - m} R_{n - m,j}^{m} x_{j} = 0 \cr
 \end{cases}
 $$
 
 $n - 1$ Iteration:
 
 $$
-R_{i,j}^{n - 1} = \frac{R_{i,2}^{n - 2}}{R_{2,2}^{n - 2}} - \frac{R_{i,j}^{n - 2}}{R_{2, j}^{n - 2}}
+R_{i,j}^{n - 1} = \frac{R_{2,j}^{n - 2}}{R_{2,2}^{n - 2}} - \frac{R_{i,j}^{n - 2}}{R_{i,2}^{n - 2}}
 $$
 
 $$
 \begin{cases}
-\displaystyle \sum_{i = 0}^{1} R_{i, 1}^{n - 1} x_{i} = 0 \cr
+\displaystyle \sum_{j = 0}^{1} R_{1,j}^{n - 1} x_{j} = 0 \cr
 \end{cases}
 $$
 
 solve for the final variable in a single Linear Equation:
 
 $$
-\displaystyle \sum_{i = 0}^{1} R_{i, 1}^{n - 1} x_{i} = 0 \newline
-R_{0, 1}^{n - 1} x_{0} + R_{1, 1}^{n - 1}x_{1} = 0 \newline
+\displaystyle \sum_{j = 0}^{1} R_{1, j}^{n - 1} x_{j} = 0 \newline
+R_{1, 0}^{n - 1}x_{0} + R_{1, 1}^{n - 1}x_{1} = 0 \newline
 $$
 
 > previous definition: $x_0 = 1$
 
 $$
-R_{0, 1}^{n - 1} + R_{1, 1}^{n - 1}x_{1} = 0 \newline
+R_{1, 0}^{n - 1} + R_{1, 1}^{n - 1}x_{1} = 0 \newline
 $$
 
 $$
-x_1 = - \frac{R_{0, 1}^{n - 1}}{R_{1, 1}^{n - 1}} \newline
+x_1 = - \frac{R_{1, 0}^{n - 1}}{R_{1, 1}^{n - 1}} \newline
 $$
 
-
-## Final Solution
-
-$$
-x_1 = - \frac{R_{0, 1}^{n - 1}}{R_{1, 1}^{n - 1}} \newline
-$$
-where:
+## Optimizing $R_{i,j}^{m}$
 
 $$
-R_{i,j}^{0} = a_{i,j}
+R_{i,j}^{m} = \frac{R_{n - (m - 1), j}^{m - 1}}{R_{n - (m - 1), n - (m - 1)}^{m - 1}} - \frac{R_{i,j}^{m - 1}}{R_{i, n - (m - 1)}^{m - 1}}
+$$
+
+at any `m`'th iteration:
+
+$$
+\displaystyle \sum_{j = 0}^{n - m} R_{i,j}^{m} x_{j} = 0 \newline
+\displaystyle \sum_{j = 0}^{n - m} \left(\frac{R_{n - (m - 1), j}^{m - 1}}{R_{n - (m - 1), n - (m - 1)}^{m - 1}} - \frac{R_{i,j}^{m - 1}}{R_{i, n - (m - 1)}^{m - 1}}\right) x_{j} = 0 \newline
+\displaystyle \sum_{j = 0}^{n - m} \left(\frac{R_{n - (m - 1), j}^{m - 1}}{R_{n - (m - 1), n - (m - 1)}^{m - 1}}\right) x_{j} = \displaystyle \sum_{j = 0}^{n - m} \left(\frac{R_{i,j}^{m - 1}}{R_{i, n - (m - 1)}^{m - 1}}\right) x_{j} \newline
+\displaystyle \sum_{j = 0}^{n - m} \left(R_{n - (m - 1), j}^{m - 1}\right)\left(R_{i, n - (m - 1)}^{m - 1}\right) x_{j} = \displaystyle \sum_{j = 0}^{n - m} \left(R_{i,j}^{m - 1}\right)\left(R_{n - (m - 1), n - (m - 1)}^{m - 1}\right) x_{j} \newline
+\displaystyle \sum_{j = 0}^{n - m} \left(R_{i, n - (m - 1)}^{m - 1} R_{n - (m - 1), j}^{m - 1}\right) x_{j} = \displaystyle \sum_{j = 0}^{n - m} \left(R_{i,j}^{m - 1} R_{n - (m - 1), n - (m - 1)}^{m - 1}\right) x_{j} \newline
+\displaystyle \sum_{j = 0}^{n - m} \left(R_{i, n - (m - 1)}^{m - 1} R_{n - (m - 1), j}^{m - 1} - R_{i,j}^{m - 1} R_{n - (m - 1), n - (m - 1)}^{m - 1}\right) x_{j} = 0 \newline
+
+
+$$
+now define a new $A$ in place of $R$ so we get:
+
+$$
+A_{i,j}^{0} = a_{ij}
+$$
+$$
+A_{i,j}^{m} = A_{i,n - (m - 1)}^{m - 1} A_{n - (m - 1), j}^{m - 1} - A_{i,j}^{m - 1} A_{n - (m - 1), n - (m - 1)}^{m - 1} \newline
 $$
 
 $$
-R_{i,j}^{m} = \frac{R_{i,n - (m - 1)}^{m - 1}}{R_{n - (m - 1), n - (m - 1)}^{m - 1}} - \frac{R_{i,j}^{m - 1}}{R_{n - (m - 1), j}^{m - 1}}
+\displaystyle \sum_{j = 0}^{n - m} R_{i, j}^{m} x_{j} = \displaystyle \sum_{j = 0}^{n - m} A_{i, j}^{m} x_{j} = 0
 $$
+
+now it involves no division, which is known for it's slowness in computations
+
+## Solutions
+
+Coefficients:
+
+$$
+A_{i,j}^{0} = a_{i,j}
+$$
+
+$$
+A_{i,j}^{m} = A_{i,n - (m - 1)}^{m - 1} A_{n - (m - 1), j}^{m - 1} - A_{i,j}^{m - 1} A_{n - (m - 1), n - (m - 1)}^{m - 1} \newline
+$$
+
+first solution:
+
+$$
+x_1 = - \frac{A_{1,0}^{n - 1}}{A_{1,1}^{n - 1}} \newline
+$$
+
+other solutions:
+$$
+x_k = - \frac{1}{A_{1, k}^{n - k}} \displaystyle \sum_{j = 0}^{k - 1} A_{1, j}^{n - k} x_{j}
+$$
+
+## Program
+
+now as a final thing let's program this, we'll do it in python:
+
+```python
+
+def LinearEquations(a0: list[list[float]]):
+    n = len(a0)
+    if (n != (len(a0[0]) - 1)):
+        return
+    A = [a0]
+    for m in range(1, n):
+        pm = m - 1
+        A.append([])
+        for i in range(0, n - m):
+            A[m].append([])
+            for j in range(0, n - pm):
+                acur = (A[pm][i][n - pm] * A[pm][n - pm - 1][j]) - (A[pm][i][j] * A[pm][n - pm - 1][n - pm])
+                A[m][i].append(acur)
+
+    x: list[float] = [1]
+    for k in range(1, n + 1):
+        xk = 0
+        nnk = n - k
+        for j in range(0, k):
+            xk += A[nnk][0][j] * x[j]
+        xk = - xk / A[nnk][0][k]
+        x.append(xk)
+    return x
+
+
+def checkSolutions(a0: list[list[float]], x: list[float]):
+    n = len(a0)
+    if (n != (len(a0[0]) - 1)):
+        return
+    print(a0)
+    print(x)
+    for i in range(0, n):
+        sum = 0
+        for j in range(0, n + 1):
+            sum += a0[i][j] * x[j]
+        if sum == 0:
+            print(f"{i} [✅] Correct Solution")
+            continue
+        print(f"{i} [❌] Incorrect Solution")
+
+
+a0 = [
+    [-5,  2, 3], # -5 +  2x + 3y = 0
+    [-3, 10, 4], # -3 + 10x + 3y = 0
+]
+
+checkSolutions(a0, LinearEquations(a0))
+# Output:
+# [[-5, 2, 3], [-3, 10, 4]]
+# [1, -0.5, 2.0]
+# 0 [✅] Correct Solution
+# 1 [✅] Correct Solution
+```

@@ -3,7 +3,7 @@
 - [Back to Home](../../README.md)
 
 # Trignometry
-**Trignometry**: a sub-field of Geometry only consisting of Triangles and Their Angles related Geometry
+**Trignometry**: a sub-field of Geometry only consisting of Right-Angled Triangles.
 
 ![](../../img/maths/shapes/right_triangle.png)
 
@@ -20,19 +20,39 @@ $$
 
 ![](../../img/maths/shapes/right_triangle_abc_squared.png)
 
+## N-dimensional
+
+The Pythagorean can be extended up to N dimensions as the following:
+
+$$
+|\vec{v}|^2 = v_x^2 + v_y^2 + v_z^2 + ...
+$$
+
+## SAS 
+
+If given the length of 2 sides $a, b$ of a triangle and the angle between them $\theta$, the 3rd side can be described them as the following relation:
+
+$$
+a^2 + b^2 - 2ab \cos(\theta) = c^2
+$$
+
 # Main Trigometric Functions
 
 $\sin$ and $\cos$ are the solutions to the following equation:
-$$ x^2 + y^2 = 1 $$
+
+$$x^2 + y^2 = 1$$
+
 (equation of a unit circle centered at the origin)
 
 $$\sin(\theta)^2 + \cos(\theta)^2 = 1$$
 
 $$\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}$$
 
-$$ \csc(\theta) = \frac{1}{\sin(\theta)} $$
-$$ \sec(\theta) = \frac{1}{\cos(\theta)} $$
-$$ \cot(\theta) = \frac{1}{\tan(\theta)} $$
+$$\csc(\theta) = \frac{1}{\sin(\theta)} $$
+
+$$\sec(\theta) = \frac{1}{\cos(\theta)} $$
+
+$$\cot(\theta) = \frac{1}{\tan(\theta)} $$
 
 | Trig Function  | sin                                                | cos                                                | tan                                                     | csc                                                | sec                                               | cot                                                               |
 | -------------- | -------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------------| -------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------- |
@@ -42,6 +62,7 @@ $$ \cot(\theta) = \frac{1}{\tan(\theta)} $$
 | $\csc(\theta)$ | $\frac{1}{\sin(\theta)}$                           | $\frac{1}{\sqrt{1 - \cos(\theta)^2} }$             | $\frac{\sqrt{1 + \tan(\theta)^2} }{\tan(\theta)}$       | $\csc(\theta)$                                     | $\frac{\sec(\theta)}{\sqrt{\sec(\theta)^2 - 1} }$ | $\sqrt{\cot(\theta)^2 + 1}$                                       |
 | $\sec(\theta)$ | $\frac{1}{\sqrt{1 -\sin(\theta)^2} }$              | $\frac{1}{\cos(\theta)}$                           | $\sqrt{1 + \tan(\theta)^2}$                             | $\frac{\csc(\theta)}{\sqrt{\csc(\theta)^2 - 1 } }$ | $\sec(\theta)$                                    | $\sqrt{1 + \frac{1}{\tan(\theta)^2} }$                            |
 | $\cot(\theta)$ | $\frac{\sqrt{1 - \sin(\theta)^2} }{\sin(\theta)}$  | $\frac{\cos(\theta)}{\sqrt{1 - \cos(\theta)^2} }$  | $\frac{1}{\tan(\theta)}$                                | $\sqrt{\csc(\theta)^2 - 1}$                        | $\frac{1}{\sqrt{\sec(\theta)^2 - 1} }$            | $\cot(\theta)$                                                    |
+
 
 # Identities:
 
@@ -56,41 +77,98 @@ $$ \cot(\theta) = \frac{1}{\tan(\theta)} $$
 $$\forall (f \in S) [f(\theta \pm 2\pi) = f(\theta \mod 2\pi) = f(\theta)]$$
 
 $$\sin(- \theta) = - \sin(\theta)$$
+
 $$\cos(- \theta) = \cos(\theta)$$
 
 **Pythagorean Identities**:
 
 $$ \sin(\theta)^2 + \cos(\theta)^2 = 1$$
+
 $$ 1 + \tan(\theta)^2 = \sec(\theta)^2$$
+
 $$ 1 + \cot(\theta)^2 = \csc(\theta)^2$$
 
-**Sum/Difference Identities**:
+**Angle Sum/Difference Identities**:
 
 $$\sin(\alpha + \beta) = \sin(\alpha) \cdot \cos(\beta) + \cos(\alpha) \cdot \sin(\beta)$$
+
 $$\sin(\alpha - \beta) = \sin(\alpha) \cdot \cos(\beta) - \cos(\alpha) \cdot \sin(\beta)$$
+
 $$\cos(\alpha + \beta) = \cos(\alpha) \cdot \cos(\beta) - \sin(\alpha) \cdot \sin(\beta)$$
+
 $$\cos(\alpha - \beta) = \cos(\alpha) \cdot \cos(\beta) + \sin(\alpha) \cdot \sin(\beta)$$
 
-**Product Identites** (function):
+**Function Product Identites**:
 
 $$\sin(\alpha) \cdot \sin(\beta) = \frac{\cos(\alpha - \beta) - \cos(\alpha + \beta)}{2}$$
+
 $$\sin(\alpha) \cdot \cos(\beta) = \frac{\sin(\alpha - \beta) + \sin(\alpha + \beta)}{2}$$
+
 $$\cos(\alpha) \cdot \cos(\beta) = \frac{\cos(\alpha - \beta) + \cos(\alpha + \beta)}{2}$$
 
-**Square Identities**:
+**Function Square Identities**:
 
 $$ \sin(\theta)^2 = \frac{1 - \cos(2\theta)}{2} $$
+
 $$ \cos(\theta)^2 = \frac{1 + \cos(2\theta)}{2} $$
+
+**Euler's Identity**:
+
+$$e^{i\theta} = \cos(\theta) + i \sin(\theta)$$
+
+$$\sin(\theta) = i\frac{e^{-i\theta} - e^{i\theta}}{2}$$
+
+$$\cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2}$$
+
+$$\tan(\theta) = i\frac{e^{-i\theta} - e^{i\theta}}{e^{i\theta} + e^{-i\theta}}$$
+
+$$\csc(\theta) = - i\frac{2}{e^{-i\theta} - e^{i\theta}}$$
+
+$$\sec(\theta) = \frac{2}{e^{i\theta} + e^{-i\theta}}$$
+
+$$\cot(\theta) = - i\frac{e^{i\theta} + e^{-i\theta}}{e^{-i\theta} - e^{i\theta}}$$
 
 # Inverses:
 
 each of the 6 trig functions have a defined Inverse function for symbolic purposes:
 
-| Trig Function  | Inverse                                     |
-| -------------- | ------------------------------------------- |
-| $\sin(\theta)$ | $\sin^{-1}(\theta) = \arcsin(\theta)$       |
-| $\cos(\theta)$ | $\cos^{-1}(\theta) = \arccos(\theta)$       |
-| $\tan(\theta)$ | $\tan^{-1}(\theta) = \arctan(\theta)$       |
-| $\csc(\theta)$ | $\csc^{-1}(\theta) = \text{arccsc}(\theta)$ |
-| $\sec(\theta)$ | $\sec^{-1}(\theta) = \text{arcsec}(\theta)$ |
-| $\cot(\theta)$ | $\cot^{-1}(\theta) = \text{arccot}(\theta)$ |
+$$
+\newcommand{\arccsc}[1]{\text{arccsc}#1}
+\newcommand{\arcsec}[1]{\text{arcsec}#1}
+\newcommand{\arccot}[1]{\text{arccot}#1}
+$$
+
+| Trig Function  | Inverse                     |
+| -------------- | --------------------------- |
+| $\sin(\theta)$ | $\sin^{-1}(x) = \arcsin(x)$ |
+| $\cos(\theta)$ | $\cos^{-1}(x) = \arccos(x)$ |
+| $\tan(\theta)$ | $\tan^{-1}(x) = \arctan(x)$ |
+| $\csc(\theta)$ | $\csc^{-1}(x) = \arccsc(x)$ |
+| $\sec(\theta)$ | $\sec^{-1}(x) = \arcsec(x)$ |
+| $\cot(\theta)$ | $\cot^{-1}(x) = \arccot(x)$ |
+
+
+$$
+\cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2} \newline
+y = \frac{e^{i\theta} + e^{-i\theta}}{2} \newline
+2y = e^{i\theta} + e^{-i\theta} \newline
+2y e^{i\theta} = e^{2i\theta} + e^{-i\theta + i\theta} \newline
+2y e^{i\theta} = e^{2i\theta} + 1 \newline
+e^{2i\theta} - 2y e^{i\theta} + 1 = 0\newline
+(e^{i\theta})^2 - 2y (e^{i\theta}) + 1 = 0\newline
+
+e^{i\theta} = \frac{- (- 2y ) \pm \sqrt{(- 2y)^2 - 4(1)(1)}}{2(1)} \newline
+e^{i\theta} = \frac{2y \pm \sqrt{4y^2 - 4}}{2} \newline
+e^{i\theta} = \frac{2y \pm 2\sqrt{y^2 - 1}}{2} \newline
+e^{i\theta} = y \pm \sqrt{y^2 - 1} \newline
+i\theta = \ln(y \pm \sqrt{y^2 - 1}) \newline
+\theta = - i\ln(y \pm \sqrt{y^2 - 1}) \newline
+$$
+$$
+\cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2} \newline
+\arccos(\cos(\theta)) = - i\ln(\cos(\theta) \pm \sqrt{\cos(\theta)^2 - 1}) \newline
+$$
+
+$$
+\arccos(x) = - i\ln(x + \sqrt{x^2 - 1})
+$$

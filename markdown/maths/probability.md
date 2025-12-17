@@ -1,40 +1,29 @@
-## Probability
+# Probability
 
-**Probability**: The likeliness of an event occuring given a set of Possibilities
+**Probability**: The likeliness of an event occuring given a set of Possibilities $U$, all outcomes are assumed to be equally likely.
 
 
 Probability of an event is defined as a function of $P$, which returns a Real number in the range 0 to 1
 
 $$
-P(A) = \frac{\text{Favorable}}{\text{Possibilities}}
+P(A) = \frac{|A|}{|\mathbb{U}|}
 $$
+$A \in \mathbb{U}$
 
-- $A$ is the Event
-- $\text{Favorable}$ is the amount of possibilites favors the event of $A$
 - $\text{Possibilites}$ is the total acount of possible outcomes
-- **Impossible**: if the outcome of the probability of an event is $0$, then it's not possible
-    $$P(A) = 0$$
-- **Certain**: if the outcome of the probability of an event is $1$, then it ***must*** happen
-    $$P(A) = 1$$
 
-**Terms**:
-
+**Terminology**:
+- **Event**: $A \subseteq U$
 - **Experiment**: An action/process that results in a set of possible outcomes
-- **Outcome**: The Possible outcome of an event
-- **Sample Space**, $S$: The set of all possible outcomes of an event
-
-    $S = \{ ...\}$
-
-- **Event**: Subset of the sample space
-
-    $A \subseteq S$
-
-- **Mutually Exclusive Events**: If 2 events can't occur at the same time
+- **Outcome**: The Possible outcome of an event, $a \in \mathbb{U}$
+- **Sample Space**, $\mathbb{U}$: The set of all possible outcomes of an event
+- **Impossible**: when $|A|$ = 0
+    $$P(A) = 0$$
+- **Certain**: when $|A| = 1$
+    $$P(A) = 1$$
+- **Mutually Exclusive Events**: $A \cap B = \emptyset$
 - **Independent Events**: If outcome of 1 event doesn't effect the other event
-- **Complementary**: All of the outcomes that are not in the Event $A$, notation:
-    
-    $A^c$
-
+- **Complementary**: $A^{c} =\mathbb{U} \setminus A $
 
 **Notation**
 
@@ -47,7 +36,7 @@ $$
 
 > it is assumed that all the possible outcomes from the Sample Set are equally likely to occur
 
-**Complementary Events**:
+**Complementary Event**:
 
 $$
 P(A^c) = 1 - P(A)
@@ -55,17 +44,10 @@ $$
 
 **Addition Rule**:
 
-- Mutually Exclusive:
 
-    $$
-    P(A \cup B) = P(A) + P(B)
-    $$
-
-- Not Mutually Exclusive
-
-    $$
-    P(A \cup B) = P(A) + P(B) - P(A \cap B)
-    $$
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
 
 **Multiplicative Rule**:
 

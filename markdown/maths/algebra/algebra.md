@@ -5,6 +5,6 @@
 # Algebra
 **Algebra**: a field about Abstraction and Algebraic Systems
 
-- [Elementary Algebra](./elementary.md)
+- [Elementary Algebra](./elementary/elementary.md)
 - [Abstract Algebra](./abstract.md)
 - [Boolean Algebra](./boolean.md)

@@ -25,7 +25,7 @@ $$\exists \vec{\mathbf{0}} \in V(\vec{\mathbf{v}} + \vec{\mathbf{0}} = \vec{\mat
 
 $$\exists(-\vec{\mathbf{v}}) \in V(\vec{\mathbf{v}} + (-\vec{\mathbf{v}}) = \vec{\mathbf{0}})$$
 
-**Communicativity/Abelian**:
+**Commutativity/Abelian**:
 
 $$\vec{\mathbf{v}} + \vec{\mathbf{u}} = \vec{\mathbf{u}} + \vec{\mathbf{v}}$$
 
@@ -51,7 +51,7 @@ $$\exists 1 \in \mathbb{R}(1 \vec{\mathbf{v}} = \vec{\mathbf{v}} 1 = \vec{\mathb
 
 $$\exists\left(\frac{1}{a}\right) \in \mathbb{R} \left(\left(\frac{1}{a}\right) a \vec{\mathbf{v}} = \vec{\mathbf{v}}\right)$$
 
-**Communicativity/Abelian**:
+**Communtativity/Abelian**:
 
 $$
 a\vec{\mathbf{v}} = \vec{\mathbf{v}} a
@@ -205,21 +205,57 @@ $$\color{Tomato} \mathbf{\vec{u}} \color{white} \neq a \color{LightCoral} \mathb
 
 A Dot product between 2 vectors is defined as:
 
-$$$$
+$$\vec{v} \cdot \vec{u} = |\vec{v}| |\vec{u}| \cos(\theta)$$
+
+where $\theta$ is angle between them the 2 vectors
+
+$$
+|\vec{v} - \vec{u}|^2 = |\vec{v}|^2 + |\vec{u}|^2 - 2|\vec{v}||\vec{u}| \cos(\theta) \newline
+|\vec{v}||\vec{u}|\cos(\theta) = \frac{|\vec{v}|^2 + |\vec{u}|^2 - |\vec{v} - \vec{u}|^2}{2} \newline
+|\vec{v}||\vec{u}|\cos(\theta) = \frac{(v_x^2 + v_y^2 + v_z^2 + ...) + (u_x^2 + u_y^2 + u_z^2 + ...) - ((v_x - u_x)^2 + (v_y - u_y)^2 + (v_z - u_z)^2 + ...)}{2} \newline
+|\vec{v}||\vec{u}|\cos(\theta) = \frac{(v_x^2 + v_y^2 + v_z^2 + ...) + (u_x^2 + u_y^2 + u_z^2 + ...) - (v_x^2 - 2v_xu_x + u_x^2 + v_y^2 - 2v_yu_y + u_y^2 + v_z^2 - 2v_zu_z + u_z^2 + ...)}{2} \newline
+|\vec{v}||\vec{u}|\cos(\theta) = \frac{v_x^2 + v_y^2 + v_z^2 + ... + u_x^2 + u_y^2 + u_z^2 + ... - v_x^2 + 2v_xu_x - u_x^2 - v_y^2 + 2v_yu_y - u_y^2 - v_z^2 + 2v_zu_z - u_z^2 + ...}{2} \newline
+|\vec{v}||\vec{u}|\cos(\theta) = \frac{2v_xu_x + 2v_yu_y + 2v_zu_z + ...}{2} \newline
+|\vec{v}||\vec{u}|\cos(\theta) = v_xu_x + v_yu_y + v_zu_z + ... \newline
+\vec{v} \cdot \vec{u} = v_xu_x + v_yu_y + v_zu_z + ...
+$$
+
+$$
+\vec{v} \cdot \vec{u} = \sum_{i = 1}^{n} v_i u_i
+$$
+
+$$
+\theta = \arccos\left(\frac{\vec{v} \cdot \vec{u}}{|\vec{v}||\vec{u}|}\right)
+$$
+
+some properties:
+
+$$(c \vec{v}) \cdot \vec{u}$$
+$$\vec{v} \cdot \vec{u} = \vec{u} \cdot \vec{v}$$
+$$c (\vec{v} \cdot \vec{u})$$
+$$\vec{v} \cdot (\vec{u} + \vec{w})$$
+$$\vec{v} \cdot \vec{u} + \vec{v} \cdot \vec{w}$$
 
 # Matrix
 
 a matrix is a list of **vectors**, which can be represented as follows:
 
 $$
-M = \begin{bmatrix}
-M_{1,1} & M_{1,2} & M_{1,3} & M_{1,4} & ... & M_{1,j} \cr
-M_{2,1} & M_{2,2} & M_{2,3} & M_{2,4} & ... & M_{2,j} \cr
-M_{3,1} & M_{3,2} & M_{3,3} & M_{3,4} & ... & M_{3,j} \cr
-M_{4,1} & M_{4,2} & M_{4,3} & M_{4,4} & ... & M_{4,j} \cr
+A = \begin{bmatrix}
+a_{1,1} & a_{1,2} & a_{1,3} & a_{1,4} & ... & a_{1,j} \cr
+a_{2,1} & a_{2,2} & a_{2,3} & a_{2,4} & ... & a_{2,j} \cr
+a_{3,1} & a_{3,2} & a_{3,3} & a_{3,4} & ... & a_{3,j} \cr
+a_{4,1} & a_{4,2} & a_{4,3} & a_{4,4} & ... & a_{4,j} \cr
 ...     & ...     & ...     & ...     & ... & ...     \cr
-M_{i,1} & M_{i,2} & M_{i,3} & M_{i,4} & ... & M_{i,j} \cr
-\end{bmatrix}
+a_{i,1} & a_{i,2} & a_{i,3} & a_{i,4} & ... & a_{i,j} \cr
+\end{bmatrix} = \begin{pmatrix}
+a_{1,1} & a_{1,2} & a_{1,3} & a_{1,4} & ... & a_{1,j} \cr
+a_{2,1} & a_{2,2} & a_{2,3} & a_{2,4} & ... & a_{2,j} \cr
+a_{3,1} & a_{3,2} & a_{3,3} & a_{3,4} & ... & a_{3,j} \cr
+a_{4,1} & a_{4,2} & a_{4,3} & a_{4,4} & ... & a_{4,j} \cr
+...     & ...     & ...     & ...     & ... & ...     \cr
+a_{i,1} & a_{i,2} & a_{i,3} & a_{i,4} & ... & a_{i,j} \cr
+\end{pmatrix}
 $$
 
 Set of Matrices:
@@ -228,13 +264,13 @@ $$
 \mathbb{R}^{n \times m} = 
 \left\{
 \begin{bmatrix}
-A_{1,1} & A_{1,2} & A_{1,3} & ... & A_{1,m} \cr
-A_{2,1} & A_{2,2} & A_{2,3} & ... & A_{2,m} \cr
-A_{3,1} & A_{3,2} & A_{3,3} & ... & A_{3,m} \cr
+a_{1,1} & a_{1,2} & a_{1,3} & ... & a_{1,m} \cr
+a_{2,1} & a_{2,2} & a_{2,3} & ... & a_{2,m} \cr
+a_{3,1} & a_{3,2} & a_{3,3} & ... & a_{3,m} \cr
 ...     & ...     & ...     & ... & ...     \cr
-A_{n,1} & A_{n,2} & A_{n,3} & ... & A_{n,m} \cr
+a_{n,1} & a_{n,2} & a_{n,3} & ... & a_{n,m} \cr
 \end{bmatrix}
-\middle | \forall A_{ij} \in \mathbb{R}
+\middle | \ \forall a_{ij} \in \mathbb{R}
 \right\}
 $$
 
@@ -252,34 +288,59 @@ $$
 L(\vec{v}) = L(v_x\hat{i} + v_y\hat{j} + v_z\hat{k} + ...) \newline
 L(\vec{v}) = v_x \ L(\hat{i}) + v_y \ L(\hat{j}) + v_z \ L(\hat{k}) + ...\newline
 L(\vec{v}) = v_x \ L\left(\begin{bmatrix} 1 \cr 0 \cr 0 \cr ... \end{bmatrix}\right) + v_y \ L\left(\begin{bmatrix} 0 \cr 1 \cr 0 \cr ... \end{bmatrix}\right) + v_z \ L\left(\begin{bmatrix} 0 \cr 0 \cr 1 \cr ... \end{bmatrix}\right) + ...\newline
-L(\vec{v}) = v_x \begin{bmatrix} A_{1,1} \cr A_{2,1} \cr A_{3,1} \cr ... \end{bmatrix} + v_y \begin{bmatrix} A_{1,2} \cr A_{2,2} \cr A_{3,2} \cr ... \end{bmatrix} + v_z \begin{bmatrix} A_{1,3} \cr A_{2,3} \cr A_{3,3} \cr ... \end{bmatrix} + ...\newline
+L(\vec{v}) = v_x \begin{bmatrix} a_{1,1} \cr a_{2,1} \cr a_{3,1} \cr ... \end{bmatrix} + v_y \begin{bmatrix} a_{1,2} \cr a_{2,2} \cr a_{3,2} \cr ... \end{bmatrix} + v_z \begin{bmatrix} a_{1,3} \cr a_{2,3} \cr a_{3,3} \cr ... \end{bmatrix} + ...\newline
 $$
 now the Linear Transformation is solely determined by the Linear Transformation of the Unit Vectors of the cordinate system, all the information required to do that Linear Transformation can be packaged into a $m \times n$ matrix, and the Whole Transformation can be defined as a kind of "product" between a Matrix and a Vector.
 
 $$L(\vec{v}) = \begin{bmatrix} 
-A_{1,1} & A_{1,2} & A_{1,3} & ... & & A_{1,n} \cr
-A_{2,1} & A_{2,2} & A_{2,3} & ... & & A_{2,n} \cr
-A_{3,1} & A_{3,2} & A_{3,3} & ... & & A_{3,n} \cr
+a_{1,1} & a_{1,2} & a_{1,3} & ... & & a_{1,n} \cr
+a_{2,1} & a_{2,2} & a_{2,3} & ... & & a_{2,n} \cr
+a_{3,1} & a_{3,2} & a_{3,3} & ... & & a_{3,n} \cr
 ...     & ...     & ...     & ... & & ...     \cr
-A_{m,1} & A_{m,2} & A_{m,3} & ... & & A_{m,n} \cr
+a_{m,1} & a_{m,2} & a_{m,3} & ... & & a_{m,n} \cr
 \end{bmatrix} \begin{bmatrix} v_x \cr v_y \cr v_z \cr ... \cr v_n \end{bmatrix} $$
 
-$$L(\vec{v}) = \vec{u}$$
+$$
+L(\vec{v}) = A \vec{v} \newline
+L(\vec{v}) = \vec{u}
+$$
 
-$$\vec{u}_i = \sum_{k = 1}^{n} v_k A_{ik}$$
+$$u_i = \sum_{k = 1}^{n} v_k a_{ik}$$
 
 $\vec{v}, \vec{u} \in \mathbb{R}^{n}$
 
-$A \in \mathbb{R}^{n \times m}$
+$A \in \mathbb{R}^{m \times n}$
 
-similarly composition between Linear Transformations can be denoted as a single Linear Transformation via another kinda of "product" between Matrices
+similarly composition between Linear Transformations can be denoted as a single Linear Transformation via another kinda of "product" between Matrices via Composition of Linear Transformations.
+
+$$A\underbrace{(B \vec{v})}_{\vec{u}} = C \vec{v}$$
+
+$$u_i = \sum_{k_1 = 1}^{n} v_{k_1} b_{ik_1}$$
+
+apply it again:
 
 $$
-AB = C
+\underbrace{A\vec{u}}_{\vec{w}} = C \vec{v} \newline
+w_i = \sum_{k_2 = 1}^{n} u_{k_2} a_{ik_2} \newline
+w_i = \sum_{k_2 = 1}^{n} \left(\sum_{k_1 = 1}^{n} v_{k_1} b_{k_2k_1}\right) a_{ik_2} \newline
+w_i = \sum_{k_2 = 1}^{n} \sum_{k_1 = 1}^{n} v_{k_1} b_{k_2k_1} a_{ik_2} \newline
+w_i = \sum_{k_1 = 1}^{n} v_{k_1} \underbrace{\left(\sum_{k_2 = 1}^{n} b_{k_2k_1} a_{ik_2}\right)}_{c_{ik_1}} \newline
+$$
+$$
+c_{ik_1} = \sum_{k_2 = 1}^{n} b_{k_2k_1} a_{ik_2} \newline
+c_{ij} = \sum_{k_2 = 1}^{n} b_{k_2j} a_{ik_2} \newline
+c_{ij} = \sum_{k = 1}^{n} a_{ik} b_{kj} \newline
 $$
 
+Matrix-by-Matrix Result:
+
 $$
-C_{ij} = \sum_{k = 1}^{n} A_{kj} B_{ik}
+c_{ij} = \sum_{k = 1}^{n} a_{ik} b_{kj}
 $$
+> Word on Notation: The lowercase versions of $A, B, C$ denote the entries of the matrices as $a_{ij}$
+
+## Determinant
+
 
 # Tensor
+(pending...)

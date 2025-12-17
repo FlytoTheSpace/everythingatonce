@@ -71,13 +71,11 @@ $a\color{lime}\times\color{white}b$
 $a\color{red}\div\color{white}b$
 - Repeated Subtract of `a` with itself until `0`
 
-# BEDMAS
+# Evaluation Order
 
-**BEDMAS** is the standard for math operations evaluation Order, each letter corresponding to a specific Operation
-
-1. **Border**
+1. **Parenthesis**
+2. **Hyper-Operations**
 2. **Exponent**
-3. **Division**
-4. **Multiplication**
-5. **Addition**
-6. **Subtraction**
+3. **Multiplication**, **Division**
+5. **Addition**, **Subtraction**
+5. **Succesion**, **Predecision**

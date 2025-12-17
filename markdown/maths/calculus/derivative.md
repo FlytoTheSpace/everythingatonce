@@ -1,8 +1,8 @@
 
 
-# Deriavative
+# Derivative
 
-**Deriavatives** is the *Rate of change* of a function over a small amount of tweak in the input $\Delta x$
+**Derivatives** is the *Rate of change* of a function over a small amount of tweak in the input $\Delta x$
 
 Formal Definition:
 
@@ -18,11 +18,11 @@ $
 
 ## Notation
 
-The Deriavatives are usually written in their own notation, so they can be treated as an "Operation" that takes a function and returns another function.
+The Derivatives are usually written in their own notation, so they can be treated as an "Operation" that takes a function and returns another function.
 
 ### Newton's Notation
 
-Function Symbols with `n` count of dots above to denote n'th deriavative
+Function Symbols with `n` count of dots above to denote n'th derivative
 $$
 \dot{f}
 $$
@@ -32,12 +32,12 @@ $$
 
 ### Langrange's Notation
 
-The functions are suffixed with a quote `'`, and the `n` count of quotes suffixed represented `n`'th Deriavative
+The functions are suffixed with a quote `'`, and the `n` count of quotes suffixed represented `n`'th Derivative
 
 $$
 f'(x)
 $$
-2nd Deriavative:
+2nd Derivative:
 $$
 f''(x)
 $$
@@ -55,20 +55,20 @@ $$
 \frac{dy}{dx} = \lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}
 $$
 
-`n`'th Deriavative:
+`n`'th Derivative:
 
 $$
 \frac{d^ny}{dx^n}
 $$
 
 ### Differential Operator Notation
-represents Deriavative as an Operation with respect to `x`
+represents Derivative as an Operation with respect to `x`
 
 $$
 D_x^n f(x)
 $$
 
-$n$ represents the n'th deriavative
+$n$ represents the n'th derivative
 
 ## 1st Derivative
 
@@ -100,26 +100,35 @@ $$ \frac{d}{dx}(\cos(x)) = - \sin(x)$$
 
 $$ \frac{d}{dx}(\tan(x)) = \sec(x)^2$$
 
+$$ \frac{d}{dx}(\csc(x)) = - \cot(x) \cdot \csc(x)$$
+
 $$ \frac{d}{dx}(\sec(x)) = \tan(x) \cdot \sec(x)$$
+
+$$ \frac{d}{dx}(\cot(x)) = - \csc(x)^2$$
 
 ### General:
 
 $$ \frac{d}{dx}(c \cdot f(x)) = c \cdot \frac{df}{dx}$$
 
 **Sum Rule:**
+
 $$ \frac{d}{dx}(f(x) + g(x)) = \frac{df}{dx} + \frac{dg}{dx} $$
+
 $$ \frac{d}{dx}\left(\displaystyle \sum_{i = 1}^mf_i(x)\right) = \displaystyle \sum_{i = 1}^m\frac{d}{dx}f_i(x)$$
 
 **Product Rule:**
+
 $$ \frac{d}{dx}(f(x) \cdot g(x)) = f(x) \cdot g'(x) + f'(x) \cdot g(x) $$
+
 $$ \frac{d}{dx}\left(\displaystyle \prod_{i = 1}^m f_i(x) \right) = \displaystyle \LARGE \sum_{\small k_1 + k_2 + ... = 1} \normalsize \left(\displaystyle \prod_{i = 1}^m \frac{d^{k_i}}{dx^{k_i}}(f_i(x)) \right) $$
 
 **Chain Rule:**
 $$ \frac{d}{dx}(f(g(x))) = \frac{df}{dg} \cdot \frac{dg}{dx} \newline $$
+
 $$ \frac{d}{dx}(f_1 \circ f_2 \circ f_3 \circ ... f_m) = \left(\displaystyle \prod_{i = 1}^{m - 1} \frac{df_i}{df_{i +1}}\right) \frac{df_m}{dx} $$
 
 ## `n`'th Derivative
-n'th Derivative are the Repeated Application of Deriavative on a given function n times
+n'th Derivative are the Repeated Application of Derivative on a given function n times
 
 $$
 \frac{d^n}{dx^n}f(x) = \underbrace{\frac{d}{dx}\left(\frac{d}{dx}\left(...\frac{d}{dx}(f(x))\right)\right)}_{n \text{ times}}
@@ -131,6 +140,7 @@ Rules:
 ### Special Cases:
 
 **Power Rule:**
+
 $n \leq m$
 
 $$ \frac{d^n}{dx^n}(x^m) = \frac{m!}{(m - n)!} x^{m - n} $$
@@ -160,16 +170,19 @@ n \mod 4 = 3: \sin(x) \cr
 ### General:
 
 **Sum Rule**:
+
 $$ \frac{d^n}{dx^n}(f + g) = \frac{d^nf}{dx^n} + \frac{d^ng}{dx^n} $$
+
 $$ \frac{d^n}{dx^n}\left(\displaystyle \sum_{i = 1}^mf_i(x)\right) = \displaystyle \sum_{i = 1}^m\frac{d^n}{dx^n}\left(f_i(x)\right)$$
 
 **Product Rule**:
 $$ \frac{d^n}{dx^n}(f \cdot g) = \sum_{k = 0}^n \begin{pmatrix} n \cr k \end{pmatrix} \frac{d^{n - k}f}{dx^{n - k}} \cdot \frac{d^kg}{dx^k} $$
 
-**n'th Deriavative of the product of m count of functions**:
+**n'th Derivative of the product of m count of functions**:
 
 > 
 > Coefficient:
+>
 > $$ C(n,k_1, k_3, k_4, ...,, k_{m - 1}) = \prod_{i = 1}^{m - 1} \begin{pmatrix} n - \displaystyle \sum_{j=1}^{i - 1}k_j \cr k_i \end{pmatrix} $$
 > 
 
@@ -181,6 +194,7 @@ C(n, k_1, k_2, ..., k_{m-1}) \cdot \prod_{i = 1}^{m}\frac{d^{k_i}f_i}{dx^{k_i}}
 \right) $$
 
 **Chain Rule**:
+
 $$ \frac{d^n}{dx^n}(f(g(x))) = \sum_{k = 0}^{n - 1} \begin{pmatrix} n - 1 \cr k \end{pmatrix} \frac{d^{n - 1 - k}}{dx^{n - 1 - k}}(\frac{df}{dg}) \cdot \frac{d^{k+1}g}{dx^{k+1}} $$
 
 $$ \frac{d^n}{dx^n}(f_1 \circ f_2 \circ f_3 \circ ... f_m) = \newline
@@ -189,28 +203,29 @@ C(n - 1, k_1, k_2, ..., k_{m-1}) \cdot
 \prod_{i = 1}^{m -1}\frac{d^{k_i}}{dx^{k_i}}\left(\frac{df_i}{df_{i + 1}}\right) \cdot \frac{d^{k_m + 1}f_m}{dx^{k_m + 1}}
 \right) $$
 
-## Partial Deriavatives:
+## Partial Derivatives:
 
-These are idental to Regular Deriavatives expect they act on function with more than 1 inputs but only take the deriavative with respect to any 1 variable
+These are idental to Regular Derivatives expect they act on function with more than 1 inputs but only take the derivative with respect to any 1 variable
 
 $$ z = f(x, y, ...) $$
 
 $$ \frac{\partial f}{\partial x} = \frac{df}{dx} $$
+
 $$ \frac{\partial f}{\partial y} = \frac{dh}{dy} $$
 
 $g(x) = f(x, y)$
 
 $h(y) = f(x, y)$
 
-# Fractional Deriavatives
+# Fractional Derivatives
 
 $$D^{\alpha}_xf$$
 (pending...)
 
 
-# Directional Deriavative
+# Directional Derivative
 
-Generalization of The Deriavative in a scalar field with any direction of $\mathbf{\vec{u}}$
+Generalization of The Derivative in a scalar field with any direction of $\mathbf{\vec{u}}$
 
 Formal Definition:
 
@@ -222,7 +237,7 @@ $$ D_{\mathbf{\vec{u}}} f(x, y, z, ...) = \lim_{h \to 0} \frac{f(x + hu_x, y + h
 
 $$ D_{\mathbf{\vec{u}}} f(x, y, z, ...) = \frac{d}{dt}f(tu_x, tu_y, tu_z, ...) $$
 
-## 1st Directional Deriavative
+## 1st Directional Derivative
 
 Rules:
 ---
@@ -235,6 +250,7 @@ $$ D_{\mathbf{\vec{u}}} (a) = 0 $$
 $$ D_{\mathbf{\vec{u}}} (x^n) = nx^{n - 1} u_x $$
 
 > $S = \left[\displaystyle \sum_{i = 1}^m k_i = 1 \land \forall k_i (k_i \in \mathbb{W}) \right]$
+
 $$ D_{\mathbf{\vec{u}}} \left(\displaystyle \prod_{i = 1}^{m} x_{i}^{n_i}\right) = \sum_{S} \left( \displaystyle \prod_{i = 1}^{m} \begin{pmatrix}n_i \cr k_i \end{pmatrix} x_{i}^{n_i - k_i} u_{x_{i}}^{k_i} \right) $$
 
 **Exponential**:
@@ -246,19 +262,23 @@ $$D_{\mathbf{\vec{u}}}(c \cdot f) = c \cdot D_{\mathbf{\vec{u}}}f$$
 
 **Sum Rule**:
 $$ D_{\mathbf{\vec{u}}}(f + g) = D_{\mathbf{\vec{u}}}f + D_{\mathbf{\vec{u}}}g $$
+
 $$ D_{\mathbf{\vec{u}}}\left(\displaystyle \sum_{i = 1}^mf_i(x)\right) = \displaystyle \sum_{i = 1}^mD_{\mathbf{\vec{u}}}f_i$$
 
 **Product Rule**:
 $$ D_{\mathbf{\vec{u}}}(f \cdot g) = (D_{\mathbf{\vec{u}}}f) \cdot g + f \cdot (D_{\mathbf{\vec{u}}} g) $$
+
 $$ D_{\mathbf{\vec{u}}}\left(\displaystyle \prod_{i = 1}^m f_i(x) \right) = \displaystyle \LARGE \sum_{\small k_1 + k_2 + ... = 1} \normalsize \left(\displaystyle \prod_{i = 1}^m D_{\mathbf{\vec{u}}}^{k_i}(f_i(x)) \right) $$
 
 **Chain Rule**:
 $$ D_{\mathbf{\vec{u}}}(f(g(x, y, z, ...))) = \frac{df}{dg} \cdot D_{\mathbf{\vec{u}}}g $$
+
 $$ D_{\mathbf{\vec{u}}}(f_1 \circ f_2 \circ f_3 \circ ... f_n) = \left(\displaystyle \prod_{i = 1}^{n - 1} \frac{df_i}{df_{i +1}}\right) D_{\mathbf{\vec{u}}}f_n $$
 
-## `n`'th Directional Deriavative
+## `n`'th Directional Derivative
 
-Repeated Application of The Directional Deriavative n times:
+Repeated Application of The Directional Derivative n times:
+
 $$
 D_{\mathbf{\vec{u}}}^{n} f = \underbrace{D_{\mathbf{\vec{u}}}(D_{\mathbf{\vec{u}}}(...D_{\mathbf{\vec{u}}}f))}_{n \text{ times}}
 $$
@@ -269,6 +289,7 @@ Rules:
 ### Special Cases:
 
 **Power Rule:**
+
 $n \leq m$
 
 $$ D_{\mathbf{\vec{u}}}^n(x^m) = \frac{m!}{(m - n)!} x^{m - n} u_x^n$$
@@ -283,7 +304,9 @@ $$ D_{\mathbf{\vec{u}}}^n(a^x) = (\ln(a) \cdot u_x)^n \cdot a^x$$
 ### General:
 
 **Sum Rule**:
+
 $$ D_{\mathbf{\vec{u}}}^n(f + g) = D_{\mathbf{\vec{u}}}^nf + D_{\mathbf{\vec{u}}}^ng $$
+
 $$ D_{\mathbf{\vec{u}}}^n\left(\displaystyle \sum_{i = 1}^mf_i(x)\right) = \displaystyle \sum_{i = 1}^mD_{\mathbf{\vec{u}}}^nf_i$$
 
 **Product Rule**:
@@ -296,6 +319,7 @@ C(n, k_1, k_2, ..., k_{m-1}) \cdot \prod_{i = 1}^{m}D_{\mathbf{\vec{u}}}^{k_i}f_
 \right) $$
 
 **Chain Rule**:
+
 $$ D_{\mathbf{\vec{u}}}^n(f(g(x))) = \sum_{k = 0}^{n - 1} \begin{pmatrix} n - 1 \cr k \end{pmatrix} \frac{d^{n - 1 - k}}{dx^{n - 1 - k}}\left(\frac{df}{dg}\right) \cdot D_{\mathbf{\vec{u}}}^{k + 1}g $$
 
 $$ D_{\mathbf{\vec{u}}}^n(f_1 \circ f_2 \circ f_3 \circ ... f_m) = \newline
@@ -306,7 +330,7 @@ C(n - 1, k_1, k_2, ..., k_{m-1}) \cdot
 
 # Tangent Vectors
 
-The Generalization of the Deriavative into a Vector Field with Scalar Inputs
+The Generalization of the Derivative into a Vector Field with Scalar Inputs
 
 $\vec{f}(x) = <f_x(x), f_y(x), f_z(x), ...>$
 
@@ -329,3 +353,5 @@ $$D_{\mathbf{\vec{u}}} \vec{f} = <D_{\mathbf{\vec{u}}} f_x, D_{\mathbf{\vec{u}}}
 **n'th Directional Tangent Vector**:
 
 $$D_{\mathbf{\vec{u}}}^n \vec{f} = <D_{\mathbf{\vec{u}}}^n f_x, D_{\mathbf{\vec{u}}}^n f_y, D_{\mathbf{\vec{u}}}^n f_z, ...>$$
+
+# Complex Derivative
