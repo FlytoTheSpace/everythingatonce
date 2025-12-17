@@ -95,12 +95,10 @@ $$|S| < \mathfrak{c}$$
 
 Now back to our integral, if we assume that points $x_1, x_2, x_3, ...$ satisfy $\varphi(x)$ then
 
-$$
-\displaystyle \int_{\varphi(x)} f(x) \ dx = \int_{x_1}^{x_1} f(x)\ dx + \int_{x_2}^{x_2} f(x)\ dx + \int_{x_3}^{x_3} f(x)\ dx + ... \newline
+$$ \displaystyle \int_{\varphi(x)} f(x) \ dx = \int_{x_1}^{x_1} f(x)\ dx + \int_{x_2}^{x_2} f(x)\ dx + \int_{x_3}^{x_3} f(x)\ dx + ... \newline
 
 = [F(x_1) - F(x_1)] + [F(x_2) - F(x_2)] + [F(x_3) - F(x_3)] + ... \newline
-= 0 + 0 + 0 + ...
-$$
+= 0 + 0 + 0 + ... $$
 
 so here's our core result:
 
@@ -132,11 +130,10 @@ since we considering case where $\varphi(x)$ is discrete here, there is space on
 
 > This can be visually verified on a graph but we can't show it here due to a reoccuring bug with our editing software when rendering.
 
-$$
-\displaystyle \int_{\varphi(x)} f(x)\ dx = \displaystyle \lim_{\delta x \to 0} \sum_{\varphi(x)} f(x) \ \delta x \newline
+$$ \displaystyle \int_{\varphi(x)} f(x)\ dx = \displaystyle \lim_{\delta x \to 0} \sum_{\varphi(x)} f(x) \ \delta x \newline
 = \displaystyle \lim_{\delta x \to 0} \sum_{\varphi(x)} 0 \newline
-= 0
-$$
+= 0 $$
+
 attaching a little more context to it, and we arrive at the same result:
 
 $$|S| < \mathfrak{c} \implies \int_{\varphi(x)} f(x) \ dx = 0$$
