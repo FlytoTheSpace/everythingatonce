@@ -1,9 +1,13 @@
 
 
 def LinearEquations(a0: list[list[float]]):
+    # check dimensions
     n = len(a0)
     if (n != (len(a0[0]) - 1)):
         return
+    
+    # compute coefficients:
+
     A = [a0]
     for m in range(1, n):
         pm = m - 1
@@ -15,20 +19,37 @@ def LinearEquations(a0: list[list[float]]):
                 A[m][i].append(acur)
 
     x: list[float] = [1]
-    for k in range(1, n + 1):
+
+    # solution computation:
+    for k in range(1, n + 1):  
         xk = 0
         nnk = n - k
+        i;
+        # search for an i value where it's coefficient is non-zero.
+        for eq in range(0, k):
+            if A[nnk][eq][k] == 0:
+                continue
+            i = eq
+        if i == None:
+            print("Overdetermined system")
+            return
+        # compute the solution:
         for j in range(0, k):
-            xk += A[nnk][0][j] * x[j]
-        xk = - xk / A[nnk][0][k]
+            xk += A[nnk][i][j] * x[j]
+        xk = - xk / A[nnk][i][k]
+
         x.append(xk)
     return x
 
 
 def checkSolutions(a0: list[list[float]], x: list[float]):
+    # check dimensions
     n = len(a0)
     if (n != (len(a0[0]) - 1)):
         return
+    
+    # check solutions:
+
     print(a0)
     print(x)
     for i in range(0, n):

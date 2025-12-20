@@ -29,7 +29,7 @@ $$
 if $\varphi(i_1), \varphi(i_2), \varphi(i_3), \varphi(i_4), ... = \top$ then:
 
 $$
-\displaystyle \sum_{\varphi(i)} f(i) = \varphi(i_1) + \varphi(i_2) + \varphi(i_3) + \varphi(i_4) + ... 
+\displaystyle \sum_{\varphi(i)} f(i) = f(i_1) + f(i_2) + f(i_3) + f(i_4) + ... 
 $$
 
 you can also rewrite $\varphi(i)$ as a set $S$ in the set-build form.
