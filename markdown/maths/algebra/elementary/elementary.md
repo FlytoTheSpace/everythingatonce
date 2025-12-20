@@ -117,11 +117,11 @@ $$
 $$
 
 - long as $b \neq 0$
-- **Nominator**/**Numerator**: value on Top of The Fraction
-- **Dominator**/**Denomitor**: value on Bottom of The Fraction
+- **Numerator**: value on Top of The Fraction
+- **Denomitor**: value on Bottom of The Fraction
 
 $$
-\frac{\text{Nominator}}{\text{Dominator}}
+\frac{\text{Numerator}}{\text{Denomitor}}
 $$
 
 Properties:
