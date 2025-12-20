@@ -17,7 +17,7 @@ Hi I'm a 14-15y/o 9th grader from India I have many online names such as "FlytoT
 
 The Indeterminates Forms:
 
-$$ I = \left\{ \frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty , 0^0 , \infty - \infty, \infty^0, 1^\infty, ... \right\} $$
+$$ I = \{ \frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty , 0^0 , \infty - \infty, \infty^0, 1^\infty, ... \} $$
 
 we build from a simple case:
 
