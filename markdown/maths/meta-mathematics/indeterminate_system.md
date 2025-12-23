@@ -65,6 +65,14 @@ $$\exists U \forall x \in \mathbb{D} [ x \leftarrow x]$$
 
 ## Definitions
 
+- **Set Form**: 
+
+$$\setform(x) = \{y\ |\ y = x \}$$
+
+- **Set of Determinates**: 
+
+$$\mathbb{D} = \{x\ |\ \setform(x) = {x} \}$$
+
 - **Congruence**: 2 Indeterminates are congruent if their set of instances are the same.
 $$I_1 \cong I_2 \iff \setform(I_1) = \setform(I_2)$$
 
@@ -76,7 +84,7 @@ $$I = I$$
 
 $$I \neq I$$
 
-- **Ordinary Indeterminates** (requires A6): where:
+- **Ordinary Indeterminates** (requires A6): where
 
 $$\setform(I) = \mathbb{D}$$
 
@@ -183,3 +191,37 @@ so,
 $$
 \therefore \frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty , 0^0 , \infty - \infty, \infty^0, 1^\infty, ...  \in \mathbb{I}
 $$
+
+# Indeterminate-Systems (Experimental)
+
+In this Experimental Indeterminate-System, the 4th and 5th axioms are modified to support Indeterminates as instances of Indeterminates, however it makes the A1 axioms abigious (not quite true or false).
+
+## Axioms
+
+$\forall I, I_1, I_2, ... \in \mathbb{I}$
+
+- A1 ....
+
+- A2 ....
+
+- A3 ....
+
+- A4. **Regularity**: Ensures that an Indeterminates as Instances of Indeterminates are only ambigious and not false.
+
+$$I_1 \leftarrow I_2 \iff x \leftarrow I_1, y \leftarrow I_2 [x = y]$$
+
+- A5. **Universal Indeterminate**: exists a Universal Indeterminate, whose set of Instances is the Universal Set.
+
+$$\exists U \forall x \in \mathbb{U} [ x \leftarrow x]$$
+
+> Comment from author: WILD!
+
+## Definitions:
+
+- **Transcedental Indeterminate**:
+
+$$\setform(I) \supsetneq \mathbb{D}$$
+
+- **Referential Indeterminate**:
+
+$$\exists I_1 [ |\setform(I_1)| > 1 \land I_1 \leftarrow I_2 ]$$
