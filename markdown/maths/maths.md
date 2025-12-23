@@ -50,7 +50,7 @@ Applied Mathematics
 | $\neq$                                  | **Not Equal**                 | $a \neq b$                        |
 | $\sim$ <br> $\propto$                   | **Similar, Proportion**       | $a \sim b$ <br> $a\propto b$      |
 | $\equiv$                                | **Identity, Equivalent**      | $a \equiv b$                      |
-| $\cong$                                 | **Equal** (Context Dependent) | $a \equiv b$                      |
+| $\cong$                                 | **Congruence**                | $a \equiv b$                      |
 **Comparison**
 | $<$                                     | **Less Than**                 | $a < b$                           |
 | $>$                                     | **Greater Than**              | $a > b$                           |
