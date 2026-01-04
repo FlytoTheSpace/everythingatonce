@@ -353,11 +353,11 @@ $$
 (y^2 + p + z)^2 = \left(\sqrt{p + 2z}y + \frac{- q}{2\sqrt{p + 2z}}\right)^2 \newline
 \sqrt{(y^2 + p + z)^2} = \sqrt{\left(\sqrt{p + 2z}y + \frac{- q}{2\sqrt{p + 2z}}\right)^2} \newline
 y^2 + p + z = \sqrt{p + 2z}y + \frac{- q}{2\sqrt{p + 2z}} \newline
-y^2 + (- \sqrt{p + 2z})y + \left(p + z + \frac{- q}{2\sqrt{p + 2z}}\right) = 0 \newline
+y^2 + (- \sqrt{p + 2z})y + \left(p + z + \frac{q}{2\sqrt{p + 2z}}\right) = 0 \newline
 $$
 solving as a quadratic:
 $$
-y = \frac{\sqrt{p + 2z}}{2} + \frac{1}{2}\sqrt{p + 2z - 4\left(p + z + \frac{- q}{2\sqrt{p + 2z}}\right)}
+y = \frac{\sqrt{p + 2z}}{2} + \frac{1}{2}\sqrt{p + 2z - 4\left(p + z + \frac{q}{2\sqrt{p + 2z}}\right)}
 $$
 
 final step:
@@ -366,11 +366,11 @@ $$
 x = y - \frac{b}{4a}
 $$
 $$
-y - \frac{b}{4a} = - \frac{b}{4a} + \frac{\sqrt{p + 2z}}{2} + \frac{1}{2}\sqrt{p + 2z - 4\left(p + z + \frac{- q}{2\sqrt{p + 2z}}\right)}
+y - \frac{b}{4a} = - \frac{b}{4a} + \frac{\sqrt{p + 2z}}{2} + \frac{1}{2}\sqrt{p + 2z - 4\left(p + z + \frac{q}{2\sqrt{p + 2z}}\right)}
 $$
 
 $$
-x = - \frac{b}{4a} + \frac{\sqrt{p + 2z}}{2} + \frac{1}{2}\sqrt{p + 2z - 4\left(p + z + \frac{- q}{2\sqrt{p + 2z}}\right)}
+x = - \frac{b}{4a} + \frac{\sqrt{p + 2z}}{2} + \frac{1}{2}\sqrt{p + 2z - 4\left(p + z + \frac{q}{2\sqrt{p + 2z}}\right)}
 $$
 
 ## Root Formula
@@ -379,7 +379,7 @@ ax^4 + bx^3 + cx^2 + dx + e = 0
 $$
 
 $$
-x = - \frac{b}{4a} + \frac{\sqrt{p + 2z}}{2} + \frac{1}{2}\sqrt{p + 2z - 4\left(p + z + \frac{- q}{2\sqrt{p + 2z}}\right)}
+x = - \frac{b}{4a} + \frac{\sqrt{p + 2z}}{2} + \frac{1}{2}\sqrt{p + 2z - 4\left(p + z + \frac{q}{2\sqrt{p + 2z}}\right)}
 $$
 
 when $a \neq 0$ and where:

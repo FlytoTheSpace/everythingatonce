@@ -53,7 +53,9 @@ $$y \leftarrow I \iff \exists x [x \in \setform(I) \land y = x]$$
 
 - A3. **Equality**: 2 Indeterminates are equal if they their resolved instance values are the same
 
-$$I_1 = I_2 \iff x \leftarrow I_1, y \leftarrow I_2 [x = y]$$
+$$I_1 = I_2 \iff x \leftarrow I_1 \land y \leftarrow I_2 \land x = y$$
+
+> in This A3 axiom of Equality $x$ and $y$ are context dependent.
 
 - A4. **Regularity**: Ensures that an Indeterminate can only have Determinate Instance values as it can introduce inconsistencies.
 
@@ -61,7 +63,7 @@ $$\setform(I) \setminus \mathbb{D} = \emptyset$$
 
 - A5. **Universal Indeterminate**: exists a Universal Indeterminate, whose set of Instances is the set of all Determinates.
 
-$$\exists U \forall x \in \mathbb{D} [ x \leftarrow x]$$
+$$\exists U \forall x \in \mathbb{D} [ x \leftarrow U]$$
 
 ## Definitions
 
@@ -76,13 +78,15 @@ $$\mathbb{D} = \{x\ |\ \setform(x) = {x} \}$$
 - **Congruence**: 2 Indeterminates are congruent if their set of instances are the same.
 $$I_1 \cong I_2 \iff \setform(I_1) = \setform(I_2)$$
 
-- **Constructive Indeterminates**: expressions where 
+- **Constructive Indeterminates**: where all indeterminates in an expression/context resolve to the same value.
 
 $$I = I$$
 
-- **Destructive Indeterminates**: expressions where 
+- **Destructive Indeterminates**: A more general version of the Constructive indeterminates where the self-equivalence is ambigious.
 
 $$I \neq I$$
+
+> for arbitary instances of $I$
 
 - **Ordinary Indeterminates** (requires A6): where
 
@@ -192,6 +196,87 @@ $$
 \therefore \frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty , 0^0 , \infty - \infty, \infty^0, 1^\infty, ...  \in \mathbb{I}
 $$
 
+**Arithmetic**: The definition for arithematic with Indeterminates are as follows:
+> These operations are for Destructive Indeterminates as they are a more general version and can be easily converted into Constructive cases via a simple constraint
+- **Addition**:
+$$\setform(I) = \{x_0, x_1, x_2, x_3, ...\}$$
+
+$$a, x_0, x_1, x_2, x_3, ... \in \mathbb{D}$$
+
+$$
+I + a 
+\begin{cases}
+x_0 + a \cr
+x_1 + a \cr
+x_2 + a \cr
+x_3 + a \cr
+...
+\end{cases}
+$$
+in a simpler form:
+$$
+I + a 
+\begin{cases}
+x \in \setform(I): a + x
+\end{cases}
+$$
+
+indeterminates with indeterminates:
+
+$$\setform(I_1) = \{x_0, x_1, x_2, x_3, ...\}$$
+
+$$\setform(I_2) = \{y_0, y_1, y_2, y_3, ...\}$$
+
+$$
+I_1 + I_2 = \begin{cases}
+x_0 + y_0 \cr
+x_0 + y_1 \cr
+x_0 + y_2 \cr
+x_0 + ... \cr
+x_1 + y_0 \cr
+x_1 + y_1 \cr
+x_1 + y_2 \cr
+x_1 + ... \cr
+x_2 + y_0 \cr
+x_2 + y_1 \cr
+x_2 + y_2 \cr
+x_2 + ... \cr
+... + ...
+\end{cases}
+$$
+
+$$
+I_1 + I_2 = 
+\begin{cases}
+x \in \setform(I_1) \land y \in \setform(I_2): x + y
+\end{cases}
+$$
+
+- **Multiplication**:
+
+$$
+I \cdot a 
+\begin{cases}
+x \in \setform(I): a \cdot x
+\end{cases}
+$$
+
+$$
+I_1 \cdot I_2 = 
+\begin{cases}
+x \in \setform{I_1} \land y \in \setform{I_2}: x \cdot y
+\end{cases}
+$$
+
+- for any elementary operation on $I$ (i.e a finite combination of $+, \times, \sqrt{}, \sin(), \cos(), e^x, ... $) is defined as:
+
+$$
+f(I) = 
+\begin{cases}
+x \in \setform(I): f(x)
+\end{cases}
+$$
+
 # Indeterminate-Systems (Experimental)
 
 In this Experimental Indeterminate-System, the 4th and 5th axioms are modified to support Indeterminates as instances of Indeterminates, however it makes the A1 axioms abigious (not quite true or false).
@@ -200,15 +285,11 @@ In this Experimental Indeterminate-System, the 4th and 5th axioms are modified t
 
 $\forall I, I_1, I_2, ... \in \mathbb{I}$
 
-- A1 ....
-
-- A2 ....
-
-- A3 ....
+- A1-3. same as Before
 
 - A4. **Regularity**: Ensures that an Indeterminates as Instances of Indeterminates are only ambigious and not false.
 
-$$I_1 \leftarrow I_2 \iff x \leftarrow I_1, y \leftarrow I_2 [x = y]$$
+$$I_1 \leftarrow I_2 \iff x \leftarrow I_1 \land y \leftarrow I_2 \land x = y$$
 
 - A5. **Universal Indeterminate**: exists a Universal Indeterminate, whose set of Instances is the Universal Set.
 
@@ -222,6 +303,6 @@ $$\exists U \forall x \in \mathbb{U} [ x \leftarrow x]$$
 
 $$\setform(I) \supsetneq \mathbb{D}$$
 
-- **Referential Indeterminate**:
+- **Recursive Indeterminate**:
 
 $$\exists I_1 [ |\setform(I_1)| > 1 \land I_1 \leftarrow I_2 ]$$
