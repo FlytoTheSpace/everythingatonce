@@ -11,7 +11,7 @@ hi, I'm the same kid as in the last article, this is the part 2 of the previous 
 
 # Indeterminate-Systems
 
-**Indeterminate**: is an object/expression $U$ with no determinate value, it can also represent object within the system $\mathbb{U}$
+**Indeterminate**: is an object/expression with no determinate value, it can also represent object within the system $\mathbb{U}$
 
 An **Indeterminate Form** is form of the Indeterminates $I$, often associated with the situation they arise from, it may restrict the scope of the indeterminate.
 
@@ -19,7 +19,11 @@ An **Indeterminate Form** is form of the Indeterminates $I$, often associated wi
 
 described as $x \leftarrow I$
 
-$$\newcommand{\setform}{\text{set}}$$
+$$
+\newcommand{\setform}{\text{set}}
+\newcommand{\null}{\mathtt{NULL}}
+\newcommand{\bangle}[1]{\langle #1 \rangle}
+$$
 
 $$\setform(I)$$
 
@@ -43,27 +47,27 @@ $$
 
 $\forall I, I_1, I_2, ... \in \mathbb{I}$
 
-- A1. **Arbitary Value**: Indeterminates are equal to every instance within their set of instances.
+- A1. **Axiom of Indeterminates**: An Indeterminate can be constructed via it's set of instances.
 
-$$\forall x \in \setform(I) [I = x] $$
+$$
+\forall (A \subset \mathbb{D}) \exists (I \in \mathbb{I}) [\setform(I) = A]
+$$
 
-- A2. **Instance**: An Instance of an indeterminate belongs within it's set of instances.
+> the Domain for $A$ is meant to be consistent with $\mathbb{D}$ in the A4 axiom.
 
-$$y \leftarrow I \iff \exists x [x \in \setform(I) \land y = x]$$
+- A2. **Axiom of Instance**: An Instance of an indeterminate belongs within it's set of instances.
 
-- A3. **Equality**: 2 Indeterminates are equal if they their resolved instance values are the same
+$$y \leftarrow I \iff \exists x [x \in \setform(I) \land y = x] \land |I| > 0$$
+
+- A3. **Axiom of Equality**: 2 Indeterminates are equal if they their resolved instance values are the same
 
 $$I_1 = I_2 \iff x \leftarrow I_1 \land y \leftarrow I_2 \land x = y$$
 
-> in This A3 axiom of Equality $x$ and $y$ are context dependent.
+> in This A2 axiom of Equality $x$ and $y$ are context dependent.
 
-- A4. **Regularity**: Ensures that an Indeterminate can only have Determinate Instance values as it can introduce inconsistencies.
+- A4. **Axiom of Limit**: Ensures that an Indeterminate can only have Determinate Instance values as it can introduce paradoxes.
 
 $$\setform(I) \setminus \mathbb{D} = \emptyset$$
-
-- A5. **Universal Indeterminate**: exists a Universal Indeterminate, whose set of Instances is the set of all Determinates.
-
-$$\exists U \forall x \in \mathbb{D} [ x \leftarrow U]$$
 
 ## Definitions
 
@@ -82,13 +86,23 @@ $$I_1 \cong I_2 \iff \setform(I_1) = \setform(I_2)$$
 
 $$I = I$$
 
+
 - **Destructive Indeterminates**: A more general version of the Constructive indeterminates where the self-equivalence is ambigious.
 
 $$I \neq I$$
 
 > for arbitary instances of $I$
 
-- **Ordinary Indeterminates** (requires A6): where
+> **Constructive Notation**: It can be hard to communicate which $I$ in an expression is constructive or not. this can be fixed via the following Notation:
+>
+> $n,m$ are mere labels, can be letters/numbers tec.
+> 
+> $$I^{\bangle{n}} = I^{\bangle{n}}$$
+>
+> $$I^{\bangle{n}} \cong I^{\bangle{m}}$$
+>
+
+- **Ordinary Indeterminates**: where
 
 $$\setform(I) = \mathbb{D}$$
 
@@ -96,12 +110,170 @@ $$\setform(I) = \mathbb{D}$$
 
 $$\setform(I) \subsetneq \mathbb{D}$$
 
+- **NULL Element**: a special indeterminate where:
+
+$$\setform(\null) = \emptyset$$
+
+> it is just here to complete the system.
+
+## Potential Internal Inconsistencies
+
+Regarding some potential inconsistencies
+
+by A1:
+
+$$\setform(I) = \{3, 5, 4\}$$
+
+by A2:
+
+$$3 \leftarrow I, 5 \leftarrow I$$
+
+**Arbitary Value** result:
+
+$$3 \leftarrow I \iff I = 3$$
+$$5 \leftarrow I \iff I = 5$$
+
+$$I = 3$$
+
+$$I = 5$$
+
+all we need is $I = I$, to show that $3 = 5$ breaking the system.
+
+by A3.
+
+$$I = I \iff 3 \leftarrow I \land 5 \leftarrow I \land 3 = 5$$
+
+$$I = I \iff \top \land \top \land \bot$$
+
+$$I = I \iff \bot$$
+
+$$\therefore I \neq I$$
+
+> why only 3, 5, and not 4 was used in A3? well equality is context-dependent here, equality of Indeterminates is dependent of their instances, statement like $x = x$ is valid regardless of context in $\mathbb{D}$, but in $\mathbb{I}$ that self-equality doesn't quite apply. writing down just multiple $I$ doesn't quite tell you whether they are constructive or not (i.e equal to each other). there is a specialized notation regarding this exact problem:
+
+$$I^{\bangle{n}}_{1} = I^{\bangle{n}}_{2} \iff x \leftarrow I^{\bangle{n}}_{1} \land x \leftarrow I^{\bangle{n}}_{2} \land x = x$$
+
+$\bangle{n}$ is just a label, it doesn't directly tell you it's instance value, but it doesn't tell you that any Indeterminate with this same decorator and label resolves to the same value.
+
+also note that it doesn't affect the set of instances of any Indeterminate.
+
+$$
+I^{\bangle{n}} \cong I^{\bangle{m}}
+$$
+
+**Breaking Axiom of Limit**:
+
+arbitary value result:
+
+by A1:
+
+$$\setform(I_1) = \{x, ...\}$$
+
+$$\setform(I_2) = \{x, ...\}$$
+
+Arbitary Value Result:
+$$x \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = x$$
+$$x \leftarrow I_2^{\bangle{n}} \iff I_2^{\bangle{n}} = x$$
+
+by A3:
+$$I_1^{\bangle{n}} = I_2^{\bangle{n}} \iff x \leftarrow I_1^{\bangle{n}} \land x \leftarrow I_2^{\bangle{n}}\land x = x$$
+
+$$x \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = x$$
+
+$$I_2^{\bangle{n}} \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = I_2^{\bangle{n}}$$
+
+> Decorated on $I_1$ is removed as it does not affect it's set of instances
+
+$$\setform(I_1) = \{x, I_2^{\bangle{n}}, ...\}$$
+
+this statement is built from the other axioms and must hold true.
+
+but if we apply A4 to it then:
+
+expected:
+$$\setform(I_1) \setminus \mathbb{D} = \emptyset$$
+
+reality:
+$$\setform(I_1) \setminus \mathbb{D} = \{I_2^{\bangle{n}}\}$$
+
+there is yet but a tiny problem with this argument and it comes down to ignoring the definition of $I_2^{\bangle{n}}$
+
+it says:
+
+$$I_2^{\bangle{n}} = I_2^{\bangle{n}}$$
+and
+$$I_2^{\bangle{n}} = x$$
+
+so really:
+
+$$I_2^{\bangle{n}} \in \mathbb{D}$$
+
+then:
+
+$$\therefore \setform(I_1) \setminus \mathbb{D} = \emptyset$$
 
 ## Results
 
 **Determinism**: if there is only 1 possible indeterminate instance, then it is The Value of the Indeterminant.
 
-$$|\setform(I)| = 1 \implies \exists! x \in \setform(I) [I = x]$$
+$$
+|\setform(I)| = 1 \implies I \in \mathbb{D}
+$$
+- Proof:
+
+by A1:
+
+$$\exists I [\setform(I) = \{a\}]$$
+
+by $\setform()$ definition:
+
+$$\implies I = a$$
+
+$$\setform(I) = \{a\}$$
+
+since $I = a$ in all contexts, we can use substitution here, as there's no ambiguity about their value.
+
+$$\setform(I) = \{I\}$$
+
+definition of determinates:
+$$\mathbb{D} = \{x\ |\ \setform(x) = {x} \}$$
+
+this satifies the conditionals for it to be a determinate. so:
+$$
+\therefore |\setform(I)| = 1 \implies I \in \mathbb{D}
+$$
+
+
+**Arbitary Value**:
+
+$$
+x \leftarrow I^{\bangle{n}} \iff I^{\bangle{n}} = x
+$$
+> where $I$ only needs to be constructive within this specific expression.
+
+- Proof:
+
+by A1:
+
+$$\setform(I) = \{x, ...\}$$
+
+by A2 & A3:
+
+$$I = x \iff x \leftarrow I \land x \leftarrow x \land x = x$$
+
+$$I = x \iff x \leftarrow I \land \top \land \top$$
+
+$$I = x \iff x \leftarrow I$$
+
+$$\therefore x \leftarrow I \iff I = x$$
+
+**Determinates** and **Indeterminates**:
+
+$$
+|\mathbb{I}| = |\mathcal{P}(\mathbb{D})|
+$$
+
+$$\{\text{A1}, \text{A4}\} \vdash |\mathbb{I}| = |\mathcal{P}(\mathbb{D})|$$
 
 **Theorem**: any determinate number (Constant) $c \in \mathbb{D}$ that supports addition/multiplication can be represented as any of the following Indeterminate Forms:
 
@@ -196,6 +368,12 @@ $$
 \therefore \frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty , 0^0 , \infty - \infty, \infty^0, 1^\infty, ...  \in \mathbb{I}
 $$
 
+also since the constant $c$ had the same domain in each case, all these indeterminates are related as:
+
+$$
+\frac{0}{0} \cong \frac{\infty}{\infty} \cong 0 \cdot \infty  \cong 0^0  \cong \infty - \infty \cong \infty^0 \cong 1^\infty
+$$
+
 **Arithmetic**: The definition for arithematic with Indeterminates are as follows:
 > These operations are for Destructive Indeterminates as they are a more general version and can be easily converted into Constructive cases via a simple constraint
 - **Addition**:
@@ -264,7 +442,7 @@ $$
 $$
 I_1 \cdot I_2 = 
 \begin{cases}
-x \in \setform{I_1} \land y \in \setform{I_2}: x \cdot y
+x \in \setform(I_1) \land y \in \setform(I_2): x \cdot y
 \end{cases}
 $$
 
@@ -279,30 +457,49 @@ $$
 
 # Indeterminate-Systems (Experimental)
 
-In this Experimental Indeterminate-System, the 4th and 5th axioms are modified to support Indeterminates as instances of Indeterminates, however it makes the A1 axioms abigious (not quite true or false).
+In this Experimental Indeterminate-System, the 4th and 5th axioms are modified to support Indeterminates as instances of Indeterminates. It's still deeply infested with paradoxes and is unrefined.
+
+This System is denoted by:
+
+$$
+\mathbb{J}
+$$
 
 ## Axioms
 
-$\forall I, I_1, I_2, ... \in \mathbb{I}$
+$\forall I, I_1, I_2, ... \in \mathbb{J}$
 
-- A1-3. same as Before
+- A1. slight change
 
-- A4. **Regularity**: Ensures that an Indeterminates as Instances of Indeterminates are only ambigious and not false.
+$$
+\forall (A \subset \mathbb{I}) \exists (I \in \mathbb{J}) [\setform(I) = A]
+$$
+
+- A2-3. same as Before
+
+- A4. **Axiom of Limit**: Ensures that an Indeterminates as Instances of Indeterminates are only ambigious and not false.
 
 $$I_1 \leftarrow I_2 \iff x \leftarrow I_1 \land y \leftarrow I_2 \land x = y$$
 
-- A5. **Universal Indeterminate**: exists a Universal Indeterminate, whose set of Instances is the Universal Set.
+- A5. **Axiom of Universal Indeterminate**: exists a Universal Indeterminate, whose set of Instances is the Universal Set.
 
-$$\exists U \forall x \in \mathbb{U} [ x \leftarrow x]$$
+
+$$\exists U \forall x \in \mathbb{U} [ x \leftarrow U]$$
 
 > Comment from author: WILD!
 
 ## Definitions:
 
+- **Recursive Indeterminate**:
+
+$$\exists I_1 [ |\setform(I_1)| > 1 \land I_1 \leftarrow I_0 ]$$
+
 - **Transcedental Indeterminate**:
 
 $$\setform(I) \supsetneq \mathbb{D}$$
 
-- **Recursive Indeterminate**:
+## Results
 
-$$\exists I_1 [ |\setform(I_1)| > 1 \land I_1 \leftarrow I_2 ]$$
+$$
+|\mathbb{J}| = |\mathcal{P}(\mathbb{I})| \newline
+= |\mathcal{P}(\mathcal{P}(\mathbb{D}))|

@@ -4,3 +4,4 @@ markdown/maths/scripts/*pycache
 modules/py/*pycache
 modules/py/__pycache__
 .vscode
+todo.md

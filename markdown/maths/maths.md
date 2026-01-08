@@ -79,10 +79,11 @@ Extra
 | $\overrightarrow{\ \ }$                 | **Arrow**, **Ray**            | $\overrightarrow{AB}$             |
 | $\overline{\ \ }$                       | **Line**                      | $\overline{AB}$                   |
 | $\parallel$                             | **Parallel**                  | $AB \parallel CD$                 |
-| $\triangle$                             | **Triangle**                  | $\triangle ABC$                   |
 | $\nparallel$                            | **Not Parallel**              | $AB \nparallel CD$                |
 | $\perp$                                 | **Perpendicularity, Coprime** | $AB \perp CD$<br> $a \perp b$     |
 | $\overleftrightarrow{\ \ }$             | **Bidirectional Arrow**       | $\overleftrightarrow{AB}$         |
+| $\triangle$                             | **Triangle**                  | $\triangle ABC$                   |
+| $\square$                               | **Square**                    | $\square ABCD$                    |
 **Logic**
 | $\land$                                 | **AND**                       | $A \land B$                       |
 | $\lor$                                  | **OR**                        | $A \lor B$                        |
@@ -94,7 +95,7 @@ Extra
 | $\because$                              | **Because**                   | $A \because B$                    |
 | $\top$                                  | **Tee, True**                 | $\top$                            |
 | $\bot$                                  | **Up Tack, False**            | $\bot$                            |
-| $\dashv$                                | **Asserted**                  | $A \dashv B$                      |
+| $\dashv$                                | **Asserted**                  | $\dashv A$                        |
 | $\vdash$                                | **Provable**                  | $A \vdash B$                      |
 | $\models$                               | **Entails**                   | $A \models B$                     |
 | $\forall$                               | **Universal Quantifier**      | $\forall A$                       |
@@ -444,8 +445,10 @@ Extra
 | `{}^{} {}`              | ${}^{\square} a$         | **Left Superscript** (non-standard) |
 | `{}_{} {}`              | ${}_{\square} a$         | **Left Subscript** (non-standard)   |
 | `\overset{}{}`          | $\overset{\square}{a}$   | **Overset**                         |
+| `\underset{}{}`         | $\underset{\square}{a}$  | **Underset**                        |
 | `\dot{}`                | $\dot{a}$                | **Dot**                             |
 | `\bar{}`                | $\bar{a}$                | **Conjugate**                       |
+| `\v{}`                  | $\v{a}$                  | **V**                               |
 | `\tilde{}`              | $\tilde{a}$              | **Tilde**                           |
 | `\overline{}`           | $\overline{A}$           | **Line**                            |
 | `\overrightarrow{}`     | $\overrightarrow{A}$     | **Ray (R)**                         |
@@ -455,8 +458,8 @@ Extra
 | `\vec{}`                | $\vec{v}$                | **Vector**                          |
 | `\hat{}`                | $\hat{v}$                | **Unit Vector**                     |
 | `\dagger`               | $A^\dagger$              | **Dagger**                          |
-| `\ddagger`              | $A\ddagger$              | **Double Dagger**                          |
-| `\diamond`              | $\diamond P$               | **Diamond**                          |
+| `\ddagger`              | $A\ddagger$              | **Double Dagger**                   |
+| `\diamond`              | $\diamond P$             | **Diamond**                         |
 
 ## Color Pallet
 
@@ -466,7 +469,7 @@ In some sections within this archive there is use of color in formula's and equa
 | ------------------------------------ | -------------- | -------------------------------------------- |
 | $\color{Dodgerblue}\blacksquare$     | Dodgerblue     | Usage of known Identities/Simplification     |
 | $\color{MediumSeaGreen}\blacksquare$ | MediumSeaGreen | Addition of a new term/Applying an operation |
-| $\color{orangered}\blacksquare$      | orangered      | Cancellation of Operations                   |
+| $\color{OrangeRed}\blacksquare$      | OrangeRed      | Cancellation of Operations                   |
 
 while any other color used other than these are mostly just for decoration.
 
