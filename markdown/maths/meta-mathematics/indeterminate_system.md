@@ -57,7 +57,7 @@ $$
 
 - A2. **Axiom of Instance**: An Instance of an indeterminate belongs within it's set of instances.
 
-$$y \leftarrow I \iff \exists x [x \in \setform(I) \land y = x] \land |I| > 0$$
+$$y \leftarrow I \iff \exists x [x \in \setform(I) \land y = x] \land |\setform(I)| > 0$$
 
 - A3. **Axiom of Equality**: 2 Indeterminates are equal if they their resolved instance values are the same
 
@@ -97,9 +97,7 @@ $$I \neq I$$
 >
 > $n,m$ are mere labels, can be letters/numbers tec.
 > 
-> $$I^{\bangle{n}} = I^{\bangle{n}}$$
->
-> $$I^{\bangle{n}} \cong I^{\bangle{m}}$$
+> $$I^{\bangle{n}}_1 = I^{\bangle{n}}_2$$
 >
 
 - **Ordinary Indeterminates**: where
@@ -115,102 +113,6 @@ $$\setform(I) \subsetneq \mathbb{D}$$
 $$\setform(\null) = \emptyset$$
 
 > it is just here to complete the system.
-
-## Potential Internal Inconsistencies
-
-Regarding some potential inconsistencies
-
-by A1:
-
-$$\setform(I) = \{3, 5, 4\}$$
-
-by A2:
-
-$$3 \leftarrow I, 5 \leftarrow I$$
-
-**Arbitary Value** result:
-
-$$3 \leftarrow I \iff I = 3$$
-$$5 \leftarrow I \iff I = 5$$
-
-$$I = 3$$
-
-$$I = 5$$
-
-all we need is $I = I$, to show that $3 = 5$ breaking the system.
-
-by A3.
-
-$$I = I \iff 3 \leftarrow I \land 5 \leftarrow I \land 3 = 5$$
-
-$$I = I \iff \top \land \top \land \bot$$
-
-$$I = I \iff \bot$$
-
-$$\therefore I \neq I$$
-
-> why only 3, 5, and not 4 was used in A3? well equality is context-dependent here, equality of Indeterminates is dependent of their instances, statement like $x = x$ is valid regardless of context in $\mathbb{D}$, but in $\mathbb{I}$ that self-equality doesn't quite apply. writing down just multiple $I$ doesn't quite tell you whether they are constructive or not (i.e equal to each other). there is a specialized notation regarding this exact problem:
-
-$$I^{\bangle{n}}_{1} = I^{\bangle{n}}_{2} \iff x \leftarrow I^{\bangle{n}}_{1} \land x \leftarrow I^{\bangle{n}}_{2} \land x = x$$
-
-$\bangle{n}$ is just a label, it doesn't directly tell you it's instance value, but it doesn't tell you that any Indeterminate with this same decorator and label resolves to the same value.
-
-also note that it doesn't affect the set of instances of any Indeterminate.
-
-$$
-I^{\bangle{n}} \cong I^{\bangle{m}}
-$$
-
-**Breaking Axiom of Limit**:
-
-arbitary value result:
-
-by A1:
-
-$$\setform(I_1) = \{x, ...\}$$
-
-$$\setform(I_2) = \{x, ...\}$$
-
-Arbitary Value Result:
-$$x \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = x$$
-$$x \leftarrow I_2^{\bangle{n}} \iff I_2^{\bangle{n}} = x$$
-
-by A3:
-$$I_1^{\bangle{n}} = I_2^{\bangle{n}} \iff x \leftarrow I_1^{\bangle{n}} \land x \leftarrow I_2^{\bangle{n}}\land x = x$$
-
-$$x \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = x$$
-
-$$I_2^{\bangle{n}} \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = I_2^{\bangle{n}}$$
-
-> Decorated on $I_1$ is removed as it does not affect it's set of instances
-
-$$\setform(I_1) = \{x, I_2^{\bangle{n}}, ...\}$$
-
-this statement is built from the other axioms and must hold true.
-
-but if we apply A4 to it then:
-
-expected:
-$$\setform(I_1) \setminus \mathbb{D} = \emptyset$$
-
-reality:
-$$\setform(I_1) \setminus \mathbb{D} = \{I_2^{\bangle{n}}\}$$
-
-there is yet but a tiny problem with this argument and it comes down to ignoring the definition of $I_2^{\bangle{n}}$
-
-it says:
-
-$$I_2^{\bangle{n}} = I_2^{\bangle{n}}$$
-and
-$$I_2^{\bangle{n}} = x$$
-
-so really:
-
-$$I_2^{\bangle{n}} \in \mathbb{D}$$
-
-then:
-
-$$\therefore \setform(I_1) \setminus \mathbb{D} = \emptyset$$
 
 ## Results
 
@@ -269,10 +171,6 @@ $$\therefore x \leftarrow I \iff I = x$$
 
 **Determinates** and **Indeterminates**:
 
-$$
-|\mathbb{I}| = |\mathcal{P}(\mathbb{D})|
-$$
-
 $$\{\text{A1}, \text{A4}\} \vdash |\mathbb{I}| = |\mathcal{P}(\mathbb{D})|$$
 
 **Theorem**: any determinate number (Constant) $c \in \mathbb{D}$ that supports addition/multiplication can be represented as any of the following Indeterminate Forms:
@@ -283,89 +181,100 @@ Proof:
 
 - $0/0$ case
 
-$$
-c \newline
-= \lim_{x \to 0} c \cdot \frac{x}{x}\newline
-= \left(\lim_{x \to 0} c \cdot x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)\newline
-= \left(\lim_{x \to 0} x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)\newline
-= \lim_{x \to 0} \frac{x}{x}\newline
-= \frac{0}{0}\newline
-$$
+$$ c $$
+
+$$ = \lim_{x \to 0} c \cdot \frac{x}{x}$$
+
+$$ = \left(\lim_{x \to 0} c \cdot x \right)\left(\lim_{x \to 0} \frac{1}{x}
+\right)$$
+$$ = \left(\lim_{x \to 0} x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)$$
+
+$$ = \lim_{x \to 0} \frac{x}{x}$$
+
+$$ = \frac{0}{0}$$
 
 - $\infty/\infty$ case
 
-$$
-c \newline
-= \lim_{x \to \infty} c \cdot \frac{x}{x}\newline
-= \left(\lim_{x \to \infty} c \cdot x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)\newline
-= \left(\lim_{x \to \infty} x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)\newline
-= \lim_{x \to \infty} \frac{x}{x}\newline
-= \frac{\infty}{\infty}\newline
-$$
+$$ c $$
+
+$$ = \lim_{x \to \infty} c \cdot \frac{x}{x}$$
+
+$$ = \left(\lim_{x \to \infty} c \cdot x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)$$
+
+$$ = \left(\lim_{x \to \infty} x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)$$
+
+$$ = \lim_{x \to \infty} \frac{x}{x}$$
+
+$$ = \frac{\infty}{\infty}$$
 
 - $0 \cdot \infty$ case
 
-$$
-c \newline
-= \lim_{x \to \infty} c \cdot \frac{x}{x}\newline
-= \left(\lim_{x \to \infty} c \cdot x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)\newline
-= \left(\lim_{x \to \infty} x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)\newline
-= (\infty)(0)\newline
-= 0 \cdot \infty\newline
-$$
+$$ c $$
+
+$$ = \lim_{x \to \infty} c \cdot \frac{x}{x}$$
+
+$$ = \left(\lim_{x \to \infty} c \cdot x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)$$
+
+$$ = \left(\lim_{x \to \infty} x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)$$
+
+$$ = (\infty)(0)$$
+
+$$ = 0 \cdot \infty$$
 
 - $0^0$ case
 
-$$
-c \newline
-= \lim_{x \to 0} c \cdot \frac{x}{x}\newline
-= \left(\lim_{x \to 0} c \cdot x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)\newline
-= \left(\lim_{x \to 0} x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)\newline
-= \lim_{x \to 0} \frac{x}{x} \newline
-= \frac{0}{0} \newline
-$$
+$$ c $$
+
+$$ = \lim_{x \to 0} c \cdot \frac{x}{x}$$
+
+$$ = \left(\lim_{x \to 0} c \cdot x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)$$
+
+$$ = \left(\lim_{x \to 0} x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)$$
+
+$$ = \lim_{x \to 0} \frac{x}{x} $$
+
+$$ = \frac{0}{0} $$
 
 - $\infty - \infty$ case
 
-$$
-c \newline
-= \lim_{x \to \infty} c + x - x \newline
-= \lim_{x \to \infty} (c + x) + \lim_{x \to \infty}( - x) \newline
-= \lim_{x \to \infty} x + \lim_{x \to \infty}( - x) \newline
-= \lim_{x \to \infty} (x - x) \newline
-= \infty - \infty \newline
-$$
+$$ c $$
+
+$$ = \lim_{x \to \infty} c + x - x $$
+
+$$ = \lim_{x \to \infty} (c + x) + \lim_{x \to \infty}( - x) $$
+
+$$ = \lim_{x \to \infty} x + \lim_{x \to \infty}( - x) $$
+
+$$ = \lim_{x \to \infty} (x - x) $$
+
+$$ = \infty - \infty $$
 
 - $\infty^0$ case
 
-$$
-c \newline
-= \lim_{x \to \infty} c \cdot \frac{x}{x}\newline
-= \left(\lim_{x \to \infty} c \cdot x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)\newline
-= \left(\lim_{x \to \infty} x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)\newline
-= \lim_{x \to \infty} \frac{x}{x}\newline
-= \lim_{x \to \infty} x^{1 - 1}\newline
-= \lim_{x \to \infty} x^0\newline
-= \infty^0\newline
-$$
+$$ c $$
+$$ = \lim_{x \to \infty} c \cdot \frac{x}{x}$$
+$$ = \left(\lim_{x \to \infty} c \cdot x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)$$
+$$ = \left(\lim_{x \to \infty} x \right)\left(\lim_{x \to \infty} \frac{1}{x}\right)$$
+$$ = \lim_{x \to \infty} \frac{x}{x}$$
+$$ = \lim_{x \to \infty} x^{1 - 1}$$
+$$ = \lim_{x \to \infty} x^0$$
+$$ = \infty^0$$
 
 - $1^\infty$ case
 
-$$
-c \newline
-\lim_{x \to \infty} c \cdot \frac{e^x}{e^x} \newline
-\left(\lim_{x \to \infty} c \cdot e^x\right)\left(\frac{1}{e^x}\right) \newline
-\left(\lim_{x \to \infty} e^x\right)\left(\frac{1}{e^x}\right) \newline
-\lim_{x \to \infty} \frac{e^x}{e^x} \newline
-\lim_{x \to \infty} \left(\frac{e}{e}\right)^x \newline
-\lim_{x \to \infty} 1^x \newline
-1^\infty \newline
-$$
+$$ c $$
+$$ = \lim_{x \to \infty} c \cdot \frac{e^x}{e^x} $$
+$$ = \left(\lim_{x \to \infty} c \cdot e^x\right)\left(\lim_{x \to \infty}\frac{1}{e^x}\right) $$
+$$ = \left(\lim_{x \to \infty} e^x\right)\left(\lim_{x \to \infty}\frac{1}{e^x}\right) $$
+$$ = \lim_{x \to \infty} \frac{e^x}{e^x} $$
+$$ = \lim_{x \to \infty} \left(\frac{e}{e}\right)^x $$
+$$ = \lim_{x \to \infty} 1^x $$
+$$ = 1^\infty $$
 
 so,
 
 $$
-\therefore \frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty , 0^0 , \infty - \infty, \infty^0, 1^\infty, ...  \in \mathbb{I}
+\therefore \frac{0}{0}, \frac{\infty}{\infty}, 0 \cdot \infty , 0^0 , \infty - \infty, \infty^0, 1^\infty, ...  \in \mathbb{I} \setminus \mathbb{D}
 $$
 
 also since the constant $c$ had the same domain in each case, all these indeterminates are related as:
@@ -455,24 +364,123 @@ x \in \setform(I): f(x)
 \end{cases}
 $$
 
+
+## Potential Internal Inconsistencies
+
+Regarding some potential inconsistencies
+
+**Proving Inconsistency**:
+
+by A1:
+
+$$\setform(I) = \{3, 5, 4\}$$
+
+by A2:
+
+$$3 \leftarrow I, 5 \leftarrow I$$
+
+Arbitary Value result:
+
+$$3 \leftarrow I \iff I = 3$$
+$$5 \leftarrow I \iff I = 5$$
+
+$$I = 3$$
+
+$$I = 5$$
+
+all we need is $I = I$, to show that $3 = 5$ breaking the system.
+
+by A3.
+
+$$I = I \iff 3 \leftarrow I \land 5 \leftarrow I \land 3 = 5$$
+
+$$I = I \iff \top \land \top \land \bot$$
+
+$$I = I \iff \bot$$
+
+$$\therefore I \neq I$$
+
+> why only 3, 5, and not 4 was used in A3? well equality is context-dependent here, equality of Indeterminates is dependent of their instances, statement like $x = x$ is valid regardless of context in $\mathbb{D}$, but in $\mathbb{I}$ that self-equality doesn't quite apply. writing down just multiple $I$ doesn't quite tell you whether they are constructive or not (i.e equal to each other). there is a specialized notation regarding this exact problem:
+
+$$I^{\bangle{n}}_{1} = I^{\bangle{n}}_{2} \iff x \leftarrow I^{\bangle{n}}_{1} \land x \leftarrow I^{\bangle{n}}_{2} \land x = x$$
+
+$\bangle{n}$ is just a label, it doesn't directly tell you it's instance value, but it does tell you that any Indeterminate with this same decorator/label resolves to the same value.
+
+**Breaking Axiom of Limit**:
+
+arbitary value result:
+
+by A1:
+
+$$\setform(I_1) = \{x, ...\}$$
+
+$$\setform(I_2) = \{x, ...\}$$
+
+Arbitary Value Result:
+$$x \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = x$$
+$$x \leftarrow I_2^{\bangle{n}} \iff I_2^{\bangle{n}} = x$$
+
+by A3:
+$$I_1^{\bangle{n}} = I_2^{\bangle{n}} \iff x \leftarrow I_1^{\bangle{n}} \land x \leftarrow I_2^{\bangle{n}}\land x = x$$
+
+$$x \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = x$$
+
+$$I_2^{\bangle{n}} \leftarrow I_1^{\bangle{n}} \iff I_1^{\bangle{n}} = I_2^{\bangle{n}}$$
+
+this statement is built from the other axioms and must hold true.
+
+but if we apply A4 to it then:
+
+expected:
+$$\setform(I_1^{\bangle{n}}) \setminus \mathbb{D} = \emptyset$$
+
+reality:
+$$\setform(I_1^{\bangle{n}}) \setminus \mathbb{D} = \{I_2^{\bangle{n}}\}$$
+
+there is yet but a tiny problem with this argument and it comes down to ignoring the definition of $I_2^{\bangle{n}}$
+
+it says:
+
+$$I_2^{\bangle{n}} = I_2^{\bangle{n}}$$
+and
+$$I_2^{\bangle{n}} = x$$
+
+so really:
+
+$$I_2^{\bangle{n}} \in \mathbb{D}$$
+
+then:
+
+$$\therefore \setform(I_1) \setminus \mathbb{D} = \emptyset$$
+
+as expected.
+
 # Indeterminate-Systems (Experimental)
 
 In this Experimental Indeterminate-System, the 4th and 5th axioms are modified to support Indeterminates as instances of Indeterminates. It's still deeply infested with paradoxes and is unrefined.
 
 This System is denoted by:
 
-$$
-\mathbb{J}
-$$
+$$\mathbb{J}$$
+
+it related to the original systems as:
+
+$$\mathbb{D} \subset \mathbb{I} \subset \mathbb{J} = \mathbb{U}$$
 
 ## Axioms
 
 $\forall I, I_1, I_2, ... \in \mathbb{J}$
 
-- A1. slight change
+- A0. **Axiom of System**:
 
 $$
-\forall (A \subset \mathbb{I}) \exists (I \in \mathbb{J}) [\setform(I) = A]
+\mathbb{I} \subset \mathbb{J}
+$$
+
+- A1. **Axiom of Indeterminates**: (slight change)
+
+$$
+\forall (A \subset \mathbb{J}) \exists (I \in \mathbb{J}) [\setform(I) = A]
 $$
 
 - A2-3. same as Before
@@ -500,6 +508,37 @@ $$\setform(I) \supsetneq \mathbb{D}$$
 
 ## Results
 
-$$
-|\mathbb{J}| = |\mathcal{P}(\mathbb{I})| \newline
-= |\mathcal{P}(\mathcal{P}(\mathbb{D}))|
+
+### Cardinality
+
+we want to the cardinality of $\mathbb{J}$
+
+let's assume we have a list of all the indeterminates in $\mathbb{I}$
+
+$$\mathbb{I} = \{I_0, I_1, I_2, I_3, ...\}$$
+
+with $\mathbb{I} \neq \emptyset$ which is guarantted as $\null \in \mathbb{I}$ even if $\mathbb{D} = \emptyset$
+
+by A1, we can create Indeterminates with any $\setform()$ combination from this set. essentially the Powerset:
+
+$$\mathcal{P}(\mathbb{I})$$
+
+but A1 allows us to do it again,
+
+$$\mathcal{P}(\mathcal{P}(\mathbb{I}))$$
+
+and again, over and over again....
+
+$$\mathcal{P}^{n}(\mathbb{I})$$
+
+and yet A1 allows us to perform this task endlessly, sets with bigger and bigger sets for both finite and infinite size of $\mathbb{I}$.
+
+and still then we can construct such an Indeterminate that isn't in our archieved power-sets yet.
+
+$$\exists J \in \mathbb{J}[J \notin \{I | \setform(I) \in \mathcal{P}^{n}(I)\}]$$
+
+so even though my exposure to higher-mathematics is low, I must deduce that $\mathbb{J}$ is atleast Uncountably Infinite:
+
+$$|\mathbb{J}| \geq \mathfrak{c}$$
+
+regardless of $\mathbb{D}$.

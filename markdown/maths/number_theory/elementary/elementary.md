@@ -105,4 +105,11 @@ $$\therefore p \mid m $$
 this contradicts the definition of $S$
 
 
+# Factor
+
+$\forall a, b \exists r[a = rp \land b = rp \land p \perp q \iff \gcd(a, b) = r]$
+
+**Euclid's Algorithm**:
+
+> $(a, b)$ are parameters
 

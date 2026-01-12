@@ -17,38 +17,43 @@ The Fundamentals of Algebra and common formula's
 
 These are some axioms which are built up on and often used throughout this archive
 
-$\forall a, b$
+$\forall x$
 
-1. **Determinism**: functions `f` always return the same output given the same input:
-$$
-f(a) = f(a)
-$$
-> some obvious exceptions are `random()`, `time()` etc. but they don't belong here.
+A1. **Reflexitivity**:
 
-2. **Subtitutivity**: if `a` satisfies some condition `C` and `b` is equal to `a` then `b` also satisfies that condition
-$$
-(a = b) \implies (C(a) \iff C(b))
-$$
-3. **Equality Preservation**: if $a = b$ then performing some operation $f$ on both sides, yields a true statement.
-$$
-a = b\newline
-\implies f(a) = f(b)
-$$
-4. **Inverse**: for bijective functions, operations and can be cancelled by their inverses
-$$
-\exists!a(f(a) = y) \newline
-\implies f^{-1}(f(a)) = f(f^{-1}(a)) = a
-$$
-5. **Identity**: there exists a value such that it essentially does "nothing" under some operation
-$$
-\exists e (a \circ e = e \circ a = a)
-$$
+$$x = x$$
 
-## Common Notion
+A2. **Symmetry**:
+
+$$x = y \iff y = x$$
+
+A3. **Transitivity**:
+
+$$x = y \land y = z \implies x = z$$
+
+A4. **Equality Preservation**:
+
+$$x = y \implies f(x) = f(y)$$
+
+A5. **Identity**:
+
+$$\exists I[I(x) = x]$$
+
+A6. **Inverse**:
+
+$$[x = y \iff f(x) = f(y)] \implies \exists f^{-1} [f(f^{-1}(x)) = f^{-1}(f(x)) = I(x)]$$
+
+## Common Operations
 
 These are simple commonly accepted facts that arise from addition and multiplication, not being basic or general enough to be axioms and not complex enough to be full blown theorems. also includes names and intrepretation of expressions
 
 ### Additon:
+
+> **Addition Axioms**:
+> $$\exists 0 \in \mathbb{N}[a + 0 = a]$$
+> $$s(a + b) = a + s(b)$$
+
+from those, the following properties can be established:
 
 - **Closure**:
 depends on The Group (mostly `yes`)
@@ -62,6 +67,10 @@ $$ a + (-a) = a - a = 0 $$
 $$ a + b = b + a $$
 
 ### Multiplication:
+
+> **Multiplication Axioms**:
+> $$\exists 1 \in \mathbb{N}[ 1 \neq 0 \implies a \times 1 = a]$$
+> $$a(b + c) = ab + ac$$
 
 - **Closure**:
 depends on The Group (mostly `yes`)
@@ -78,7 +87,7 @@ $$ ab = ba $$
 $$ a(b + c) = ab + ac $$
 
 
-### Terminology
+## Terminology
 
 **Constant**: a Number with a Fixed Value
 
