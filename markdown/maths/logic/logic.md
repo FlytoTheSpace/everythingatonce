@@ -6,20 +6,38 @@
 
 The Foundational Field for all of mathematics
 
-> It should be noted that there exists not 1 but many Logical Systems with their own rules and definitions, this is one of them.
+> It should be noted that there exists not 1 but many Logical Systems with their own rules and definitions, this is a general framework that works to define certain operations and objects that all the other's use.
 
-# Operations
+# Axioms
 
-## Operations Fundamentals
+These are Axiom of certain "relations" defined in mathematics:
 
-An Operation takes 1 or more inputs and maps them to a value based on the inputs.
+**Equality**:
 
-**Identity**: is an operation that leaves it's input as it is
-    $$f(n) = n$$
+Reflexitivity:
+
+$$\forall x [x = x]$$
+
+Symmetry:
+
+$$\forall x \forall y [x = y \iff y = x]$$
+
+Transitivity:
+
+$$\forall x \forall y \forall z[x = y \land y = z \implies x = z]$$
+
+**Predicate**:
+
+for any well-defined $\varphi$:
+
+$$[x = y] \implies [\varphi(x) \iff \varphi(y)]$$
+
+# Propositional Logic
+Propositional Logic (0'th Order Logic)
 
 **Truth Table**: a table that lists all possible inputs for a given operation, and all of it's corresponding outcomes in the same row.
 
-| $x$   | $f(x)$ |
+| $x$   | $\phi(x)$ |
 | ----- | ------ |
 | $a$   | $p$    |
 | $b$   | $q$    |
@@ -33,10 +51,8 @@ These are operations that can only take boolean inputs (i.e $0, 1$) and an outco
 **Validity**: These describe the truthfulness of logical expressions, these are:
 - $1, \top$ : **True**
 - $0, \bot$ : **False**
-- $I$ : **Indeterminate**: cannot be determinated.
-- $\text{N/A}$ : **Undefined**: out of scope.
-
-
+- $I$ : **Indeterminate** cannot be determinated.
+- $\text{N/A}$ : **Undefined** out of scope.
 
 ### AND
 
@@ -128,28 +144,62 @@ truth table:
 | $0$ | $1$ | $0$              |
 | $0$ | $0$ | $1$              |
 
-### Therefore
 
-$$a \therefore b$$
+## Identities
 
-### Because
+ORDER OF EVALUATION
+> 1. $\land$ Logical And
+> 2. $\lor$ Logical Or
+> 3. $\lnot$ Logical Not.
 
-$$a \because b$$
+AND:
 
-### Asserted
+$$a \land b = b \land a$$
 
-Asserts the truthfulness of the statement $a$
+$$(a \land b) \land c = a \land (b \land c)$$
 
-$$ \dashv a$$
+$$a \land b = \lnot[(\lnot a) \lor (\lnot b)]$$
 
-### Proveable
+OR:
 
-Describes the Proveability of $b$ via $a$.
+$$a \lor b = b \lor a$$
 
-$$a \vdash b$$
+$$(a \lor b) \lor c = a \lor (b \lor c)$$
 
+$$a \lor b = \lnot[(\lnot a) \land (\lnot b)]$$
 
-### Entails
+$$a \land (b \lor c) = (a \land b) \lor (a \land c)$$
+
+NOT:
+
+$$\lnot(\lnot a) = a$$
+
+Any Binary Predicate Operation that maps to $r_1, r_2, r_3, r_4$ in it's truth table written in terms of $\land, \lor, \lnot$.
+
+$$\phi(a, b) = [a \land b \land r_1] \lor [a \land (\lnot b) \land r_2] \lor [(\lnot a) \land b \land r_3] \lor [(\lnot a) \land (\lnot b) \land r_r]$$
+
+any predicate operation that maps to $r_1, r_2, r_3, ... , r_{2^{n}}$ with $n$ count of inputs:
+
+$$
+\phi(..., a, b, c) =\newline
+[... \land a \land b \land c \land r_1] \lor \newline
+[... \land a \land b \land (\lnot c) \land r_1] \lor \newline
+[... \land a \land (\lnot b) \land c \land r_1] \lor \newline
+[... \land a \land (\lnot b) \land (\lnot c) \land r_1] \lor \newline
+[... \land (\lnot a) \land b \land c \land r_1] \lor \newline
+[... \land (\lnot a) \land b \land c \land r_1] \lor \newline
+[... \land (\lnot a) \land b \land (\lnot c) \land r_1] \lor \newline
+[... \land (\lnot a) \land (\lnot b) \land c \land r_1] \lor \newline
+[... \land (\lnot a) \land (\lnot b) \land (\lnot c) \land r_1] \lor \newline
+...
+$$
+the pattern of $\lnot$ here is the same as counting in Base 2 representation of numbers.
+
+# Predicate Logic
+
+Predicate Logic (1st Order Logic)
+
+## Quantifiers
 
 ### Universal Quantifier
 
@@ -173,4 +223,11 @@ $$\nexists x [ \varphi(x) ] = \lnot \exists x [ \varphi (x) ]$$
 
 **Uniqueness Quantifier** implies the existence of only 1 Unique $x$, such that the following statement $\varphi$ is true:
 
-$$\exists ! x [\varphi(x)]$$
+$$\exists ! x [\varphi(x)] = \exists x [\varphi(x) \land \nexists y (x \neq y \land \varphi(y))]$$
+
+## Identities
+
+$$\forall x [\varphi(x)] = \lnot \exists x [\lnot \varphi(x)]$$
+
+$$\exists x [\varphi(x)] = \lnot \forall x [\lnot \varphi(x)]$$
+

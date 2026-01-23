@@ -435,7 +435,7 @@ $$a - b = a + (-b)$$
 
 $$-n = (-1) \times n$$
 
-$$1 = (-1) \times (-1)$$
+$$(-1) \times (-1) = 1$$
 
 $$\mathbb{Z} = \{..., -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, ...\}$$
 
@@ -445,11 +445,101 @@ Inverse of Multiplication:
 
 $$a \times \left(\frac{1}{a}\right) = 1$$
 
-- **Multiplicative Inverses**
+long as $a \neq 0$ as if defined it must map to all possible values at once which a function isn't allowed to do traditionally.
+
+**MA3**: Axiom of Distributivity of inverse of multiplication over addition:
+
+$$\left(\frac{1}{a}\right) \times (b + c) = \left(\frac{1}{a}\right) \times b + \left(\frac{1}{a}\right) \times c$$
+
+Division by 1:
+
+Inverse of Inverse:
+
+$$
+\left(\frac{1}{a}\right) \times \left(\frac{1}{\left(\frac{1}{a}\right)}\right) := 1 \newline
+a \times \left(\frac{1}{a}\right) \times \left(\frac{1}{\left(\frac{1}{a}\right)}\right) = a \times 1 \newline
+\left(a \times \left(\frac{1}{a}\right)\right) \times \left(\frac{1}{\left(\frac{1}{a}\right)}\right) = a \newline
+1 \times \left(\frac{1}{\left(\frac{1}{a}\right)}\right) = a \newline
+\left(\frac{1}{\left(\frac{1}{a}\right)}\right) = a \newline
+1/(1/a) = a \newline
+$$
+
+
+Multiplication of Inverses:
+
+$$
+(a \times b) \times \frac{1}{(a \times b)} = 1 \newline
+(a \times b) \times \frac{1}{(a \times b)} = 1 \times 1 \newline
+(a \times b) \times \frac{1}{(a \times b)} = \left(a \times \left(\frac{1}{a}\right)\right) \times \left(b \times \left(\frac{1}{b}\right)\right) \newline
+(a \times b) \times \frac{1}{(a \times b)} = a \times \left(\frac{1}{a}\right) \times b \times \left(\frac{1}{b}\right) \newline
+(a \times b) \times \frac{1}{(a \times b)} = a \times b \times \left(\frac{1}{a}\right) \times \left(\frac{1}{b}\right) \newline
+(a \times b) \times \frac{1}{(a \times b)} = (a \times b) \times \left(\frac{1}{a}\right) \times \left(\frac{1}{b}\right) \newline
+\frac{1}{(a \times b)}\times (a \times b) \times \frac{1}{(a \times b)} = \frac{1}{(a \times b)}\times (a \times b) \times \left(\frac{1}{a}\right) \times \left(\frac{1}{b}\right) \newline
+1 \times \frac{1}{(a \times b)} = 1 \times \left(\frac{1}{a}\right) \times \left(\frac{1}{b}\right) \newline
+\frac{1}{(a \times b)} = \left(\frac{1}{a}\right) \times \left(\frac{1}{b}\right) \newline
+\frac{1}{a \times b} = \frac{1}{a} \times \frac{1}{b} \newline
+$$
+
+Fraction Notation:
+
+$$
+a \times \left(\frac{1}{b}\right) = \frac{a}{b}
+$$
+
+other notations:
+
+$$\frac{1}{a} = a^{-1} = 1/a = 1 \div a$$
+
+Properties:
+
+
+Division by 1:
+
+$$
+a/1 = a \times 1 / 1 \newline
+a/1 = a \times (1 / 1) \newline
+a/1 = a \times 1 \newline
+a/1 = a
+$$
+
+$$
+\frac{a}{b} = \frac{a}{b} \newline
+\frac{a}{b} \times \frac{c}{c} = \frac{a}{b} \times \frac{c}{c} \newline
+\frac{a}{b} \times (1) = a \times \frac{1}{b} \times c \times \frac{1}{c} \newline
+\frac{a}{b} = (a \times c) \times \left(\frac{1}{b} \times \frac{1}{c}\right) \newline
+\frac{a}{b} = (a \times c) \times \left(\frac{1}{b \times c}\right) \newline
+\frac{a}{b} = (a \times c) \times \frac{1}{b \times c} \newline
+\frac{a}{b} = \frac{a \times c}{b \times c} \newline
+$$
+
+Addition:
+
+$$
+\frac{a}{b} + \frac{c}{d} = \frac{a}{b} + \frac{c}{d} \newline
+= \frac{a \times d}{b \times d} + \frac{c \times b}{d \times b} \newline
+= \frac{ad}{bd} + \frac{bc}{bd} \newline
+= ad \cdot \left(\frac{1}{bd}\right) + bc \cdot \left(\frac{1}{bd}\right) \newline
+= \left(\frac{1}{bd}\right)(ad + bc) \newline
+= \frac{ad + bc}{bd} \newline
+$$
+
+Multiplication:
+
+$$
+\frac{a}{b} \times \frac{c}{d} = a \times \left(\frac{1}{b}\right) \times c \times \left(\frac{1}{d}\right) \newline
+= (a \times c) \times \left(\frac{1}{b}\right) \times \left(\frac{1}{d}\right)\newline
+= (a \times c) \times \left(\frac{1}{b \times d}\right)\newline
+= \frac{a \times c}{b \times d}\newline
+= \frac{ac}{bd}\newline
+$$
+
+Multiplicative Inverse:
 
 $$
 \left(\frac{a}{b}\right) \times \left(\frac{b}{a}\right) = 1
 $$
+
+in summary:
 
 $$
 \mathbb{Q} = \left\{\frac{p}{q} \middle | p,q \in \mathbb{Z} \land q \neq 0 \right\}
@@ -460,13 +550,14 @@ $$
 ,\frac{1}{2}, \frac{2}{2}, \frac{3}{2}, \frac{4}{2}..., \frac{1}{5}, \frac{2}{5}, \frac{3}{5},... \frac{11}{10}, ... \}
 $$
 
-
 # Irrationals
 
 **Irrational Numbers**: $\mathbb{Q}'$ numbers that can be represented on a number line but are not rational
 
 e.g.
 $$\sqrt{2}, \pi, e, \sqrt{5}, \sqrt{10}, ...$$
+
+- [$\sqrt{2}$ `Irrationality Proof`](../papers/irrationality.md)
 
 # Real Numbers
 

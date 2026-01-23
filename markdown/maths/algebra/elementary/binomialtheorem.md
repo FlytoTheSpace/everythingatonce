@@ -1,7 +1,61 @@
 
+# Binomial Theorem
+
+The Standard Binomial Theorem Implies that:
+
+> $n \in \mathbb{Z}^+$
+$$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k$$
+
+it can be proven via Induction.
+
+### Pascal's Triangle:
+
+`n` is the Row
+`k` is the Column
+|       | `0`   | `1`   | `2`   | `3`   | `4`   | `5`   | `6`   | `7`   | `8`   | `9`   | `10`  | `...` |
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ---- |
+| `0`   | $1$   |       |       |       |       |       |       |       |       |       |       |      |
+| `1`   | $1$   | $1$   |       |       |       |       |       |       |       |       |       |      |
+| `2`   | $1$   | $2$   | $1$   |       |       |       |       |       |       |       |       |      |
+| `3`   | $1$   | $3$   | $3$   | $1$   |       |       |       |       |       |       |       |      |
+| `4`   | $1$   | $4$   | $6$   | $4$   | $1$   |       |       |       |       |       |       |      |
+| `5`   | $1$   | $5$   | $10$  | $10$  | $5$   | $1$   |       |       |       |       |       |      |
+| `6`   | $1$   | $6$   | $15$  | $20$  | $15$  | $6$   | $1$   |       |       |       |       |      |
+| `7`   | $1$   | $7$   | $21$  | $35$  | $35$  | $21$  | $7$   | $1$   |       |       |       |      |
+| `8`   | $1$   | $8$   | $28$  | $56$  | $70$  | $56$  | $28$  | $7$   | $1$   |       |       |      |
+| `9`   | $1$   | $9$   | $36$  | $84$  | $126$ | $126$ | $84$  | $36$  | $9$   | $1$   |       |      |
+| `10`  | $1$   | $10$  | $45$  | $120$ | $210$ | $252$ | $210$ | $120$ | $45$  | $10$  | $1$   |      |
+| $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ | $...$ |
+
+any entry within this can accessed by:
+
+$$
+C_{k}^{n} = \begin{pmatrix}n\cr k\end{pmatrix} = \frac{n!}{k!(n-k)!} = \underbrace{\frac{1}{k!}\left(\displaystyle\prod_{s=0}^{k -1}(n - s)\right)}_{n \in \mathbb{R}}
+$$
+
+some properties:
+
+$$
+\begin{pmatrix}n\cr k\end{pmatrix} = \begin{pmatrix}n - 1\cr k\end{pmatrix} + \begin{pmatrix}n - 1\cr k - 1\end{pmatrix}
+$$
+
+## Exponents Extention
+
+This is an extention of exponent in the Standard Binomial theorem to the Reals
+
+$$(a + b)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}a^{n-k}b^k$$
+$$(1 + x)^n = \sum_{k = 0}^n \begin{pmatrix}n\cr k\end{pmatrix}x^k$$
+
+$$
+\begin{pmatrix}n\cr k\end{pmatrix} = \frac{\Gamma(n + 1)!}{k! \cdot \Gamma(n-k + 1)!} = \frac{1}{k!}\left(\displaystyle\prod_{s=0}^{k -1}(n - s)\right)
+$$
+
+the series diverge when $|x| > 1$
+
+
 # N-omial Theorem
 
-first recall the **Binomial Theorem**:
+The Binomial Theorem:
 
 $$
 (x+y)^n = \sum_{k=0}^{n} \begin{pmatrix} n \cr k \end{pmatrix} x^{n-k}y^k
@@ -161,7 +215,7 @@ C(n, k_1, k_2, ..., k_{N-1})
 $$
 
 $$
-S_i = \left\{x | x \in \mathbb{Z} \land 1 \leq i \leq N - 1  \land 0 \leq k_i \leq \infty \right\}
+S_i = \left\{x | x \in \mathbb{Z} \land 1 \leq i \leq N - 1  \land 0 \leq k_i \right\}
 $$
 
 an example:

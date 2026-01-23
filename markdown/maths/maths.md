@@ -436,30 +436,45 @@ Extra
 | 25.  | $\mathtt{y}$ | $\mathtt{Y}$ |
 | 26.  | $\mathtt{z}$ | $\mathtt{Z}$ |
 
+Font Sizes:
+
+| Order | $\LaTeX$        | Display                       |
+| ----- | --------------- | ----------------------------- |
+| $1.$ | `\tiny`         | $\tiny ax^2 + bx + c$         |
+| $2.$  | `\scriptsize`   | $\scriptsize ax^2 + bx + c$   |
+| $3.$  | `\footnotesize` | $\footnotesize ax^2 + bx + c$ |
+| $4.$  | `\small`        | $\small ax^2 + bx + c$        |
+| $5.$  | `\normalsize`   | $\normalsize ax^2 + bx + c$   |
+| $6.$  | `\large`        | $\large ax^2 + bx + c$        |
+| $7.$  | `\Large`        | $\Large ax^2 + bx + c$        |
+| $8.$  | `\LARGE`        | $\LARGE ax^2 + bx + c$        |
+| $9.$  | `\huge`         | $\huge ax^2 + bx + c$         |
+| $10.$  | `\Huge`         | $\Huge ax^2 + bx + c$         |
+
 ## Decorators
 
-| $\LaTeX$                | Symbolic                 | Name                                |
-| ----------------------- | ------------------------ | ----------------------------------- |
-| `{}^{}`                 | $a^{\square}$            | **Superscript**                     |
-| `{}_{}`                 | $a_{\square}$            | **Subscript**                       |
-| `{}^{} {}`              | ${}^{\square} a$         | **Left Superscript** (non-standard) |
-| `{}_{} {}`              | ${}_{\square} a$         | **Left Subscript** (non-standard)   |
-| `\overset{}{}`          | $\overset{\square}{a}$   | **Overset**                         |
-| `\underset{}{}`         | $\underset{\square}{a}$  | **Underset**                        |
-| `\dot{}`                | $\dot{a}$                | **Dot**                             |
-| `\bar{}`                | $\bar{a}$                | **Conjugate**                       |
-| `\v{}`                  | $\v{a}$                  | **V**                               |
-| `\tilde{}`              | $\tilde{a}$              | **Tilde**                           |
-| `\overline{}`           | $\overline{A}$           | **Line**                            |
-| `\overrightarrow{}`     | $\overrightarrow{A}$     | **Ray (R)**                         |
-| `\overleftarrow{}`      | $\overleftarrow{A}$      | **Ray (L)**                         |
-| `\overleftrightarrow{}` | $\overleftrightarrow{A}$ | **Ray (RL)**                        |
-| `\underline{}`          | $\underline{A}$          | **Under Line**                      |
-| `\vec{}`                | $\vec{v}$                | **Vector**                          |
-| `\hat{}`                | $\hat{v}$                | **Unit Vector**                     |
-| `\dagger`               | $A^\dagger$              | **Dagger**                          |
-| `\ddagger`              | $A\ddagger$              | **Double Dagger**                   |
-| `\diamond`              | $\diamond P$             | **Diamond**                         |
+| $\LaTeX$                 | Symbolic                 | Name                                |
+| ------------------------ | ------------------------ | ----------------------------------- |
+| `a^{\square}`            | $a^{\square}$            | **Superscript**                     |
+| `a_{\square}`            | $a_{\square}$            | **Subscript**                       |
+| `{}^{\square} a`         | ${}^{\square} a$         | **Left Superscript** (non-standard) |
+| `{}_{\square} a`         | ${}_{\square} a$         | **Left Subscript** (non-standard)   |
+| `\overset{\square}{a}`   | $\overset{\square}{a}$   | **Overset**                         |
+| `\underset{\square}{a}`  | $\underset{\square}{a}$  | **Underset**                        |
+| `\dot{a}`                | $\dot{a}$                | **Dot**                             |
+| `\bar{a}`                | $\bar{a}$                | **Conjugate**                       |
+| `\v{a}`                  | $\v{a}$                  | **V**                               |
+| `\tilde{a}`              | $\tilde{a}$              | **Tilde**                           |
+| `\overline{A}`           | $\overline{A}$           | **Line**                            |
+| `\overrightarrow{A}`     | $\overrightarrow{A}$     | **Ray (R)**                         |
+| `\overleftarrow{A}`      | $\overleftarrow{A}$      | **Ray (L)**                         |
+| `\overleftrightarrow{A}` | $\overleftrightarrow{A}$ | **Ray (RL)**                        |
+| `\underline{A}`          | $\underline{A}$          | **Under Line**                      |
+| `\vec{v}`                | $\vec{v}$                | **Vector**                          |
+| `\hat{v}`                | $\hat{v}$                | **Unit Vector**                     |
+| `A^\dagger`              | $A^\dagger$              | **Dagger**                          |
+| `A\ddagger`              | $A\ddagger$              | **Double Dagger**                   |
+| `\diamond P`             | $\diamond P$             | **Diamond**                         |
 
 ## Color Pallet
 
