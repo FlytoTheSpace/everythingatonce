@@ -1,4 +1,44 @@
 
+# Bases
+
+A way of representing Reals Numbers.
+$b$ - for base, $a = a_0$
+
+Naturals $\mathbb{N}$,
+
+we write:
+$$
+a_0 = a_1 b + k_0 \newline
+a_1 = a_2 b + k_1 \newline
+a_2 = a_3 b + k_2 \newline
+a_3 = a_4 b + k_3 \newline
+... \newline
+a_i = a_{i + 1} b + k_i \newline
+$$
+
+$$
+a = a_1 b + k_0 \newline
+a = (a_2 b + k_1) b + k_0 \newline
+a = a_2 b^2 + k_1 b + k_0 \newline
+a = (a_3 b + k_2) b^2 + k_1 b + k_0 \newline
+a = a_3 b^3 + k_2 b^2 + k_1 b + k_0 \newline
+... \newline
+a = ... k_3 b^3 + k_2 b^2 + k_1 b^1 + k_0 b^0
+$$
+
+$$
+a = \sum_{i = 0}^{\infty} k_i b^i
+$$
+
+$$
+a_0 \bmod b = k_0 \newline
+a_1 \bmod b = k_1 \newline
+a_2 \bmod b = k_2 \newline
+a_3 \bmod b = k_3 \newline
+... \newline
+a_i \bmod b = k_i \newline
+$$
+
 # Number Systems
 Different Type of Number System that are used in Mathematics:
 
@@ -27,6 +67,9 @@ $$\lnot \exists n \in \mathbb{N} [s(n) = 0]$$
 
 **A5**: Induction.
 
+$$
+\forall A \subset \mathbb{N}[ 0 \in A \land \forall n \in A(s(n) = A) \implies A = \mathbb{N}]
+$$
 > Author's comment: I have a habit of using this A5 axiom sub-conciously while I'm trying to prove a pattern, so keep it in mind.
 
 ---
@@ -56,36 +99,81 @@ s(4) := 5 \newline
 ...
 $$
 
-via Induction, we can prove:
+we have a set $A$ here:
 
-$$
-s^{1}(0) = 1 \newline
-s^{2}(0) = 2 \newline
-s^{3}(0) = 3 \newline
-s^{4}(0) = 4 \newline
-... \newline
-s^{n}(0) = n \newline
-$$
+$$A = \{n\ |\ n \in \mathbb{N} \land s^{n}(0) = n\}$$
 
+> $s^{n}(m)$ is another way of writing:
+> $\underbrace{s(s(s(... s(m))))}_{n \text{ times}}$
+
+and
 $$
 s^{0}(0) = 0 \newline
-s^{0}(1) = 1 \newline
-s^{0}(2) = 2 \newline
-s^{0}(3) = 3 \newline
-s^{0}(4) = 4 \newline
-... \newline
-s^{0}(n) = n
 $$
+so
+$0 \in A$
 
-we get:
+for any $n$ in A:
+$$s^{n}(0) = n$$
+and:
 $$
-s^{0}(n) = s^{n}(0) = n \newline
-s^{0}(n) = s^{n}(0) \newline
-s^{1}(n) = s^{n}(1) \newline
-s^{2}(n) = s^{n}(2) \newline
-s^{3}(n) = s^{n}(3) \newline
-... \newline
-\dashv s^{m}(n) = s^{n}(m)
+s(s^{n}(0)) = s(n) \newline
+s^{s(n)}(0) = s(n) \newline
+s^{s(n)}(0) = s(n) \newline
+$$
+abbreviate $s(n) = m$:
+$$s^{m}(0) = m$$
+so $s(n) \in \mathbb{N}$, 
+from A5, the Axiom of Induction:
+$$\therefore A = \mathbb{N}$$
+in other words:
+$$\forall n \in \mathbb{N}(s^{n}(0) = n) \newline$$
+
+> Note: Use of the Set $A$ here does not persist in-between proofs, it's a buffer object.
+
+the function $s^{0}(n)$ is by definition another equal to $n$
+so:
+
+$$\forall n \in \mathbb{N}[s^{0}(n)] = n$$
+
+we have another set $A$:
+
+$$A = \{s^{m}(n)\ |\ n, m \in \mathbb{N} \land s^{m}(n) = s^{n}(m)\}$$
+
+$$s^{0}(0) = s^{0}(0) = 0$$
+
+so we have $0 \in A$.
+
+for any $m, n$ in A:
+$$
+s^{m}(n) = s^{n}(m) \newline
+s(s^{m}(n)) = s(s^{n}(m)) \newline
+s^{s(m)}(n) = s^{n}(s(m)) \newline
+$$
+abbreviate $s(m) = a$ then:
+$$s^{a}(n) = s^{n}(a) \newline$$
+we have:
+$$s(s^{m}(n)) \in A$$
+also do-able with $n$ instead:
+$$
+s^{m}(n) = s^{n}(m) \newline
+s(s^{m}(n)) = s(s^{n}(m)) \newline
+s^{m}(s(n)) = s^{s(n)}(m) \newline
+$$
+abbrevite $s(n) = b$:
+$$
+s^{m}(b) = s^{b}(m) \newline
+$$
+we again have:
+$$s(s^{m}(n)) \in A$$
+for any $n, m$.
+
+so by A5:
+$$\therefore A = \mathbb{N}$$
+
+in other words:
+$$
+\forall n,m \in \mathbb{N}[s^{m}(n) = s^{n}(m)]
 $$
 
 **Addition**:
@@ -102,42 +190,47 @@ $$s(a + b) = a + s(b)$$
 
 ---
 
-by AA2:
-$$s(a + b) = a + s(b) $$
+we have a set $A$:
 
-$$s(a + 0) = a + s(0) $$
+$$A = \{s^{b}(a)\ |\ a, b \in \mathbb{N} \land s^{b}(a) = a + s^{b}(0)\}$$
 
-by AA1:
-
-$$s(a) = a + s(0) $$
-
-apply $s$ again
-
-$$s(s(a)) = s(a + s(0))$$
-
-simplify:
-
-$$s^2(a) = s(a + s(0))$$
-
-apply AA2:
-
-$$s^2(a) = a + s(s(0))$$
-
-simplify again:
-
-$$s^2(a) = a + s^2(0)$$
-
-now repeat:
-
+and
 $$
-s^{2}(a) = a + s^{2}(0) \newline
-s^{3}(a) = a + s^{3}(0) \newline
-s^{4}(a) = a + s^{4}(0) \newline
-s^{5}(a) = a + s^{5}(0) \newline
-... \newline
+s^{0}(0) = 0 + s^{0}(0) \newline
+0 = 0 + 0 \newline
+0 = 0 \newline
+$$
+
+so we have $0 \in A$. for any element $s^{b}(a)$ in $A$ we have:
+- with $b$:
+$$
 s^{b}(a) = a + s^{b}(0) \newline
+s(s^{b}(a)) = s(a + s^{b}(0)) \newline
+s^{s(b)}(a) = a + s(s^{b}(0)) \newline
+s^{s(b)}(a) = a + s^{s(b)}(0) \newline
 $$
-apply:
+
+abbreviate $s(n) = b$:
+
+$$s^{n}(a) = a + s^{n}(0)$$
+
+so:
+
+$$s(s^{b}(a)) \in A$$
+
+hence:
+
+$$\therefore A = \mathbb{N}$$
+
+in other words:
+
+$$\forall a, b \in \mathbb{N}[s^{b}(a) = a + s^{b}(0)]$$
+
+- with $a$ is not proveable yet commutativity of addition also not being proved yet.
+
+---
+
+from our earlier results: $\forall a, b \in \mathbb{N}$
 
 $$s^{b}(0) = b$$
 
@@ -147,9 +240,15 @@ $$s^{b}(a) = a + b$$
 
 since:
 
-$$
-s^{b} (a) = s^{a}(b) = b + a
-$$
+$$s^{b}(a) = a + b$$
+
+$$s^{a}(b) = b + a$$
+
+$$s^{b}(a) = s^{a}(b)$$
+
+so we have using the law of transitivity, we have:
+
+$$a + b = b + a$$
 
 we have proved **Commutativity** for addition:
 
@@ -190,9 +289,10 @@ $$a \times 1 = a$$
 
 $$a \times (b + c) = (a \times b) + (a \times c)$$
 
-> ORDER OF OPERATION:
+> ORDER OF OPERATION (Syntactical):
 > 1. Multiplication.
 > 2. Addition.
+> 
 
 ---
 
@@ -202,9 +302,11 @@ $$a \times (b + c) = (a \times b) + (a \times c)$$
 $$a \times (b + 0) = (a \times b) + (a \times 0)$$
 $$(a \times b) = (a \times b) + (a \times 0)$$
 
-the only value we know of that can satisfy that is:
+by what we know, the only way this equation holds if:
 
-$$\implies a \times 0 = 0$$
+$$a \times 0 = 0$$
+
+(can be proven in a better way once subtration is acquired.)
 
 for commutativity:
 
@@ -237,7 +339,8 @@ $$
 \end{cases}}_{a}
 $$
 
-switch the columns and rows:
+switch the columns and rows
+> (mostly syntactical, by `switch` it means to regoup via associativity in a certain way):
 
 $$
 = a \underbrace{\begin{cases}

@@ -2,27 +2,26 @@
 
 What is the Value of:
 $$
-\Large 1 + \frac{3+\frac{1+\frac{3+...}{2+....}}{3+\frac{1+...}{3+...}}}
-{2+\frac{2+\frac{2+...}{1+....}}{1+\frac{3+...}{2+...}}}
+1 + \cfrac{3+\cfrac{1+\cfrac{3+...}{2+....}}{3+\cfrac{1+...}{3+...}}}
+{2+\cfrac{2+\cfrac{2+...}{1+....}}{1+\cfrac{3+...}{2+...}}}
 $$
 
 continues:
 
 $$
-x = \Large 1 + \frac{3+\frac{1+\frac{3+...}{2+....}}{3+\frac{1+...}{3+...}}}
-{2+\frac{2+\frac{2+...}{1+....}}{1+\frac{3+...}{2+...}}}
+x = 1 + \cfrac{3+\cfrac{1+\cfrac{3+...}{2+....}}{3+\cfrac{1+...}{3+...}}}
+{2+\cfrac{2+\cfrac{2+...}{1+....}}{1+\cfrac{3+...}{2+...}}}
 $$
 
 $$
-y = \large 3+\frac{1+\frac{3+...}{2+....}}{3+\frac{1+...}{3+...}} \newline
-= \Large 3+\frac{1 + \frac{3+\frac{1+\frac{3+...}{2+....}}{3+\frac{1+...}{3+...}}}
-{2+\frac{2+\frac{2+...}{1+....}}{1+\frac{3+...}{2+...}}}}
-{3+\frac{1+\frac{3+...}{2+....}}{3+\frac{1+...}{3+...}}} \newline
+y = 3+\cfrac{1+\cfrac{3+...}{2+....}}{3+\cfrac{1+...}{3+...}} \newline
+= 3+\cfrac{1 + \cfrac{3+\cfrac{1+\cfrac{3+...}{2+....}}{3+\cfrac{1+...}{3+...}}}
+{2+\cfrac{2+\cfrac{2+...}{1+....}}{1+\cfrac{3+...}{2+...}}}}
+{3+\cfrac{1+\cfrac{3+...}{2+....}}{3+\cfrac{1+...}{3+...}}} \newline
 
 \normalsize
 
-y = 3+\frac{x}
-{y} \newline
+y = 3+\frac{x}{y} \newline
 $$
 
 $$
@@ -33,11 +32,11 @@ y = \frac{3 \pm \sqrt{9 + 4x}}{2}
 $$
 
 $$
-z = \large 2+\frac{2+\frac{2+...}{1+....}}{1+\frac{3+...}{2+...}} \normalsize \newline
-z = \Large 2+\frac{2+\frac{2+\frac{2+...}{1+....}}{1+\frac{3+...}{2+...}}}
-{1 + \frac{3+\frac{1+\frac{3+...}{2+....}}{3+\frac{1+...}{3+...}}}
-{2+\frac{2+\frac{2+...}{1+....}}{1+\frac{3+...}{2+...}}}} \normalsize \newline
-z = 2+\frac{z}{x} \newline
+z = 2+\cfrac{2+\cfrac{2+...}{1+....}}{1+\cfrac{3+...}{2+...}} \normalsize \newline
+z = 2+\cfrac{2+\cfrac{2+\cfrac{2+...}{1+....}}{1+\cfrac{3+...}{2+...}}}
+{1 + \cfrac{3+\cfrac{1+\cfrac{3+...}{2+....}}{3+\cfrac{1+...}{3+...}}}
+{2+\cfrac{2+\cfrac{2+...}{1+....}}{1+\cfrac{3+...}{2+...}}}} \normalsize \newline
+z = 2+\cfrac{z}{x} \newline
 $$
 
 $$
@@ -53,7 +52,7 @@ x = 1 + \frac{y}{z} \newline
 $$
 
 $$
-x = 1 + \Large \frac{\frac{3 \pm \sqrt{9 + 4x}}{2}}{\frac{2x}{x - 1}} \normalsize \newline
+x = 1 + \cfrac{\cfrac{3 \pm \sqrt{9 + 4x}}{2}}{\cfrac{2x}{x - 1}} \normalsize \newline
 x = 1 + \frac{(3 \pm \sqrt{9 + 4x})(x - 1)}{2 \cdot 2x} \newline
 x - 1 = \frac{(3 \pm \sqrt{9 + 4x})(x - 1)}{4x} \newline
 \frac{x - 1}{x - 1} = \frac{3 \pm \sqrt{9 + 4x}}{4x} \newline

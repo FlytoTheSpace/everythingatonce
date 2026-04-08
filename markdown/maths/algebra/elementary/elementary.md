@@ -102,6 +102,7 @@ a^2he expression
 - [`Fractions`](#fractions): Algebraic variant of fractions from basic arithmetic
 - [`Ratio`](#ratio): Algebraic variant of fractions from basic arithmetic
 - [`Proportion`](#proportion): Algebraic variant of fractions from basic arithmetic
+- [`Modular Arithmetic`](./modular_arithmetic.md): Modular Arithmetic.
 
 ## Fractions
 

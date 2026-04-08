@@ -32,118 +32,134 @@ Applied Mathematics
 Extra
 
 - [Papers](./papers/)
-- [Meta-Mathematics](./meta-mathematics/)
+- [Meta-logic](./meta-logic/)
 
 
 # General Mathematics Overview 
 
 ## Symbols
 
-| Symbol                                  | Name                          | Syntax/Example                    |
-| --------------------------------------- | ----------------------------- | --------------------------------- |
+| Symbol                             | Name                          | Syntax/Example                            |
+| ---------------------------------- | ----------------------------- | :---------------------------------------: |
 **Arithmetic**
-| $+$                                     | **Addition, Positive**        | $a + b$ <br> $+ a$                |
-| $-$                                     | **Subtraction, Negative**     | $a - b$ <br> $- a$                |
-| $\times$ <br> $\ast$ <br> $\cdot$       | **Multiplication**            | $a \times b$ <br> $a \ast b$ <br> $a \cdot b$ <br> $ab$ |
-| $\div$ <br> $:$ <br> $\frac{a}{b}$      | **Division**                  | $a \div b$ <br> $a : b$ <br> $\frac{a}{b}$ |
-| $\sqrt{}$                               | **Radical** (Root)            | $\sqrt{a}$ <br> $\sqrt[n]{a}$     |
-| $\mod{}$                                | **Remainder, Modulo**         | $a \mod b$                        |
-| $\%$                                    | **Percent**                   | $a\%$                             |
-| $!$                                     | **Factorial**                 | $a!$                              |
-| $\pm$                                   | **Plus-Minus**                | $a \pm b$                         |
-| $\mp$                                   | **Minus-Plus**                | $a \mp b$                         |
+| $+$                                | **Addition, Positive**        | $a + b$ <br> $+ a$                        |
+| $-$                                | **Subtraction, Negative**     | $a - b$ <br> $- a$                        |
+| $\times$ <br> $\ast$ <br> $\cdot$  | **Multiplication**            | $a \times b$ <br> $a \ast b$ <br> $a \cdot b$ <br> $ab$ |
+| $\div$ <br> $:$ <br> $\frac{a}{b}$ | **Division**                  | $a \div b$ <br> $a : b$ <br> $\frac{a}{b}$ |
+| $\sqrt{}$                          | **Radical** (Root)            | $\sqrt{a}$ <br> $\sqrt[n]{a}$             |
+| $\bmod$ <br> $\pmod{\square}$      | **Remainder, Modulo**         | $a \bmod b$ <br> $a = b \pmod{n}$         | 
+| $\%$                               | **Percent**                   | $a\%$                                     |
+| $!$                                | **Factorial**                 | $a!$                                      |
+| $\pm$                              | **Plus-Minus**                | $a \pm b$                                 |
+| $\mp$                              | **Minus-Plus**                | $a \mp b$                                 |
 **Equality**
-| $=$                                     | **Equal**                     | $a = b$                           |
-| $\neq$                                  | **Not Equal**                 | $a \neq b$                        |
-| $\approx$                               | **Approximately Equal**       | $a \approx b$                     |
-| $\colonequals$                          | **Definition**                | $a \colonequals b$                |
-| $\equiv$                                | **Equivalent**                | $a \equiv b$                      |
-| $\cong$                                 | **Congruence**                | $a \cong b$                       |
+| $=$                                | **Equal**                     | $a = b$                                   |
+| $\neq$                             | **Not Equal**                 | $a \neq b$                                |
+| $\approx$                          | **Approximately Equal**       | $a \approx b$                             |
+| $\colonequals$                     | **Definition**                | $a \colonequals b$                        |
+| $\equiv$                           | **Equivalent**                | $a \equiv b$                              |
+| $\cong$                            | **Congruence**                | $a \cong b$                               |
+| $\doteq$                           | -                             | -                                         |
 **Comparison**
-| $<$                                     | **Less Than**                 | $a < b$                           |
-| $>$                                     | **Greater Than**              | $a > b$                           |
-| $\leq$                                  | **Less Than or Equal**     | $a \leq b$                        |
-| $\geq$                                  | **Greater Than or Equal**     | $a \geq b$                        |
-| $\ll$                                   | **Much Less**                 | $a \ll b$                         |
-| $\gg$                                   | **Much Greater**              | $a \gg b$                         |
-| $\propto$                               | **Proportion**                | $a\propto b$                      |
-| $\sim$                                  | **Similar**                   | $A \sim B$                        |
-| $\simeq$                                | **Similar or Equal**          | $A \simeq B$                      |
-| $\prec$                                 | **Precede**                   | $a \prec b$                       |
-| $\preceq$                               | **Precede or Equal**          | $a \preceq b$                     |
-| $\succ$                                 | **Succede**                   | $a \succ b$                       |
-| $\succeq$                               | **Succede or Equal**          | $a \succeq b$                     |
+| $<$                                | **Less Than**                 | $a < b$                                   |
+| $>$                                | **Greater Than**              | $a > b$                                   |
+| $\leq$                             | **Less Than or Equal**        | $a \leq b$                                |
+| $\geq$                             | **Greater Than or Equal**     | $a \geq b$                                |
+| $\ll$                              | **Much Less**                 | $a \ll b$                                 |
+| $\gg$                              | **Much Greater**              | $a \gg b$                                 |
+| $\propto$                          | **Proportion**                | $a \propto b$                             |
+| $\sim$                             | **Similar**                   | $A \sim B$                                |
+| $\simeq$                           | **Similar or Equal**          | $A \simeq B$                              |
+| $\prec$                            | **Precede**                   | $a \prec b$                               |
+| $\preceq$                          | **Precede or Equal**          | $a \preceq b$                             |
+| $\succ$                            | **Succede**                   | $a \succ b$                               |
+| $\succeq$                          | **Succede or Equal**          | $a \succeq b$                             |
 **Geometry**
-| $\deg$ <br> $\degree$                   | **Degrees**                   | $x \deg$ <br> $x \degree$         |
-| $\angle$                                | **Angle**                     | $\angle ABC$                      |
-| $\overrightarrow{\ \ }$                 | **Arrow**, **Ray**            | $\overrightarrow{AB}$             |
-| $\overline{\ \ }$                       | **Line**                      | $\overline{AB}$                   |
-| $\parallel$                             | **Parallel**                  | $AB \parallel CD$                 |
-| $\nparallel$                            | **Not Parallel**              | $AB \nparallel CD$                |
-| $\perp$                                 | **Perpendicularity, Coprime** | $AB \perp CD$<br> $a \perp b$     |
-| $\overleftrightarrow{\ \ }$             | **Bidirectional Arrow**       | $\overleftrightarrow{AB}$         |
-| $\triangle$                             | **Triangle**                  | $\triangle ABC$                   |
-| $\square$                               | **Square**                    | $\square ABCD$                    |
+| $\deg$ <br> $\degree$              | **Degrees**                   | $x \deg$ <br> $x \degree$                 |
+| $\angle$ <br> $\measuredangle$     | **Angle**                     | $\angle ABC$                              |
+| $\overrightarrow{\ \ }$            | **Arrow**, **Ray**            | $\overrightarrow{AB}$                     |
+| $\overline{\ \ }$                  | **Line**                      | $\overline{AB}$                           |
+| $\parallel$                        | **Parallel**                  | $AB \parallel CD$                         |
+| $\nparallel$                       | **Not Parallel**              | $AB \nparallel CD$                        |
+| $\perp$                            | **Perpendicularity**          | $AB \perp CD$                             |
+| $\overleftrightarrow{\ \ }$        | **Bidirectional Arrow**       | $\overleftrightarrow{AB}$                 |
+| $\triangle$                        | **Triangle**                  | $\triangle ABC$                           |
+| $\square$                          | **Square**                    | $\square ABCD$                            |
 **Logic**
-| $\land$                                 | **AND**                       | $A \land B$                       |
-| $\lor$                                  | **OR**                        | $A \lor B$                        |
-| $\lnot$                                 | **NOT**                       | $\lnot A$                         |
-| $\oplus$                                | **Exclusive OR**              | $A \oplus B$                      |
-| $\implies$                              | **Implies**                   | $A \implies B$                    |
-| $\iff$                                  | **Logical Equivalence**       | $A \iff B$                        |
-| $\therefore$                            | **Therefore**                 | $A \therefore B$                  |
-| $\because$                              | **Because**                   | $A \because B$                    |
-| $\top$                                  | **Tee, True**                 | $\top$                            |
-| $\bot$                                  | **Up Tack, False**            | $\bot$                            |
-| $\dashv$                                | **Asserted**                  | $\dashv A$                        |
-| $\vdash$                                | **Provable**                  | $A \vdash B$                      |
-| $\models$                               | **Entails**                   | $A \models B$                     |
-| $\forall$                               | **Universal Quantifier**      | $\forall A$                       |
-| $\exists$                               | **Existential Quantifier**    | $\exists A$                       |
-| $\nexists$                              | **Not Exists Quantifier**     | $\nexists A$                      |
-| $\exists!$                              | **Uniqueness Quantifier**     | $\exists! A$                      |
+| $\land$                            | **AND**                       | $A \land B$                               |
+| $\lor$                             | **OR**                        | $A \lor B$                                |
+| $\lnot$                            | **NOT**                       | $\lnot A$                                 |
+| $\oplus$                           | **Exclusive OR**              | $A \oplus B$                              |
+| $\implies$                         | **Implies**                   | $A \implies B$                            |
+| $\iff$                             | **Logical Equivalence**       | $A \iff B$                                |
+| $\therefore$                       | **Therefore**                 | $A \therefore B$                          |
+| $\because$                         | **Because**                   | $A \because B$                            |
+| $\top$                             | **Tee, True**                 | $\top$                                    |
+| $\bot$                             | **Up Tack, False**            | $\bot$                                    |
+| $\dashv$                           | **Asserted**                  | $\dashv A$                                |
+| $\vdash$                           | **Provable**                  | $A \vdash B$                              |
+| $\models$                          | **Entails**                   | $A \models B$                             |
+| $\forall$                          | **Universal Quantifier**      | $\forall A$                               |
+| $\exists$                          | **Existential Quantifier**    | $\exists A$                               |
+| $\nexists$                         | **Not Exists Quantifier**     | $\nexists A$                              |
+| $\exists!$                         | **Uniqueness Quantifier**     | $\exists! A$                              |
 **Set Theory**
-| $\emptyset$                             | **Empty Set**                 | $\emptyset$                       |
-| $\|A\|$                                 | **Cardinality/Size**          | $\|A\|$                           |
-| $\in$                                   | **Element of**                | $a \in A$                         |
-| $\notin$                                | **Not Element of**            | $a \notin A$                      |
-| $\subset$                               | **Subset**                    | $A \subset B$                     |
-| $\subseteq$                             | **Subset or Equal**           | $A \subseteq B$                   |
-| $\subsetneq$                            | **Proper Subset**             | $A \subsetneq B$                  |
-| $\supset$                               | **Superset**                  | $A \supset B$                     |
-| $\supseteq$                             | **Superset or Equal**         | $A \supseteq B$                   |
-| $\supsetneq$                            | **Proper Superset**           | $A \supsetneq B$                  |
-| $\cup$                                  | **Union**                     | $A \cup B$                        |
-| $\cap$                                  | **Intersection**              | $A \cap B$                        |
-| $\setminus$                             | **Difference**                | $A \setminus B$                   |
-| $\ominus$ <br> $\Delta$                 | **Symmetrical Difference**    | $A \ominus B$ <br> $A \Delta B$   |
+| $\emptyset$                        | **Empty Set**                 | $\emptyset$                               |
+| $\|A\|$                            | **Cardinality/Size**          | $\|A\|$                                   |
+| $\in$                              | **Element of**                | $a \in A$                                 |
+| $\notin$                           | **Not Element of**            | $a \notin A$                              |
+| $\subset$                          | **Subset**                    | $A \subset B$                             |
+| $\subseteq$                        | **Subset or Equal**           | $A \subseteq B$                           |
+| $\subsetneq$                       | **Proper Subset**             | $A \subsetneq B$                          |
+| $\supset$                          | **Superset**                  | $A \supset B$                             |
+| $\supseteq$                        | **Superset or Equal**         | $A \supseteq B$                           |
+| $\supsetneq$                       | **Proper Superset**           | $A \supsetneq B$                          |
+| $\cup$                             | **Union**                     | $A \cup B$                                |
+| $\cap$                             | **Intersection**              | $A \cap B$                                |
+| $\setminus$                        | **Difference**                | $A \setminus B$                           |
+| $\ominus$ <br> $\Delta$            | **Symmetrical Difference**    | $A \ominus B$ <br> $A \Delta B$           |
 **Derivative**
-| $'$                                     | **Lagrange's Notation**      | $f'$                              |
-| $\dot{}$                                | **Netwon's Notation**         | $\dot{x}$                         |
-| $$\frac{dy}{dx}$$                       | **Leibniz's Notation**         | $$\frac{df}{dx}$$                 |
-| $$\frac{\partial f}{\partial x}$$       | **Leibniz's Notation**         | $$\frac{\partial f}{\partial x}$$ |
+| $\square'$                         | **Lagrange's Notation**       | $f'$                                      |
+| $\dot{\square}$                    | **Netwon's Notation**         | $\dot{x}$                                 |
+| $d$                                | **Leibniz's Notation**        | $\displaystyle \frac{dy}{dx}$             |
+| $\partial$                         | **Leibniz's Notation**        | $\displaystyle \frac{\partial f}{\partial x}$ |
 **Analysis/Calculus**
-| $\Re$                                   | **Real**                      | $\Re(z)$                          |
-| $\Im$                                   | **Imaginary**                 | $\Im(z)$                          |
-| $\bar{}$                                | **Complex Conjugate**         | $\bar{z}$                         |
-| $\|x\|$                                 | **Absolute Value**            | $\|x\|$                           |
-| $\lfloor x \rfloor$                     | **Floor**                     | $\lfloor x \rfloor$               |
-| $\lceil x \rceil$                       | **Ceil**                      | $\lceil x \rceil$                 |
-| $\lfloor x \rceil$                      | **Nearest**                   | $\lfloor x \rceil$                |
-| $\infty$                                | **Infinity**                  | $\infty$                          |
-| $$\int$$                                | **Integral**                  | $$\int_a^b$$                      |
-| $\mapsto$                               | **Namesless Function**        | $x \mapsto y$                     |
-| $\log$                                  | **Logarithm**                 | $\log_ab = n$<br>$a^n = b$        |
-| $\ln$                                   | **Natural Logarithm**         | $\ln(a) =\log_ea$                 |
-| $$\lim$$                                | **Limit**                     | $$\lim_{x \to a} f(x) = L$$       |
-| $$\sum$$                                | **Capital Sigma**             | $$\sum_{k = a}^bf(k)$$            |
-| $$\prod$$                               | **Capital Pi**                | $$\prod_{k = a}^bf(k)$$           |
-| $\nabla$                                | **Nabla**                     | $\nabla f$                        |
+| $\|x\|$                            | **Absolute Value**            | $\|x\|$                                   |
+| $\lfloor x \rfloor$                | **Floor**                     | $\lfloor x \rfloor$                       |
+| $\lceil x \rceil$                  | **Ceil**                      | $\lceil x \rceil$                         |
+| $\lfloor x \rceil$                 | **Nearest**                   | $\lfloor x \rceil$                        |
+| $\infty$                           | **Infinity**                  | $\infty$                                  |
+| $\displaystyle \int$               | **Integral**                  | $\displaystyle \int_a^b f(x)\ dx$         |
+| $\displaystyle \oint$              | -                             | -                                         |
+| $\mapsto$                          | **Namesless Function**        | $x \mapsto y$                             |
+| $\displaystyle \lim$               | **Limit**                     | $\displaystyle \lim_{x \to a} f(x) = L$   |
+| $\nabla$                           | **Nabla**                     | $\nabla f$                                |
+| $\bar{}$                           | **Complex Conjugate**         | $\bar{z}$                                 |
 **Number Theory**
-| $\mid$                                  | **Divisible**                 | $a \mid b$                        |
-| $\nmid$                                 | **Not Divisible**             | $a \nmid b$                       |
+| $\mid$                             | **Divisible**                 | $a \mid b$                                |
+| $\nmid$                            | **Not Divisible**             | $a \nmid b$                               |
+| $\perp$                            | **Coprime**                   | $a \perp b$                               |
 **Miscellaneous**
-| $$\begin{pmatrix}n \cr k\end{pmatrix}$$ | **Binomial Coefficient**      | $$\begin{pmatrix}n \cr k\end{pmatrix} = \frac{n!}{k!(n - k)!}$$ |
+| $\displaystyle \begin{pmatrix}n \cr k\end{pmatrix}$ | **Binomial Coefficient** | $\displaystyle \begin{pmatrix}n \cr k\end{pmatrix} = \frac{n!}{k!(n - k)!}$ |
+| $\amalg$                           | -                             | -                                         |
+| $\uplus$                           | -                             | -                                         |
+| $\sqcup$                           | -                             | -                                         |
+| $\otimes$                          | **O-Times**                   | -                                         |
+| $\odot$                            | **O-Dot**                     | -                                         |
+| $\oslash$                          | **O-Slash**                   | -                                         |
+**Big Notations** 
+| $\displaystyle \sum$               | **Sum Notation**              | $\displaystyle \sum_{k = a}^bf(k)$        |
+| $\displaystyle \prod$              | **Product Notation**          | $\displaystyle \prod_{k = a}^bf(k)$       |
+| $\displaystyle \coprod$            | **Co Product**                | -                                         |
+| $\displaystyle \bigcup$            | **Big Union**                 | $\displaystyle \bigcup_{y \in z} y$       |
+| $\displaystyle \bigcap$            | **Big Intersection**          | $\displaystyle \bigcap_{y \in z} y$       |
+| $\displaystyle \bigvee$            | **Big OR**                    | $\displaystyle \bigvee_{i = 0}^{n} a_i$   |
+| $\displaystyle \bigwedge$          | **Big AND**                   | $\displaystyle \bigwedge_{i = 0}^{n} a_i$ |
+| $\displaystyle \biguplus$          | -                             | -                                         |
+| $\displaystyle \bigsqcup$          | -                             | -                                         |
+| $\displaystyle \bigoplus$          | **Big O-Plus**                | -                                         |
+| $\displaystyle \bigotimes$         | **Big O-Times**               | -                                         |
+| $\displaystyle \bigodot$           | **Big O-Dot**                 | -                                         |
 
 **Greek Alphabet**:
 
@@ -181,27 +197,47 @@ Extra
 | **Aleph**   | $\aleph$ |
 | **Beth**    | $\beth$  |
 | **Gimel**   | $\gimel$ |
-| **Dalet**   | ---      |
-| **He**      | ---      |
-| **Waw**     | ---      |
-| **Zayin**   | ---      |
-| **Het**     | ---      |
-| **Tet**     | ---      |
-| **Yod**     | ---      |
-| **Kaf**     | ---      |
-| **Lamed**   | ---      |
-| **Mem**     | ---      |
-| **Nun**     | ---      |
-| **Samekh**  | ---      |
-| **Ayin**    | ---      |
-| **Pe**      | ---      |
-| **Tsadi**   | ---      |
-| **Qof**     | ---      |
-| **Resh**    | ---      |
-| **Shin**    | ---      |
-| **Tav**     | ---      |
 
-> "Unable to Render these as from my testing."
+## Standard Functions
+
+$$
+\newcommand{\dom}{\text{dom}}
+\newcommand{\ran}{\text{ran}}
+$$
+
+| Function        | Mapping                                        | Definition                                                                            |
+| --------------- | :--------------------------------------------: | ------------------------------------------------------------------------------------- |
+| $\arccos(x)$    | $\arccos: [-1; 1] \to \mathbb{R}$              | $\arccos(\cos(\theta)) = \theta$                                                      |
+| $\arcsin(x)$    | $\arcsin: [-1; 1] \to \mathbb{R}$              | $\arcsin(\sin(\theta)) = \theta$                                                      |
+| $\arctan(x)$    | $\tan: \mathbb{R} \to \left\{x\ \middle\|\ x \in \mathbb{R} \land \forall n \in \mathbb{N} \left[x \neq \displaystyle \frac{\pi(1 + 2n)}{2}\right] \right\}$ | $\arctan(\tan(\theta)) = \theta$ |
+| $\arg(z)$       | $\arg: \mathbb{C} \to [-\pi; \pi]$             | $\arg(z) = \arctan\left(\displaystyle \frac{\Im(z)}{\Re(z)}\right)$                   |
+| $\cos(\theta)$  | $\cos: \mathbb{R} \to [-1; 1]$                 | $\cos(\theta) = \sqrt{1 - y^2}$                                                       |
+| $\cosh(\theta)$ | -                                              | -                                                                                     |
+| $\cot(\theta)$  | $\cot: \mathbb{R} \setminus \left\{x\ \middle\|\ x \in \mathbb{R} \land n \in \mathbb{N} \land x = \pi n \right\} \to \mathbb{R}$ | $\cot(\theta) = \displaystyle \frac{\cos(\theta)}{\sin(\theta)}$ |
+| $\coth(\theta)$ | -                                              | -                                                                                     |
+| $\csc(\theta)$  | $\csc: \mathbb{R} \setminus \left\{x\ \middle\|\ x \in \mathbb{R} \land n \in \mathbb{N} \land x = \pi n \right\} \to (-\infty; -1] \cup [1; \infty)$ | $\csc(\theta) = \displaystyle \frac{1}{\sin(\theta)}$ |
+| $\deg(\theta_{\text{rad}})$ | $\deg: \mathbb{R} \to \mathbb{R}$  | $\deg(\theta_{\text{rad}}) = \displaystyle \frac{2\pi}{360} \theta_{\text{rad}}$      |
+| $\det(A)$       | $\det: \mathbb{R}^{n \times n} \to \mathbb{R}$ | $\pm \text{Area'ish} = \det(A)$                                                       |
+| $\dim_F(V)$     | -                                              | -                                                                                     |
+| $\exp(x)$       | $\mathbb{R} \to \mathbb{R}^{+}$                | $\exp(x) = e^x$                                                                       |
+| $\gcd(A)$       | $\gcd: \{A\ \|\ A \subset \mathbb{N} \land A \neq \emptyset\} \to \mathbb{N}$ | $\gcd(A) = a \iff \forall n \in A [a \mid n] \land \lnot \exists b \in \mathbb{N} [b > a \land \forall n \in A [a \mid n]]$ |
+| $\hom( )$       | -                                              | -                                                                                     |
+| $\Im(z)$        | $\Im: \mathbb{C} \to \mathbb{R}$               | $\Im(z) = y$ for $z = x + iy$                                                         |
+| $\inf(A)$       | $\inf: \{A\ \|\ A \subset \mathbb{R} \land \exists x_0 \in \mathbb{R} \forall x \in A [x_0 \leq x]\} \to \mathbb{R}$ | $\inf(A) = x_0$ |
+| $\ker( )$       | -                                              | -                                                                                     |
+| $\lg( )$        | -                                              | -                                                                                     |
+| $\ln(x)$        | $\ln: \mathbb{R}^{+} \to \mathbb{R}$           | $\ln(a) =\log_ea$                                                                     |
+| $\log_a(b)$     | $\log: \mathbb{R}^{+} \to \mathbb{R}$          | $\log_ab = n$<br>$a^n = b$                                                            |
+| $\max(A)$       | $\max: \{A\ \|\ A \subset \mathbb{R} \land \exists x_1 \in A \forall x \in A[ x_1 \geq x]\} \to \mathbb{R}$ | $\max(A) = x_1$          |
+| $\min(A)$       | $\min: \{A\ \|\ A \subset \mathbb{R} \land \exists x_0 \in A \forall x \in A[ x_0 \leq x]\} \to \mathbb{R}$ | $\min(A) = x_0$          |
+| $\Pr( )$        | -                                              | -                                                                                     |
+| $\Re(z)$        | $\Re: \mathbb{C} \to \mathbb{R}$               | $\Re(z) = x$ for $z = x + iy$                                                         |
+| $\sec(\theta)$  | $\sec: \left\{x\ \middle\|\ x \in \mathbb{R} \land \forall n \in \mathbb{N} \left[x \neq \displaystyle \frac{\pi(1 + 2n)}{2}\right] \right\} \to (-\infty; -1] \cup [1; \infty)$ | $\sec(\theta) = \displaystyle \frac{1}{\cos(\theta)}$ |
+| $\sin(\theta)$  | $\sin: \mathbb{R} \to [-1; 1]$                 | $\sin(\theta) = \sqrt{1 - x^2}$                                                       |
+| $\sinh(\theta)$ | -                                              | -                                                                                     |
+| $\sup(A)$       | $\sup: \{A\ \|\ A \subset \mathbb{R} \land \exists x_1 \in \mathbb{R} \forall x \in A [x_1 \geq x]\} \to \mathbb{R}$ | $\sup(A) = x_1$ |
+| $\tan(\theta)$  | $\tan: \left\{x\ \middle\|\ x \in \mathbb{R} \land \forall n \in \mathbb{N} \left[x \neq \displaystyle \frac{\pi(1 + 2n)}{2}\right] \right\} \to \mathbb{R}$ | $\tan(\theta) = \displaystyle \frac{\sin(\theta)}{\cos(\theta)}$ |
+| $\tanh(\theta)$ | -                                              | -                                                                                     |
 
 ## Typefaces
 
@@ -440,7 +476,7 @@ Font Sizes:
 
 | Order | $\LaTeX$        | Display                       |
 | ----- | --------------- | ----------------------------- |
-| $1.$ | `\tiny`         | $\tiny ax^2 + bx + c$         |
+| $1.$  | `\tiny`         | $\tiny ax^2 + bx + c$         |
 | $2.$  | `\scriptsize`   | $\scriptsize ax^2 + bx + c$   |
 | $3.$  | `\footnotesize` | $\footnotesize ax^2 + bx + c$ |
 | $4.$  | `\small`        | $\small ax^2 + bx + c$        |
@@ -449,7 +485,7 @@ Font Sizes:
 | $7.$  | `\Large`        | $\Large ax^2 + bx + c$        |
 | $8.$  | `\LARGE`        | $\LARGE ax^2 + bx + c$        |
 | $9.$  | `\huge`         | $\huge ax^2 + bx + c$         |
-| $10.$  | `\Huge`         | $\Huge ax^2 + bx + c$         |
+| $10.$ | `\Huge`         | $\Huge ax^2 + bx + c$         |
 
 ## Decorators
 
@@ -474,7 +510,9 @@ Font Sizes:
 | `\hat{v}`                | $\hat{v}$                | **Unit Vector**                     |
 | `A^\dagger`              | $A^\dagger$              | **Dagger**                          |
 | `A\ddagger`              | $A\ddagger$              | **Double Dagger**                   |
-| `\diamond P`             | $\diamond P$             | **Diamond**                         |
+| `\diamond`               | $\diamond$               | **Diamond**                         |
+| `\star`                  | $\star$                  | **Star**                            |
+| `\wr`                    | $\wr$                    | **Wr**                              |
 
 ## Color Pallet
 

@@ -6,8 +6,6 @@
 
 The Foundational Field for all of mathematics
 
-> It should be noted that there exists not 1 but many Logical Systems with their own rules and definitions, this is a general framework that works to define certain operations and objects that all the other's use.
-
 # Axioms
 
 These are Axiom of certain "relations" defined in mathematics:
@@ -39,9 +37,9 @@ Propositional Logic (0'th Order Logic)
 
 | $x$   | $\phi(x)$ |
 | ----- | ------ |
-| $a$   | $p$    |
-| $b$   | $q$    |
-| $c$   | $r$    |
+| $a$   | $r_0$  |
+| $b$   | $r_1$  |
+| $c$   | $r_2$  |
 | $...$ | $...$  |
 
 ## Logical Operations
@@ -131,7 +129,7 @@ the last 2 entries are tricky for the most, in $a \implies b$ if $a$ true then $
 
 ### If-and-Only-If
 
-The **If-and-Only-If** operator describes that both of the expressions must be equivalent.
+The **If-and-Only-If** operator describes that both of the expressions must be equivalent, basically equality for booleans.
 
 $$a \iff b$$
 
@@ -147,18 +145,25 @@ truth table:
 
 ## Identities
 
-ORDER OF EVALUATION
+ORDER OF EVALUATION (this is mostly made up for writing purposes)
 > 1. $\land$ Logical And
 > 2. $\lor$ Logical Or
 > 3. $\lnot$ Logical Not.
 
 AND:
 
+
 $$a \land b = b \land a$$
 
 $$(a \land b) \land c = a \land (b \land c)$$
 
 $$a \land b = \lnot[(\lnot a) \lor (\lnot b)]$$
+
+$$a \land a = a$$
+
+$$a \land (\lnot a) = \bot$$
+
+$$a \land (b \lor c) = (a \land b) \lor (a \land c)$$
 
 OR:
 
@@ -168,31 +173,36 @@ $$(a \lor b) \lor c = a \lor (b \lor c)$$
 
 $$a \lor b = \lnot[(\lnot a) \land (\lnot b)]$$
 
-$$a \land (b \lor c) = (a \land b) \lor (a \land c)$$
+$$a \lor a = a$$
+
+$$a \lor (\lnot a) = \top$$
+
+$$a \lor (b \land c) = (a \lor b) \land (a \lor c)$$
+
 
 NOT:
 
 $$\lnot(\lnot a) = a$$
 
-Any Binary Predicate Operation that maps to $r_1, r_2, r_3, r_4$ in it's truth table written in terms of $\land, \lor, \lnot$.
+Any Binary Predicate Operation that maps to $r_0, r_1, r_2, r_3$ in it's truth table written in terms of $\land, \lor, \lnot$.
 
-$$\phi(a, b) = [a \land b \land r_1] \lor [a \land (\lnot b) \land r_2] \lor [(\lnot a) \land b \land r_3] \lor [(\lnot a) \land (\lnot b) \land r_r]$$
+$$\phi(a, b) = [a \land b \land r_0] \lor [a \land (\lnot b) \land r_1] \lor [(\lnot a) \land b \land r_2] \lor [(\lnot a) \land (\lnot b) \land r_3]$$
 
-any predicate operation that maps to $r_1, r_2, r_3, ... , r_{2^{n}}$ with $n$ count of inputs:
+any predicate operation that maps to $r_0, r_1, r_2, ... , r_{2^{n} - 1}$ with $n$ count of inputs:
 
 $$
 \phi(..., a, b, c) =\newline
-[... \land a \land b \land c \land r_1] \lor \newline
+[... \land a \land b \land c \land r_0] \lor \newline
 [... \land a \land b \land (\lnot c) \land r_1] \lor \newline
-[... \land a \land (\lnot b) \land c \land r_1] \lor \newline
-[... \land a \land (\lnot b) \land (\lnot c) \land r_1] \lor \newline
-[... \land (\lnot a) \land b \land c \land r_1] \lor \newline
-[... \land (\lnot a) \land b \land c \land r_1] \lor \newline
-[... \land (\lnot a) \land b \land (\lnot c) \land r_1] \lor \newline
-[... \land (\lnot a) \land (\lnot b) \land c \land r_1] \lor \newline
-[... \land (\lnot a) \land (\lnot b) \land (\lnot c) \land r_1] \lor \newline
+[... \land a \land (\lnot b) \land c \land r_2] \lor \newline
+[... \land a \land (\lnot b) \land (\lnot c) \land r_3] \lor \newline
+[... \land (\lnot a) \land b \land c \land r_4] \lor \newline
+[... \land (\lnot a) \land b \land (\lnot c) \land r_5] \lor \newline
+[... \land (\lnot a) \land (\lnot b) \land c \land r_6] \lor \newline
+[... \land (\lnot a) \land (\lnot b) \land (\lnot) \land r_7] \lor \newline
 ...
 $$
+
 the pattern of $\lnot$ here is the same as counting in Base 2 representation of numbers.
 
 # Predicate Logic
@@ -231,3 +241,10 @@ $$\forall x [\varphi(x)] = \lnot \exists x [\lnot \varphi(x)]$$
 
 $$\exists x [\varphi(x)] = \lnot \forall x [\lnot \varphi(x)]$$
 
+writing conventions:
+
+$$\forall x \in A [\varphi(x)] = \forall x [x \in A \implies \varphi(x)]$$
+
+$$\exists x \in A [\varphi(x)] = \exists x [x \in A \land \varphi(x)]$$
+
+$$\forall x, y [\varphi(x, y)] = \forall x \forall y [\varphi(x, y)]$$

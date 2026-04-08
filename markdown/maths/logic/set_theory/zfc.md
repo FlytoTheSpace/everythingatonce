@@ -15,7 +15,7 @@ $$
 \forall x (x \neq \emptyset \implies \exists y ((y \in x) \land (y \cap x = \emptyset)))
 $$
 
-it works alongside axiom of pairing and union.
+> it works alongside axiom of pairing and union.
 
 - **Axiom Schema of Specification/Seperation/Restricted Comprehension**:
 
@@ -43,7 +43,7 @@ $$
 
 - **Axiom of Infinity**:
 
-$$\exists x [\emptyset \in x \forall y(y \in x \implies y \cup \{y\} \in x)]$$
+$$\exists X [\emptyset \in X \land \forall y(y \in X \implies y \cup \{y\} \in X)]$$
 
 - **Axiom of Power Set**:
 

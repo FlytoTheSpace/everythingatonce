@@ -11,7 +11,7 @@ hi, I'm the same kid as in the last article, this is the part 2 of the previous 
 
 # Indeterminate-Systems
 
-**Indeterminate**: is an object/expression with no determinate value, it can also represent object within the system $\mathbb{U}$
+**Indeterminate**: is an object/expression with no determinate value, it can also represent object within the system $\mathbb{D}$
 
 An **Indeterminate Form** is form of the Indeterminates $I$, often associated with the situation they arise from, it may restrict the scope of the indeterminate.
 
@@ -53,11 +53,9 @@ $$
 \forall (A \subset \mathbb{D}) \exists (I \in \mathbb{I}) [\setform(I) = A]
 $$
 
-> the Domain for $A$ is meant to be consistent with $\mathbb{D}$ in the A4 axiom.
-
 - A2. **Axiom of Instance**: An Instance of an indeterminate belongs within it's set of instances.
 
-$$y \leftarrow I \iff \exists x [x \in \setform(I) \land y = x] \land |\setform(I)| > 0$$
+$$y \leftarrow I \iff \exists x [x \in \setform(I) \land y = x] \land \setform(I) \neq \emptyset$$
 
 - A3. **Axiom of Equality**: 2 Indeterminates are equal if they their resolved instance values are the same
 
@@ -85,7 +83,6 @@ $$I_1 \cong I_2 \iff \setform(I_1) = \setform(I_2)$$
 - **Constructive Indeterminates**: where all indeterminates in an expression/context resolve to the same value.
 
 $$I = I$$
-
 
 - **Destructive Indeterminates**: A more general version of the Constructive indeterminates where the self-equivalence is ambigious.
 
@@ -183,15 +180,16 @@ Proof:
 
 $$ c $$
 
-$$ = \lim_{x \to 0} c \cdot \frac{x}{x}$$
+$$ = \lim_{x \to \infty} c \cdot \frac{\frac{1}{x}}{\frac{1}{x}}$$
 
-$$ = \left(\lim_{x \to 0} c \cdot x \right)\left(\lim_{x \to 0} \frac{1}{x}
-\right)$$
-$$ = \left(\lim_{x \to 0} x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)$$
+$$ = \left(\lim_{x \to \infty} c \cdot \frac{1}{x} \right)\left(\lim_{x \to \infty} \frac{1}{\frac{1}{x}}\right)$$
 
-$$ = \lim_{x \to 0} \frac{x}{x}$$
+$$ = \left(\lim_{x \to \infty} \frac{1}{x} \right)\left(\lim_{x \to \infty} \frac{1}{\frac{1}{x}}\right)$$
+
+$$ = \lim_{x \to \infty} \frac{\frac{1}{x}}{\frac{1}{x}}$$
 
 $$ = \frac{0}{0}$$
+
 
 - $\infty/\infty$ case
 
@@ -225,15 +223,18 @@ $$ = 0 \cdot \infty$$
 
 $$ c $$
 
-$$ = \lim_{x \to 0} c \cdot \frac{x}{x}$$
+$$ = \lim_{x \to \infty} c \cdot \frac{\frac{1}{x}}{\frac{1}{x}}$$
 
-$$ = \left(\lim_{x \to 0} c \cdot x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)$$
+$$ = \left(\lim_{x \to \infty} c \cdot \frac{1}{x} \right)\left(\lim_{x \to \infty} \frac{1}{\frac{1}{x}}\right)$$
 
-$$ = \left(\lim_{x \to 0} x \right)\left(\lim_{x \to 0} \frac{1}{x}\right)$$
+$$ = \left(\lim_{x \to \infty} \frac{1}{x} \right)\left(\lim_{x \to \infty} \frac{1}{\frac{1}{x}}\right)$$
 
-$$ = \lim_{x \to 0} \frac{x}{x} $$
+$$ = \lim_{x \to \infty} \frac{\frac{1}{x}}{\frac{1}{x}}$$
 
-$$ = \frac{0}{0} $$
+$$ = \lim_{x \to \infty} \left(\frac{1}{x}\right)^{0}$$
+
+$$ = (0)^{0}$$
+$$ = 0^{0}$$
 
 - $\infty - \infty$ case
 
@@ -363,7 +364,6 @@ f(I) =
 x \in \setform(I): f(x)
 \end{cases}
 $$
-
 
 ## Potential Internal Inconsistencies
 

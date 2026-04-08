@@ -132,13 +132,14 @@ r_2 \cr
 r_3 \cr
 ... \cr
 r_n \cr
-\end{bmatrix} \middle | \ \forall r_i \in \mathbb{R} \right\}$$
+\end{bmatrix} \middle | \ \forall i [r_i \in \mathbb{R} ]\right\}$$
 
 $$\vec{v} \in \mathbb{R}^n$$
 
 **Length**: is defined as the magnitude of the Vector, a single scalar is the output
 $$
-|\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2 + ...}
+|\vec{v}| = \sqrt{\sum_{i = 1}^{n} v_i^2} \newline
+\sqrt{v_x^2 + v_y^2 + v_z^2 + ...} \newline
 $$
 
 **Vector Addition**: 
@@ -230,11 +231,17 @@ $$
 
 some properties:
 
-$$(c \vec{v}) \cdot \vec{u}$$
+Scalar:
+
+$$(c \vec{v}) \cdot \vec{u} = c (\vec{v} \cdot \vec{u})$$
+
+Commutativity:
+
 $$\vec{v} \cdot \vec{u} = \vec{u} \cdot \vec{v}$$
-$$c (\vec{v} \cdot \vec{u})$$
-$$\vec{v} \cdot (\vec{u} + \vec{w})$$
-$$\vec{v} \cdot \vec{u} + \vec{v} \cdot \vec{w}$$
+
+Distributivity:
+
+$$\vec{v} \cdot (\vec{u} + \vec{w}) = \vec{v} \cdot \vec{u} + \vec{v} \cdot \vec{w}$$
 
 # Matrix
 
@@ -339,8 +346,21 @@ c_{ij} = \sum_{k = 1}^{n} a_{ik} b_{kj}
 $$
 > Word on Notation: The lowercase versions of $A, B, C$ denote the entries of the matrices as $a_{ij}$
 
+
+**Orthonormal**: are special linear transformations $A$ such that:
+
+$$
+(A \vec{v}) \cdot (A \vec{u}) = \vec{v} \cdot \vec{u} \newline
+$$
+
+
 ## Determinant
 
+A1.
+$$
+
+\forall m[\det(A) + \det(B) = \det(A + b_{im})]
+$$
 
 # Tensor
 (pending...)

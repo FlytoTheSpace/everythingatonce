@@ -205,13 +205,13 @@ C(n - 1, k_1, k_2, ..., k_{m-1}) \cdot
 
 ## Partial Derivatives:
 
-These are idental to Regular Derivatives expect they act on function with more than 1 inputs but only take the derivative with respect to any 1 variable
+These are idental to Regular Derivatives expect they act on function with more than 1 inputs but only take the derivative with respect to any 1 variable, it's notation is mostly just for stylistic/clarity.
 
-$$ z = f(x, y, ...) $$
+$$f(x, y, z, ...) $$
 
-$$ \frac{\partial f}{\partial x} = \frac{df}{dx} $$
+$$\frac{\partial f}{\partial x} = \frac{df}{dx}$$
 
-$$ \frac{\partial f}{\partial y} = \frac{dh}{dy} $$
+$$\frac{\partial f}{\partial y} = \frac{dh}{dy}$$
 
 $g(x) = f(x, y)$
 
@@ -355,3 +355,62 @@ $$D_{\mathbf{\vec{u}}} \vec{f} = <D_{\mathbf{\vec{u}}} f_x, D_{\mathbf{\vec{u}}}
 $$D_{\mathbf{\vec{u}}}^n \vec{f} = <D_{\mathbf{\vec{u}}}^n f_x, D_{\mathbf{\vec{u}}}^n f_y, D_{\mathbf{\vec{u}}}^n f_z, ...>$$
 
 # Complex Derivative
+
+we define:
+
+$$f(z) = u(x, y) + i\ v(x, y)$$
+
+$$f: \mathbb{C} \to \mathbb{C}$$
+
+for 
+
+$$z = x + iy$$
+
+$$i^2 = -1$$
+
+$$u: \mathbb{R} \times \mathbb{R} \to \mathbb{R}$$
+
+$$v: \mathbb{R} \times \mathbb{R} \to \mathbb{R}$$
+
+derivative:
+
+with respect to $x$:
+
+$$
+\frac{\partial (f(x + iy))}{\partial x} = \frac{\partial (u(x, y) + i\ v(x, y))}{\partial x} \newline
+\frac{\partial (f(z))}{\partial x} = \frac{\partial u}{\partial x} + i\ \frac{\partial v}{\partial x} \newline
+\frac{d(f(z))}{dz} \cdot \frac{\partial z}{\partial x} = \frac{\partial u}{\partial x} + i\ \frac{\partial v}{\partial x} \newline
+\frac{df}{dz} \cdot \frac{\partial (x + iy)}{\partial x} = \frac{\partial u}{\partial x} + i\ \frac{\partial v}{\partial x} \newline
+\frac{df}{dz} \cdot (1 + 0) = \frac{\partial u}{\partial x} + i\ \frac{\partial v}{\partial x} \newline
+\frac{df}{dz} = \frac{\partial u}{\partial x} + i\ \frac{\partial v}{\partial x} \newline
+$$
+
+$$\frac{\partial f}{\partial x} = \frac{df}{dz} = \frac{\partial u}{\partial x} + i\ \frac{\partial v}{\partial x}$$
+
+with respect to $y$:
+
+$$
+\frac{\partial (f(x + iy))}{\partial y} = \frac{\partial (u(x, y) + i\ v(x, y))}{\partial y} \newline
+\frac{\partial (f(z))}{\partial y} = \frac{\partial u}{\partial y} + i\ \frac{\partial v}{\partial y} \newline
+\frac{d(f(z))}{dz} \cdot \frac{\partial z}{\partial y} = \frac{\partial u}{\partial y} + i\ \frac{\partial v}{\partial y} \newline
+\frac{df}{dz} \cdot \frac{\partial (x + iy)}{\partial y} = \frac{\partial u}{\partial y} + i\ \frac{\partial v}{\partial y} \newline
+\frac{df}{dz} \cdot (0 + i) = \frac{\partial u}{\partial y} + i\ \frac{\partial v}{\partial y} \newline
+i \frac{df}{dz} = \frac{\partial u}{\partial y} + i\ \frac{\partial v}{\partial y} \newline
+$$
+
+$$
+\frac{df}{dz} = \frac{\partial f}{\partial x} = - i \frac{\partial f}{\partial y}
+$$
+
+components wise:
+
+$$
+\frac{\partial f}{\partial x} = - i \frac{\partial f}{\partial y} \newline
+\frac{\partial u}{\partial x} + i\ \frac{\partial v}{\partial x} = - i \left(\frac{\partial u}{\partial y} + i\ \frac{\partial v}{\partial y}\right) \newline
+\frac{\partial u}{\partial x} + i\frac{\partial v}{\partial x} = - i \frac{\partial u}{\partial y} + \frac{\partial v}{\partial y} \newline
+\left(\frac{\partial u}{\partial x}\right) + i\left(\frac{\partial v}{\partial x}\right) = \left(\frac{\partial v}{\partial y}\right) +  i\left(- \frac{\partial u}{\partial y}\right) \newline
+$$
+
+$$\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}$$
+
+$$\frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x}$$

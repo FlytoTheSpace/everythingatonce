@@ -9,7 +9,7 @@ $$
 
 The value $n$ is called the Degree of the Polynomial, long as $a_n \neq 0$ 
 
-$a_0^{0}$ is taken as $1$ for notational purpose.
+$x^{0}$ is taken as $1$ for notational purpose.
 
 ### Term Count
 
