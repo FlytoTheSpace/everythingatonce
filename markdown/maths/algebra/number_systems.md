@@ -103,9 +103,9 @@ we have a set $A$ here:
 
 $$A = \{n\ |\ n \in \mathbb{N} \land s^{n}(0) = n\}$$
 
-> $s^{n}(m)$ is another way of writing:
+> syntactically $s^{n}(m)$ is another way of writing:
 > $\underbrace{s(s(s(... s(m))))}_{n \text{ times}}$
-
+a
 and
 $$
 s^{0}(0) = 0 \newline

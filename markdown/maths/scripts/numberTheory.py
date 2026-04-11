@@ -15,11 +15,13 @@ def factorial(n: int, asList: bool = False)->int:
 def power(a: int, n: int, asList: bool=False)->int | list:
     return Product(1, n, lambda x: a, asList)
 
-def factors(a: int, includeOne: bool = True)->list:
+def factors(a: int, includeOne: bool = True, includeSelf: bool = True)->list:
     factors: list = []
 
     for i in range(1 if includeOne else 2, math.ceil(a/2) + 1):
         if a%i == 0: factors.append(i)
+    if (includeSelf and (a != 1)):
+        factors.append(a)
     return factors
 
 def abs(a: float)->float:

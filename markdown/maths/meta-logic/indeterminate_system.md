@@ -45,27 +45,21 @@ $$
 
 ## Axioms
 
-$\forall I, I_1, I_2, ... \in \mathbb{I}$
-
 - A1. **Axiom of Indeterminates**: An Indeterminate can be constructed via it's set of instances.
 
 $$
 \forall (A \subset \mathbb{D}) \exists (I \in \mathbb{I}) [\setform(I) = A]
 $$
 
-- A2. **Axiom of Instance**: An Instance of an indeterminate belongs within it's set of instances.
+- A2. **Axiom of Equality**: 2 Indeterminates are equal if they their resolved instance values are the same
 
-$$y \leftarrow I \iff \exists x [x \in \setform(I) \land y = x] \land \setform(I) \neq \emptyset$$
-
-- A3. **Axiom of Equality**: 2 Indeterminates are equal if they their resolved instance values are the same
-
-$$I_1 = I_2 \iff x \leftarrow I_1 \land y \leftarrow I_2 \land x = y$$
+$$\forall I_1, I_2 \in \mathbb{I}[I_1 = I_2 \iff x \leftarrow I_1 \land y \leftarrow I_2 \land x = y]$$
 
 > in This A2 axiom of Equality $x$ and $y$ are context dependent.
 
-- A4. **Axiom of Limit**: Ensures that an Indeterminate can only have Determinate Instance values as it can introduce paradoxes.
+- A3. **Axiom of Limit**: Ensures that an Indeterminate can only have Determinate Instance values as it can introduce paradoxes.
 
-$$\setform(I) \setminus \mathbb{D} = \emptyset$$
+$$\forall I \in \mathbb{I}[\setform(I) \setminus \mathbb{D} = \emptyset]$$
 
 ## Definitions
 
@@ -113,7 +107,7 @@ $$\setform(\null) = \emptyset$$
 
 ## Results
 
-**Determinism**: if there is only 1 possible indeterminate instance, then it is The Value of the Indeterminant.
+**Determinism**: if there is only 1 possible indeterminate instance, then it is The Unique Value of the Indeterminant.
 
 $$
 |\setform(I)| = 1 \implies I \in \mathbb{D}
@@ -154,7 +148,7 @@ $$
 
 by A1:
 
-$$\setform(I) = \{x, ...\}$$
+$$x \in +\setform(I)$$
 
 by A2 & A3:
 
