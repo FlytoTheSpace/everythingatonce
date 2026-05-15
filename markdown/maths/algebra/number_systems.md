@@ -42,369 +42,13 @@ $$
 # Number Systems
 Different Type of Number System that are used in Mathematics:
 
-# Natural Numbers
-## Peano Axioms
-
-The Origin of The Natural Numbers:
-
-$\mathbb{N}$ and $s(n)$ must satisfy the following properties:
-
-**NA1**:
-$$\exists 0[ 0 \in \mathbb{N}]$$
-> The starting point
-
-**NA2**:
-$$\forall n \in \mathbb{N} [s(n) \in \mathbb{N}]$$
-> Closure
-
-**NA3**:
-$$\forall a, b \in \mathbb{N} [a = b \iff s(a) = s(b)]$$
-> s is bijective, and equality is preserved under it.
-
-**NA4**:
-$$\lnot \exists n \in \mathbb{N} [s(n) = 0]$$
-> ensures that the system doesn't cyclic back to the start.
-
-**A5**: Induction.
-
-$$
-\forall A \subset \mathbb{N}[ 0 \in A \land \forall n \in A(s(n) = A) \implies A = \mathbb{N}]
-$$
-> Author's comment: I have a habit of using this A5 axiom sub-conciously while I'm trying to prove a pattern, so keep it in mind.
-
----
-
-by NA1:
-$$0 \in \mathbb{N}$$
-by NA2:
-$$s(0) \in \mathbb{N}$$
-a definition:
-$$s(0) := 1$$
-if we assume:
-$$1 = 0$$
-then:
-$$s(0) = 0$$
-but by NA4
-$$\lnot \exists n \in \mathbb{N} [s(n) = 0]$$
-$$\therefore 1 \neq 0$$
-
-continue with our definitions:
-
-$$
-s(0) := 1 \newline
-s(1) := 2 \newline
-s(2) := 3 \newline
-s(3) := 4 \newline
-s(4) := 5 \newline
-...
-$$
-
-we have a set $A$ here:
-
-$$A = \{n\ |\ n \in \mathbb{N} \land s^{n}(0) = n\}$$
-
-> syntactically $s^{n}(m)$ is another way of writing:
-> $\underbrace{s(s(s(... s(m))))}_{n \text{ times}}$
-a
-and
-$$
-s^{0}(0) = 0 \newline
-$$
-so
-$0 \in A$
-
-for any $n$ in A:
-$$s^{n}(0) = n$$
-and:
-$$
-s(s^{n}(0)) = s(n) \newline
-s^{s(n)}(0) = s(n) \newline
-s^{s(n)}(0) = s(n) \newline
-$$
-abbreviate $s(n) = m$:
-$$s^{m}(0) = m$$
-so $s(n) \in \mathbb{N}$, 
-from A5, the Axiom of Induction:
-$$\therefore A = \mathbb{N}$$
-in other words:
-$$\forall n \in \mathbb{N}(s^{n}(0) = n) \newline$$
-
-> Note: Use of the Set $A$ here does not persist in-between proofs, it's a buffer object.
-
-the function $s^{0}(n)$ is by definition another equal to $n$
-so:
-
-$$\forall n \in \mathbb{N}[s^{0}(n)] = n$$
-
-we have another set $A$:
-
-$$A = \{s^{m}(n)\ |\ n, m \in \mathbb{N} \land s^{m}(n) = s^{n}(m)\}$$
-
-$$s^{0}(0) = s^{0}(0) = 0$$
-
-so we have $0 \in A$.
-
-for any $m, n$ in A:
-$$
-s^{m}(n) = s^{n}(m) \newline
-s(s^{m}(n)) = s(s^{n}(m)) \newline
-s^{s(m)}(n) = s^{n}(s(m)) \newline
-$$
-abbreviate $s(m) = a$ then:
-$$s^{a}(n) = s^{n}(a) \newline$$
-we have:
-$$s(s^{m}(n)) \in A$$
-also do-able with $n$ instead:
-$$
-s^{m}(n) = s^{n}(m) \newline
-s(s^{m}(n)) = s(s^{n}(m)) \newline
-s^{m}(s(n)) = s^{s(n)}(m) \newline
-$$
-abbrevite $s(n) = b$:
-$$
-s^{m}(b) = s^{b}(m) \newline
-$$
-we again have:
-$$s(s^{m}(n)) \in A$$
-for any $n, m$.
-
-so by A5:
-$$\therefore A = \mathbb{N}$$
-
-in other words:
-$$
-\forall n,m \in \mathbb{N}[s^{m}(n) = s^{n}(m)]
-$$
-
-**Addition**:
-
-$\forall a, b \in \mathbb{N}$
-
-**AA1**:
-
-$$a + 0 = a$$
-
-**AA2**:
-
-$$s(a + b) = a + s(b)$$
-
----
-
-we have a set $A$:
-
-$$A = \{s^{b}(a)\ |\ a, b \in \mathbb{N} \land s^{b}(a) = a + s^{b}(0)\}$$
-
-and
-$$
-s^{0}(0) = 0 + s^{0}(0) \newline
-0 = 0 + 0 \newline
-0 = 0 \newline
-$$
-
-so we have $0 \in A$. for any element $s^{b}(a)$ in $A$ we have:
-- with $b$:
-$$
-s^{b}(a) = a + s^{b}(0) \newline
-s(s^{b}(a)) = s(a + s^{b}(0)) \newline
-s^{s(b)}(a) = a + s(s^{b}(0)) \newline
-s^{s(b)}(a) = a + s^{s(b)}(0) \newline
-$$
-
-abbreviate $s(n) = b$:
-
-$$s^{n}(a) = a + s^{n}(0)$$
-
-so:
-
-$$s(s^{b}(a)) \in A$$
-
-hence:
-
-$$\therefore A = \mathbb{N}$$
-
-in other words:
-
-$$\forall a, b \in \mathbb{N}[s^{b}(a) = a + s^{b}(0)]$$
-
-- with $a$ is not proveable yet commutativity of addition also not being proved yet.
-
----
-
-from our earlier results: $\forall a, b \in \mathbb{N}$
-
-$$s^{b}(0) = b$$
-
-$$s^{b}(a) = a + s^{b}(0) \newline$$
-
-$$s^{b}(a) = a + b$$
-
-since:
-
-$$s^{b}(a) = a + b$$
-
-$$s^{a}(b) = b + a$$
-
-$$s^{b}(a) = s^{a}(b)$$
-
-so we have using the law of transitivity, we have:
-
-$$a + b = b + a$$
-
-we have proved **Commutativity** for addition:
-
-$$\therefore a + b = b + a$$
-
-we create:
-
-$$
-(a + b) + c \newline
-= (a + b) + s^{c}(0) \newline
-= s^{c}((a + b) + 0) \newline
-= s^{c}(a + b) \newline
-= a + s^{c}(b) \newline
-= a + s^{c}(b + 0) \newline
-= a + (b + s^{c}(0)) \newline
-= a + (b + c) \newline
-$$
-
-$$\therefore (a + b) + c = a + (b + c)$$
-
-Comparison Definition:
-
-$$a < b \iff \exists k \in \mathbb{N} [k \neq 0 \land a + k = b]$$
-
-$$a > b \iff \exists k \in \mathbb{N} [k \neq 0 \land a = b + k]$$
-
-$$a \leq b \iff \exists k \in \mathbb{N} [a + k = b]$$
-
-$$a \geq b \iff \exists k \in \mathbb{N} [a = b + k]$$
-
-Multiplication:
-
-**MA1**:
-
-$$a \times 1 = a$$
-
-**MA2**:
-
-$$a \times (b + c) = (a \times b) + (a \times c)$$
-
-> ORDER OF OPERATION (Syntactical):
-> 1. Multiplication.
-> 2. Addition.
-> 
-
----
-
-by MA2:
-
-$$a \times (b + c) = (a \times b) + (a \times c)$$
-$$a \times (b + 0) = (a \times b) + (a \times 0)$$
-$$(a \times b) = (a \times b) + (a \times 0)$$
-
-by what we know, the only way this equation holds if:
-
-$$a \times 0 = 0$$
-
-(can be proven in a better way once subtration is acquired.)
-
-for commutativity:
-
-$$
-a \times b \newline
-= a \times (s^{b}(0)) \newline
-= a \times (\underbrace{1 + 1 + 1 + ...}_{b}) \newline
-= \underbrace{(a \times 1) + (a \times 1) + (a \times 1) + ...}_{b} \newline
-= \underbrace{a + a + a + ...}_{b} \newline
-= \underbrace{s^{a}(0) + s^{a}(0) + s^{a}(0) + ...}_{b}
-$$
-
-$$
-= b \underbrace{\begin{cases}
-(1  +  1  +  1  + 1 + ...) + \cr
-(1  +  1  +  1  + 1 + ...) + \cr
-(1  +  1  +  1  + 1 + ...) + \cr
-(1  +  1  +  1  + 1 + ...) + \cr
-(1  +  1  +  1  + 1 + ...) + \cr
-\end{cases}}_{a}
-$$
-
-$$
-= b \underbrace{\begin{cases}
-1  +  1  +  1  + 1 + ... + \cr
-1  +  1  +  1  + 1 + ... + \cr
-1  +  1  +  1  + 1 + ... + \cr
-1  +  1  +  1  + 1 + ... + \cr
-1  +  1  +  1  + 1 + ... + \cr
-\end{cases}}_{a}
-$$
-
-switch the columns and rows
-> (mostly syntactical, by `switch` it means to regoup via associativity in a certain way):
-
-$$
-= a \underbrace{\begin{cases}
-1  +  1  +  1  + 1 + 1 + ... \cr
-1  +  1  +  1  + 1 + 1 + ... \cr
-1  +  1  +  1  + 1 + 1 + ... \cr
-1  +  1  +  1  + 1 + 1 + ... \cr
-\end{cases}}_{b}
-$$
-
-$$
-= a \underbrace{\begin{cases}
-(1  +  1  +  1  + 1 + 1 + ...) + \cr
-(1  +  1  +  1  + 1 + 1 + ...) + \cr
-(1  +  1  +  1  + 1 + 1 + ...) + \cr
-(1  +  1  +  1  + 1 + 1 + ...) + \cr
-\end{cases}}_{b}
-$$
-
-$$
-= a \begin{cases}
-(b) +\cr
-(b) +\cr
-(b) +\cr
-(b) +\cr
-\end{cases}
-$$
-
-$$
-= a \begin{cases}
-b +\cr
-b +\cr
-b +\cr
-b +\cr
-\end{cases}
-$$
-
-$$
-= \underbrace{b + b + b + b +...}_{a} \newline
-= \underbrace{(b \times 1) + (b \times 1) + (b \times 1) + (b \times 1) +...}_{a} \newline
-= b \times \underbrace{(1 + 1 + 1 + 1 + ...)}_{a} \newline
-= b \times \underbrace{(1 + 1 + 1 + 1 + ...)}_{a} \newline
-= b \times (s^{a}(0)) \newline
-= b \times (a) \newline
-= b \times a \newline
-$$
-
-$$\therefore a \times b = b \times a$$
-
-Associativity:
-
-$$
-(a \times b) \times c \newline
-= \underbrace{(b + b + b + ...)}_{a} \times c \newline
-= c \times \underbrace{(b + b + b + ...)}_{a} \newline
-= \underbrace{((b \times c) + (b \times c) + (b \times c) + ...)}_{a} \newline
-= a \times (b \times c) \newline
-$$
-
----
-
-in summary:
+# Naturals
 
 $$\mathbb{N} = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ...\}$$
+
+- in Detail: [`Natural Numbers`](./number_systems/naturals.md)
+
+Summary:
 
 $\forall a, b, c \in \mathbb{N}$ :
 
@@ -414,6 +58,8 @@ $$s^{b}(a) = s^{a}(b)$$
 
 $$a + b = s^{b}(a)$$
 
+$$a + b \in \mathbb{N}$$
+
 $$(a + b) + c = a + (b + c)$$
 
 $$a + b = b + a$$
@@ -422,6 +68,7 @@ $$a + 0 = a$$
 
 $$a \times b = \underbrace{(a + a + a + ...)}_{b}$$
 
+$$a \times b \in \mathbb{N}$$
 $$a \times b = b \times a$$
 
 $$(a \times b) \times c = a \times (b \times c)$$
@@ -432,115 +79,28 @@ $$a \times 0 = 0$$
 
 $$a \times (b + c) = (a \times b) + (a \times c)$$
 
-Extra Notation:
+$$a < b \iff b > a$$
 
-$$\mathbb{N}_m = \{n | n \in \mathbb{N} \land n \leq m\}$$
+$$a < b \oplus a = b \oplus a > b$$
+
+$$a < b \land b < c \implies a < c$$
+
+$$a < b \implies a + c < b + c$$
+
+$$a < b \implies a \times c < b \times c$$
+long as $c \in \mathbb{N}_{>0}$
+
+Notation:
+
+$$\mathbb{N}_m = \{n\ |\ n \in \mathbb{N} \land n < m\}$$
+
+$$\mathbb{N}_{> m} = \{n\ |\ n \in \mathbb{N} \land n > m\}$$
 
 # Integers
 
-$$\mathbb{N}[-1] = \mathbb{Z}$$
-
-$$(a = b \iff f(a) = f(b)) \implies \exists p [s(p(a)) = p(s(a)) = a]$$
-
-Integer Axioms (non-standard):
-
-IA1.
-
-$$\mathbb{N} \subset \mathbb{Z}$$
-
-IA2.
-
-$$\forall a \in \mathbb{Z}[p(a) \in \mathbb{Z}]$$
-
----
-
-by IA2.
-
-$$
-p(0) := -1 \newline
-p(1) := -2 \newline
-p(2) := -3 \newline
-p(3) := -4 \newline
-p(4) := -5 \newline
-p(5) := -6 \newline
-... \newline
-$$
-
-$$p^{n}(0) := -n$$
-
-$$p^{m}(n) = p^{n}(m)$$
-
-axiom for addition with Integers:
-
-**AA3**.
-
-$$p(a + b) = a + p(b)$$
-
----
-
-
-$$p^{b}(a + 0) = a + p^{b}(0)$$
-$$p^{b}(a) = a + p^{b}(0)$$
-$$p^{b}(a) = a + (-b)$$
-$$p^{b}(s^{b}(a)) = a + b + (-b)$$
-$$a = a + b + (-b)$$
-$$0 = 0 + b + (-b)$$
-$$a + (-a) = 0$$
-
-Definition of subtraction:
-
-$$a - b := a + (-b)$$
-
-$$
-p(0) = -1 \newline
-p(p(0)) = p(-1) \newline
-p^2(0) = p(-1 + 0) \newline
-p^2(0) = (-1) + p(0) \newline
-p^2(0) = \underbrace{(-1) + (-1)}_{2} \newline
-p^3(0) = \underbrace{(-1) + (-1) + (-1)}_{3} \newline
-p^4(0) = \underbrace{(-1) + (-1) + (-1) + ...}_{4} \newline
-p^n(0) = \underbrace{(-1) + (-1) + (-1) + ...}_{n} \newline
-$$
-
-Multiplication:
-
-$$
-p^n(0) = \underbrace{(-1) + (-1) + (-1) + ...}_{n} \newline
--n = \underbrace{(-1) + (-1) + (-1) + ...}_{n} \newline
--n = \underbrace{(-1) \times 1 + (-1) \times 1 + (-1) \times 1 + ...}_{n} \newline
--n = (-1) \times (\underbrace{1 + 1 + 1 + ...}_{n}) \newline
--n = (-1) \times n \newline
-$$
-
-$$
-(-a) + a  = 0
-$$
-
-$$
-(-a) + (-(-a)) := 0
-$$
-
-$$
-(-a) + a = (-a) + (-(-a)) \newline
-a +(-a) + a = a +(-a) + (-(-a)) \newline
-(a +(-a)) + a = (a +(-a)) + (-(-a)) \newline
-0 + a = 0 + (-(-a)) \newline
-a = (-(-a)) \newline
-(1) \times a = ((- 1) \times (-1)) \times a \newline
-$$
-$$\therefore (-1)(-1) = 1$$
-
-in summary:
-
-$$p^n(0) = \underbrace{(-1) + (-1) + (-1) + ...}_{n}$$
-
-$$a - b = a + (-b)$$
-
-$$-n = (-1) \times n$$
-
-$$(-1) \times (-1) = 1$$
-
 $$\mathbb{Z} = \{..., -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, ...\}$$
+
+- in Detail: [`Integers`](./number_systems/integers.md)
 
 # Rationals
 
@@ -548,11 +108,16 @@ Inverse of Multiplication:
 
 $$a \times \left(\frac{1}{a}\right) = 1$$
 
-long as $a \neq 0$ as if defined it must map to all possible values at once which a function isn't allowed to do traditionally.
+Rationals Axioms:
 
-**MA3**: Axiom of Distributivity of inverse of multiplication over addition:
+**QA1**:
 
-$$\left(\frac{1}{a}\right) \times (b + c) = \left(\frac{1}{a}\right) \times b + \left(\frac{1}{a}\right) \times c$$
+$$\forall a, (b \neq 0) \in \mathbb{Z}\left[\frac{a}{b} \in \mathbb{Q}\right]$$
+
+
+**QA2**: Axiom of Distributivity of inverse of multiplication over addition:
+
+$$\forall a \neq 0, b, c \in \mathbb{Z} \left[\left(\frac{1}{a}\right) \times (b + c) = \left(\frac{1}{a}\right) \times b + \left(\frac{1}{a}\right) \times c\right]$$
 
 Division by 1:
 
@@ -645,13 +210,28 @@ $$
 in summary:
 
 $$
-\mathbb{Q} = \left\{\frac{p}{q} \middle | p,q \in \mathbb{Z} \land q \neq 0 \right\}
+\mathbb{Q} = \left\{\frac{p}{q}\ \middle |\ p,q \in \mathbb{Z} \land q \neq 0 \right\}
 $$
 $$
 \mathbb{Q} = \{
 ...-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, ...
 ,\frac{1}{2}, \frac{2}{2}, \frac{3}{2}, \frac{4}{2}..., \frac{1}{5}, \frac{2}{5}, \frac{3}{5},... \frac{11}{10}, ... \}
 $$
+
+Comparison:
+
+$$\mathbb{Q}^{+} = \left\{\frac{p}{q}\ \middle |\ p, q \in \mathbb{Z}^{+} \land q \neq 0\right\}$$
+
+$$\mathbb{Q}^{-} = \left\{-\frac{p}{q}\ \middle |\ p, q \in \mathbb{Z}^{+} \land q \neq 0\right\}$$
+
+
+$$\forall a, b[a < b \iff \exist c \in \mathbb{Q}^{+}(a + c = b)]$$
+
+$$\forall a, b[a > b \iff \exist c \in \mathbb{Q}^{+}(a = b + c)]$$
+
+$$\forall a, b[a \leq b \iff \exist c \in \mathbb{Q}^{+}\cup\{0\}(a + c = b)]$$
+
+$$\forall a, b[a \geq b \iff \exist c \in \mathbb{Q}^{+}\cup\{0\}(a = b + c)]$$
 
 # Irrationals
 
@@ -664,7 +244,38 @@ $$\sqrt{2}, \pi, e, \sqrt{5}, \sqrt{10}, ...$$
 
 # Real Numbers
 
-**Real Numbers**: $\mathbb{R}$ are every number that can be found on the Real-Number Line includes all Rational and Irrationals
+**Real Numbers**: $\mathbb{R}$ are every number that can be found on the Real-Number Line includes all Rational and Irrationals.
+
+Axioms for Reals:
+
+**R0**. Subset:
+
+$$\mathbb{Q} \subset \mathbb{R}$$
+
+**R1**:
+
+$$\forall x \in \mathbb{R}[x + 0 = x]$$
+
+**R2**:
+
+$$\forall x, y \in \mathbb{R}[s(x + y) = x + s(y)]$$
+
+
+**R3**:
+
+$$\forall x \in \mathbb{R}[x \times 1 = x]$$
+
+**R3**:
+
+$$\forall x, y, z \in \mathbb{R}[x \times (y + z) = (x \times y) + (x \times z)]$$
+
+
+**R5**. Completeness Axiom:
+
+$$\forall A[A \subset \mathbb{R} \land A \neq \emptyset \implies (\exist u \forall x \in A (x \leq u) \implies \exist s \in \mathbb{R}(\forall x \in A (x \leq s) \land \forall u \in \mathbb{R} \forall x \in A(x \leq u \implies s \leq u)))]$$
+
+
+
 
 some functions:
 

@@ -216,7 +216,9 @@ $$
 \displaystyle \sum_{j = 0}^{n - m} R_{i, j}^{m} x_{j} = \displaystyle \sum_{j = 0}^{n - m} A_{i, j}^{m} x_{j} = 0
 $$
 
-now it involves no division, which is known for it's slowness in computations
+now it involves no division, which is known for it's slowness in computations.
+This also means that even for smaller inputs $A^{m}_{ij}$ can become quite large.
+You may use either of $A^{m}_{ij}$  or $R^{m}_{ij}$ as you please.
 
 ## Solutions
 
@@ -279,11 +281,14 @@ def LinearEquations(a0: list[list[float]]):
                 continue
             i = eq
         if i == None:
-            print("Overdetermined system")
+            print("Error: Overdetermined system")
             return
         # compute the solution:
         for j in range(0, k):
             xk += A[nnk][i][j] * x[j]
+        if ((A[nnk][i][k]) == 0 and (xk == 0)):
+            print("Error: Redundant Equations (Concide/Parallel)")
+            return
         xk = - xk / A[nnk][i][k]
 
         x.append(xk)

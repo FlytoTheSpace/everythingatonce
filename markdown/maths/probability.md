@@ -68,3 +68,9 @@ $$
 - $\div P(B)$: Shifts the Perspective from the Sample Set view, to the Event $B$ Perspective.
 
 The Conditional Probability can also be interpreted as The Amount of area occupied by Intersection of A and B, it's ratio with B
+
+---
+
+Probability of an event $A$ being happening atleast once, given $n$ count of events.
+
+$$1 - (1 - P(A))^{n}$$

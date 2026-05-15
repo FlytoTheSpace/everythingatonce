@@ -1,7 +1,10 @@
 
 # Chemistry
-## Acids and Bases
-### Characterestics
+
+$\newcommand{\e}[1]{\text{#1}}$
+
+# Acids and Bases
+## Characterestics
 **Acid**:
 
 Nature: **Acidic**
@@ -13,7 +16,7 @@ Nature: **Basic**
 - Bitter
 - Soapy
 
-### Indicators
+## Indicators
 
 **Indicators**: special type of susbstances used to test whether if a substance is acidic or basic
 
@@ -31,7 +34,7 @@ Natural Indicators: turmeric*, *litmus*, *China rose petals*
 - Turns **Magenta** when in-contact with **Acidic** substance.
 - Turns **Green** when in-contact with **Basic** substance.
 
-### Neutralization
+## Neutralization
 
 **Neutralization**: The process of: when an *Acidic* solution is mixed with a *Basic* solution and both Neutralize/Cancel the effects of each other.
 
@@ -80,71 +83,44 @@ Example:-
 | Potassium Hydroxide | Soap             |
 | Magnesium Hydroxide | Milk of Magnesia |
 
-## Periodic Table
+# Periodic Table
 
 ![](../../img/science/periodic_table.png)
 
-### Elements:
+### Elements
 
-**Non-Metal**:
-| Chemical | Element      | Found                 | Useage               | Description |
-| -------- | ------------ | --------------------- | -------------------- | ----------- |
-| H        | Hydrogen     | Water                 |                      |
-| C        | Carbon       | Atmosphere, Coal      |                      |
-| N        | Nitrogen     | Atmosphere            |                      |
-| O        | Oxygen       | Atmosphere, Water     |                      |
-| P        | Phosphorus   | Phosphate Rock        | Matches, Fertilisers |
-| Se       | Selenium     | Deep Underground      |                      |
-**Alkalie Metal**:
-| Li       | Lithium      | Brine deposits        | Batteries            |
-| Na       | Sodium       | Salt                  | Soaps, Baking Soda   |
-| K        | Potassium    |                       | Several Medicines    | Vital for Cells, similar to Sodium |
-**Alkaline Earth**:
-| Mg       | Magnesium    |                       |                      |
-| Ca       | Calcium      |                       | A Mineral            |
-| Ra       | Radium       |                       |                      |
-**Transition Metal**:
-| Ti       | Titanium     |                       |                      |
-| Cr       | Chromium     |                       |                      |
-| Mn       | Manganese    |                       |                      |
-| Fe       | Iron         |                       | Structures, Machines | A very Hard and Touch Metal |
-| Co       | Cobalt       |                       |                      |
-| Ni       | Nickle       |                       |                      |
-| Cu       | Copper       |                       | Wires                |
-| Zn       | Zinc         |                       |                      |
-| Ag       | Silver       |                       |                      |
-| W        | Tungsten     |                       | Light Bulbs          | A Very Dense Metal       |
-| Pt       | Platinum     | Rivers                |                      |
-| Au       | Gold         | Rivers                |                      |
-| Hg       | Mercury      |                       |                      | A Dangerous Liquid Metal |
-**Transition Metal**:
-| Al       | Aluminum     |                       | Containers           | 
-| Ga       | Gallium      |                       |                      |
-| In       | Indium       |                       |                      |
-| Sn       | Tin          |                       | Cans                 |
-**Metalloid**:
-| B        | Boron        |                       |                      |
-| Si       | Silicon      |                       | Electronics          |
-| Ge       | Germanium    |                       |                      |
-**Halogen**:
-| F        | Flourine     |                       |                      |
-| C        | Chlorine     |                       | Medicines, Solutions |
-| Br       | Bromine      |                       |                      |
-| I        | Iodine       |                       |                      |
-**Noble Gas**:
-| He       | Helium       |                       |                      |
-| Ne       | Neon         |                       |                      |
-| Ar       | Argon        |                       |                      |
-| Xe       | Xenon        |                       |                      |
-**Lanthanide Series**:
-|          |              |                       |                      |
-**Actinide Series**:
-| Ac       | Actinium     |                       |                      |
-| Th       | Thorium      |                       |                      |
-| Pa       | Protactinium |                       |                      |
-| U        | Uranium      | Deep in Earth's Crust | Nuclear Powerplants  |
-| Np       | Neptunium    |                       |                      |
-| Pu       | Plutonium    |                       |                      |
+| Symbolic                       | Element    | Atomic Number ($z$) | Mass ($m$) | Valency   | Electronic Configuration (shell wise) |
+| :----------------------------- | ---------- | :-----------------: | :--------: | :-------: | ------------------------------------- |
+| ${}_{1}^{1}\e{H}^{\pm}$        | Hydrogen   | $1$                 | $1$        | $1$       | $1$                                   |
+| ${}_{2}^{4}\e{He}^{0}$         | Helium     | $2$                 | $4$        | $0$       | $2$                                   |
+| ${}_{3}^{7}\e{Li}^{+}$         | Lithium    | $3$                 | $7$        | $1$       | $2, 1$                                |
+| ${}_{4}^{9}\e{Be}^{2+}$        | Beryllium  | $4$                 | $9$        | $2$       | $2, 2$                                |
+| ${}_{5}^{11}\e{B}^{3+}$        | Boron      | $5$                 | $11$       | $3$       | $2, 3$                                |
+| ${}_{6}^{12}\e{C}^{4\pm}$      | Carbon     | $6$                 | $12$       | $4$       | $2, 4$                                |
+| ${}_{7}^{14}\e{N}^{3-}$        | Nitrogen   | $7$                 | $14$       | $3$       | $2, 5$                                |
+| ${}_{8}^{16}\e{O}^{2-}$        | Oxygen     | $8$                 | $16$       | $2$       | $2, 6$                                |
+| ${}_{9}^{19}\e{F}^{-}$         | Flourine   | $9$                 | $19$       | $1$       | $2, 7$                                |
+| ${}_{10}^{20}\e{Ne}^{0}$       | Neon       | $10$                | $20$       | $0$       | $2, 8$                                |
+| ${}_{11}^{23}\e{Na}^{+}$       | Sodium     | $11$                | $23$       | $1$       | $2, 8, 1$                             |
+| ${}_{12}^{24}\e{Mg}^{2+}$      | Magnesium  | $12$                | $24$       | $2$       | $2, 8, 2$                             |
+| ${}_{13}^{27}\e{Al}^{3+}$      | Aluminium  | $13$                | $27$       | $3$       | $2, 8, 3$                             |
+| ${}_{14}^{28}\e{Si}^{4\pm}$    | Silicon    | $14$                | $28$       | $4$       | $2, 8, 4$                             |
+| ${}_{15}^{31}\e{P}^{3-}$       | Phosphorus | $15$                | $31$       | $3$       | $2, 8, 5$                             |
+| ${}_{16}^{32}\e{S}^{2-}$       | Sulphur    | $16$                | $32$       | $2$       | $2, 8, 6$                             |
+| ${}_{17}^{35.5}\e{Cl}^{-}$     | Chlorine   | $17$                | $35.5$     | $1$       | $2, 8, 7$                             |
+| ${}_{18}^{40}\e{Ar}^{0}$       | Argon      | $18$                | $40$       | $0$       | $2, 8, 8$                             |
+| ${}_{19}^{39}\e{K}^{+}$        | Potassium  | $19$                | $39$       | $1$       | $2, 8, 8, 1$                          |
+| ${}_{20}^{40}\e{Ca}^{2+}$      | Calcium    | $20$                | $40$       | $2$       | $2, 8, 8, 2$                          |
+| ${}_{21}^{45}\e{Sc}^{3+}$      | Scandium   | $21$                | $45$       | $3$       | $2, 8, 9, 2$                          |
+| ${}_{22}^{48}\e{Ti}^{4\pm}$    | Titanium   | $22$                | $48$       | $4$       | $2, 8, 10, 2$                         |
+| ${}_{23}^{51}\e{V}^{\square}$  | Vanadium   | $23$                | $51$       | $5, 4$    | $2, 8, 11, 2$                         |
+| ${}_{24}^{52}\e{Cr}^{2}$       | Chromium   | $24$                | $52$       | $2$       | $2, 8, 13, 1$                         |
+| ${}_{25}^{55}\e{Mn}^{\square}$ | Manganese  | $25$                | $55$       | $7, 4, 2$ | $2, 8, 13, 2$                         |
+| ${}_{26}^{56}\e{Fe}^{2+, 3+}$  | Iron       | $26$                | $56$       | $2, 3$    | $2, 8, 14, 2$                         |
+| ${}_{27}^{59}\e{Co}^{2+, 3+}$  | Cobalt     | $27$                | $59$       | $3, 2$    | $2, 8, 15, 2$                         |
+| ${}_{28}^{59}\e{Ni}^{2}$       | Nickel     | $28$                | $59$       | $2$       | $2, 8, 16, 2$                         |
+| ${}_{29}^{63.5}\e{Cu}^{1+,2+}$ | Copper     | $29$                | $63.5$     | $2, 1$    | $2, 8, 18, 1$                         |
+| ${}_{30}^{65}\e{Zn}^{2+}$      | Zinc       | $30$                | $65$       | $2$       | $2, 8, 18, 2$                         |
 
 ### Element Naming Rules
 
@@ -190,12 +166,12 @@ Prefixes:
 
 | Refer         | Element                     | chemical          |
 | ------------- | --------------------------- | ----------------- |
-| Sulphate      | Sulfer Oxide                | SO                |
-| Carbonate     | Carbon Trioxide             | CO<sub>3</sub>    |
-| Bicarbonate   | Hydrogen Carbonate          | HCO<sub>3</sub>   |
-| Nitrite       | Nitrogen Dioxide            | NO<sub>2</sub>    |
-| Nitrate       | Nitrogen Trioxide           | NO<sub>3</sub>    |
-| Peroxynitrate | Nitrogen Tetraoxide         | NO<sub>4</sub>    |
+| Sulphate      | Sulfer Oxide                | $SO         $ |
+| Carbonate     | Carbon Trioxide             | $CO_3 $ |
+| Bicarbonate   | Hydrogen Carbonate          | $HCO_3$ |
+| Nitrite       | Nitrogen Dioxide            | $NO_2 $ |
+| Nitrate       | Nitrogen Trioxide           | $NO_3 $ |
+| Peroxynitrate | Nitrogen Tetraoxide         | $NO_4 $ |
 
 ### Terms
 

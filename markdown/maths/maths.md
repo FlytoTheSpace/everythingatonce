@@ -78,11 +78,11 @@ Extra
 | $\deg$ <br> $\degree$              | **Degrees**                   | $x \deg$ <br> $x \degree$                 |
 | $\angle$ <br> $\measuredangle$     | **Angle**                     | $\angle ABC$                              |
 | $\overrightarrow{\ \ }$            | **Arrow**, **Ray**            | $\overrightarrow{AB}$                     |
-| $\overline{\ \ }$                  | **Line**                      | $\overline{AB}$                           |
+| $\overleftrightarrow{\ \ }$        | **Line**                      | $\overleftrightarrow{AB}$ <br> $AB$       |
+| $\overline{\ \ }$                  | **Line Segment**              | $\overline{AB}$                           |
 | $\parallel$                        | **Parallel**                  | $AB \parallel CD$                         |
 | $\nparallel$                       | **Not Parallel**              | $AB \nparallel CD$                        |
 | $\perp$                            | **Perpendicularity**          | $AB \perp CD$                             |
-| $\overleftrightarrow{\ \ }$        | **Bidirectional Arrow**       | $\overleftrightarrow{AB}$                 |
 | $\triangle$                        | **Triangle**                  | $\triangle ABC$                           |
 | $\square$                          | **Square**                    | $\square ABCD$                            |
 **Logic**
@@ -190,13 +190,22 @@ Extra
 | **Psi**     | $\psi$                  | $\Psi$         |
 | **Omega**   | $\omega$                | $\Omega$       |
 
-**Hebrew**:
+**Special Characters**:
 
-| Name        | Symbol   |
-| ----------- | -------- |
-| **Aleph**   | $\aleph$ |
-| **Beth**    | $\beth$  |
-| **Gimel**   | $\gimel$ |
+| Name           | Symbol        |
+| -------------- | ------------- |
+| **Aleph**      | $\aleph$      |
+| **Beth**       | $\beth$       |
+| **Gimel**      | $\gimel$      |
+| **Daleth**     | $\daleth$     |
+| **Complement** | $\complement$ |
+| **Ell**        | $\ell$        |
+| **Eth**        | $\eth$        |
+| **H-Bar**      | $\hbar$       |
+| **H-slash**    | $\hslash$     |
+| **Mho**        | $\mho$        |
+| **Partial**    | $\partial$    |
+| **wp**         | $\wp$         |
 
 ## Standard Functions
 

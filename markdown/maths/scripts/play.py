@@ -14,8 +14,12 @@ d = 0
 
 # print(f"{a}x^4 + {b}x^2 + {c}x + {d}")
 # print(experiment.PolynomialRoot.QuarticDepressed(a, b, c, d))
-for i in range(9001, 10001):
-    print(f"| ${i}$ | {numberTheory.primeFactor(i, False)} | {numberTheory.factors(i, False)} |")
+nums = []
+for i in range(2, 100001):
+    if (numberTheory.isPrimeNumber(i)):
+        nums.append(i);
+print(nums)
+
 
 # limit = 10
 # for i in range(-10,10):

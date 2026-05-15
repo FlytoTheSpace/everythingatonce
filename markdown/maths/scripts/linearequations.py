@@ -31,11 +31,14 @@ def LinearEquations(a0: list[list[float]]):
                 continue
             i = eq
         if i == None:
-            print("Overdetermined system")
+            print("Error: Overdetermined system")
             return
         # compute the solution:
         for j in range(0, k):
             xk += A[nnk][i][j] * x[j]
+        if ((A[nnk][i][k]) == 0 and (xk == 0)):
+            print("Error: Redundant Equations (Concide/Parallel)")
+            return
         xk = - xk / A[nnk][i][k]
 
         x.append(xk)

@@ -417,7 +417,7 @@ Reads the Line from FILE, increases Position Indicator.
 char *fgets(char *destination, int size, FILE *fptr);
 ```
 example:-
-```
+```c
 char string[20];
 
 printf("input: ");

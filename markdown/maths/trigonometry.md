@@ -3,6 +3,7 @@
 - [Back to Home](../../README.md)
 
 # Trignometry
+
 **Trignometry**: a sub-field of Geometry only consisting of Right-Angled Triangles.
 
 ![](../../img/maths/shapes/right_triangle.png)
@@ -13,6 +14,7 @@
 - **Opposite**: The side that the angle $\theta$ does not lie next to
 
 # Pythagoream Theorem
+
 This Theorem that a Right Angled Triangle with sides $a$, $b$, $c$ where $a$ and $b$ are the legs of the right angled triangle, while $c$ is the Hypotenuse, have the following relation:
 $$
 a^2 + b^2 = c^2
@@ -24,11 +26,9 @@ $$
 
 The Pythagorean can be extended up to N dimensions as the following:
 
-$$
-|\vec{v}|^2 = v_x^2 + v_y^2 + v_z^2 + ...
-$$
+$$|\vec{v}|^2 = v_x^2 + v_y^2 + v_z^2 + ...$$
 
-## SAS 
+## Law of Cosines
 
 If given the length of 2 sides $a, b$ of a triangle and the angle between them $\theta$, the 3rd side can be described them as the following relation:
 
@@ -169,6 +169,4 @@ $$
 \arccos(\cos(\theta)) = - i\ln(\cos(\theta) \pm \sqrt{\cos(\theta)^2 - 1}) \newline
 $$
 
-$$
-\arccos(x) = - i\ln(x + \sqrt{x^2 - 1})
-$$
+$$\arccos(x) = - i\ln(x + \sqrt{x^2 - 1})$$

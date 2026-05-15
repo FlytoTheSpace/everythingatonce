@@ -73,7 +73,7 @@ $$
 
 The Prime Numbers are Defined as follows:
 
-$\mathbb{P} = \{n | n \in \mathbb{Z}, n > 1, \forall f [ 1 < f < n \land f \nmid n ]\}$
+$\mathbb{P} = \{n | n \in \mathbb{N}_2, \forall k [ 1 < k < n \land k \nmid n ]\}$
 
 **Composite Numbers**: 
 a number $n$ is composite $\iff \exists a, b [1 < a, b < n \land n \mid a, b]$
@@ -102,7 +102,7 @@ $$p \mid a \land a \mid m$$
 
 $$\therefore p \mid m $$
 
-this contradicts the definition of $S$
+this contradicts the definition of $S$ meaning such a set cannot exist.
 
 
 # Factor
